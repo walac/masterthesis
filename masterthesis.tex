@@ -844,7 +844,7 @@ executado pela função \emph{MinNet} \citecustom{wolfram2002}.
 \subsection{Análise da complexidade de linguagens regulares de autômatos
 finitos elementares}
 
-\citeonline{mikietal2008} analisaram o padrão de crescimento de complexidade
+\citeonline{mikietal2011} analisaram o padrão de crescimento de complexidade
 de linguagens regulares representando as configurações de autômatos celulares
 elementares.
 
@@ -856,12 +856,12 @@ complexidade a cada passo de tempo.
 \begin{figure}[htp]
 \begin{center}
 \includegraphics[scale=0.5]{img/rulesel.eps}
-\caption{Algoritmo de seleção de regras \citecustom{mikietal2008}}
+\caption{Algoritmo de seleção de regras \citecustom{mikietal2011}}
 \label{fig:rulesel}
 \end{center}
 \end{figure}
 
-O algoritmo divide as regras em dois grupos \citecustom{mikietal2008}:
+O algoritmo divide as regras em dois grupos \citecustom{mikietal2011}:
 
 \begin{description}
 \item[Grupo 1] regras que apresentam crescimento de complexidade no autômato
@@ -876,7 +876,7 @@ das regras do grupo um onde percebeu-se que parte das estruturas dos autômatos
 permaneciam inalteradas e repetitivas. Em busca de se obter expressões de crescimento
 foi criado um método de identificação destas estruturas, com o objetivo de selecionar
 regras com crescimento estruturado. O método é constituído em quatro passos
-\citecustom{mikietal2008}:
+\citecustom{mikietal2011}:
 
 \begin{enumerate}\label{sec:mikialgo}
 \item Gerar os grafos das regras de transição, para dois passos de tempo
@@ -901,7 +901,7 @@ conjuntos de regras agrupadoa em classes de equivalência dinâmicas que
 apresentaram estruturas comuns em passos de tempos consecutivos. Todas essas
 26 classes foram então analisadas para obtenção de expressões
 de crescimento, primeiro manualmente e depois com auxílio de um algoritmo
-para sistematizar o processo \citecustom{mikietal2008}.
+para sistematizar o processo \citecustom{mikietal2011}.
 
 O trabalho reconstruiu a tabela de \citecustom{wolfram1994} e acrescentou novas
 expressões de crescimento e outros resultados.
@@ -1118,7 +1118,7 @@ autômato limite de uma regra apenas elaborando-se um outro algoritmo para gerar
 matriz de adjacências isomórfica da regra. A próxima seção apresenta este
 algoritmo para a regra 184.
 
-\subsection{Algoritmo do semi-autômato de tempo \emph{t} para a regra 184}
+\subsection{Algoritmo do semi-autômato de tempo \emph{t} para a regra 184}\label{sec:184}
 
 Esta seção mostra como utilizar a notação de matriz de adjacências
 isomórfica para deduzir um algoritmo que gere o semi-autômato de uma
@@ -1269,11 +1269,72 @@ semi-autômato de tempo $t$ para a regra 184}
 De posse deste algoritmo e do Algoritmo \ref{alg:mtos} é possivel, então,
 recriar o semi-autômato de tempo $t$ para a regra 184.
 
+\subsection{Padrão de formação das matrizes de adjacências isomórficas}
+
+Após um estudo aprofundado e dedução do algoritmo de formação das matrizes
+de adjacências isomórficas para a regra 184 descrito na Seção \ref{sec:184},
+estudou-se o padrão de formação para todas as mesmas 26 regras estudadas em
+\citecustom{mikietal2011}. Conforme mostrado na Tabela \ref{tab:pattern},
+todas as regras apresentam um padrão de formação, embora nem sempre a
+partir do primeiro instante de tempo. 
+
+\begin{table}[htp]
+\begin{center}
+\begin{tabular}{|c|c|}
+\hline
+\textbf{Regra} & \textbf{Padrão de formação} \\ \hline
+ 11 & Apresenta um padrão de formação intercalado a partir de $t=2$ \\ \hline
+ 14 & Apresenta um padrão de formação intercalado a partir de $t=2$ \\ \hline
+ 35 & Apresenta um padrão de formação intercalado a partir de $t=2$ \\ \hline
+ 43 & Apresenta um padrão de formação a partir de $t=1$ \\ \hline
+ 50 & Apresenta um padrão de formação intercalado a partir de $t=4$ \\ \hline
+ 56 & Apresenta um padrão de formação a partir de $t=2$ \\ \hline
+ 70 & Apresenta um padrão de formação a partir de $t=3$ \\ \hline
+ 81 & Apresenta um padrão de formação intercalado a partir de $t=3$ \\ \hline
+ 98 & Apresenta um padrão de formação a partir de $t=2$ \\ \hline
+113 & Apresenta um padrão de formação a partir de $t=2$ \\ \hline
+128 & Apresenta um padrão de formação a partir de $t=1$ \\ \hline
+132 & Apresenta um padrão de formação a partir de $t=2$ \\ \hline
+136 & Apresenta um padrão de formação a partir de $t=2$ \\ \hline
+140 & Apresenta um padrão de formação a partir de $t=2$ \\ \hline
+142 & Apresenta um padrão de formação a partir de $t=2$ \\ \hline
+162 & Apresenta um padrão de formação a partir de $t=1$ \\ \hline
+168 & Apresenta um padrão de formação a partir de $t=1$ \\ \hline
+172 & Apresenta um padrão de formação a partir de $t=2$ \\ \hline
+176 & Apresenta um padrão de formação a partir de $t=2$ \\ \hline
+184 & Apresenta um padrão de formação a partir de $t=1$ \\ \hline
+192 & Apresenta um padrão de formação a partir de $t=2$ \\ \hline
+196 & Apresenta um padrão de formação a partir de $t=1$ \\ \hline
+212 & Apresenta um padrão de formação a partir de $t=1$ \\ \hline
+224 & Apresenta um padrão de formação a partir de $t=2$ \\ \hline
+252 & Apresenta um padrão de formação a partir de $t=2$ \\ \hline
+\end{tabular}
+\caption{Padrão de formação de matrizes de adjacências isomórficas das
+regras elementares}
+\label{tab:pattern}
+\end{center}
+\end{table}
+
+Por \textit{padrão de formação} entende-se por uma estrutura presente em $t$ que
+pode ser vista em $t+1$ de forma expandida ou contraída. Um \textit{padrão de
+formação intercalado} significa que existe um aumento no número de estados
+em passos de tempo adjacentes ($t$ e $t+1$), mas o aumento de transições só se
+da a cada dois passos de tempo ($t$ e $t+2$).
+
+A partir da Tabela \ref{tab:pattern}, conclui-se que as regras estão divididas
+em dois grupos base: as que apresentam um padrão a partir de $t=n$ e as que
+apresentam um padrão intercalado a partir de $t=n$. A análise baseou-se a
+partir da observação dos cinco primeiros passos de tempo e, quando o padrão
+de formação se deu a partir de $t=4$, analisou-se os dez primeiros passos de
+tempo. O Apêndice \ref{sec:matrices} mostra as matrizes analisadas. Observe
+que algumas matrizes são parcialmente mostradas porque são muito grandes
+para caber na tabela.
+
 \newpage
 
 \appendix
 \section{Evolução das regras do espaço elementar em notação de grafo e
-matrizes de adjacências isomórficas}
+matrizes de adjacências isomórficas}\label{sec:matrices}
 
 \newpage
 
