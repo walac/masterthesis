@@ -1405,6 +1405,42 @@ porque são muito grandes para caber na tabela.
 
 \section{Conclusão}\label{sec:conclude}
 
+Autômatos celulares são sistemas discretos no espaço e no tempo que
+possuem comportamento local simples e determinístico mas que podem possuir
+comportamento global extremamente complexo. O conjunto de configurações
+globais que podem ser vistas em um autômato celular após um determinado
+número de passos de evolução pode ser descrito por uma linguagem
+regular. Linguagem regulares são um conjunto de cadeias formadas
+por um alfabeto dentro da linguagem.
+
+Este trabalho trata-se do estudo da complexidade de um subconjunto de autômatos
+celulares elementares. O objetivo é dar continuidade aos trabalhos de
+\citeonline{trafaniuc2004} e \citeonline{miki2006}. Nestes trabalhos, foi feita
+uma profunda análise dos semi-autômatos dos diferentes passos de tempo
+para as regras elementares.
+
+Aqui, a abordagem utilizada foi a de converter os semi-autômatos dos sucessivos
+passos de tempo das regras do espaço elementar em matrizes de adjacências e analisar
+tais matrizes. Porém, a notação comumente utilizada para matrizes de adjacências
+não consegue completamente descrever os semi-autômatos. Foi, então, proposta uma
+nova notação de matrizes de adjacências, chamada de \textit{matrizes de
+adjacências isomórficas}, assim chamadas porque existe um isomorfismo entre
+o semi-autômato e sua respectiva matriz de adjacências. Com isso, foi possível
+construir o semi-autômato a partir de sua matriz de adjacências isomórfica.
+
+Depois, mostrou-se que é possível deduzir um algoritmo para o semi-autômato
+de tempo $t$ baseado na análise das respectivas matrizes de adjacências e tal
+algoritmo foi deduzido para a regra 184. Após, foi feita então uma análise 
+dos padrões de evolução das matrizes para as 26 regras estudadas em
+\citecustom{mikietal2011}.
+
+Conclui-se então que a nova notação de matrizes de adjacências proposta
+pode melhor representar um semi-autômato para caracterização da complexidade
+de autômatos celulares elementares, e que a relação de isomorfismo entre
+a matriz e seu semi-autômato torna possível a obtenção do algoritmo de
+geração do semi-autômato de tempo $t$ a um custo computacional muito
+menor em relação a abordagem de geração de semi-autômatos sucessivos.
+
 \newpage
 
 \appendix
