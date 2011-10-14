@@ -1,5 +1,5 @@
 VERSION = v02
-OUTPUT_FILENAME = $(VERSION)_qualificação.pdf
+OUTPUT_FILENAME = $(VERSION)_qualificacao.pdf
 INPUT_FILENAME = masterthesis
 
 IMAGES := $(shell ls img/*.* img/mat/*.*)
