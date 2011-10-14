@@ -76,7 +76,56 @@ Resumo aqui
 
 \section{Introdução}
 
-\section{Autômatos Celulares}
+Autômatos celulares são sistemas discretos que apresentam um comportamento
+local extremamente simples, mas cujo comportamento global pode ser tão
+complexo quanto uma máquina de Turing \citecustom{wolfram1984a}. Ele
+é caracterizado por um reticulado de células cujos estados posteriores
+dependem dos estados anteriores de si próprias e de suas vizinhas.
+Este tipo de comportamento, que é localmente simples mas globalmente
+complexo da origem à chamada \textit{computação emergente}. 
+Autômatos celulares são utilizados na modelagem de diversos sistemas
+físicos e naturais.
+
+A vizinhança das células de um autômato celular por ser definida por
+um raio que tem seu centro na célula em questão. Um autômato celular
+elementar possui um raio igual a 1 e um conjunto de estados $\{0,1\}$.
+Este trabalho estuda um subconjunto dos autômatos celulares elementares.
+
+O comportamento limite de autômatos celulares pode ser descrito por meio
+de linguagens formais. Uma linguagem formal é um conjunto de cadeias ou
+palavras formadas a partir de um alfabeto da linguagem
+\citecustom{lewis2008}. A classe mais simples de linguagens formais é
+a das linguagens regulares, que pode ser gerada por uma gramática regular ou
+pelas chamadas expressões regulares. Uma linguagem regular pode ser
+reconhecida por um autômato finito, que é um tipo de autômato que
+não possui memória. As linguagens regulares são o tipo mais simples
+de linguagens na hierarquia de Chomsky.
+
+O conjunto de todas as configurações globais de um autômato celular
+elementar em um dado momento no tempo discreto pode ser descrito por
+uma linguagem regular e, consequentemente, um autômato finito
+\citecustom{wolfram1984}. \citeonline{trafaniuc2004} e \citeonline{miki2006}
+estudaram, em seus respectivos trabalhos, a complexidade de autômatos
+celulares elementares por meio da análise da evolução dos sucessivos
+autômatos celulares para diferentes instantes de tempo. Este trabalho
+tem o objetivo de dar prosseguimento a este estudo, utilizando a abordagem
+de representação dos autômatos finitos por meio de matrizes de adjacências.
+Sobretudo, este trabalho objetiva encontrar um meio para derivar um
+algoritmo para obtenção do autômato finito de tempo $t$ de uma regra
+do espaço elementar a partir do autômato de tempo $t-1$.
+
+O Capítulo \ref{sec:refteo} apresenta um referencial teórico sobre 
+os autômatos celulares, linguagens formais e comportamento limite.
+Adicionalmente, apresenta um resumo do trabalho feito por
+\citecustom{mikietal2011}.
+
+O Capítulo \ref{sec:desenv} descreve a proposta deste trabalho. A obtenção do
+semi-autômato de tempo $t$ pode ser obtido por meio de uma nova notação de 
+matrizes de adjacências isomórfica em relação ao respectivo semi-autômato.
+
+O Capílulo \ref{sec:conclude} conclui o trabalho.
+
+\section{Autômatos Celulares}\label{sec:refteo}
 
 É comum na natureza encontrar sistemas cujo comportamento global é extremamente
 complexo, ainda que as partes que formam tais sistemas sejam simples. A
@@ -897,7 +946,7 @@ subgrafo que apresentar a menor diferença no número de transições de estados
 \end{enumerate}
 
 Após a aplicação do método às regras do grupo um, foram identificados 26
-conjuntos de regras agrupadoa em classes de equivalência dinâmicas que
+conjuntos de regras agrupadas em classes de equivalência dinâmicas que
 apresentaram estruturas comuns em passos de tempos consecutivos. Todas essas
 26 classes foram então analisadas para obtenção de expressões
 de crescimento, primeiro manualmente e depois com auxílio de um algoritmo
@@ -906,9 +955,33 @@ para sistematizar o processo \citecustom{mikietal2011}.
 O trabalho reconstruiu a tabela de \citecustom{wolfram1994} e acrescentou novas
 expressões de crescimento e outros resultados.
 
-\section{Algoritmo de construção do semi-autômato}
+\section{Construção do semi-autômato por meio de matrizes de
+adjacência}\label{sec:desenv}
 
-Introdução do capítulo aqui.
+Conforme já explicado anteriormente, o conjunto de configurações globais de
+um autômato celular pode ser descrito por uma linguagem regular e,
+consequentemente, por um autômato finito determinístico.
+
+Estudos sobre a complexidade de autômatos celulares elementares por meio da
+análise dos grafos dos autômatos finitos gerados pelas respectivas regras
+foram realizados por \citeonline{miki2006} e por \citeonline{trafaniuc2004}.
+Adicionalmente, estes estudos tentaram, sem sucesso, encontrar um algoritmo
+que descrevesse a evolução dos autômatos das regras elementares (em
+particular a regra 184) por meio da análise gráfica dos autômatos
+finitos gerados pelo algoritmo de \citecustom{wolfram1984}.
+
+Neste capítulo, é proposta uma nova abordagem para o problema, por meio da
+análise das matrizes de adjacências correspondentes aos autômatos finitos
+das respectivas regras do espaço elementar. Porém, como será visto adiante,
+não é possível representar completamente um autômato finito utilizando a
+notação clássica de matrizes de adjacências. É proposto, então, uma
+nova notação que, dada a matriz de adjacência, é possível construir
+integralmente o grafo da respectiva matriz.
+
+O texto então deduz o algoritmo de formação do autômato finito
+de tempo $t$ para a regra 184; e então finaliza com uma breve
+descrição dos padrões de formação de matrizes das mesmas regras
+estudados em \citecustom{mikietal2011}.
 
 \subsection{Representação de semi-autômatos em forma matricial}
 
@@ -925,7 +998,7 @@ de interesse neste trabalho}.
 A representação de um grafo direcionado $G$ com $n$ vértices se dá por uma
 matriz $M$ de tamanho $n \times n$. O valor da posição $a_{ij}$ da matriz
 $M$ será $1$ se existir uma transição do estado $i$ para o estado $j$.
-A Figura \ref{fig:graph} mostra um grafo directionado e a Figura \ref{fig:adjm}
+A Figura \ref{fig:graph} mostra um grafo direcionado e a Figura \ref{fig:adjm}
 mostra a matriz de adjacências correspondente.
 
 \begin{figure}[ht]
@@ -1017,7 +1090,7 @@ Onde $\mathbb{L}_{ij}$ é o conjunto de transições do estado $i$ para o estado
 $j$. Repare que como $k \in \mathbb{N}$, então $\eta(\mathbb{L}_{ij}) \in \mathbb{Z}$,
 ou seja, $\eta(\mathbb{L}_{ij})$ está restrita ao domínio dos inteiros. Se
 $k \in \mathbb{Z}$ ($\mathbb{L}_{ij} \mapsto \mathbb{Z}$), então
-$\eta(\mathbb{L}_{ij}) \in \Re$, pois admitiria-se a possibilide de expoentes negativos.
+$\eta(\mathbb{L}_{ij}) \in \Re$, pois admitiria-se a possibilidade de expoentes negativos.
 Como computacionalmente é mais custoso trabalhar-se com números reais do que com inteiros,
 e não há benefício aparente em expandir $\eta$ para o domínio dos reais,
 já que $\mathbb{N}$ é contavelmente infinito \citecustom{lewis2008}, optou-se
@@ -1166,7 +1239,7 @@ semi-autômatos.
 \end{minipage}
 \end{figure}
 
-É díficil identificar visualmente estas estruturas, ou qualquer padrão de
+É difícil identificar visualmente estas estruturas, ou qualquer padrão de
 crescimento, por meio dos semi-autômatos. Porém, convertendo estes grafos
 em matrizes de adjacências isomórficas, é possível detectar os padrões
 de crescimento e visualizar o efeito das estruturas adicionada e
@@ -1219,7 +1292,7 @@ Observando duas matrizes de tempo $t$ e tempo $t+1$, repara-se que:
 \begin{enumerate}
 \item Existe uma diagonal de transições em $1$ que começa em $A_{t+1,1}$
 e vai até $A_{2t,t}$. A cada passo de tempo, uma transição em $1$ é adicionada,
-o que correponde ao valor $1$ na posição $(4,2)$ da estrutura adicionada.
+o que corresponde ao valor $1$ na posição $(4,2)$ da estrutura adicionada.
 
 \item Existe um coluna de transições em $2$ iniciando-se na posição
 $A_{t+1,t+1}$ e terminando na posição $A_{N-1,t+1}$. Novamente observa-se
@@ -1228,7 +1301,7 @@ coluna, e essa transição corresponde ao valor $2$ na posição $(4,3)$ na matr
 estrutura adicionada.
 
 \item Uma diagonal de transições em $2$ aparece na posição $A_{1,t+2}$ indo
-até a posição $A_{t,N-1}$. Olhando para a matriz da estrura adicionada,
+até a posição $A_{t,N-1}$. Olhando para a matriz da estrutura adicionada,
 observa-se que duas transições em $2$ são adicionadas a esta diagonal a cada
 passo de tempo, mas uma dessas transições é retirada conforme se nota na
 matriz da estrutura excluída.
@@ -1266,7 +1339,7 @@ semi-autômato de tempo $t$ para a regra 184}
 \end{algorithmic}
 \end{algorithm}
 
-De posse deste algoritmo e do Algoritmo \ref{alg:mtos} é possivel, então,
+De posse deste algoritmo e do Algoritmo \ref{alg:mtos} é possível, então,
 recriar o semi-autômato de tempo $t$ para a regra 184.
 
 \subsection{Padrão de formação das matrizes de adjacências isomórficas}
@@ -1323,18 +1396,19 @@ da a cada dois passos de tempo ($t$ e $t+2$).
 
 A partir da Tabela \ref{tab:pattern}, conclui-se que as regras estão divididas
 em dois grupos base: as que apresentam um padrão a partir de $t=n$ e as que
-apresentam um padrão intercalado a partir de $t=n$. A análise baseou-se a
-partir da observação dos cinco primeiros passos de tempo e, quando o padrão
-de formação se deu a partir de $t=4$, analisou-se os dez primeiros passos de
-tempo. O Apêndice \ref{sec:matrices} mostra as matrizes analisadas. Observe
-que algumas matrizes são parcialmente mostradas porque são muito grandes
-para caber na tabela.
+apresentam um padrão intercalado a partir de $t=n,\exists n \in \mathbb{N}$.
+A análise baseou-se a partir da observação dos cinco primeiros passos de
+tempo e, quando o padrão de formação se deu a partir de $t=4$, analisou-se
+os dez primeiros passos de tempo. O Apêndice \ref{sec:matrices} mostra as
+matrizes analisadas. Observe que algumas matrizes são parcialmente mostradas
+porque são muito grandes para caber na tabela.
+
+\section{Conclusão}\label{sec:conclude}
 
 \newpage
 
 \appendix
-\section{Evolução das regras do espaço elementar em notação de grafo e
-matrizes de adjacências isomórficas}\label{sec:matrices}
+\section{Tabelas de evolução das regras do espaço elementar}\label{sec:matrices}
 
 \newpage
 
