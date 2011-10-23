@@ -119,7 +119,7 @@ uma linguagem regular e, consequentemente, um autômato finito
 \citecustom{wolfram1984}. \citeonline{trafaniuc2004} e \citeonline{miki2006}
 estudaram, em seus respectivos trabalhos, a complexidade de autômatos
 celulares elementares por meio da análise da evolução dos sucessivos
-autômatos celulares para diferentes instantes de tempo. Este trabalho
+autômatos finitos para diferentes instantes de tempo. Este trabalho
 tem o objetivo de dar prosseguimento a este estudo, utilizando a abordagem
 de representação dos autômatos finitos por meio de matrizes de adjacências.
 Sobretudo, este trabalho objetiva encontrar um meio para derivar um
@@ -148,7 +148,7 @@ agem cooperativamente para gerar o comportamento global observado \citecustom{wo
 
 Autômatos Celulares podem ser vistos como uma classe de sistemas dinâmicos de dimensão
 infinita cujo tempo, espaço e estado são todos discretos e os estados de cada célula
-podem ser obtidos de uma conjunto finito de estados possíveis \citecustom{zhisong2001}. 
+podem ser obtidos de um conjunto finito de estados possíveis \citecustom{zhisong2001}. 
 
 Autômatos celulares são, fundamentalmente, as representações matemáticas mais simples
 de uma classe muito maior de sistemas complexos (onde \textit{sistema complexo} significa
@@ -167,7 +167,7 @@ até mesmo algumas sérias especulações de que autômatos celulares possam for
 a espinha dorsal de uma radicalmente discreta física fundamental \citecustom{ilachinski2002}.
 
 Os primeiros estudos de autômatos celulares por John von Neumann no final da década de
-40 tinha como meta desenvolver sistemas computacionais auto replicantes que também fossem
+40 tinham como meta desenvolver sistemas computacionais auto replicantes que também fossem
 computacionalmente universais. von Neumann queria investigar dispositivos sintéticos de
 computação análogos ao cérebro humano no qual a memória e as unidades de processamento
 não são separadas uma da outra, e que fossem massivamente paralelos e capazes de se
@@ -221,7 +221,7 @@ A descrição mais simples de um autômato celular é um vetor unidimensional (p
 infinito nas duas pontas) de células. O tempo é discreto, e em cada ponto no tempo cada
 célula está em um de um conjunto finito $\{0,1\}$ de estados possíveis. As células mudam
 de estado a cada passagem de tempo discreto, e o novo estado é completamente determinado pelo
-estado atual da célula e seus vizinhos da direita e da esquerda. A função (chamada
+estado atual da célula e suas vizinhas da direita e da esquerda. A função (chamada
 de regra local) a qual determina essa mudança de estado é a mesma para todas as células.
 O autômato não tem qualquer entrada, e por isso é autônomo. A coleção de estados das células
 em um dado ponto no tempo é chamada de configuração ou estado global do autômato celular, e
@@ -364,6 +364,8 @@ trocado com o estado do vizinho da esquerda. A Figura \ref{fig:reflex} ilustra o
 \label{fig:reflex}
 \end{center}
 \end{figure}
+
+\newpage
 
 \item[Transformação conjunta] neste caso é realizada uma operação conjunta das duas
 operações anteriores.
@@ -548,21 +550,21 @@ feita por Wolfram \citecustom{sarkar2000}. \citeonline{culik1988} propuseram a s
 classificação.  Seja $\rho$ a regra local para o autômato celular, então:
 
 \begin{enumerate}
-\item A regra $\rho$ está na classe um se e somente se toda configuração finita,
+\item A regra $\rho$ está na classe 1 se e somente se toda configuração finita,
 isto é, configurações nas quais somente um número finito de células são em
 estados não quiescentes, evoluem para uma configuração estável em muitos passos
 finitos.
 
-\item A regra $\rho$ está na classe dois se e somente se toda configuração finita
+\item A regra $\rho$ está na classe 2 se e somente se toda configuração finita
 evolui para uma configuração periódica em um número finito de passos.
 
-\item A regra $\rho$ está na classe três se e somente se é decidível se a
+\item A regra $\rho$ está na classe 3 se e somente se é decidível se a
 configuração ocorre na órbita de outra.
 
-\item A classe quatro engloba todas as regras locais.
+\item A classe 4 engloba todas as regras locais.
 \end{enumerate}
 
-\subsection{Autômatos finitos e comportamento limite}
+\subsection{Linguagens formais}
 
 A teoria dos autômatos é o estudo dos dispositivos de computação abstratos,
 ou \textit{máquinas}. Antes de existirem computadores, na década de 1930, Alan
@@ -653,7 +655,7 @@ contém um símbolo. O autômato começa seu processamento no estado inicial $q_
 a cada símbolo lido da fita de entrada, a função de transição
 $\delta: \mathbb{Q} \times \Sigma \mapsto \mathbb{Q}$ define um novo estado como o estado atual.
 Quando o processamento da fita de entrada termina, se o estado atual for
-um dos estados pertencentes ao conjunto $F$ de estados finais, a entrada é
+um dos estados pertencentes ao conjunto $\mathbb{F}$ de estados finais, a entrada é
 considerada aceita, caso o contrário, a entrada é rejeitada. Por exemplo,
 considere o seguinte autômato finito:
 
@@ -676,7 +678,7 @@ o estado $B$. O próximo símbolo da entrada é o $0$, e a entrada correspondent
 na tabela de transição é $B \times 0 \mapsto A$, então o autômato vai para o
 estado $A$. O último símbolo de entrada é o símbolo $1$, então o autômato vai
 para o estado $B$. Como toda a entrada foi consumida e o estado atual $B$
-pertence ao conjunto de estados finais $F$, a cadeia de entrada $00101$ é
+pertence ao conjunto de estados finais $\mathbb{F}$, a cadeia de entrada $00101$ é
 aceita.
 
 Autômatos finitos também podem ser representados graficamente através de
@@ -703,13 +705,13 @@ Em um autômato finito determinístico, cada transição na função de transiç
 um único estado objetivo, ou seja, cada entrada da tabela de transição possui a forma
 $\delta: (q, s) \in (\mathbb{Q},\Sigma) \mapsto q' \in \mathbb{Q}$. Nos autômatos finitos não
 determinísticos, cada entrada na tabela de transição é da forma
-$\delta: (q, s) \in (\mathbb{Q},\Sigma) \mapsto \mathbb{Q}' \subseteq \mathbb{Q}$,
+$\delta: (q, s) \in (\mathbb{Q},\Sigma) \mapsto 2^{\mathbb{Q}}$,
 ou seja, para um dado estado e um símbolo de entrada, o número de possíveis
 transições pode ser maior que um. \citecustom{rozenberg1997}.  Um autômato não
 determinístico também pode possuir mais de um estado inicial.
 
 O processamento em um autômato não determinístico é análogo à sua contraparte
-determinística, exceto que quando existe um ambiguidade na transição (existe
+determinística, exceto que quando existe um ambiguidade na transição (existem
 mais de um estado objetivo para um dada entrada) o autômato se replica, tomando
 o caminho dos $n$ estados objetivos. A entrada é considerada aceita se, ao
 final do processamento, pelo menos uma instância do autômato está em um
@@ -737,7 +739,7 @@ Por exemplo, a expressão regular do autômato da Figura \ref{fig:automata}
 \subsection{Evolução de um autômato celular}
 
 Linguagens formais consistem do conjunto de palavras formadas a partir de
-cadeias de símbolos em um alfabeto finito $\mathbb{S}$ de acordo com regras
+cadeias de símbolos em um alfabeto finito $\Sigma$ de acordo com regras
 gramaticas definidas. Conjuntos de configurações de autômatos celulares
 podem assim ser considerados como linguagens formais, com cada palavra na
 linguagem representando uma configuração do autômato celular. Tais conjuntos
@@ -833,7 +835,7 @@ onde:
 \item[$\mathbb{Q}$] representa o conjunto de estados;
 \item[$\Sigma$] é o alfabeto de símbolos;
 \item[$\delta:\mathbb{Q} \times \Sigma \mapsto 2^\mathbb{Q}$] é a regra de transição, onde
-$2^\mathbb{Q}$ é o conjunto potência de $\mathbb{Q}$ e pode ser representada na forma
+$2^\mathbb{Q}$ é o conjunto potência de $\mathbb{Q}$ e pode ser representado na forma
 $\delta(q,a) = \{p_1,p_2,p_3,\ldots,p_n\}$, onde $q$ é o estado atual, $a$
 é o símbolo que a máquina lê, e $\{p_1,p_2,p_3,\ldots,p_n\}$ é o
 conjunto de possíveis novos estados;
@@ -933,7 +935,7 @@ autômato finito em até cinco passos de tempo.
 \end{description}
 
 O trabalho seguiu analisando os grafos gerados para diferentes instantes de tempo
-das regras do grupo um onde percebeu-se que parte das estruturas dos autômatos
+das regras do Grupo 1 onde percebeu-se que parte das estruturas dos autômatos
 permaneciam inalteradas e repetitivas. Em busca de se obter expressões de crescimento
 foi criado um método de identificação destas estruturas, com o objetivo de selecionar
 regras com crescimento estruturado. O método é constituído em quatro passos
@@ -957,7 +959,7 @@ subgrafo que apresentar a menor diferença no número de transições de estados
 é selecionado. No caso de empate, o primeiro subgrafo é selecionado.
 \end{enumerate}
 
-Após a aplicação do método às regras do grupo um, foram identificados 26
+Após a aplicação do método às regras do Grupo 1, foram identificados 26
 conjuntos de regras agrupadas em classes de equivalência dinâmicas que
 apresentaram estruturas comuns em passos de tempos consecutivos. Todas essas
 26 classes foram então analisadas para obtenção de expressões
@@ -986,14 +988,14 @@ Neste capítulo, é proposta uma nova abordagem para o problema, por meio da
 análise das matrizes de adjacências correspondentes aos autômatos finitos
 das respectivas regras do espaço elementar. Porém, como será visto adiante,
 não é possível representar completamente um autômato finito utilizando a
-notação clássica de matrizes de adjacências. É proposto, então, uma
+notação clássica de matrizes de adjacências. É proposta, então, uma
 nova notação que, dada a matriz de adjacência, é possível construir
 integralmente o grafo da respectiva matriz.
 
 O texto então deduz o algoritmo de formação do autômato finito
 de tempo $t$ para a regra 184; e então finaliza com uma breve
 descrição dos padrões de formação de matrizes das mesmas regras
-estudados em \citecustom{mikietal2011}.
+estudadas em \citecustom{mikietal2011}.
 
 \subsection{Representação de semi-autômatos em forma matricial}
 
@@ -1060,12 +1062,12 @@ transição por par de estados $(i,j)$.
 Para ilustrar a dificuldade de se representar semi-autômatos utilizando
 matrizes de adjacências, considere o semi-autômato da Figura
 \ref{fig:initconfigautomaton}. A matriz de adjacências deste autômato
-seria uma matriz $1 \times 1$ com valor $a_{ij}=1$. Porém, perde-se a informação
+seria uma matriz $1 \times 1$ com valor $a_{1,1}=1$. Porém, perde-se a informação
 de que existem duas transições reflexivas no semi-autômato. Mais ainda,
 não existe qualquer menção ao valor das transições.
 
 A próxima seção introduz uma notação alternativa de matrizes de
-adjacências que contorna as duas dificuldades apresentados.
+adjacências que contorna as duas dificuldades apresentadas.
 
 \subsubsection{Matrizes de adjacências isomórficas}
 
@@ -1106,9 +1108,10 @@ $\eta(\mathbb{L}_{ij}) \in \Re$, pois admitiria-se a possibilidade de expoentes 
 Como computacionalmente é mais custoso trabalhar-se com números reais do que com inteiros,
 e não há benefício aparente em expandir $\eta$ para o domínio dos reais,
 já que $\mathbb{N}$ é contavelmente infinito \citecustom{lewis2008}, optou-se
-por restringir-se ao domínio $\mathbb{Z}$ dos números inteiros.  A Figura \ref{fig:semigraph}
-mostra o grafo da Figura \ref{fig:graph}, agora representado como um semi-autômato,
-e a Figura \ref{fig:iadjm} mostra a matriz de adjacências isomórfica correspondente.
+por restringir-se $\eta$ ao domínio dos números naturais.  A Figura \ref{fig:semigraph}
+mostra o grafo da Figura \ref{fig:graph}, agora representado como um semi-autômato
+(repare que agora existe um valor para cada transição), e a Figura \ref{fig:iadjm}
+mostra a matriz de adjacências isomórfica correspondente.
 
 \begin{figure}[ht]
 \begin{minipage}[b]{0.5\linewidth}
@@ -1207,10 +1210,10 @@ algoritmo para a regra 184.
 
 Esta seção mostra como utilizar a notação de matriz de adjacências
 isomórfica para deduzir um algoritmo que gere o semi-autômato de uma
-regra do espaço elementar para um passo de tempo $t$ qualquer. Em particular,
-aqui é deduzido o algoritmo para gerar a matriz isomórfica para a regra 184
-e, a partir desta, poderá ser aplicado o Algoritmo \ref{alg:mtos} para obtenção
-do semi-autômato.
+regra do espaço elementar para um passo de tempo discreto $t$ qualquer. Em
+particular, aqui é deduzido o algoritmo para gerar a matriz isomórfica para
+a regra 184 e, a partir desta, poderá ser aplicado o Algoritmo \ref{alg:mtos}
+para obtenção do semi-autômato.
 
 \citeonline{miki2006}, baseado nos resultados de \citeonline{trafaniuc2004},
 estudou extensivamente o padrão de crescimento da regra 184 através da análise
@@ -1306,9 +1309,9 @@ Observando duas matrizes de tempo $t$ e tempo $t+1$, repara-se que:
 e vai até $A_{2t,t}$. A cada passo de tempo, uma transição em $1$ é adicionada,
 o que corresponde ao valor $1$ na posição $(4,2)$ da estrutura adicionada.
 
-\item Existe um coluna de transições em $2$ iniciando-se na posição
+\item Existe uma coluna de transições em $2$ iniciando-se na posição
 $A_{t+1,t+1}$ e terminando na posição $A_{N-1,t+1}$. Novamente observa-se
-que a cada passo de tempo, uma linha com uma transição em $2$ é adiciona à
+que a cada passo de tempo, uma linha com uma transição em $2$ é adicionada à
 coluna, e essa transição corresponde ao valor $2$ na posição $(4,3)$ na matriz da
 estrutura adicionada.
 
@@ -1425,7 +1428,7 @@ número de passos de evolução pode ser descrito por uma linguagem
 regular. Linguagem regulares são um conjunto de cadeias formadas
 por um alfabeto dentro da linguagem.
 
-Este trabalho trata-se do estudo da complexidade de um subconjunto de autômatos
+Este trabalho trata-se do estudo da complexidade de um subconjunto dos autômatos
 celulares elementares. O objetivo é dar continuidade aos trabalhos de
 \citeonline{trafaniuc2004} e \citeonline{miki2006}. Nestes trabalhos, foi feita
 uma profunda análise dos semi-autômatos dos diferentes passos de tempo
