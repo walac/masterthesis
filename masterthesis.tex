@@ -1355,38 +1355,38 @@ de adjacências isomórficas para a regra 184 descrito na Seção \ref{sec:184},
 estudou-se o padrão de formação para todas as mesmas 26 regras estudadas em
 \citecustom{mikietal2011}. Conforme mostrado na Tabela \ref{tab:pattern},
 todas as regras apresentam um padrão de formação, embora nem sempre a
-partir do primeiro instante de tempo. 
+partir do primeiro instante de tempo.
 
 \begin{table}[htp]
 \begin{center}
-\begin{tabular}{|c|c|}
+\begin{tabular}{|c|c|c|}
 \hline
-\textbf{Regra} & \textbf{Padrão de formação} \\ \hline
- 11 & Apresenta um padrão de formação intercalado a partir de $t=2$ \\ \hline
- 14 & Apresenta um padrão de formação intercalado a partir de $t=2$ \\ \hline
- 35 & Apresenta um padrão de formação intercalado a partir de $t=2$ \\ \hline
- 43 & Apresenta um padrão de formação a partir de $t=1$ \\ \hline
- 50 & Apresenta um padrão de formação intercalado a partir de $t=4$ \\ \hline
- 56 & Apresenta um padrão de formação a partir de $t=2$ \\ \hline
- 70 & Apresenta um padrão de formação a partir de $t=3$ \\ \hline
- 81 & Apresenta um padrão de formação intercalado a partir de $t=3$ \\ \hline
- 98 & Apresenta um padrão de formação a partir de $t=2$ \\ \hline
-113 & Apresenta um padrão de formação a partir de $t=2$ \\ \hline
-128 & Apresenta um padrão de formação a partir de $t=1$ \\ \hline
-132 & Apresenta um padrão de formação a partir de $t=2$ \\ \hline
-136 & Apresenta um padrão de formação a partir de $t=2$ \\ \hline
-140 & Apresenta um padrão de formação a partir de $t=2$ \\ \hline
-142 & Apresenta um padrão de formação a partir de $t=2$ \\ \hline
-162 & Apresenta um padrão de formação a partir de $t=1$ \\ \hline
-168 & Apresenta um padrão de formação a partir de $t=1$ \\ \hline
-172 & Apresenta um padrão de formação a partir de $t=2$ \\ \hline
-176 & Apresenta um padrão de formação a partir de $t=2$ \\ \hline
-184 & Apresenta um padrão de formação a partir de $t=1$ \\ \hline
-192 & Apresenta um padrão de formação a partir de $t=2$ \\ \hline
-196 & Apresenta um padrão de formação a partir de $t=1$ \\ \hline
-212 & Apresenta um padrão de formação a partir de $t=1$ \\ \hline
-224 & Apresenta um padrão de formação a partir de $t=2$ \\ \hline
-252 & Apresenta um padrão de formação a partir de $t=2$ \\ \hline
+\textbf{Regra} & \textbf{Início do padrão de formação} & \textbf{Intercalado}\\ \hline
+ 11 & $t=2$ & Sim \\ \hline
+ 14 & $t=2$ & Sim \\ \hline
+ 35 & $t=2$ & Sim \\ \hline
+ 43 & $t=1$ & Não \\ \hline
+ 50 & $t=4$ & Sim \\ \hline
+ 56 & $t=2$ & Não \\ \hline
+ 70 & $t=3$ & Não \\ \hline
+ 81 & $t=3$ & Sim \\ \hline
+ 98 & $t=2$ & Não \\ \hline
+113 & $t=2$ & Não \\ \hline
+128 & $t=1$ & Não \\ \hline
+132 & $t=2$ & Não \\ \hline
+136 & $t=2$ & Não \\ \hline
+140 & $t=2$ & Não \\ \hline
+142 & $t=2$ & Não \\ \hline
+162 & $t=1$ & Não \\ \hline
+168 & $t=1$ & Não \\ \hline
+172 & $t=2$ & Não \\ \hline
+176 & $t=2$ & Não \\ \hline
+184 & $t=1$ & Não \\ \hline
+192 & $t=2$ & Não \\ \hline
+196 & $t=1$ & Não \\ \hline
+212 & $t=1$ & Não \\ \hline
+224 & $t=2$ & Não \\ \hline
+252 & $t=2$ & Não \\ \hline
 \end{tabular}
 \caption{Padrão de formação de matrizes de adjacências isomórficas das
 regras elementares.}
@@ -1394,7 +1394,9 @@ regras elementares.}
 \end{center}
 \end{table}
 
-Por \textit{padrão de formação} entende-se por uma estrutura presente em $t$ que
+Além de especificar a regra, a tabela mostra em que passo de tempo a regra
+começou a apresentar um padrão de formação e se esse padrão é intercalado
+ou não. Por \textit{padrão de formação} entende-se por uma estrutura presente em $t$ que
 pode ser vista em $t+1$ de forma expandida ou contraída. Um \textit{padrão de
 formação intercalado} significa que existe um aumento no número de estados
 em passos de tempo adjacentes ($t$ e $t+1$), mas o aumento de transições só se
