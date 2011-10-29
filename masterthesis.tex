@@ -1428,10 +1428,10 @@ regular. Linguagem regulares são um conjunto de cadeias formadas
 por um alfabeto dentro da linguagem e que podem ser reconhecidas por um
 AF.
 
-Este trabalho trata-se do estudo da complexidade de um subconjunto dos ACs
+Este trabalho trata do estudo da complexidade de um subconjunto dos ACs
 elementares. O objetivo é dar continuidade aos trabalhos de
-\citeonline{trafaniuc2004} e \citeonline{miki2006}. Nestes trabalhos, foi feita
-uma profunda análise dos semi-autômatos dos diferentes passos de tempo
+\citeonline{trafaniuc2004} e \citeonline{miki2006}, onde foram feitas
+análises dos semi-autômatos dos diferentes passos de tempo
 para as regras elementares.
 
 Aqui, a abordagem utilizada foi a de converter os semi-autômatos dos sucessivos
@@ -1445,9 +1445,13 @@ construir o semi-autômato a partir de sua matriz de adjacências isomórfica.
 
 Depois, mostrou-se que é possível deduzir um algoritmo para o semi-autômato
 de tempo $t$ baseado na análise das respectivas matrizes de adjacências e tal
-algoritmo foi deduzido para a regra 184. Após, foi feita então uma análise 
-dos padrões de evolução das matrizes para as 26 regras estudadas em
-\citecustom{mikietal2011}.
+algoritmo foi deduzido para a regra 184. Em seguida, analisaram-se
+os padrões de evolução das matrizes para as 26 regras estudadas em
+\citecustom{mikietal2011}. Desta análise, descobriu-se que esse grupo de regras
+também apresentam padrão de formação, embora nem sempre desde o primeiro
+instante de tempo. Estes resultados representam um novo passo em relação
+aos trabalhos de \citecustom{trafaniuc2004} e \citecustom{miki2006}, pois
+agora é possível obter o autômato de tempo $t$ algoritimicamente.
 
 Conclui-se então que a nova notação de matrizes de adjacências proposta
 pode melhor representar um semi-autômato para caracterização da complexidade
@@ -1455,6 +1459,9 @@ de ACs elementares, e que a relação de isomorfismo entre
 a matriz e seu semi-autômato torna possível a obtenção do algoritmo de
 geração do semi-autômato de tempo $t$ a um custo computacional muito
 menor em relação a abordagem de geração de semi-autômatos sucessivos.
+
+Porém, permanece aberta a questão da convergência da evolução dos AFs da
+regra 184 para o seu comportamento limite \citecustom{miki2006}.
 
 \newpage
 
