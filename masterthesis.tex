@@ -54,22 +54,22 @@ ANO 2011\\
 \textbf{RESUMO}
 \end{center}
 \renewcommand{\baselinestretch}{0.6666666}
-Autômatos celulares são sistemas discretos no tempo e no espaço que possuem
-comportamento local simples e determinísticos, mas cujo comportamento global
+Autômatos celulares (ACs) são sistemas totalmente discretos que agem localmente
+de forma simples e determinística, mas cujo comportamento global resultante
 pode ser extremamente complexo. O conjunto de possíveis configuração globais 
-em um passo de tempo $t$ para um autômato celular pode ser descrito por um
+em um passo de tempo $t$ finito para um autômato celular pode ser descrito por um
 linguagem regular. Este trabalho propõe o estudo da complexidade da
-evolução dos autômatos celulares por meio de matrizes de adjacências. É
+evolução dos ACs por meio de matrizes de adjacências. É
 demonstrado que a notação clássica de matrizes de adjacências é
 insuficiente para completamente descrever os semi-autômatos dos
-autômatos celulares, e uma nova representação é proposta. Conclui-se que
-esta nova representação facilita a análise da complexidade de autômatos
-celulares e a detecção de padrões de crescimento. Sobretudo, é
+ACs, e uma nova representação é proposta. Conclui-se que
+esta nova representação facilita a análise da complexidade de ACs
+e a detecção de padrões de crescimento. Sobretudo, é
 mostrado que é possível obter um algoritmo para geração do semi-autômato de
 tempo $t$ a partir da análise das sucessivas matrizes de adjacências.
 \\[0.5cm]
 \begin{flushleft}
-{\bf Palavras-chave:} {\it autômatos celulares, comportamento limite, linguagens regulares.}
+{\bf Palavras-chave:} {\it Autômatos celulares, comportamento limite, linguagens regulares.}
 \end{flushleft}
 
 % SUMÁRIO
@@ -88,22 +88,22 @@ tempo $t$ a partir da análise das sucessivas matrizes de adjacências.
 
 \section{Introdução}
 
-Autômatos celulares são sistemas discretos que apresentam um comportamento
+ACs são sistemas discretos que apresentam um comportamento
 local extremamente simples, mas cujo comportamento global pode ser tão
 complexo quanto uma máquina de Turing \citecustom{wolfram1984a}. Ele
 é caracterizado por um reticulado de células cujos estados posteriores
 dependem dos estados anteriores de si próprias e de suas vizinhas.
 Este tipo de comportamento, que é localmente simples mas globalmente
 complexo da origem à chamada \textit{computação emergente}. 
-Autômatos celulares são utilizados na modelagem de diversos sistemas
+ACs são utilizados na modelagem de diversos sistemas
 físicos e naturais.
 
 A vizinhança das células de um autômato celular por ser definida por
 um raio que tem seu centro na célula em questão. Um autômato celular
 elementar possui um raio igual a 1 e um conjunto de estados $\{0,1\}$.
-Este trabalho estuda um subconjunto dos autômatos celulares elementares.
+Este trabalho estuda um subconjunto dos ACs elementares.
 
-O comportamento limite de autômatos celulares pode ser descrito por meio
+O comportamento limite de ACs pode ser descrito por meio
 de linguagens formais. Uma linguagem formal é um conjunto de cadeias ou
 palavras formadas a partir de um alfabeto da linguagem
 \citecustom{lewis2008}. A classe mais simples de linguagens formais é
@@ -117,17 +117,17 @@ O conjunto de todas as configurações globais de um autômato celular
 elementar em um dado momento no tempo discreto pode ser descrito por
 uma linguagem regular e, consequentemente, um autômato finito
 \citecustom{wolfram1984}. \citeonline{trafaniuc2004} e \citeonline{miki2006}
-estudaram, em seus respectivos trabalhos, a complexidade de autômatos
-celulares elementares por meio da análise da evolução dos sucessivos
-autômatos finitos para diferentes instantes de tempo. Este trabalho
+estudaram, em seus respectivos trabalhos, a complexidade de ACs
+elementares por meio da análise da evolução dos sucessivos
+autômatos finitos(AFs) para diferentes instantes de tempo. Este trabalho
 tem o objetivo de dar prosseguimento a este estudo, utilizando a abordagem
-de representação dos autômatos finitos por meio de matrizes de adjacências.
+de representação dos AFs por meio de matrizes de adjacências.
 Sobretudo, este trabalho objetiva encontrar um meio para derivar um
 algoritmo para obtenção do autômato finito de tempo $t$ de uma regra
 do espaço elementar a partir do autômato de tempo $t-1$.
 
 O Capítulo \ref{sec:refteo} apresenta um referencial teórico sobre 
-os autômatos celulares, linguagens formais e comportamento limite.
+os ACs, linguagens formais e comportamento limite.
 Adicionalmente, apresenta um resumo do trabalho feito por
 \citecustom{mikietal2011}.
 
@@ -146,27 +146,27 @@ simples. Muito foi descoberto sobre a natureza dos componentes em sistemas físi
 e biológicos, mas pouco é conhecido sobre os mecanismos pelos quais tais componentes
 agem cooperativamente para gerar o comportamento global observado \citecustom{wolfram1984a}.
 
-Autômatos Celulares podem ser vistos como uma classe de sistemas dinâmicos de dimensão
+ACs podem ser vistos como uma classe de sistemas dinâmicos de dimensão
 infinita cujo tempo, espaço e estado são todos discretos e os estados de cada célula
 podem ser obtidos de um conjunto finito de estados possíveis \citecustom{zhisong2001}. 
 
-Autômatos celulares são, fundamentalmente, as representações matemáticas mais simples
+ACs são, fundamentalmente, as representações matemáticas mais simples
 de uma classe muito maior de sistemas complexos (onde \textit{sistema complexo} significa
 qualquer sistema dinâmico que consiste de mais do que algumas poucas - tipicamente
-não lineares - partes que se interagem). Assim, autômatos celulares têm se provado
+não lineares - partes que se interagem). Assim, ACs têm se provado
 serem idealizações extremamente úteis do comportamento dinâmico de muitos sistemas
 complexos reais, incluindo fluídos físicos, redes neurais, sistemas dinâmicos
 moleculares, ecologias naturais, comando militar e redes de controle, economia, entre
-outros. Por causa de sua simplicidade subjacente, autômatos celulares são máquinas
+outros. Por causa de sua simplicidade subjacente, ACs são máquinas
 conceituais poderosas com as quais se estuda padrões generalizados de formação. Eles
 já forneceram ideias cruciais sobre auto organização de reações químicas, sistemas de
 difusão, crescimento de cristais, formação de padrões de conchas e fenômenos em fluxo
-de tráfego veicular, para citar alguns exemplos. Em um lado mais prático, autômatos
-celulares fornecem a base de algoritmos de criptografia extremamente poderosos. Existe
-até mesmo algumas sérias especulações de que autômatos celulares possam fornecer
+de tráfego veicular, para citar alguns exemplos. Em um lado mais prático, ACs
+ACs fornecem a base de algoritmos de criptografia extremamente poderosos. Existe
+até mesmo algumas sérias especulações de que ACs possam fornecer
 a espinha dorsal de uma radicalmente discreta física fundamental \citecustom{ilachinski2002}.
 
-Os primeiros estudos de autômatos celulares por John von Neumann no final da década de
+Os primeiros estudos de ACs por John von Neumann no final da década de
 40 tinham como meta desenvolver sistemas computacionais auto replicantes que também fossem
 computacionalmente universais. von Neumann queria investigar dispositivos sintéticos de
 computação análogos ao cérebro humano no qual a memória e as unidades de processamento
@@ -184,26 +184,26 @@ Dois tópicos imediatos surgiram a partir do trabalho de von Neumann. O primeiro
 sua maior parte na década de 60, era uma discussão sobre a construção de autômatos
 auto replicantes. O segundo foi uma tentativa de capturar mais da essência de
 auto replicância por meio de estudos matemáticos de propriedades detalhadas de
-autômatos celulares. Durante o curso da década de 60 foram encontradas construções
-mais simples de autômatos celulares capazes de auto replicância e computação
+ACs. Durante o curso da década de 60 foram encontradas construções
+mais simples de ACs capazes de auto replicância e computação
 universal. No início da década de 60 foram notadas algumas características gerais
-incrivelmente simples de autômatos celulares que acreditava-se serem relevantes para
+incrivelmente simples de ACs que acreditava-se serem relevantes para
 auto replicância - e foram estudadas com um formalismo técnico mais elaborado. Existiram
-também várias construções de autômatos celulares cujo comportamento mostraram
+também várias construções de ACs cujo comportamento mostraram
 características particularmente simples talvez relevantes para auto replicância
 \citecustom{wolfram2002}.
 
-A década de 80 é um período importante na história dos autômatos celulares,
+A década de 80 é um período importante na história dos ACs,
 largamente devido ao trabalho executado por Stephen Wolfram. A natureza de suas questões
-representa uma mudança de paradigma na pesquisa com autômatos celulares. Wolfram conduziu
-uma extensa análise experimental dos padrões de crescimento de autômatos celulares
-\citecustom{sarkar2000}. Seus primeiros experimentos mais importantes em autômatos celulares
+representa uma mudança de paradigma na pesquisa com ACs. Wolfram conduziu
+uma extensa análise experimental dos padrões de crescimento de ACs
+\citecustom{sarkar2000}. Seus primeiros experimentos mais importantes em ACs
 datam do final de 1981. Duas características inicialmente chamaram sua atenção.
-Primeiro, que iniciando de condições iniciais aleatórias, os autômatos celulares
+Primeiro, que iniciando de condições iniciais aleatórias, os ACs
 podiam se auto organizar para produzir padrões complexos. E segundo, que em casos
 como a regra 90, simples condições iniciais levavam a padrões fractais auto similares.
 Durante a metade de 1982, ele trabalhou duramente em analisar o comportamento de
-autômatos celulares  usando ideias da mecânica estatística, teoria de sistemas
+ACs usando ideias da mecânica estatística, teoria de sistemas
 dinâmicos e matemática discreta \citecustom{wolfram2002}.
 
 O mais famoso autômato celular é o \textit{Game of Life}. Ele é bidimensional, usa
@@ -232,7 +232,7 @@ a cada célula em cada passo de tempo \citecustom{sarkar2000}. A vizinhança em 
 que participam da regra local. Para autômatos elementares, $r=1$, o que significa que participam
 da regra local o vizinho imediato da esquerda e o da direita, além da própria célula de referência.
 
-Para autômatos celulares elementares uma configuração inicial tipicamente aleatória será atraída
+Para ACs elementares uma configuração inicial tipicamente aleatória será atraída
 para uma condição de \textit{equilíbrio} a qual é chamada de atrator \citecustom{li1987}.
 
 Embora teoricamente um autômato unidimensional possa ser interpretado como uma linha bi-infinita,
@@ -264,9 +264,9 @@ conforme visualizado na Figura \ref{fig:celautomaton}.
 \end{center}
 \end{figure}
 
-Existem $2^3=8$ possíveis padrões de estados dentro de uma vizinhança para autômatos elementares.
-Cada combinação pode resultar nos valores 0 ou 1, assim podem existir $2^{2^3}=256$ autômatos
-celulares elementares. A regra local pode ser formalizada como:
+Existem $2^3=8$ possíveis padrões de estados dentro de uma vizinhança para ACs.
+Cada combinação pode resultar nos valores 0 ou 1, assim podem existir $2^{2^3}=256$ ACS
+elementares. A regra local pode ser formalizada como:
 
 \begin{equation}
 x^{t+1}_i = \phi(x^t_{i-1}, x^t_i, x^t_{i+1})
@@ -274,7 +274,7 @@ x^{t+1}_i = \phi(x^t_{i-1}, x^t_i, x^t_{i+1})
 
 Onde $x^t_i$ é o estado da célula $i$ no instante $t$ em que a regra local atua, e $\phi$ é a função
 que executa a regra local.  A Tabela \ref{tab:localrule} mostra como é aplicada a regra local.
-As regras locais para autômatos elementares podem ser descritas por um número número binário de
+As regras locais para ACs podem ser descritas por um número número binário de
 oito dígitos, codificado pelo resultado das oito combinações de vizinhança da regra local
 \citecustom{wolfram1983}. No caso da Figura \ref{fig:celnumbering}, este número é o número $90_{10}$, e
 este autômato é chamado de \textit{regra 90}.
@@ -309,7 +309,7 @@ $\frac{0 1 1}{1}$ & $\frac{0 1 0}{0}$ & $\frac{0 0 1}{1}$ & $\frac{0 0 0}{0}$ &
 \end{tabular}
 }
 } \]
-\caption{Exemplo de esquema de numeração de Wolfram para autômatos celulares unidimensionais
+\caption{Exemplo de esquema de numeração de Wolfram para ACs unidimensionais
 \citecustom{wolfram1983}.}
 \label{fig:celnumbering}
 \end{center}
@@ -372,7 +372,7 @@ operações anteriores.
 
 \end{description}
 
-Para os 256 autômatos celulares elementares, existem 88 classes de regras equivalentes.
+Para os 256 ACs elementares, existem 88 classes de regras equivalentes.
 A Tabela \ref{tab:equiv} lista todas as classes de equivalência. A classe com o menor número
 de regra é escolhida como representante de classe.
 
@@ -520,7 +520,7 @@ equivalentes apresentam o mesmo padrão de complexidade de evolução.
 
 \subsection{Classificação dos autômatos celulares}
 
-\citeonline{wolfram1994} dividiu os autômatos celulares elementares em quatro
+\citeonline{wolfram1994} dividiu os ACs elementares em quatro
 classes segundo a complexidade do padrão gerado pelo seu comportamento dinâmico,
 conforme descrito a seguir:
 
@@ -533,13 +533,13 @@ conforme descrito a seguir:
 
 Os atratores nas classes 1, 2 e 3 são respectivamente análogos aos atratores
 de ponto fixo, ciclo limite e caóticos encontrados em sistemas dinâmicos
-contínuos. A Figura \ref{fig:classes} mostra exemplos de autômatos celulares
+contínuos. A Figura \ref{fig:classes} mostra exemplos de ACs
 das quatro classes de complexidade.
 
 \begin{figure}[htp]
 \begin{center}
 \includegraphics[scale=0.5]{img/classes.eps}
-\caption{Classes dinâmicas dos autômatos celulares \citecustom{wolfram1984}.
+\caption{Classes dinâmicas dos ACs \citecustom{wolfram1984}.
 (a) classe 1, (b) classe 2, (c) classe 3 e (d) classe 4}
 \label{fig:classes}
 \end{center}
@@ -584,13 +584,13 @@ essas gramáticas têm relacionamentos estreitos com os autômatos abstratos
 
 Linguagens regulares estão entre os tópicos mais antigos em teoria de
 linguagens formais. O estudo formal de linguagens regulares
-e autômatos finitos é datado do início da década de 40, quando máquinas
+e AFs é datado do início da década de 40, quando máquinas
 de estado finito foram utilizadas para modelar conjuntos de neurônios
 por McCulloch e Pitts. Desde então, linguagens regulares têm sido
 extensivamente estudadas. Resultados das primeiras investigações são,
 por exemplo, o teorema de Kleene estabelecendo a equivalência de
-expressões regulares e autômatos finitos, a introdução de autômatos
-com saída por Mealy e Moore, a introdução de autômatos finitos não
+expressões regulares e AFs, a introdução de autômatos
+com saída por Mealy e Moore, a introdução de AFs não
 determinísticos por Rabin e Scott, e a caracterização de linguagens
 regulares por congruência de índices finitos por Myhill e Nerode
 \citecustom{rozenberg1997}.
@@ -681,7 +681,7 @@ para o estado $B$. Como toda a entrada foi consumida e o estado atual $B$
 pertence ao conjunto de estados finais $\mathbb{F}$, a cadeia de entrada $00101$ é
 aceita.
 
-Autômatos finitos também podem ser representados graficamente através de
+AFs também podem ser representados graficamente através de
 um grafo orientado. Os estados são representados pelos nós do grafo
 e os arcos representam as transições de estado. O estado inicial possui
 uma seta de entrada e os estados finais possui um círculo duplo. A
@@ -703,7 +703,7 @@ Figura \ref{fig:automata} mostra graficamente o autômato anterior.
 O autômato finito anteriormente exemplificado é chamado de autômato finito determinístico.
 Em um autômato finito determinístico, cada transição na função de transição possui apenas
 um único estado objetivo, ou seja, cada entrada da tabela de transição possui a forma
-$\delta: (q, s) \in (\mathbb{Q},\Sigma) \mapsto q' \in \mathbb{Q}$. Nos autômatos finitos não
+$\delta: (q, s) \in (\mathbb{Q},\Sigma) \mapsto q' \in \mathbb{Q}$. Nos AFs não
 determinísticos, cada entrada na tabela de transição é da forma
 $\delta: (q, s) \in (\mathbb{Q},\Sigma) \mapsto 2^{\mathbb{Q}}$,
 ou seja, para um dado estado e um símbolo de entrada, o número de possíveis
@@ -719,7 +719,7 @@ estado final.
 
 O conjunto de palavras reconhecidas por um autômato forma a linguagem do
 autômato. Seja $M$ um autômato, $L(M)$ constitui sua linguagem. A classe
-de linguagens reconhecidas por autômatos finitos são as linguagens regulares.
+de linguagens reconhecidas por AFs são as linguagens regulares.
 Linguagens regulares podem também ser representadas por meio das chamadas
 expressões regulares. Uma expressão regular é construída a partir dos
 seguintes elementos \citecustom{trafaniuc2004}:
@@ -740,18 +740,18 @@ Por exemplo, a expressão regular do autômato da Figura \ref{fig:automata}
 
 Linguagens formais consistem do conjunto de palavras formadas a partir de
 cadeias de símbolos em um alfabeto finito $\Sigma$ de acordo com regras
-gramaticas definidas. Conjuntos de configurações de autômatos celulares
+gramaticas definidas. Conjuntos de configurações de AFs
 podem assim ser considerados como linguagens formais, com cada palavra na
 linguagem representando uma configuração do autômato celular. Tais conjuntos
 infinitos de configurações são então completamente especificados por
 conjuntos finitos de regras gramaticais \citecustom{wolfram1984}.
 
-Os atratores das classes 1 e 2 de autômatos celulares elementares podem ser
+Os atratores das classes 1 e 2 de AFs elementares podem ser
 representados por linguagens regulares simples. Os atratores da classe 3 podem
 ser representados por linguagens regulares mais complexas. Os atratores da
 classe 4 podem ou não ser representados por uma linguagem regular \citecustom{li1987}.
 
-O conjunto de configurações possíveis em um autômatos celular depois de $t$
+O conjunto de configurações possíveis em um AF depois de $t$
 passos de evolução pode ser representado por um conjunto $\Omega^{(t)}$.
 
 O seguinte exemplo, retirado de \citecustom{wolfram1984}, ilustra o processo de
@@ -882,7 +882,7 @@ representadas por arcos pretos.
 \subsection{Funções NetCAStep, TrimNet e MinNet}
 
 \emph{NetCAStep}, \emph{TrimNet} e \emph{MinNet} \citecustom{wolfram2002} são
-funções desenvolvidas no \textit{Mathematica} para gerar autômatos finitos
+funções desenvolvidas no \textit{Mathematica} para gerar AFs
 que representam a evolução para um passo de tempo de um autômato celular
 elementar.
 
@@ -908,12 +908,12 @@ executado pela função \emph{MinNet} \citecustom{wolfram2002}.
 finitos elementares}
 
 \citeonline{mikietal2011} analisaram o padrão de crescimento de complexidade
-de linguagens regulares representando as configurações de autômatos celulares
+de linguagens regulares representando as configurações de ACs
 elementares.
 
 Sobre as 256 regras elementares foi o aplicado o algoritmo desenvolvido
 por \citeonline{trafaniuc2004} ilustrado na Figura \ref{fig:rulesel} para
-seleção de regras que apresentam autômatos finitos com crescimento de
+seleção de regras que apresentam AFs com crescimento de
 complexidade a cada passo de tempo.
 
 \begin{figure}[htp]
@@ -976,16 +976,16 @@ Conforme já explicado anteriormente, o conjunto de configurações globais de
 um autômato celular pode ser descrito por uma linguagem regular e,
 consequentemente, por um autômato finito determinístico.
 
-Estudos sobre a complexidade de autômatos celulares elementares por meio da
-análise dos grafos dos autômatos finitos gerados pelas respectivas regras
+Estudos sobre a complexidade de ACs elementares por meio da
+análise dos grafos dos AFs gerados pelas respectivas regras
 foram realizados por \citeonline{miki2006} e por \citeonline{trafaniuc2004}.
 Adicionalmente, estes estudos tentaram, sem sucesso, encontrar um algoritmo
 que descrevesse a evolução dos autômatos das regras elementares (em
-particular a regra 184) por meio da análise gráfica dos autômatos
-finitos gerados pelo algoritmo de \citecustom{wolfram1984}.
+particular a regra 184) por meio da análise gráfica dos AFs
+gerados pelo algoritmo de \citecustom{wolfram1984}.
 
 Neste capítulo, é proposta uma nova abordagem para o problema, por meio da
-análise das matrizes de adjacências correspondentes aos autômatos finitos
+análise das matrizes de adjacências correspondentes aos AFs
 das respectivas regras do espaço elementar. Porém, como será visto adiante,
 não é possível representar completamente um autômato finito utilizando a
 notação clássica de matrizes de adjacências. É proposta, então, uma
@@ -1420,7 +1420,7 @@ porque são muito grandes para caber na tabela.
 
 \section{Conclusão}\label{sec:conclude}
 
-Autômatos celulares são sistemas discretos no espaço e no tempo que
+ACs são sistemas discretos no espaço e no tempo que
 possuem comportamento local simples e determinístico mas que podem possuir
 comportamento global extremamente complexo. O conjunto de configurações
 globais que podem ser vistas em um autômato celular após um determinado
@@ -1428,8 +1428,8 @@ número de passos de evolução pode ser descrito por uma linguagem
 regular. Linguagem regulares são um conjunto de cadeias formadas
 por um alfabeto dentro da linguagem.
 
-Este trabalho trata-se do estudo da complexidade de um subconjunto dos autômatos
-celulares elementares. O objetivo é dar continuidade aos trabalhos de
+Este trabalho trata-se do estudo da complexidade de um subconjunto dos ACs
+elementares. O objetivo é dar continuidade aos trabalhos de
 \citeonline{trafaniuc2004} e \citeonline{miki2006}. Nestes trabalhos, foi feita
 uma profunda análise dos semi-autômatos dos diferentes passos de tempo
 para as regras elementares.
@@ -1451,7 +1451,7 @@ dos padrões de evolução das matrizes para as 26 regras estudadas em
 
 Conclui-se então que a nova notação de matrizes de adjacências proposta
 pode melhor representar um semi-autômato para caracterização da complexidade
-de autômatos celulares elementares, e que a relação de isomorfismo entre
+de ACs elementares, e que a relação de isomorfismo entre
 a matriz e seu semi-autômato torna possível a obtenção do algoritmo de
 geração do semi-autômato de tempo $t$ a um custo computacional muito
 menor em relação a abordagem de geração de semi-autômatos sucessivos.
