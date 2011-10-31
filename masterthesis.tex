@@ -140,7 +140,8 @@ O Capítulo \ref{sec:desenv} descreve a proposta deste trabalho. A obtenção do
 semi-autômato de tempo $t$ pode ser obtido por meio de uma nova notação de 
 matrizes de adjacências isomórfica em relação ao respectivo semi-autômato.
 
-O Capílulo \ref{sec:conclude} conclui o trabalho.
+O Capílulo \ref{sec:conclude} apresenta as conclusões parciais obtidas até
+aqui.
 
 \newpage
 
@@ -1151,8 +1152,8 @@ isomórfica é executada por meio do Algoritmo \ref{alg:stom}.
 de um semi-autômato.}
 \label{alg:stom}
 \begin{algorithmic}
-\STATE $N \leftarrow \mbox{Length}(\mathbb{Q})$ \COMMENT{número de estados}
-\STATE $A \leftarrow \mbox{ Matriz nula } N \times N$
+\STATE $n \leftarrow \mbox{Length}(\mathbb{Q})$ \COMMENT{número de estados}
+\STATE $A \leftarrow \mbox{ Matriz nula } n \times n$
 \FORALL{$i,j \in \mathbb{Q}$}
 \IF{$\mathbb{L}_{ij} \neq \emptyset$}
 \STATE $A_{ij} = \eta(\mathbb{\mathbb{L}}_{ij})$
@@ -1161,7 +1162,7 @@ de um semi-autômato.}
 \end{algorithmic}
 \end{algorithm}
 
-O algoritmo atua criando uma matriz $A_{N \times N}$, onde $N$ é o número
+O algoritmo atua criando uma matriz $A_{n \times n}$, onde $n$ é o número
 de estados do semi-autômato, e atribuindo à posição $A_{ij}$ o valor
 da função $\eta(\mathbb{L}_{ij}),\forall i,j$, onde $\mathbb{L}_{ij}$
 é o conjunto de transições de $i$ para $j$.
@@ -1173,7 +1174,7 @@ $3$, então existe uma transição em $0$ e uma transição em $1$ do estado
 \emph{1} para o estado \emph{2}, pois $2^0+2^1=3$. O Algoritmo \ref{alg:mtos}
 mostra o processo de geração do semi-autômato a partir de uma matriz de
 adjacências isomórfica. O algoritmo pressupõe a existência de uma função
-\emph{MakeTransition(i,j,n)} que cria uma transição em \emph{n} do estado
+\emph{MakeTransition(i,j,m)} que cria uma transição em \emph{m} do estado
 \emph{i} para o estado \emph{j}.
 
 \begin{algorithm}
@@ -1181,8 +1182,8 @@ adjacências isomórfica. O algoritmo pressupõe a existência de uma função
 adjacências isomórfica.}
 \label{alg:mtos}
 \begin{algorithmic}
-\FOR{$i=1$ to $N$}
-\FOR{$j=1$ to $N$}
+\FOR{$i=1$ to $n$}
+\FOR{$j=1$ to $n$}
 \IF{$A_{ij} \neq 0$}
 \REPEAT
 \STATE $q = A_{ij} \div 2$
@@ -1201,6 +1202,7 @@ adjacências isomórfica.}
 \end{algorithmic}
 \end{algorithm}
 
+O algoritmo executa em $O(n^2)$ em relação à dimensão da matriz.
 De posse do Algoritmo \ref{alg:mtos}, é possível criar o algoritmo para gerar o
 autômato limite de uma regra apenas elaborando-se um outro algoritmo para gerar a
 matriz de adjacências isomórfica da regra. A próxima seção apresenta este
@@ -1335,12 +1337,13 @@ regra 184. O algoritmo é mostrado no Algoritmo \ref{alg:r184}.
 semi-autômato de tempo $t$ para a regra 184.}
 \label{alg:r184}
 \begin{algorithmic}
+\STATE $A \leftarrow \mbox{ matriz nula } n \times n \mbox{, onde } n=2(t+1)$
 \STATE $i \leftarrow t+1$
 \FOR{$j=1$ to t}
 \STATE $A_{ij} \leftarrow 1$
 \STATE $i \leftarrow i+1$
 \ENDFOR
-\FOR{$i=t+1$ to $(2t+1)$}
+\FOR{$i=t+1$ to $n$}
 \STATE $A_{i,t+1} \leftarrow 2$
 \ENDFOR
 \STATE $j \leftarrow t+2$
@@ -1348,14 +1351,26 @@ semi-autômato de tempo $t$ para a regra 184.}
 \STATE $A_{ij} \leftarrow 2$
 \STATE $j \leftarrow j+1$
 \ENDFOR
-\STATE $A_{N,N} \leftarrow 1$
-\STATE $A_{N-1,N} \leftarrow 1$
-\STATE $A_{N,N-1} \leftarrow 2$
+\STATE $A_{n,n} \leftarrow 1$
+\STATE $A_{n-1,n} \leftarrow 1$
+\STATE $A_{n,n-1} \leftarrow 2$
 \end{algorithmic}
 \end{algorithm}
 
-De posse deste algoritmo e do Algoritmo \ref{alg:mtos} é possível, então,
-recriar o semi-autômato de tempo $t$ para a regra 184.
+O algoritmo executa em tempo $O(t)$. A combinação dos Algoritmos
+\ref{alg:mtos} e \ref{alg:r184} executa em tempo:
+
+\begin{equation}
+\begin{tabular}{ r c l }
+\(T\) & \(=\) & \(O(t) + O((2t+2)^2)\) \\
+  & \(=\) & \(O(t) + O(4t^2+8t+4)\) \\
+  & \(=\) & \(O(t) + O(t^2) + O(t) + O(1)\) \\
+  & \(=\) & \(O(t^2)\)
+\end{tabular}
+\end{equation}
+
+De posse do Algoritmo \ref{alg:r184} e do Algoritmo \ref{alg:mtos} é
+possível, então, recriar o semi-autômato de tempo $t$ para a regra 184.
 
 \subsection{Padrão de Formação das Matrizes de Adjacências Isomórficas}
 
@@ -1443,7 +1458,7 @@ Aqui, a abordagem utilizada foi a de converter os semi-autômatos dos sucessivos
 passos de tempo das regras do espaço elementar em matrizes de adjacências e analisar
 tais matrizes. Porém, a notação comumente utilizada para matrizes de adjacências
 não consegue completamente descrever os semi-autômatos. Foi, então, proposta uma
-nova notação de matrizes de adjacências, chamada de \textit{matrizes de
+nova notação de matriz de adjacências, chamada de \textit{matriz de
 adjacências isomórficas}, assim chamadas porque existe um isomorfismo entre
 o semi-autômato e sua respectiva matriz de adjacências. Com isso, foi possível
 construir o semi-autômato a partir de sua matriz de adjacências isomórfica.
@@ -1463,7 +1478,15 @@ pode melhor representar um semi-autômato para caracterização da complexidade
 de ACs elementares, e que a relação de isomorfismo entre
 a matriz e seu semi-autômato torna possível a obtenção do algoritmo de
 geração do semi-autômato de tempo $t$ a um custo computacional muito
-menor em relação a abordagem de geração de semi-autômatos sucessivos.
+menor em relação à abordagem de geração de semi-autômatos sucessivos.
+Isto ocorre porque a combinação dos Algoritmos \ref{alg:mtos} e
+\ref{alg:r184} executa em um único passo, enquanto no método de
+geração dos sucessivos semi-autômatos é necessário gerar o
+semi-autômato para cada passo de tempo. Por exemplo, em uma implementação dos
+algoritmos utilizando o software \textit{Mathematica} o tempo para geração
+do semi-autômato de tempo $20$ foi de $80$ ms para o método de matrizes
+de adjacências isomórficas, enquanto foi de $7,18$ segundos para o método
+dos autômatos sucessivos.
 
 Porém, permanece aberta a questão da convergência da evolução dos AFs da
 regra 184 para o seu comportamento limite \citecustom{miki2006}.
@@ -1471,7 +1494,7 @@ regra 184 para o seu comportamento limite \citecustom{miki2006}.
 \newpage
 
 \appendix
-\section{Tabelas de Evolução das Regras do Espaço Elementar}\label{sec:matrices}
+\section{Tabelas de Evolução das 26 Regras do Espaço Elementar Estudadas}\label{sec:matrices}
 
 \newpage
 
