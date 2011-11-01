@@ -1,4 +1,4 @@
-VERSION = v03
+VERSION = v04
 OUTPUT_FILENAME = $(VERSION)_qualificacao.pdf
 INPUT_FILENAME = masterthesis
 
