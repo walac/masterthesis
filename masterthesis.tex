@@ -216,20 +216,20 @@ dinâmicos e matemática discreta \citecustom{wolfram2002}.
 
 \subsection{Autômatos Celulares Elementares}
 
-A descrição mais simples de um autômato celular é um vetor unidimensional (possivelmente
-infinito nas duas pontas) de células. O tempo é discreto, e em cada ponto no tempo cada
-célula está em um de um conjunto finito $\{0,1\}$ de estados possíveis. As células mudam
-de estado a cada passagem de tempo discreto, e o novo estado é completamente determinado pelo
-estado atual da célula e suas vizinhas da direita e da esquerda. A função (chamada
-de regra local) a qual determina essa mudança de estado é a mesma para todas as células.
-O autômato não tem qualquer entrada, e por isso é autônomo. A coleção de estados das células
-em um dado ponto no tempo é chamada de configuração ou estado global do autômato celular, e
-descreve o estado de evolução do mesmo. No tempo $t=0$, o autômato está em sua configuração
-inicial e assim evolui deterministicamente sob o efeito da regra local, a qual é aplicada
-a cada célula em cada passo de tempo \citecustom{sarkar2000}. A vizinhança em autômatos unidimensionais
-é dada por um raio $r$ que especifica a quantidade de células vizinhas da esquerda e direita
-que participam da regra local. Para autômatos elementares, $r=1$, o que significa que participam
-da regra local o vizinho imediato da esquerda e o da direita, além da própria célula de referência.
+Um AC unidimensional tem grade $\mathbb{Z}_N$ no caso finito, ou $\mathbb{Z}$
+no caso infinito (deste ponto de vista, frequentemente usa-se $N$ para denotar
+o tamanho da grade para ACs unidimensionais). A configuração de um AC
+unidimensional finito é uma função $c: \mathbb{Z}_N \mapsto S$, onde $S$ é o
+conjunto de estados de uma célula. É conveniente escrever tal função como
+uma cadeia de comprimento $N$ sobre $S$, efetivamente mudando o conjunto de
+todas as configurações de $S^{\mathbb{Z}_N}$ para $S^N$. É comum especificar
+a vizinhança de um AC unidimensional em termos de um
+\textit{raio}. Um AC com raio $r$ tem vizinhança $(-r,-r+1,\ldots,r-1,r)$,
+de maneira que cada vizinhança consiste de $2r+1$ células. Um AC
+\textit{elementar} é um AC unidimensional com conjunto de estados
+$\mathbb{Z}_2 = \{0,1\}$ e radio $r=1$. A regra local é então uma função
+$f: \mathbb{Z}^{2^3}_2 \mapsto \mathbb{Z}_2$; existem 256 funções deste
+tipo \citecustom{powley2009}.
 
 Para ACs elementares uma configuração inicial tipicamente aleatória será atraída
 para uma condição de \textit{equilíbrio} a qual é chamada de atrator \citecustom{li1987}.
@@ -611,7 +611,7 @@ ${\Sigma}^+ \bigcup \varepsilon = \Sigma^*$. O comprimento de uma palavra
 \emph{abcd} é 4. Denota-se o comprimento de uma cadeia $w$ por
 $|w|$; portanto, $|101| = 3$ e $|\varepsilon| = 0$. Alternativamente,
 através de um isomorfismo natural, uma cadeia $w \in \Sigma^*$ pode ser
-considerada como uma função $w: \{1,\cdots,|w|\} \mapsto \Sigma$; o
+considerada como uma função $w: \{1,\ldots,|w|\} \mapsto \Sigma$; o
 valor de $w(j)$, onde $1 \le j \le |w|$ é o símbolo que ocupa a j-ésima
 posição em $w$ \citecustom{lewis2008}.
 
@@ -620,7 +620,7 @@ alfabeto $\Sigma$, ou seja, a qualquer subconjunto de $\Sigma^*$. Portanto,
 $\Sigma^*$, $\emptyset$ e $\Sigma$ são linguagens. Sendo uma linguagem 
 simplesmente um tipo particular de conjunto, pode-se especificar linguagens
 finitas enumerando-se todas as suas palavras. Por exemplo, $\{aba, czr, d, f\}$
-é uma linguagem sobre $\{a, b, \cdots, z\}$. Entretanto, a maioria das
+é uma linguagem sobre $\{a, b, \ldots, z\}$. Entretanto, a maioria das
 linguagens são infinitas, não sendo portanto possível listar todas as palavras
 \citecustom{lewis2008}. Assim, especifica-se linguagens infinitas da seguinte forma:
 
