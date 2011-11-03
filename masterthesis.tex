@@ -903,6 +903,101 @@ determinístico no qual no máximo um arco de cada valor sai de cada
 nó, assim combinando nós equivalentes. Este procedimento é
 executado pela função \emph{MinNet} \citecustom{wolfram2002}.
 
+\subsection{Autômatos Celulares como Sistemas Lineares}
+
+\citeonline{wang2011} descreveram a representação linear de sistemas não
+lineares com dinâmica local (o que inclui ACs) por meio do produto de
+semi-tensor de matrizes.
+
+A representação linear de tais sistemas é essencialmente uma expansão de
+espaço, e qualquer sistema lógico multi agente com $n$ agentes e $m$ estados
+pode ser traduzido em um sistema linear de dimensão $m^n$ construindo uma
+bijeção adequada. Especificamente, o produto de semi-tensor desenvolvido
+por Cheng \citecustom{cheng2007} fornece uma ferramenta para a construção de
+tal bijeção \citecustom{wang2011}.  
+
+Primeiro descreve-se um sistema multi agente com lógica dinâmica. Seja
+$x_i$ o estado do agente $i$, $i=1,2,\ldots,n$, o qual obtém seu valor
+a partir do conjunto finito $\chi$. Cada agente atualiza seu estado de acordo
+com uma regra local: $f_i: \chi^n \mapsto \chi$ o qual é um operador lógico.
+A dinâmica do sistema pode ser descrita como segue \citecustom{wang2011}:
+
+\begin{equation}
+\left\{
+\begin{array}{l c r}
+x_1(t+1) & = & f_1(x_1(t),\ldots,x_n(t)), \\
+x_2(t+1) & = & f_2(x_1(t),\ldots,x_n(t)), \\
+\vdots & & \\
+x_n(t+1) & = & f_n(x_1(t),\ldots,x_n(t)) \\
+\end{array} \right.
+\label{eqn:dynsys}
+\end{equation}
+
+Denota-se $x(t)=(x_1(t),\ldots,x_n(t))$ como o estado do sistema, $\Phi(.)$
+como o operador do sistema integrando todas as funções $f_i$. Então o
+Sistema \ref{eqn:dynsys} pode ser reescrito como:
+
+\begin{equation}
+\label{eqn:sysint}
+x(t+1) = \Phi(x(t))
+\end{equation}
+
+Suponha que o número de elementos contidos no conjunto $\chi$ seja $m$, isto é,
+cada agente possui $m$ diferentes estados, então existirá $m^n$ diferentes
+estados do sistema; aqui um estado sistema significa que cada agente possui
+um estado. A partir de \ref{eqn:dynsys} e \ref{eqn:sysint}, sabe-se que o
+operador $\Phi(.)$ apenas translada um estado do sistema em outro. Seja
+$g: \chi^n \mapsto \{e_i\}^{m^n}_{i=1}$ um mapeamento um para um do conjunto
+de estados do sistema para a base padrão $\{e_i\}^{m^n}_{i=1}$, a qual
+pode ser representada na forma linear como segue:
+
+\begin{equation}
+\label{eqn:linsys}
+g(x(t+1)) = Lg(x(t))
+\end{equation}
+
+Onde $L$ é uma matriz de dimensão $m^n \times m^n$. Uma vez que $g(x(t))$
+e $g(x(t+1))$ são vetores unitários nos quais somente um elemento é igual
+a um, toda coluna da matriz $L$ é um vetor de dimensão $m^n$ onde somente um
+elemento é igual a um e todos os outros são iguais a zero. Seja a iésima
+coluna de $L$ denotada por $L_i$. A partir de \ref{eqn:sysint} e do mapeamento
+um para um $g$, sabe-se que para o vetor $e_i$ o mapeamento linear $L$ se traduz
+no vetor unitário $g(\Phi(g^{-1}(e_i)))$, assim:
+
+\begin{equation}
+L_i = g(\Phi(g^{-1}(e_i))), \quad i=1,\ldots,m^n.
+\end{equation}
+
+A partir da análise da matriz $L$, sabe-se que a iésima coluna de $L$ é um
+vetor unitário.
+
+Baseado na expansão espacial, o sistema lógico não linear \ref{eqn:dynsys}
+foi convertido na forma da matriz linear \ref{eqn:linsys}. Assim, os autores
+investigam as propriedades do Sistema \ref{eqn:dynsys} analizando a estrutura
+da matriz $L$ do sistema \ref{eqn:linsys}. Sobretudo, os autores definem e
+provam os seguintes teoremas \citecustom{wang2011}:
+
+\begin{enumerate}
+\item Para o Sistema \ref{eqn:dynsys}, todo estado possível do sistema será
+atingível a partir de qualquer estado inicial se e somente se os autovalores
+da matriz $L$ do sistema \ref{eqn:linsys} são
+$e^{\frac{2k\pi i}{m^n}},k=0,1,\ldots,m^n-1$, onde $i$ é o número
+imaginário tal que $i^2=-1$.
+
+\item Para os Sistemas \ref{eqn:dynsys} e \ref{eqn:linsys}, se
+$e^{\frac{2k\pi i}{r}},k=0,1,\ldots,r-1$ são autovalores de $L$, então o
+Sistema \ref{eqn:dynsys} terá um ciclo de período $r$. Adicionalmente,
+o número de séries $\left\{e^{\frac{2k\pi i}{r}}\right\}^{r-1}_{k=0}$
+é o número de ciclos de comprimento $r$.
+
+\item O conjunto limite do Sistema \ref{eqn:dynsys} consiste de somente um
+ponto fixo se e somente se os autovalores da matriz $L$ do sistema \ref{eqn:linsys}
+tem um elemento igual a $1$ e todos os outros iguais a $0$.
+\end{enumerate}
+
+Os autores aplicam esses resultados ao problema de nilpotência de ACs
+elementares.
+
 \subsection{Análise da Complexidade de Linguagens Regulares de Autômatos
 Finitos Elementares}
 
