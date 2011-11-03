@@ -1407,20 +1407,20 @@ e vai até $A_{2t,t}$. A cada passo de tempo, uma transição em $1$ é adiciona
 o que corresponde ao valor $1$ na posição $(4,2)$ da estrutura adicionada.
 
 \item Existe uma coluna de transições em $2$ iniciando-se na posição
-$A_{t+1,t+1}$ e terminando na posição $A_{N-1,t+1}$. Novamente observa-se
+$A_{t+1,t+1}$ e terminando na posição $A_{n-1,t+1}$. Novamente observa-se
 que a cada passo de tempo, uma linha com uma transição em $2$ é adicionada à
 coluna, e essa transição corresponde ao valor $2$ na posição $(4,3)$ na matriz da
 estrutura adicionada.
 
 \item Uma diagonal de transições em $2$ aparece na posição $A_{1,t+2}$ indo
-até a posição $A_{t,N-1}$. Olhando para a matriz da estrutura adicionada,
+até a posição $A_{t,n-1}$. Olhando para a matriz da estrutura adicionada,
 observa-se que duas transições em $2$ são adicionadas a esta diagonal a cada
 passo de tempo, mas uma dessas transições é retirada conforme se nota na
 matriz da estrutura excluída.
 
-\item Por fim, uma transição em $1$ é atribuída à posição $A_{N,N}$, uma
-outra transição em $1$ na posição $A_{N-1,N}$ e uma transição em $2$ é
-atribuída na posição $A_{N,N-1}$.
+\item Por fim, uma transição em $1$ é atribuída à posição $A_{n,n}$, uma
+outra transição em $1$ na posição $A_{n-1,n}$ e uma transição em $2$ é
+atribuída na posição $A_{n,n-1}$.
 \end{enumerate}
 
 Baseando-se nesta análise, é possível derivar um algoritmo de construção da
@@ -1478,34 +1478,34 @@ partir do primeiro instante de tempo.
 
 \begin{table}[htp]
 \begin{center}
-\begin{tabular}{|c|c|c|}
+\begin{tabular}{c c c}
 \hline
 \textbf{Regra} & \textbf{Início do padrão de formação} & \textbf{Intercalado}\\ \hline
- 11 & $t=2$ & Sim \\ \hline
- 14 & $t=2$ & Sim \\ \hline
- 35 & $t=2$ & Sim \\ \hline
- 43 & $t=1$ & Não \\ \hline
- 50 & $t=4$ & Sim \\ \hline
- 56 & $t=2$ & Não \\ \hline
- 70 & $t=3$ & Não \\ \hline
- 81 & $t=3$ & Sim \\ \hline
- 98 & $t=2$ & Não \\ \hline
-113 & $t=2$ & Não \\ \hline
-128 & $t=1$ & Não \\ \hline
-132 & $t=2$ & Não \\ \hline
-136 & $t=2$ & Não \\ \hline
-140 & $t=2$ & Não \\ \hline
-142 & $t=2$ & Não \\ \hline
-162 & $t=1$ & Não \\ \hline
-168 & $t=1$ & Não \\ \hline
-172 & $t=2$ & Não \\ \hline
-176 & $t=2$ & Não \\ \hline
-184 & $t=1$ & Não \\ \hline
-192 & $t=2$ & Não \\ \hline
-196 & $t=1$ & Não \\ \hline
-212 & $t=1$ & Não \\ \hline
-224 & $t=2$ & Não \\ \hline
-252 & $t=2$ & Não \\ \hline
+ 11 & $t=2$ & Sim \\
+ 14 & $t=2$ & Sim \\
+ 35 & $t=2$ & Sim \\
+ 43 & $t=1$ & Não \\
+ 50 & $t=4$ & Sim \\
+ 56 & $t=2$ & Não \\
+ 70 & $t=3$ & Não \\
+ 81 & $t=3$ & Sim \\
+ 98 & $t=2$ & Não \\
+113 & $t=2$ & Não \\
+128 & $t=1$ & Não \\
+132 & $t=2$ & Não \\
+136 & $t=2$ & Não \\
+140 & $t=2$ & Não \\
+142 & $t=2$ & Não \\
+162 & $t=1$ & Não \\
+168 & $t=1$ & Não \\
+172 & $t=2$ & Não \\
+176 & $t=2$ & Não \\
+184 & $t=1$ & Não \\
+192 & $t=2$ & Não \\
+196 & $t=1$ & Não \\
+212 & $t=1$ & Não \\
+224 & $t=2$ & Não \\
+252 & $t=2$ & Não \\
 \end{tabular}
 \caption{Padrão de formação de matrizes de adjacências isomórficas das
 regras elementares.}
@@ -1592,8 +1592,8 @@ regra 184 para o seu comportamento limite \citecustom{miki2006}.
 
 Aqui são apresentadas a evolução e matrizes de adjacências isomórficas
 para as 26 regras estudadas na Seção \ref{sec:pattern}. Observe que
-algumas matrizes são parcialmente mostradas porque são muito grandes para
-caberem na tabela.
+algumas matrizes estão parcialmente mostradas devido ao fato de serem muito
+grandes para caberem na tabela.
 
 \newpage
 
