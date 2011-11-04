@@ -62,8 +62,8 @@ ANO 2011\\
 \renewcommand{\baselinestretch}{0.6666666}
 Autômatos celulares (ACs) são sistemas totalmente discretos que agem localmente
 de forma simples e determinística, mas cujo comportamento global resultante
-pode ser extremamente complexo. O conjunto de possíveis configuração globais 
-em um passo de tempo $t$ finito para um autômato celular pode ser descrito por um
+pode ser extremamente complexo. O conjunto de possíveis configurações globais 
+em um passo de tempo $t$ finito para um AC pode ser descrito por um
 linguagem regular. Este trabalho propõe o estudo da complexidade da
 evolução dos ACs por meio de matrizes de adjacências. É
 demonstrado que a notação clássica de matrizes de adjacências é
@@ -104,8 +104,8 @@ complexo da origem à chamada \textit{computação emergente}.
 ACs são utilizados na modelagem de diversos sistemas
 físicos e naturais.
 
-A vizinhança das células de um autômato celular por ser definida por
-um raio que tem seu centro na célula em questão. Um autômato celular
+A vizinhança das células de um AC por ser definida por
+um raio que tem seu centro na célula em questão. Um AC
 elementar possui um raio igual a 1 e um conjunto de estados $\{0,1\}$.
 Este trabalho estuda um subconjunto dos ACs elementares.
 
@@ -115,21 +115,21 @@ palavras formadas a partir de um alfabeto da linguagem
 \citecustom{lewis2008}. A classe mais simples de linguagens formais é
 a das linguagens regulares, que pode ser gerada por uma gramática regular ou
 pelas chamadas expressões regulares. Uma linguagem regular pode ser
-reconhecida por um autômato finito, que é um tipo de autômato que
+reconhecida por um autômato finito (AF), que é um tipo de autômato que
 não possui memória. As linguagens regulares são o tipo mais simples
 de linguagens na hierarquia de Chomsky.
 
-O conjunto de todas as configurações globais de um autômato celular
+O conjunto de todas as configurações globais de um AC
 elementar em um dado momento no tempo discreto pode ser descrito por
-uma linguagem regular e, consequentemente, um autômato finito
+uma linguagem regular e, consequentemente, um AF
 \citecustom{wolfram1984}. \citeonline{trafaniuc2004} e \citeonline{miki2006}
 estudaram, em seus respectivos trabalhos, a complexidade de ACs
 elementares por meio da análise da evolução dos sucessivos
-autômatos finitos(AFs) para diferentes instantes de tempo. Este trabalho
+AFs para diferentes instantes de tempo. Este trabalho
 tem o objetivo de dar prosseguimento a este estudo, utilizando a abordagem
 de representação dos AFs por meio de matrizes de adjacências.
 Sobretudo, este trabalho objetiva encontrar um meio para derivar um
-algoritmo para obtenção do autômato finito de tempo $t$ de uma regra
+algoritmo para obtenção do AF de tempo $t$ de uma regra
 do espaço elementar a partir do autômato de tempo $t-1$.
 
 O Capítulo \ref{sec:refteo} apresenta um referencial teórico sobre 
@@ -140,7 +140,7 @@ Adicionalmente, apresenta um resumo do trabalho feito por
 O Capítulo \ref{sec:schedule} apresenta o cronograma do projeto.
 
 O Capítulo \ref{sec:desenv} descreve a proposta deste trabalho. A obtenção do
-semi-autômato de tempo $t$ pode ser obtido por meio de uma nova notação de 
+semi-autômato de tempo $t$ pode ser conseguida por meio de uma nova notação de 
 matrizes de adjacências isomórfica em relação ao respectivo semi-autômato.
 
 O Capítulo \ref{sec:conclude} apresenta as conclusões parciais obtidas até
@@ -173,7 +173,7 @@ conceituais poderosas com as quais se estuda padrões generalizados de formaçã
 já forneceram ideias cruciais sobre auto organização de reações químicas, sistemas de
 difusão, crescimento de cristais, formação de padrões de conchas e fenômenos em fluxo
 de tráfego veicular, para citar alguns exemplos. Em um lado mais prático, ACs
-ACs fornecem a base de algoritmos de criptografia extremamente poderosos. Existe
+ornecem a base de algoritmos de criptografia extremamente poderosos. Existem
 até mesmo algumas sérias especulações de que ACs possam fornecer
 a espinha dorsal de uma radicalmente discreta física fundamental \citecustom{ilachinski2002}.
 
@@ -549,11 +549,11 @@ das quatro classes de complexidade.
 
 Trabalhos posteriores se concentraram em formalizar a classificação intuitiva
 feita por Wolfram \citecustom{sarkar2000}. \citeonline{culik1988} propuseram a seguinte
-classificação.  Seja $\rho$ a regra local para o autômato celular, então:
+classificação.  Seja $\rho$ a regra local para o AC, então:
 
 \begin{enumerate}
 \item A regra $\rho$ está na classe 1 se e somente se toda configuração finita,
-isto é, configurações nas quais somente um número finito de células são em
+isto é, configurações nas quais somente um número finito de células estão em
 estados não quiescentes, evoluem para uma configuração estável em muitos passos
 finitos.
 
@@ -613,7 +613,7 @@ ${\Sigma}^+ \bigcup \varepsilon = \Sigma^*$. O comprimento de uma palavra
 é o número de símbolos que a forma. Logo, o comprimento da palavra
 \emph{abcd} é 4. Denota-se o comprimento de uma cadeia $w$ por
 $|w|$; portanto, $|101| = 3$ e $|\varepsilon| = 0$. Alternativamente,
-através de um isomorfismo natural, uma cadeia $w \in \Sigma^*$ pode ser
+por meio de um isomorfismo natural, uma cadeia $w \in \Sigma^*$ pode ser
 considerada como uma função $w: \{1,\ldots,|w|\} \mapsto \Sigma$; o
 valor de $w(j)$, onde $1 \le j \le |w|$ é o símbolo que ocupa a j-ésima
 posição em $w$ \citecustom{lewis2008}.
@@ -638,11 +638,11 @@ alfabeto que seja um superconjunto de $\Sigma$ \citecustom{hopcroft2002}.
 
 \subsection{Autômatos Finitos e Linguagens Regulares}
 
-Segundo \citeonline{hopcroft2002}, um autômato finito é definido por
+Segundo \citeonline{hopcroft2002}, um AF é definido por
 uma quíntupla $A = (\mathbb{Q},\Sigma,\delta,q_0,\mathbb{F})$, onde:
 
 \begin{description}
-\item[$A$] é o nome associado ao autômato finito.
+\item[$A$] é o nome associado ao AF.
 \item[$\mathbb{Q}$] é um conjunto finito de estados.
 \item[$\Sigma$] é um conjunto finito de símbolos de entrada
 \item[$\delta$] é uma função de transição do tipo $\delta: \mathbb{Q} \times \Sigma \mapsto \mathbb{Q}$.
@@ -659,7 +659,7 @@ $\delta: \mathbb{Q} \times \Sigma \mapsto \mathbb{Q}$ define um novo estado como
 Quando o processamento da fita de entrada termina, se o estado atual for
 um dos estados pertencentes ao conjunto $\mathbb{F}$ de estados finais, a entrada é
 considerada aceita, caso o contrário, a entrada é rejeitada. Por exemplo,
-considere o seguinte autômato finito:
+considere o seguinte AF:
 
 \begin{center}
 $M = \{ \mathbb{Q} = \{A,B\}, \break \Sigma = \{0,1\}, \break
@@ -702,18 +702,18 @@ Figura \ref{fig:automata} mostra graficamente o autômato anterior.
 \end{center}
 \end{figure}
 
-O autômato finito anteriormente exemplificado é chamado de autômato finito determinístico.
-Em um autômato finito determinístico, cada transição na função de transição possui apenas
+O AF anteriormente exemplificado é chamado de AF determinístico.
+Em um AF determinístico, cada transição na função de transição possui apenas
 um único estado objetivo, ou seja, cada entrada da tabela de transição possui a forma
-$\delta: (q, s) \in (\mathbb{Q},\Sigma) \mapsto q' \in \mathbb{Q}$. Nos AFs não
+$\delta: \mathbb{Q} \times \Sigma \mapsto \mathbb{Q}$. Nos AFs não
 determinísticos, cada entrada na tabela de transição é da forma
-$\delta: (q, s) \in (\mathbb{Q},\Sigma) \mapsto 2^{\mathbb{Q}}$,
+$\delta: \mathbb{Q} \times \Sigma \mapsto 2^{\mathbb{Q}}$,
 ou seja, para um dado estado e um símbolo de entrada, o número de possíveis
 transições pode ser maior que um. \citecustom{rozenberg1997}.  Um autômato não
 determinístico também pode possuir mais de um estado inicial.
 
 O processamento em um autômato não determinístico é análogo à sua contraparte
-determinística, exceto que quando existe um ambiguidade na transição (existem
+determinística, exceto que quando existe uma ambiguidade na transição (existe
 mais de um estado objetivo para um dada entrada) o autômato se replica, tomando
 o caminho dos $n$ estados objetivos. A entrada é considerada aceita se, ao
 final do processamento, pelo menos uma instância do autômato está em um
@@ -742,9 +742,9 @@ Por exemplo, a expressão regular do autômato da Figura \ref{fig:automata}
 
 Linguagens formais consistem do conjunto de palavras formadas a partir de
 cadeias de símbolos em um alfabeto finito $\Sigma$ de acordo com regras
-gramaticas definidas. Conjuntos de configurações de AFs
+gramaticais definidas. Conjuntos de configurações de AFs
 podem assim ser considerados como linguagens formais, com cada palavra na
-linguagem representando uma configuração do autômato celular. Tais conjuntos
+linguagem representando uma configuração do AC. Tais conjuntos
 infinitos de configurações são então completamente especificados por
 conjuntos finitos de regras gramaticais \citecustom{wolfram1984}.
 
@@ -757,11 +757,11 @@ O conjunto de configurações possíveis em um AF depois de $t$
 passos de evolução pode ser representado por um conjunto $\Omega^{(t)}$.
 
 O seguinte exemplo, retirado de \citecustom{wolfram1984}, ilustra o processo de
-geração do autômato finito que representa o conjunto de configurações
+geração do AF que representa o conjunto de configurações
 possíveis $\Omega^{(t)}$ após $t$ iterações.
 
 Considere a construção do conjunto $\Omega^{(1)}$ gerado por um passo de
-tempo na evolução do autômato celular elementar com uma regra
+tempo na evolução do AC elementar com uma regra
 local $\phi$ dada por (regra número 76):
 
 \begin{equation}\label{eqn:r76}
@@ -778,15 +778,15 @@ dependência de $a_{i+1}^{(0)}$ em $a_i^{(0)}$ associada com esta sobreposição
 de duas células nas vizinhanças pode ser representada por um grafo $g$, conforme
 ilustra a Figura \ref{fig:A1}. Os nós no grafo representam as sobreposições
 $\{a_i^{(0)},a_{i+1}^{(0)}\}$. Este nós são agregados por arcos direcionados
-correspondentes a vizinhanças de três células. A regra local do autômato
-celular $\phi$ da Equação \ref{eqn:r76} define uma transformação para cada
+correspondentes a vizinhanças de três células. A regra local do AC
+$\phi$ da Equação \ref{eqn:r76} define uma transformação para cada
 vizinhança de três células, e assim associa um símbolo com cada arco de $g$.
 Cada possível caminho através de $g$ corresponde a uma configuração particular
 $A^{(0)}$. O sucessor $A^{(1)}$ de cada configuração inicial é dado pela
 sequência de símbolos associada com os arcos no caminho. As sequências de
 símbolos obtidas seguindo todos os caminhos possíveis através de $g$ assim
 correspondem a todas as possíveis configurações $A^{(1)}$ obtidas depois
-de um passo de tempo na evolução do autômato celular \ref{eqn:r76}. O
+de um passo de tempo na evolução do AC \ref{eqn:r76}. O
 conjunto completo $\Omega^{(1)}$ pode assim ser representado pelo grafo
 $g$. Está claro que nem todas as possíveis sequências de 0s e 1s podem
 aparecer nas configurações de $\Omega^{(1)}$. Por exemplo, não existe um
@@ -803,9 +803,9 @@ configuração em $\Omega^{(1)}$ pode conter blocos de células $111$.
 \ArcL{C}{B}{101 \mapsto 0} \ArcL{C}{A}{100 \mapsto 0}
 \ArcL{D}{C}{110 \mapsto 1} \LoopE{D}{111 \mapsto 0}
 \end{VCPicture}
-\caption{O grafo de transição de estados $g$ para um autômato finito
+\caption{O grafo de transição de estados $g$ para um AF
 não determinístico que gera as configurações obtidas depois de um passo
-de tempo na evolução do autômato celular com a regra número 76.
+de tempo na evolução do AC com a regra número 76.
 Possíveis sequências de valores de células são representadas por
 caminhos possíveis pelo grafo. Os nós no grafo são rotulados por pares
 de valores iniciais das células; os arcos então correspondem a triplas
@@ -818,18 +818,18 @@ de um passo de tempo \citecustom{wolfram1984}.}
 \end{figure}
 
 O grafo $g$ da Figura \ref{fig:A1} pode ser considerado como uma grafo
-de transição de estados para um autômato finito o qual gera a linguagem
+de transição de estados para um AC o qual gera a linguagem
 formal $\Omega^{(1)}$. Cada nó de $g$ corresponde a um estado do
-autômato finito, e cada arco a uma transição no autômato finito, ou
-equivalentemente a uma regra produção na gramática representada pelo
-autômato finito. O conjunto $\Omega^{(1)}$ assim forma uma linguagem
+AF, e cada arco a uma transição no AF, ou
+equivalentemente a uma regra  de produção na gramática representada pelo
+AF. O conjunto $\Omega^{(1)}$ assim forma uma linguagem
 regular.
 
 \subsection{Semi-autômato}
 
 O grafo da Figura \ref{fig:A1} é definido como um semi-autômato.
-De acordo com \citeonline{miki2006}, um semi-autômato é um autômato
-finito não determinístico, onde todos os estados da máquina são iniciais
+De acordo com \citeonline{miki2006}, um semi-autômato é um AF
+não determinístico, onde todos os estados da máquina são iniciais
 e finais e é definido formalmente por uma tripla $\{\mathbb{Q},\Sigma,\delta\}$,
 onde:
 
@@ -845,9 +845,9 @@ conjunto de possíveis novos estados;
 
 \subsection{Configuração Inicial de um Autômato Celular}
 
-O espaço de configurações iniciais $\Omega^{(0)}$ de um autômato celular
+O espaço de configurações iniciais $\Omega^{(0)}$ de um AC
 elementar pode ser qualquer combinação de sequências de 0s e 1s
-representando os estados iniciais das células. O autômato finito
+representando os estados iniciais das células. O AF
 que representa tal sequência pode ser visualizado na Figura
 \ref{fig:initconfigautomaton}, e sua representação em formato de
 semi-autômato como implementado no \textit{software Mathematica}
@@ -860,7 +860,7 @@ na Figura \ref{fig:initconfigmathematica}.
 \Initial{A}
 \LoopN{A}{0,1}
 \end{VCPicture}
-\caption{Possíveis configurações iniciais representadas por um autômato finito
+\caption{Possíveis configurações iniciais representadas por um AF
 determinístico. É fácil perceber que o autômato aceita qualquer sequência de
 0s e 1s.}
 \label{fig:initconfigautomaton}
@@ -885,16 +885,16 @@ representadas por arcos pretos.
 
 \emph{NetCAStep}, \emph{TrimNet} e \emph{MinNet} \citecustom{wolfram2002} são
 funções desenvolvidas no \textit{Mathematica} para gerar AFs
-que representam a evolução para um passo de tempo de um autômato celular
+que representam a evolução para um passo de tempo de um AC
 elementar.
 
-Dado um semi-autômato relacionado à configuração do autômato celular para
+Dado um semi-autômato relacionado à configuração do AC para
 um instante de tempo $t$, a função \emph{NetCAStep} \citecustom{wolfram2002}
-retorna um autômato finito relacionado ao instante de tempo $t+1$
+retorna um AF relacionado ao instante de tempo $t+1$
 \citecustom{miki2006}.
 
 A função \emph{NetCAStep} gera como saída uma lista de transições
-de estados correspondente a um autômato finito não determinístico.
+de estados correspondente a um AF não determinístico.
 Sobre a lista de transições de estado resultante da função
 \emph{NetCAStep} é aplicada a função \emph{TrimNet}, que, por sua vez,
 preserva todos os estados acessíveis por qualquer nó da rede
@@ -947,7 +947,7 @@ x(t+1) = \Phi(x(t))
 
 Suponha que o número de elementos contidos no conjunto $\chi$ seja $m$, isto é,
 cada agente possui $m$ diferentes estados, então existirá $m^n$ diferentes
-estados do sistema; aqui um estado sistema significa que cada agente possui
+estados do sistema; aqui um estado do sistema significa que cada agente possui
 um estado. A partir de \ref{eqn:dynsys} e \ref{eqn:sysint}, sabe-se que o
 operador $\Phi(.)$ apenas translada um estado do sistema em outro. Seja
 $g: \chi^n \mapsto \{e_i\}^{m^n}_{i=1}$ um mapeamento um para um do conjunto
@@ -962,7 +962,7 @@ g(x(t+1)) = Lg(x(t))
 Onde $L$ é uma matriz de dimensão $m^n \times m^n$. Uma vez que $g(x(t))$
 e $g(x(t+1))$ são vetores unitários nos quais somente um elemento é igual
 a um, toda coluna da matriz $L$ é um vetor de dimensão $m^n$ onde somente um
-elemento é igual a um e todos os outros são iguais a zero. Seja a iésima
+elemento é igual a um e todos os outros são iguais a zero. Seja a i-ésima
 coluna de $L$ denotada por $L_i$. A partir de \ref{eqn:sysint} e do mapeamento
 um para um $g$, sabe-se que para o vetor $e_i$ o mapeamento linear $L$ se traduz
 no vetor unitário $g(\Phi(g^{-1}(e_i)))$, assim:
@@ -971,7 +971,7 @@ no vetor unitário $g(\Phi(g^{-1}(e_i)))$, assim:
 L_i = g(\Phi(g^{-1}(e_i))), \quad i=1,\ldots,m^n.
 \end{equation}
 
-A partir da análise da matriz $L$, sabe-se que a iésima coluna de $L$ é um
+A partir da análise da matriz $L$, sabe-se que a i-ésima coluna de $L$ é um
 vetor unitário.
 
 Baseado na expansão espacial, o sistema lógico não linear \ref{eqn:dynsys}
@@ -998,13 +998,13 @@ ponto fixo se e somente se os autovalores da matriz $L$ do sistema \ref{eqn:lins
 tem um elemento igual a $1$ e todos os outros iguais a $0$.
 \end{enumerate}
 
-Os autores aplicam esses resultados ao problema de nilpotência de ACs
-elementares.
+Como exemplo de aplicação, os autores então aplicam esses resultados ao
+problema de nilpotência de ACs elementares.
 
 \subsection{Análise da Complexidade de Linguagens Regulares de Autômatos
 Finitos Elementares}
 
-\citeonline{mikietal2011} analisaram o padrão de crescimento de complexidade
+\citeonline{mikietal2011} analisaram o padrão de crescimento da complexidade
 de linguagens regulares representando as configurações de ACs
 elementares.
 
@@ -1024,11 +1024,11 @@ complexidade a cada passo de tempo.
 O algoritmo divide as regras em dois grupos \citecustom{mikietal2011}:
 
 \begin{description}
-\item[Grupo 1] regras que apresentam crescimento de complexidade no autômato
-finito limite a cada passo de tempo, e o método é interrompido quando o
+\item[Grupo 1] regras que apresentam crescimento de complexidade no AF
+limite a cada passo de tempo, e o método é interrompido quando o
 número máximo de passos de execução for atingido.
 \item[Grupo 2] regras que deixam de apresentar crescimento de complexidade no
-autômato finito em até cinco passos de tempo.
+AF em até cinco passos de tempo.
 \end{description}
 
 O trabalho seguiu analisando os grafos gerados para diferentes instantes de tempo
@@ -1098,11 +1098,11 @@ expressões de crescimento e outros resultados.
 \newpage
 
 \section{Construção do Semi-autômato por meio de Matrizes de
-Adjacência}\label{sec:desenv}
+Adjacências}\label{sec:desenv}
 
 Conforme já explicado anteriormente, o conjunto de configurações globais de
-um autômato celular pode ser descrito por uma linguagem regular e,
-consequentemente, por um autômato finito determinístico.
+um AC pode ser descrito por uma linguagem regular e,
+consequentemente, por um AF determinístico.
 
 Estudos sobre a complexidade de ACs elementares por meio da
 análise dos grafos dos AFs gerados pelas respectivas regras
@@ -1115,12 +1115,12 @@ gerados pelo algoritmo de \citecustom{wolfram1984}.
 Neste capítulo, é proposta uma nova abordagem para o problema, por meio da
 análise das matrizes de adjacências correspondentes aos AFs
 das respectivas regras do espaço elementar. Porém, como será visto adiante,
-não é possível representar completamente um autômato finito utilizando a
+não é possível representar completamente um AF utilizando a
 notação clássica de matrizes de adjacências. É proposta, então, uma
 nova notação que, dada a matriz de adjacência, é possível construir
 integralmente o grafo da respectiva matriz.
 
-O texto então deduz o algoritmo de formação do autômato finito
+O texto então deduz o algoritmo de formação do AF
 de tempo $t$ para a regra 184; e então finaliza com uma breve
 descrição dos padrões de formação de matrizes das mesmas regras
 estudadas em \citecustom{mikietal2011}.
@@ -1129,16 +1129,16 @@ estudadas em \citecustom{mikietal2011}.
 
 \subsubsection{Matrizes de Adjacências}
 
-Uma matriz de adjacências, algumas vezes também chamada de matriz de
-conexões, representa os estados e transições de grafos em forma matricial,
-rotulando as linhas e colunas com os vértices do grafo. As linhas e
-colunas representam, respectivamente, os estados de origem e destino
+Uma \textit{matriz de adjacências}, algumas vezes também chamada de 
+\textit{matriz de conexões}, representa os estados e transições de grafos
+em forma matricial, rotulando as linhas e colunas com os vértices do grafo.
+As linhas e colunas representam, respectivamente, os estados de origem e destino
 do grafo\footnote{No caso de grafos não direcionados, não existe
 distinção de estados origem e destino, mas somente grafos direcionados são 
 de interesse neste trabalho}.
 
 A representação de um grafo direcionado $G$ com $n$ vértices se dá por uma
-matriz $M$ de tamanho $n \times n$. O valor da posição $a_{ij}$ da matriz
+matriz $M$ de dimensão $n \times n$. O valor da posição $a_{ij}$ da matriz
 $M$ será $1$ se existir uma transição do estado $i$ para o estado $j$.
 A Figura \ref{fig:graph} mostra um grafo direcionado e a Figura \ref{fig:adjm}
 mostra a matriz de adjacências correspondente.
@@ -1182,7 +1182,7 @@ $j$, $\exists i,j$.
 
 \item Nos índices da matriz não está codificado o valor da transição, que
 é o valor esperado na fita de entrada. Observe que a solução de criar
-uma função $f: L \mapsto a_{ij}$ que associa o valor do arco ao índice
+um mapeamento $f: L \mapsto a_{ij}$ que associa o valor do arco ao índice
 da matriz é inviável devido à possibilidade de existir mais de uma
 transição por par de estados $(i,j)$.
 \end{enumerate}
@@ -1211,7 +1211,7 @@ O elemento chave para conseguir essa relação de isomorfismo
 é encontrar uma representação do conjunto de transições e
 seus respectivos valores em um número real que possa ser codificado
 nos índices da matriz, e que possa ser decodificado quando for
-aplicada a transformação $T^{-1}$. Formalmente, dado o conjunto de transições
+aplicada à transformação $T^{-1}$. Formalmente, dado o conjunto de transições
 $\mathbb{L}$ do estado $i$ para o estado $j$, $\forall i,j$, encontrar uma
 relação $\eta:\mathbb{L} \mapsto \Re$ que seja bijetora.
 
@@ -1219,13 +1219,13 @@ A resposta para esta questão está em criar um mapeamento dos valores
 possíveis de transições para o conjunto de números naturais
 $\mathbb{L} \mapsto \mathbb{N}$ e então codificar os valores das transições
 em um número binário. Cada bit do número binário corresponde a um valor de
-transição. Se o valor na $k$-ésima posição for 1, significa que existe uma
+transição. Se o valor no $k$-ésimo bit for 1, significa que existe uma
 transição (mapeada no conjunto dos naturais) de valor $k$ do estado de
 origem para o estado destino em questão. A operação $\eta$ de codificação dos
 arcos $\mathbb{L}$ em um número real é o polinômio de base 2:
 
 \begin{equation}
-\eta(\mathbb{L}_{ij}) = \sum 2^k, \forall k \in (\mathbb{L}_{ij} \mapsto \mathbb{N})
+\eta(\mathbb{L}_{ij}) = \sum_{\forall k \in (\mathbb{L}_{ij} \mapsto \mathbb{N})} 2^k
 \end{equation}
 
 Onde $\mathbb{L}_{ij}$ é o conjunto de transições do estado $i$ para o estado
@@ -1361,7 +1361,7 @@ primeiros passos de tempo. A notação de grafo é a mesma da Figura
 \end{figure}
 
 Utilizando o método apresentado na Seção \ref{sec:mikialgo}, sua conclusão
-foi de que a cada passo de tempo, sempre existia uma mesma estrutura
+foi a de que a cada passo de tempo, sempre existia uma mesma estrutura
 de grafo sendo adicionada e uma sendo excluída, e essas estruturas eram
 invariantes no tempo. As Figuras \ref{fig:addstruct} e \ref{fig:excstruct}
 mostram, respectivamente, as estruturas adicionada e excluída dos sucessivos
@@ -1566,9 +1566,9 @@ matrizes analisadas.
 \section{Conclusão}\label{sec:conclude}
 
 ACs são sistemas totalmente discretos que agem localmente de forma simples
-e determinística  mas que podem possuir
+e determinística, mas que podem possuir
 comportamento global resultante extremamente complexo. O conjunto de configurações
-globais que podem ser vistas em um autômato celular após um determinado
+globais que podem ser vistas em um AC após um determinado
 número de passos de evolução pode ser descrito por uma linguagem
 regular. Linguagem regulares são um conjunto de cadeias formadas
 por um alfabeto dentro da linguagem e que podem ser reconhecidas por um
@@ -1585,7 +1585,7 @@ passos de tempo das regras do espaço elementar em matrizes de adjacências e an
 tais matrizes. Porém, a notação comumente utilizada para matrizes de adjacências
 não consegue completamente descrever os semi-autômatos. Foi, então, proposta uma
 nova notação de matriz de adjacências, chamada de \textit{matriz de
-adjacências isomórficas}, assim chamadas porque existe um isomorfismo entre
+adjacências isomórfica}, assim chamadas porque existe um isomorfismo entre
 o semi-autômato e sua respectiva matriz de adjacências. Com isso, foi possível
 construir o semi-autômato a partir de sua matriz de adjacências isomórfica.
 
