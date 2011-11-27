@@ -1218,6 +1218,14 @@ seria uma matriz $1 \times 1$ com valor $a_{1,1}=1$. Porém, perde-se a informa�
 de que existem duas transições reflexivas no semi-autômato. Mais ainda,
 não existe qualquer menção ao valor das transições.
 
+Uma notação possível seria utilizar uma lista em cada índice da matriz de
+adjacências. Neste caso, o índice $a_{ij}$ conteria uma lista com todos
+os possíveis valores de transição do estado $i$ para o estado $j$.
+Porém, com este tipo de notação, além de ser mais complicado
+detectar padrões nos sucessivos passos de tempo, perde-se qualquer possibilidade
+de operações algébricas com as matrizes. Por exemplo, não seria possível
+estudar possíveis padrões baseado nos autovalores das matrizes.
+
 A próxima seção introduz uma notação alternativa de matrizes de
 adjacências que contorna as duas dificuldades apresentadas.
 
