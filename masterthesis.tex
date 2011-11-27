@@ -1268,7 +1268,12 @@ $\eta(\mathbb{L}_{ij}) \in \Re$, pois admitiria-se a possibilidade de expoentes 
 Como computacionalmente é mais custoso trabalhar-se com números reais do que com inteiros,
 e não há benefício aparente em expandir $\eta$ para o domínio dos reais,
 já que $\mathbb{N}$ é contavelmente infinito \citecustom{lewis2008}, optou-se
-por restringir-se $\eta$ ao domínio dos números naturais.  A Figura \ref{fig:semigraph}
+por restringir-se $\eta$ ao domínio dos números naturais. Outra observação
+é a de que a base númerica não necessarimente deve ser base 2. Poderia-se trabalhar com outras
+bases. Todavia, a única implicação na mudança de base é a quantidade de dígitos
+necessária para representar um dado conjunto $2^{\mathbb{L}}$ de possíveis combinações de
+transições e, do ponto de vista de arquitetura computacional, a base 2 é a
+base mais natural para se trabalhar. A Figura \ref{fig:semigraph}
 mostra o grafo da Figura \ref{fig:graph}, agora representado como um semi-autômato
 (repare que agora existe um valor para cada transição), e a Figura \ref{fig:iadjm}
 mostra a matriz de adjacências isomórfica correspondente.
