@@ -1127,10 +1127,52 @@ consequentemente, por um AF determinístico.
 Estudos sobre a complexidade de ACs elementares por meio da
 análise dos grafos dos AFs gerados pelas respectivas regras
 foram realizados por \citeonline{miki2006} e por \citeonline{trafaniuc2004}.
-Adicionalmente, estes estudos tentaram, sem sucesso, encontrar um algoritmo
-que descrevesse a evolução dos autômatos das regras elementares (em
-particular a regra 184) por meio da análise gráfica dos AFs
-gerados pelo algoritmo de \citecustom{wolfram1984}.
+
+\citeonline{trafaniuc2004} analisou manualmente as regras do Grupo 1 descrito
+na Seção \ref{sec:mikialgo} e encontrou 26 regras que apresentaram padrão
+de crescimento do AF gerado para os sucessivos passos de tempo na evolução
+do AC. O trabalho deduziu a expressão de crescimento da regra 184, inclusive
+um método para obtenção do AF de tempo $t$. Após, o trabalho fez as mesmas
+análises para as outras 25 regras. Do total das 26 regras, 16 regras
+apresentaram relações entre passos de tempo distintos, sendo elas: 43, 113,
+128, 132, 136 140, 142, 162, 168, 176, 184, 192, 196, 212, 224 e 232. Destas
+16 regras, para 12 delas foram encontradas as expressões que caracterizam o
+crescimento dos semi-autômatos de acordo com o passo de tempo, sendo
+apresentado o método de obtenção do semi-autômato de passo $t$ para cada uma.
+O trabalho chegou à conclusão que são necessárias duas
+propriedades para caracterização do semi-autômato de uma regra
+\citecustom{trafaniuc2004}:
+
+\begin{enumerate}
+\item O crescimento do número de estados do semi-autômato deve ser
+proporcional ao passo de tempo, ou seja, o número de estados cresce
+a cada passo de tempo.
+
+\item Os semi-autômatos para passos de tempo distintos devem possuir uma
+uma relação de crescimento, conforme descrito na Seção \ref{sec:mikialgo}.
+\end{enumerate}
+
+\citeonline{miki2006} automatizou o processo manual de análise de crescimento
+de AFs desenvolvido por \citeonline{trafaniuc2004} por meio de uma operação
+de diferença de grafos. O algoritmo foi descrito na Seção
+\ref{sec:mikialgo}. Com os resultados, o trabalho passou a focar na análise
+da regra 184 no objetivo de obter o autômato limite. O autômato limite
+foi construído manualmente como referência, conforme mostrado na Figura
+\ref{fig:limit184}.
+
+\begin{figure}[htp]
+\begin{center}
+\includegraphics[scale=0.8]{img/limit184.eps}
+\caption{Grafo limite da regra 184 \citecustom{miki2006}.}
+\label{fig:limit184}
+\end{center}
+\end{figure}
+
+\citeonline{miki2006} identificou que os semi-autômatos dos sucessivos passos de
+tempo da regra são assimétricos, mas o semi-autômato limite é simétrico, e não
+conseguiu achar uma operação que faça essa transformação de simetria;
+não conseguindo, assim, encontrar o semi-autômato limite da regra 184
+partindo-se dos semi-autômatos intermediários.
 
 Neste capítulo, é proposta uma nova abordagem para o problema, por meio da
 análise das matrizes de adjacências correspondentes aos AFs
@@ -1143,7 +1185,10 @@ integralmente o grafo da respectiva matriz.
 O texto então deduz o algoritmo de formação do AF
 de tempo $t$ para a regra 184; e então finaliza com uma breve
 descrição dos padrões de formação de matrizes das mesmas regras
-estudadas em \citecustom{mikietal2011}.
+estudadas em \citecustom{mikietal2011}. O motivo de escolher
+a regra 184 para ilustrar o processo se deve ao fato de ser
+uma regra que já foi extensivamente estudada em \citecustom{trafaniuc2004}
+e \citecustom{miki2006}.
 
 \subsection{Representação de Semi-autômatos em Forma Matricial}
 
