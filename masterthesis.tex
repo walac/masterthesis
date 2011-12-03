@@ -182,7 +182,7 @@ agem cooperativamente para gerar o comportamento global observado \citecustom{wo
 
 ACs podem ser vistos como uma classe de sistemas dinâmicos de dimensão
 infinita cujo tempo, espaço e estado são todos discretos e os estados de cada célula
-podem ser obtidos de um conjunto finito de estados possíveis \citecustom{zhisong2001}. 
+podem ser obtidos a partir de um conjunto finito de estados possíveis \citecustom{zhisong2001}. 
 
 ACs são, fundamentalmente, as representações matemáticas mais simples
 de uma classe muito maior de sistemas complexos (onde \textit{sistema complexo} significa
@@ -224,8 +224,8 @@ universal. No início da década de 60 foram notadas algumas características ge
 incrivelmente simples de ACs que acreditava-se serem relevantes para
 auto replicância - e foram estudadas com um formalismo técnico mais elaborado. Existiram
 também várias construções de ACs cujo comportamento mostraram
-características particularmente simples talvez relevantes para auto replicância
-\citecustom{wolfram2002}.
+características particularmente simples talvez relevantes para a auto
+replicância \citecustom{wolfram2002}.
 
 A década de 80 é um período importante na história dos ACs,
 largamente devido ao trabalho executado por Stephen Wolfram. A natureza de suas questões
@@ -732,12 +732,12 @@ $\delta: \mathbb{Q} \times \Sigma \mapsto \mathbb{Q}$. Nos AFs não
 determinísticos, cada entrada na tabela de transição é da forma
 $\delta: \mathbb{Q} \times \Sigma \mapsto 2^{\mathbb{Q}}$,
 ou seja, para um dado estado e um símbolo de entrada, o número de possíveis
-transições pode ser maior que um. \citecustom{rozenberg1997}.  Um autômato não
+transições pode ser maior que um \citecustom{rozenberg1997}.  Um autômato não
 determinístico também pode possuir mais de um estado inicial.
 
 O processamento em um autômato não determinístico é análogo à sua contraparte
 determinística, exceto que quando existe uma ambiguidade na transição (existe
-mais de um estado objetivo para um dada entrada) o autômato se replica, tomando
+mais de um estado objetivo para uma dada entrada), o autômato se replica, tomando
 o caminho dos $n$ estados objetivos. A entrada é considerada aceita se, ao
 final do processamento, pelo menos uma instância do autômato está em um
 estado final.
@@ -1119,7 +1119,7 @@ proporcional ao passo de tempo, ou seja, o número de estados cresce
 a cada passo de tempo.
 
 \item Os semi-autômatos para passos de tempo distintos devem possuir uma
-uma relação de crescimento, conforme descrito na Seção \ref{sec:mikialgo}.
+relação de crescimento, conforme descrito na Seção \ref{sec:mikialgo}.
 \end{enumerate}
 
 \citeonline{miki2006} automatizou o processo manual de análise de crescimento
@@ -1238,7 +1238,7 @@ de operações algébricas com as matrizes. Por exemplo, não seria possível
 estudar possíveis padrões baseado nos autovalores das matrizes.
 
 A próxima seção introduz uma notação alternativa de matrizes de
-adjacências que contorna as duas dificuldades apresentadas.
+adjacências que contorna as dificuldades apresentadas.
 
 \subsubsection{Matrizes de Adjacências Isomórficas}
 
@@ -1279,7 +1279,7 @@ $\eta(\mathbb{L}_{ij}) \in \Re$, pois admitiria-se a possibilidade de expoentes 
 Como computacionalmente é mais custoso trabalhar-se com números reais do que com inteiros,
 e não há benefício aparente em expandir $\eta$ para o domínio dos reais,
 já que $\mathbb{N}$ é contavelmente infinito \citecustom{lewis2008}, optou-se
-por restringir-se $\eta$ ao domínio dos números naturais. Outra observação
+por restringir-se $\eta$ ao domínio dos números inteiros. Outra observação
 é a de que a base númerica não necessarimente deve ser base 2. Poderia-se trabalhar com outras
 bases. Todavia, a única implicação na mudança de base é a quantidade de dígitos
 necessária para representar um dado conjunto $2^{\mathbb{L}}$ de possíveis combinações de
@@ -1377,7 +1377,7 @@ adjacências isomórfica.}
 \end{algorithmic}
 \end{algorithm}
 
-O algoritmo executa em $O(n^2)$ em relação à dimensão da matriz.
+O algoritmo executa em tempo $O(n^2)$ em relação à dimensão da matriz.
 De posse do Algoritmo \ref{alg:mtos}, é possível criar o algoritmo para gerar o
 autômato limite de uma regra apenas elaborando-se um outro algoritmo para gerar a
 matriz de adjacências isomórfica da regra. A próxima seção apresenta este
@@ -1413,7 +1413,7 @@ foi a de que a cada passo de tempo, sempre existia uma mesma estrutura
 de grafo sendo adicionada e uma sendo excluída, e essas estruturas eram
 invariantes no tempo. As Figuras \ref{fig:addstruct} e \ref{fig:excstruct}
 mostram, respectivamente, as estruturas adicionada e excluída dos sucessivos
-semi-autômatos.
+semi-autômatos da regra 184.
 
 \begin{figure}[htp]
 \begin{minipage}[b]{0.5\linewidth}
