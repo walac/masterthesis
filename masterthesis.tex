@@ -1664,7 +1664,21 @@ de adjacências isomórficas, enquanto foi de $7,18$ segundos para o método
 dos autômatos sucessivos.
 
 Porém, permanece aberta a questão da convergência da evolução dos AFs da
-regra 184 para o seu comportamento limite \citecustom{miki2006}.
+regra 184 para o seu comportamento limite \citecustom{miki2006}. Partindo
+dos resultados conseguidos até aqui, duas vertentes de trabalho serão
+seguidas:
+
+\begin{enumerate}
+\item Transformar o semi-autômato da Figura \ref{fig:limit184} em uma matriz
+de adjacências isomórfica e realizar o mesmo trabalho que
+\citeonline{miki2006} fez para os semi-autômatos da regra 184, desta vez
+utilizando a notação de matrizes.
+
+\item Gerar os semi-autômatos de tempo $t$ para as outras regras, como
+fez \citeonline{trafaniuc2004}, e tentar inferir um algoritmo genérico
+de detecção de padrões para matrizes de adjacências e, a partir deste,
+obter o semi-autômato limite da regra 184.
+\end{enumerate}
 
 \subsection{Cronograma de trabalho}\label{sec:schedule}
 
