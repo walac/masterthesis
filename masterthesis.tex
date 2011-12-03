@@ -1055,12 +1055,9 @@ número máximo de passos de execução for atingido.
 AF em até cinco passos de tempo.
 \end{description}
 
-O trabalho seguiu analisando os grafos gerados para diferentes instantes de tempo
-das regras do Grupo 1 onde percebeu-se que parte das estruturas dos autômatos
-permaneciam inalteradas e repetitivas. Em busca de se obter expressões de crescimento
-foi criado um método de identificação destas estruturas, com o objetivo de selecionar
-regras com crescimento estruturado. O método é constituído em quatro passos
-\citecustom{mikietal2011}:
+Foram então analisadas as estruturas de crescimento de complexidade das regras
+do Grupo 1, primeiro manualmente e, depois, automaticamente por meio do
+seguinte método \citecustom{mikietal2011}:
 
 \begin{enumerate}\label{sec:mikialgo}
 \item Gerar os grafos das regras de transição, para dois passos de tempo
@@ -1084,8 +1081,7 @@ Após a aplicação do método às regras do Grupo 1, foram identificados 26
 conjuntos de regras agrupadas em classes de equivalência dinâmicas que
 apresentaram estruturas comuns em passos de tempos consecutivos. Todas essas
 26 classes foram então analisadas para obtenção de expressões
-de crescimento, primeiro manualmente e depois com auxílio de um algoritmo
-para sistematizar o processo \citecustom{mikietal2011}.
+de crescimento.
 
 O trabalho reconstruiu a tabela de \citecustom{wolfram1994} e acrescentou novas
 expressões de crescimento e outros resultados.
