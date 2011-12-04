@@ -1361,7 +1361,7 @@ adjacências isomórfica.}
 \FOR{$j=1$ to $n$}
 \IF{$A_{ij} \neq 0$}
 \REPEAT
-\STATE $q = A_{ij} \div 2$
+\STATE $q = \lfloor A_{ij} \div 2 \rfloor$
 \STATE $r = A_{ij}-2q$ \COMMENT{resto}
 \IF{$r \neq 0$}
 \STATE $n=0$
