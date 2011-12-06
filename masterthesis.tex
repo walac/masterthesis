@@ -1,4 +1,5 @@
 \documentclass[12pt,a4paper]{article}
+%\usepackage{algorithmic}
 \usepackage[utf8]{inputenc}
 \usepackage[brazil]{babel}
 \usepackage{graphicx}
@@ -8,14 +9,17 @@
 \usepackage{indentfirst}
 \usepackage{longtable}
 \usepackage{lscape}
-\usepackage{vaucanson-g}
 \usepackage{amsmath}
 \usepackage{amsfonts}
-\usepackage{algorithmic}
-\usepackage{algorithm}
 \usepackage{float}
 \usepackage{chngcntr}
 \usepackage{lscape}
+\usepackage{algorithm}
+\usepackage{savesym}
+\usepackage{vaucanson-g}
+\savesymbol{State}
+\usepackage{algcompatible}
+\let\vState=\origState
 \usepackage{rotating}
 
 \floatname{algorithm}{Algoritmo}
@@ -743,7 +747,7 @@ Figura \ref{fig:automata} mostra graficamente o autômato anterior.
 \begin{figure}[htp]
 \begin{center}
 \begin{VCPicture}{(0,-2)(3,2)}
-\State[A]{(0,0)}{A} \FinalState[B]{(3,0)}{B}
+\vState[A]{(0,0)}{A} \FinalState[B]{(3,0)}{B}
 \Initial{A} %\Final{B}
 \ArcL{A}{B}{1} \ArcL{B}{A}{0}
 \LoopN{A}{0} \LoopN{B}{1}
@@ -880,8 +884,8 @@ configuração em $\Omega^{(1)}$ pode conter blocos de células $111$.
 \begin{figure}[htp]
 \begin{center}
 \begin{VCPicture}{(0,-2)(12,8)}
-\State[00]{(0,3)}{A} \State[01]{(6,6)}{B}
-\State[10]{(6,0)}{C} \State[11]{(12,3)}{D}
+\vState[00]{(0,3)}{A} \vState[01]{(6,6)}{B}
+\vState[10]{(6,0)}{C} \vState[11]{(12,3)}{D}
 \ArcL{A}{B}{001 \mapsto 0} \LoopW{A}{000 \mapsto 0}
 \ArcL{B}{D}{011 \mapsto 1} \ArcL{B}{C}{010 \mapsto 1}
 \ArcL{C}{B}{101 \mapsto 0} \ArcL{C}{A}{100 \mapsto 0}
@@ -1454,8 +1458,8 @@ mostra a matriz de adjacência correspondente.
 \begin{minipage}[b]{0.5\linewidth}
 \begin{center}
 \begin{VCPicture}{(0,-4)(4,1)}
-\State[1]{(0,0)}{A} \State[2]{(4,0)}{B}
-\State[3]{(2,-2)}{C}
+\vState[1]{(0,0)}{A} \vState[2]{(4,0)}{B}
+\vState[3]{(2,-2)}{C}
 \ArcL{A}{B}{} \ArcR{A}{C}{} 
 \ArcL{B}{A}{}
 \ArcR{C}{B}{} \LoopS{C}{}
@@ -1567,8 +1571,8 @@ mostra a matriz de adjacência de evolução temporal correspondente.
 \begin{minipage}[b]{0.5\linewidth}
 \begin{center}
 \begin{VCPicture}{(0,-4)(4,1)}
-\State[1]{(0,0)}{A} \State[2]{(4,0)}{B}
-\State[3]{(2,-2)}{C}
+\vState[1]{(0,0)}{A} \vState[2]{(4,0)}{B}
+\vState[3]{(2,-2)}{C}
 \ArcL{A}{B}{0} \ArcR{A}{C}{0} 
 \ArcL{B}{A}{1}
 \ArcR{C}{B}{1} \LoopS{C}{0}
@@ -1604,9 +1608,9 @@ de um grafo de processo.}
 \STATE $n \leftarrow \mbox{Length}(\mathbb{Q})$ \COMMENT{número de estados}
 \STATE $A \leftarrow \mbox{ Matriz nula } n \times n$
 \FORALL{$i,j \in \mathbb{Q}$}
-\IF{$\mathbb{L}_{ij} \neq \emptyset$}
-\STATE $A_{ij} = \eta(\mathbb{\mathbb{L}}_{ij})$
-\ENDIF
+    \IF{$\mathbb{L}_{ij} \neq \emptyset$}
+        \STATE $A_{ij} = \eta(\mathbb{\mathbb{L}}_{ij})$
+    \ENDIF
 \ENDFOR
 \end{algorithmic}
 \end{algorithm}
@@ -1638,11 +1642,11 @@ adjacência de evolução temporal.}
 \STATE $q = \lfloor A_{ij} \div 2 \rfloor$
 \STATE $r = Mod(A_{ij},2)$
 \IF{$r \neq 0$}
-\STATE $n=0$
-\WHILE{$2^n \le A_{ij}$}
-\STATE $n=n+1$
-\ENDWHILE
-\STATE MakeTransition$(i,j,n-1)$
+    \STATE $n=0$
+    \WHILE{$2^n \le A_{ij}$}
+        \STATE $n=n+1$
+    \ENDWHILE
+    \STATE MakeTransition$(i,j,n-1)$
 \ENDIF
 \UNTIL{$q \neq 0$}
 \ENDIF
@@ -1797,16 +1801,16 @@ grafo de processo de tempo $t$ para a regra 184.}
 \STATE $A \leftarrow \mbox{ matriz nula } n \times n \mbox{, onde } n=2(t+1)$
 \STATE $i \leftarrow t+1$
 \FOR{$j=1$ to t}
-\STATE $A_{ij} \leftarrow 1$
-\STATE $i \leftarrow i+1$
+    \STATE $A_{ij} \leftarrow 1$
+    \STATE $i \leftarrow i+1$
 \ENDFOR
 \FOR{$i=t+1$ to $n$}
-\STATE $A_{i,t+1} \leftarrow 2$
+    \STATE $A_{i,t+1} \leftarrow 2$
 \ENDFOR
 \STATE $j \leftarrow t+2$
 \FOR{$i=1$ to $t$}
-\STATE $A_{ij} \leftarrow 2$
-\STATE $j \leftarrow j+1$
+    \STATE $A_{ij} \leftarrow 2$
+    \STATE $j \leftarrow j+1$
 \ENDFOR
 \STATE $A_{n,n} \leftarrow 1$
 \STATE $A_{n-1,n} \leftarrow 1$
@@ -1992,6 +1996,63 @@ tal tema.
 \bibliography{masterthesis}
 \addcontentsline{toc}{section}{Referências bibliográficas} 
 \bibliographystyle{abnt-alf}
+
+\appendix
+\section{Algoritmos para gerar o semi-autômato de tempo $t$ para as 26 regras
+estudadas}
+
+\begin{algorithm}[H]
+\caption{Algoritmo para gerar a matriz de adjacências isomórfica do
+semi-autômato de tempo $t$ para a regra 11.}
+\label{alg:r11}
+\begin{algorithmic}
+\STATE $k \leftarrow \lfloor t \div 2 \rfloor$
+\STATE $m = t-2k$
+\IF{$t=1$}
+    \STATE $n \leftarrow 3$
+    \STATE $A \leftarrow \mbox{ matriz nula } n \times n$
+    \STATE $A_{n,n-1} \leftarrow 2$
+\ELSE
+    \STATE $n \leftarrow 2(t+1)$
+    \STATE $A \leftarrow \mbox{ matriz nula } n \times n$
+    \STATE $A_{n-2,n-1} \leftarrow 2$
+    \STATE $A_{n,n-2} \leftarrow 2$
+    \FOR {$j=1$ to $k$}
+        \STATE $A_{k+j,j} \leftarrow 1$
+        \STATE $A_{j,t+k+j} \leftarrow 2$
+    \ENDFOR
+    \FOR {$j=1$ to $k+m$}
+        \STATE $A_{t+k+j,k+1} \leftarrow 1$
+    \ENDFOR
+    \IF {$t > 2$}
+        \FOR {$j=1$ to $k+m-1$}
+            \STATE $A_{t+k+j,t+j-m} \leftarrow 2$
+        \ENDFOR
+    \ENDIF
+\algstore{rule11}
+\end{algorithmic}
+\end{algorithm}
+
+\begin{algorithm}[H]
+\caption{Algoritmo para gerar a matriz de adjacências isomórfica do
+semi-autômato de tempo $t$ para a regra 11 (continuação).}
+\begin{algorithmic}
+\algrestore{rule11}
+    \IF {$t>3$}
+        \FOR {$j=1$ to $k-1$}
+            \STATE $A_{t+j-m,k+j+1} \leftarrow 1$
+        \ENDFOR
+    \ENDIF
+    \IF {$m \ne 0$}
+        \STATE $A_{3k,3k+1} \leftarrow 1$
+    \ENDIF
+\ENDIF
+\STATE $A_{n-1,t+k} \leftarrow 1$
+\STATE $A_{n,n} \leftarrow 1$
+\STATE $A_{n-1,n-1} \leftarrow 2$
+\STATE $A_{t+k,n} \leftarrow 1$
+\end{algorithmic}
+\end{algorithm}
 
 \end{document}
 
