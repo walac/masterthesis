@@ -32,7 +32,7 @@
 \textbf{\large Wander Lairson Costa}\\
 \vskip 3.5cm
 \setlength{\baselineskip}{1.5\baselineskip}
-\textbf{\large Complexidade de linguagens regulares de autômatos celulares elementares através da análise das matrizes de adjacências dos autômatos finitos intermediários}\\
+\textbf{\large Complexidade em linguagem regular de autômatos celulares elementares através da análise das matrizes de adjacências}\\
 \vskip 4.0cm
 \end{center}
 \hfill{\vbox{\hsize=8.5cm\noindent\strut
@@ -48,7 +48,7 @@ Engenharia da Computação.}\\
 \vskip 2.0cm
 \begin{center}
 São Paulo\\
-ANO 2011\\
+2011\\
 \end{center}
 
 % AGRADECIMENTOS
@@ -87,19 +87,25 @@ evolução deste estudo.
 Autômatos celulares (ACs) são sistemas totalmente discretos que agem localmente
 de forma simples e determinística, mas cujo comportamento global resultante
 pode ser extremamente complexo. O conjunto de possíveis configurações globais 
-em um passo de tempo $t$ finito para um AC pode ser descrito por um
-linguagem regular. Este trabalho propõe o estudo da complexidade da
-evolução dos ACs por meio de matrizes de adjacências. É
-demonstrado que a notação clássica de matrizes de adjacências é
-insuficiente para completamente descrever os semi-autômatos dos
-ACs, e uma nova representação é proposta. Conclui-se que
-esta nova representação facilita a análise da complexidade de ACs
-e a detecção de padrões de crescimento. Sobretudo, é
-mostrado que é possível obter um algoritmo para geração do semi-autômato de
-tempo $t$ a partir da análise das sucessivas matrizes de adjacências.
+em um passo de tempo $t$ finito para um AC pode ser descrito por uma
+linguagem regular, a qual por sua vez pode ser representada por meio
+de um autômato finito (AF). Este trabalho propõe o estudo da complexidade da
+evolução dos ACs por meio da representação dos autômatos finitos que descrevem a
+configuração global do AC utilizando matrizes de adjacências. Para tanto,
+estende-se a notação clássica de matrizes de adjacências, já que ela se
+mostra insuficiente para completamente descrever os semi-autômatos dos
+ACs. Esta nova representação facilita a análise da complexidade de ACs
+e a detecção de padrões de crescimento dos respectivos AFs.
+O objetivo final deste trabalho é, por meio da análise proposta, encontrar
+algoritmicamente o comportamento limite da regra 184. Para isso, pretende-se
+seguir duas vertentes: analisar o grafo limite da regra 184 por meio de
+representação em matrizes de adjacências; e tentar achar um algoritmo de
+detecção de padrões em matrizes de adjacência de forma automática, que
+poderá ser utilizado na obtenção do comportamento limite da regra 184.
 \\[0.5cm]
 \begin{flushleft}
-{\bf Palavras-chave:} {\it Autômatos celulares, comportamento limite, linguagens regulares.}
+{\bf Palavras-chave:} {\it Autômato celular elementar, comportamento limite,
+linguagem regular, matriz de adjacências, complexidade, autômato finito.}
 \end{flushleft}
 
 % SUMÁRIO
@@ -118,7 +124,7 @@ tempo $t$ a partir da análise das sucessivas matrizes de adjacências.
 
 \section{Introdução}
 
-ACs são sistemas discretos que apresentam um comportamento
+Autômatos celulares (ACs) são sistemas discretos que apresentam um comportamento
 local extremamente simples, mas cujo comportamento global pode ser tão
 complexo quanto uma máquina de Turing \citecustom{wolfram1984a}. Ele
 é caracterizado por um reticulado de células cujos estados posteriores
@@ -129,19 +135,22 @@ ACs são utilizados na modelagem de diversos sistemas
 físicos e naturais.
 
 A vizinhança das células de um AC por ser definida por
-um raio que tem seu centro na célula em questão. Um AC
-elementar possui um raio igual a 1 e um conjunto de estados $\{0,1\}$.
-Este trabalho estuda um subconjunto dos ACs elementares.
+um raio de vizinhança que tem seu centro na célula em questão, e engloba
+todas as células que está dentro do raio. Um AC
+elementar possui raio igual a 1 e um conjunto de estados $\{0,1\}$.
+Este trabalho estuda um subconjunto dos ACs elementares, que consiste
+em 26 regras estudadas em \citecustom{trafaniuc2004},
+\citecustom{miki2006} e \citecustom{mikietal2011}.
 
 O comportamento limite de ACs pode ser descrito por meio
 de linguagens formais. Uma linguagem formal é um conjunto de cadeias ou
 palavras formadas a partir de um alfabeto da linguagem
 \citecustom{lewis2008}. A classe mais simples de linguagens formais é
 a das linguagens regulares, que pode ser gerada por uma gramática regular ou
-pelas chamadas expressões regulares. Uma linguagem regular pode ser
+pelas chamadas expressões regulares. Qualquer linguagem regular pode ser
 reconhecida por um autômato finito (AF), que é um tipo de autômato que
-não possui memória. As linguagens regulares são o tipo mais simples
-de linguagens na hierarquia de Chomsky.
+possui memória restrita. As linguagens regulares são o tipo mais simples
+de linguagem da hierarquia de Chomsky.
 
 O conjunto de todas as configurações globais de um AC
 elementar em um dado momento no tempo discreto pode ser descrito por
@@ -152,14 +161,12 @@ elementares por meio da análise da evolução dos sucessivos
 AFs para diferentes instantes de tempo. Este trabalho
 tem o objetivo de dar prosseguimento a este estudo, utilizando a abordagem
 de representação dos AFs por meio de matrizes de adjacências.
-Sobretudo, este trabalho objetiva encontrar um meio para derivar um
-algoritmo para obtenção do AF limite de uma regra
-do espaço elementar a partir da análise dos AFs para os sucessivos passos
-de tempo.
+Sobretudo, este trabalho objetiva estudar o comportamento da evolução da
+184 e, assim, tentar derivar seu comportamento limite.
 
 O Capítulo \ref{sec:refteo} apresenta um referencial teórico sobre 
 os ACs, linguagens formais e comportamento limite.
-Adicionalmente, apresenta um resumo do trabalho feito por
+Adicionalmente, apresenta um resumo do trabalho relatado em
 \citecustom{mikietal2011}.
 
 O Capítulo \ref{sec:desenv} descreve a proposta deste trabalho. A obtenção do
@@ -929,101 +936,6 @@ determinístico no qual no máximo um arco de cada valor sai de cada
 nó, assim combinando nós equivalentes. Este procedimento é
 executado pela função \emph{MinNet} \citecustom{wolfram2002}.
 
-\subsection{Autômatos Celulares como Sistemas Lineares}
-
-\citeonline{wang2011} descreveram a representação linear de sistemas não
-lineares com dinâmica local (o que inclui ACs) por meio do produto de
-semi-tensor de matrizes.
-
-A representação linear de tais sistemas é essencialmente uma expansão de
-espaço, e qualquer sistema lógico multi agente com $n$ agentes e $m$ estados
-pode ser traduzido em um sistema linear de dimensão $m^n$ construindo uma
-bijeção adequada. Especificamente, o produto de semi-tensor desenvolvido
-por Cheng \citecustom{cheng2007} fornece uma ferramenta para a construção de
-tal bijeção \citecustom{wang2011}.  
-
-Primeiro descreve-se um sistema multi agente com lógica dinâmica. Seja
-$x_i$ o estado do agente $i$, $i=1,2,\ldots,n$, o qual obtém seu valor
-a partir do conjunto finito $\chi$. Cada agente atualiza seu estado de acordo
-com uma regra local: $f_i: \chi^n \mapsto \chi$ o qual é um operador lógico.
-A dinâmica do sistema pode ser descrita como segue \citecustom{wang2011}:
-
-\begin{equation}
-\left\{
-\begin{array}{l c r}
-x_1(t+1) & = & f_1(x_1(t),\ldots,x_n(t)), \\
-x_2(t+1) & = & f_2(x_1(t),\ldots,x_n(t)), \\
-\vdots & & \\
-x_n(t+1) & = & f_n(x_1(t),\ldots,x_n(t)) \\
-\end{array} \right.
-\label{eqn:dynsys}
-\end{equation}
-
-Denota-se $x(t)=(x_1(t),\ldots,x_n(t))$ como o estado do sistema, $\Phi(.)$
-como o operador do sistema integrando todas as funções $f_i$. Então o
-Sistema \ref{eqn:dynsys} pode ser reescrito como:
-
-\begin{equation}
-\label{eqn:sysint}
-x(t+1) = \Phi(x(t))
-\end{equation}
-
-Suponha que o número de elementos contidos no conjunto $\chi$ seja $m$, isto é,
-cada agente possui $m$ diferentes estados, então existirá $m^n$ diferentes
-estados do sistema; aqui um estado do sistema significa que cada agente possui
-um estado. A partir de \ref{eqn:dynsys} e \ref{eqn:sysint}, sabe-se que o
-operador $\Phi(.)$ apenas translada um estado do sistema em outro. Seja
-$g: \chi^n \mapsto \{e_i\}^{m^n}_{i=1}$ um mapeamento um para um do conjunto
-de estados do sistema para a base padrão $\{e_i\}^{m^n}_{i=1}$, a qual
-pode ser representada na forma linear como segue:
-
-\begin{equation}
-\label{eqn:linsys}
-g(x(t+1)) = Lg(x(t))
-\end{equation}
-
-Onde $L$ é uma matriz de dimensão $m^n \times m^n$. Uma vez que $g(x(t))$
-e $g(x(t+1))$ são vetores unitários nos quais somente um elemento é igual
-a um, toda coluna da matriz $L$ é um vetor de dimensão $m^n$ onde somente um
-elemento é igual a um e todos os outros são iguais a zero. Seja a i-ésima
-coluna de $L$ denotada por $L_i$. A partir de \ref{eqn:sysint} e do mapeamento
-um para um $g$, sabe-se que para o vetor $e_i$ o mapeamento linear $L$ se traduz
-no vetor unitário $g(\Phi(g^{-1}(e_i)))$, assim:
-
-\begin{equation}
-L_i = g(\Phi(g^{-1}(e_i))), \quad i=1,\ldots,m^n.
-\end{equation}
-
-A partir da análise da matriz $L$, sabe-se que a i-ésima coluna de $L$ é um
-vetor unitário.
-
-Baseado na expansão espacial, o sistema lógico não linear \ref{eqn:dynsys}
-foi convertido na forma da matriz linear \ref{eqn:linsys}. Assim, os autores
-investigam as propriedades do Sistema \ref{eqn:dynsys} analizando a estrutura
-da matriz $L$ do sistema \ref{eqn:linsys}. Sobretudo, os autores definem e
-provam os seguintes teoremas \citecustom{wang2011}:
-
-\begin{enumerate}
-\item Para o Sistema \ref{eqn:dynsys}, todo estado possível do sistema será
-atingível a partir de qualquer estado inicial se e somente se os autovalores
-da matriz $L$ do sistema \ref{eqn:linsys} são
-$e^{\frac{2k\pi i}{m^n}},k=0,1,\ldots,m^n-1$, onde $i$ é o número
-imaginário tal que $i^2=-1$.
-
-\item Para os Sistemas \ref{eqn:dynsys} e \ref{eqn:linsys}, se
-$e^{\frac{2k\pi i}{r}},k=0,1,\ldots,r-1$ são autovalores de $L$, então o
-Sistema \ref{eqn:dynsys} terá um ciclo de período $r$. Adicionalmente,
-o número de séries $\left\{e^{\frac{2k\pi i}{r}}\right\}^{r-1}_{k=0}$
-é o número de ciclos de comprimento $r$.
-
-\item O conjunto limite do Sistema \ref{eqn:dynsys} consiste de somente um
-ponto fixo se e somente se os autovalores da matriz $L$ do sistema \ref{eqn:linsys}
-tem um elemento igual a $1$ e todos os outros iguais a $0$.
-\end{enumerate}
-
-Como exemplo de aplicação, os autores então aplicam esses resultados ao
-problema de nilpotência de ACs elementares.
-
 \subsection{Análise da Complexidade de Linguagens Regulares de Autômatos
 Finitos Elementares}
 
@@ -1143,6 +1055,36 @@ tempo da regra são assimétricos, mas o semi-autômato limite é simétrico, e 
 conseguiu achar uma operação que faça essa transformação de simetria;
 não conseguindo, assim, encontrar o semi-autômato limite da regra 184
 partindo-se dos semi-autômatos intermediários.
+
+\citeonline{wang2011} propuseram uma representação matricial alternativa para
+ACs. Eles descreveram a representação linear de sistemas não lineares com
+dinâmica local (o que inclui ACs) por meio do produto semi-tensorial de
+matrizes. A representação linear de tais sistemas é essencialmente uma expansão de
+espaço, e qualquer sistema lógico multi agente com $n$ agentes e $m$ estados
+pode ser traduzido em um sistema linear de dimensão $m^n$ construindo uma
+bijeção adequada. Especificamente, o produto semi-tensorial desenvolvido
+por \citeonline{cheng2007} fornece uma ferramenta para a construção de
+tal bijeção \citecustom{wang2011}.  
+
+Ao final, os autores definem e provam os seguintes teoremas
+\citecustom{wang2011}:
+
+\begin{enumerate}
+\item Para o sistema linear descrito no artigo, todo estado possível do sistema será
+atingível a partir de qualquer estado inicial se e somente se os autovalores
+da matriz $L_{m^n \times m^n}$ do sistema são
+$e^{\frac{2k\pi i}{m^n}},k=0,1,\ldots,m^n-1$, onde $i$ é o número
+imaginário tal que $i^2=-1$.
+
+\item Se $e^{\frac{2k\pi i}{r}},k=0,1,\ldots,r-1$ são autovalores de $L$,
+então o sistema terá um ciclo de período $r$. Adicionalmente,
+o número de séries $\left\{e^{\frac{2k\pi i}{r}}\right\}^{r-1}_{k=0}$
+é o número de ciclos de comprimento $r$.
+
+\item O conjunto limite do sistema representado por $L$ consiste de somente um
+ponto fixo se e somente se os autovalores da matriz $L$
+tem um elemento igual a $1$ e todos os outros iguais a $0$.
+\end{enumerate}
 
 Neste capítulo, é proposta uma nova abordagem para o problema, por meio da
 análise das matrizes de adjacências correspondentes aos AFs
@@ -1612,14 +1554,13 @@ matrizes analisadas.
 
 \section{Conclusão}\label{sec:conclude}
 
-ACs são sistemas totalmente discretos que agem localmente de forma simples
-e determinística, mas que podem possuir
-comportamento global resultante extremamente complexo. O conjunto de configurações
-globais que podem ser vistas em um AC após um determinado
+Autômatos celulares são sistemas totalmente discretos que agem localmente
+de forma simples e determinística, mas que podem possuir
+comportamento global resultante extremamente complexo. O conjunto de
+configurações globais que podem ser vistas em um AC após um determinado
 número de passos de evolução pode ser descrito por uma linguagem
-regular. Linguagem regulares são um conjunto de cadeias formadas
-por um alfabeto dentro da linguagem e que podem ser reconhecidas por um
-AF.
+regular. Linguagens regulares são as que sempre podem ser reconhecidas por um
+Autômato finito.
 
 Este trabalho trata do estudo da complexidade de um subconjunto dos ACs
 elementares. O objetivo é dar continuidade aos trabalhos de
@@ -1627,24 +1568,23 @@ elementares. O objetivo é dar continuidade aos trabalhos de
 análises dos semi-autômatos dos diferentes passos de tempo
 para as regras elementares.
 
-Aqui, a abordagem utilizada foi a de converter os semi-autômatos dos sucessivos
+Aqui, a abordagem utilizada é a de converter os semi-autômatos dos sucessivos
 passos de tempo das regras do espaço elementar em matrizes de adjacências e analisar
 tais matrizes. Porém, a notação comumente utilizada para matrizes de adjacências
-não consegue completamente descrever os semi-autômatos. Foi, então, proposta uma
+não consegue completamente descrever os semi-autômatos. É, então, proposta uma
 nova notação de matriz de adjacências, chamada de \textit{matriz de
-adjacências isomórfica}, assim chamadas porque existe um isomorfismo entre
+adjacências isomórfica}, assim nomeadas porque existe um isomorfismo entre
 o semi-autômato e sua respectiva matriz de adjacências. Com isso, foi possível
 construir o semi-autômato a partir de sua matriz de adjacências isomórfica.
 
-Depois, mostrou-se que é possível deduzir um algoritmo para o semi-autômato
-de tempo $t$ baseado na análise das respectivas matrizes de adjacências e tal
-algoritmo foi deduzido para a regra 184. Em seguida, analisaram-se
+Depois, mostra-se que é possível deduzir um algoritmo para o semi-autômato
+de tempo $t$ da regra 184 baseado na análise das respectivas matrizes de
+adjacências. Em seguida, o trabalho analisa
 os padrões de evolução das matrizes para as 26 regras estudadas em
 \citecustom{mikietal2011}. Desta análise, descobriu-se que esse grupo de regras
 também apresentam padrão de formação, embora nem sempre desde o primeiro
-instante de tempo. Estes resultados representam um novo passo em relação
-aos trabalhos de \citecustom{trafaniuc2004} e \citecustom{miki2006}, pois
-agora é possível obter o autômato de tempo $t$ algoritimicamente.
+instante de tempo. Estes resultados representam uma nova abordagem em relação
+aos trabalhos de \citecustom{trafaniuc2004} e \citecustom{miki2006}.
 
 Conclui-se então que a nova notação de matrizes de adjacências proposta
 pode melhor representar um semi-autômato para caracterização da complexidade
@@ -1661,19 +1601,22 @@ do semi-autômato de tempo $20$ foi de $80$ ms para o método de matrizes
 de adjacências isomórficas, enquanto foi de $7,18$ segundos para o método
 dos autômatos sucessivos.
 
-Porém, permanece aberta a questão da convergência da evolução dos AFs da
+Permanece aberta, porém, a questão da convergência da evolução dos AFs da
 regra 184 para o seu comportamento limite \citecustom{miki2006}. Partindo
 dos resultados conseguidos até aqui, duas vertentes de trabalho serão
 seguidas:
 
 \begin{enumerate}
 \item Transformar o semi-autômato da Figura \ref{fig:limit184} em uma matriz
-de adjacências isomórfica e realizar o mesmo trabalho que
-\citeonline{miki2006} fez para os semi-autômatos da regra 184, desta vez
-utilizando a notação de matrizes.
+de adjacências isomórfica, fazer a análise da formação desta matriz e tentar
+conectar as matrizes dos sucessivos passos de tempo com a matriz do
+comportamento limite, assim como \citeonline{miki2006} o fez para
+a notação de semi-autômatos.
 
 \item Gerar os semi-autômatos de tempo $t$ para as outras regras, como
-fez \citeonline{trafaniuc2004}, e tentar inferir um algoritmo genérico
+fez \citeonline{trafaniuc2004}.
+
+\item Tentar inferir um algoritmo genérico
 de detecção de padrões para matrizes de adjacências e, a partir deste,
 obter o semi-autômato limite da regra 184.
 \end{enumerate}
@@ -1687,21 +1630,14 @@ obter o semi-autômato limite da regra 184.
 \caption{Cronograma do projeto de pesquisa}
 \label{tab:schedule}
 \begin{center}
-\begin{tabular}{|p{7cm}|c|c|c|c|c|c|c|c|c|c|c|c|}
+\begin{tabular}{|p{11cm}|c|c|c|c|c|c|c|}
 \hline
-\footnotesize Atividade & \footnotesize Julho & \footnotesize Agosto & \footnotesize Setembro & \footnotesize Outubro & \footnotesize Novembro
-& \footnotesize Dezembro & \footnotesize Janeiro & \footnotesize Fevereiro & \footnotesize Março & \footnotesize Abril
+\footnotesize Atividade & \footnotesize Janeiro & \footnotesize Fevereiro & \footnotesize Março & \footnotesize Abril
 & \footnotesize Maio & \footnotesize Junho\\ \hline
-{\footnotesize Pesquisa do material Nonlinear Dynamics}& X & X &   &   &   &   &   &   &   &   &   &   \\ \hline
-{\footnotesize Referencial Teórico}                    &   & X & X & X &   &   &   &   &   &   &   &   \\ \hline
-{\footnotesize Implementação preliminar do projeto}    &   &   &   & X &   &   &   &   &   &   &   &   \\ \hline
-{\footnotesize Análise de resultados obtidos}          &   &   &   & X & X &   &   &   &   &   &   &   \\ \hline
-{\footnotesize Síntese e formatação dos resultados}    &   &   &   &   & X &   &   &   &   &   &   &   \\ \hline
-{\footnotesize Revisão do texto}                       &   &   &   &   & X & X &   &   &   &   &   &   \\ \hline
-{\footnotesize Experimentos baseados nos resultados obtidos anteriormente}
-                                                       &   &   &   &   &   &   & X & X &   &   &   &   \\ \hline
-{\footnotesize Correções de texto e novos experimentos baseados nos comentários da banca de qualificação}
-                                                       &   &   &   &   &   &   &   & X & X & X & X &   \\ \hline
+{\footnotesize Gerar o semi-autômato de tempo $t$ para as outras regras} & X & X &   &   &  &  \\ \hline
+{\footnotesize Trabahar em um algoritmo de detecção de padrões genérico} &   & X & X &   &  &  \\ \hline
+{\footnotesize Analisar a representação matricial do grafo limite da regra 184} &   &   &   & X &  &  \\ \hline
+{\footnotesize Elaboração do documento final} &   &   &   &   & X  & X \\ \hline
 \end{tabular}
 \end{center}
 \end{table}
