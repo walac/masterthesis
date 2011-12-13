@@ -183,7 +183,7 @@ aqui e o cronograma de trabalho.
 
 \newpage
 
-\section{Autômatos Celulares}\label{sec:refteo}
+\section{Autômatos celulares}\label{sec:refteo}
 
 É comum na natureza encontrar sistemas cujo comportamento global é extremamente
 complexo, ainda que as partes que formam tais sistemas sejam simples. A
@@ -252,7 +252,7 @@ Durante a metade de 1982, ele trabalhou duramente em analisar o comportamento de
 ACs usando ideias da mecânica estatística, teoria de sistemas
 dinâmicos e matemática discreta \citecustom{wolfram2002}.
 
-\subsection{Autômatos Celulares Elementares}
+\subsection{Autômatos celulares elementares}
 
 Um AC unidimensional tem grade $\mathbb{Z}_N$ no caso finito, ou $\mathbb{Z}$
 no caso infinito (deste ponto de vista, frequentemente usa-se $N$ para denotar
@@ -352,7 +352,7 @@ $\frac{0 1 1}{1}$ & $\frac{0 1 0}{0}$ & $\frac{0 0 1}{1}$ & $\frac{0 0 0}{0}$ &
 \end{center}
 \end{figure}
 
-\subsection{Equivalência Dinâmica de Regras}
+\subsection{Equivalência dinâmica de regras}
 
 Duas regras locais ${\phi}_1$ e ${\phi}_2$ são ditas equivalentes se e somente se existir
 uma transformação a qual mapeia a regra ${\phi}_1$ na regra ${\phi}_2$, e vice-versa
@@ -555,7 +555,7 @@ equivalentes. Nota-se pelas figuras que a evolução de uma é o espelho da outr
 Estudar as classes de equivalência mostra-se importante porque regras locais
 equivalentes apresentam o mesmo padrão de complexidade de evolução.
 
-\subsection{Classificação dos Autômatos Celulares}
+\subsection{Classificação dos autômatos celulares}
 
 \citeonline{wolfram1994} dividiu os ACs elementares em quatro
 classes segundo a complexidade do padrão gerado pelo seu comportamento dinâmico,
@@ -601,7 +601,7 @@ configuração ocorre na órbita de outra.
 \item A classe 4 engloba todas as regras locais.
 \end{enumerate}
 
-\subsection{Linguagens Formais}
+\subsection{Linguagens formais}
 
 A teoria dos autômatos é o estudo dos dispositivos de computação abstratos,
 ou \textit{máquinas}. Antes de existirem computadores, na década de 1930, Alan
@@ -671,7 +671,7 @@ os símbolos de $\Sigma$; assim, uma vez que se estabelece que $L$ é uma
 linguagem sobre $\Sigma$, também sabe-se que ela é uma linguagem sobre qualquer
 alfabeto que seja um superconjunto de $\Sigma$ \citecustom{hopcroft2002}.
 
-\subsection{Autômatos Finitos e Linguagens Regulares}
+\subsection{Autômatos finitos e linguagens regulares}
 
 Segundo \citeonline{hopcroft2002}, um AF é definido por
 uma quíntupla $A = (\mathbb{Q},\Sigma,\delta,q_0,\mathbb{F})$, onde:
@@ -773,7 +773,7 @@ nenhuma (o que representa a cadeia vazia).
 Por exemplo, a expressão regular do autômato da Figura \ref{fig:automata}
 é $(0+1)^*1^+$.
 
-\subsection{Evolução de um Autômato Celular}
+\subsection{Evolução de um autômato celular}
 
 Linguagens formais consistem do conjunto de palavras formadas a partir de
 cadeias de símbolos em um alfabeto finito $\Sigma$ de acordo com regras
@@ -878,7 +878,7 @@ $\delta(q,a) = \{p_1,p_2,p_3,\ldots,p_n\}$, onde $q$ é o estado atual, $a$
 conjunto de possíveis novos estados;
 \end{description}
 
-\subsection{Configuração Inicial de um Autômato Celular}
+\subsection{Configuração inicial de um autômato celular}
 
 O espaço de configurações iniciais $\Omega^{(0)}$ de um AC
 elementar pode ser qualquer combinação de sequências de 0s e 1s
@@ -941,8 +941,8 @@ determinístico no qual no máximo um arco de cada valor sai de cada
 nó, assim combinando nós equivalentes. Este procedimento é
 executado pela função \emph{MinNet} \citecustom{wolfram2002}.
 
-\subsection{Análise da Complexidade de Linguagens Regulares de Autômatos
-Finitos Elementares}
+\subsection{Análise da complexidade de linguagens regulares de autômatos
+finitos elementares}
 
 \citeonline{mikietal2011} analisaram o padrão de crescimento da complexidade
 de linguagens regulares representando as configurações de ACs
@@ -1004,8 +1004,8 @@ expressões de crescimento e outros resultados.
 
 \newpage
 
-\section{Construção do Semi-autômato por meio de Matrizes de
-Adjacências}\label{sec:desenv}
+\section{Construção do semi-autômato por meio de matrizes de
+adjacências}\label{sec:desenv}
 
 Conforme já explicado anteriormente, o conjunto de configurações globais de
 um AC pode ser descrito por uma linguagem regular e,
@@ -1107,9 +1107,9 @@ a regra 184 para ilustrar o processo se deve ao fato de ser
 uma regra que já foi extensivamente estudada em \citecustom{trafaniuc2004}
 e \citecustom{miki2006}.
 
-\subsection{Representação de Semi-autômatos em Forma Matricial}
+\subsection{Representação de semi-autômatos em forma matricial}
 
-\subsubsection{Matrizes de Adjacências}
+\subsubsection{Matrizes de adjacências}
 
 Uma \textit{matriz de adjacência}, algumas vezes também chamada de 
 \textit{matriz de conexões}, representa os estados e transições de grafos
@@ -1187,7 +1187,7 @@ estudar possíveis padrões baseados nos autovalores das matrizes.
 A próxima seção introduz uma notação alternativa de matrizes de
 adjacência que contorna as dificuldades apresentadas.
 
-\subsubsection{Matrizes de Adjacências Isomórficas}
+\subsubsection{Matrizes de adjacências isomórficas}
 
 Uma matriz de adjacência isomórfica é uma notação de matriz de
 adjacência para representar semi-autômatos que possui uma relação
@@ -1330,7 +1330,7 @@ autômato limite de uma regra apenas elaborando-se um outro algoritmo para gerar
 matriz de adjacência isomórfica da regra. A próxima seção apresenta este
 algoritmo para a regra 184.
 
-\subsection{Algoritmo do Semi-autômato de Tempo \emph{t} para a regra 184}\label{sec:184}
+\subsection{Algoritmo do semi-autômato de tempo \emph{t} para a regra 184}\label{sec:184}
 
 Esta seção mostra como utilizar a notação de matriz de adjacência
 isomórfica para deduzir um algoritmo que gere o semi-autômato de uma
@@ -1494,7 +1494,7 @@ O algoritmo executa em tempo $O(t)$. A combinação dos Algoritmos
 De posse do Algoritmo \ref{alg:r184} e do Algoritmo \ref{alg:mtos} é
 possível, então, recriar o semi-autômato de tempo $t$ para a regra 184.
 
-\subsection{Padrão de Formação das Matrizes de Adjacências Isomórficas}\label{sec:pattern}
+\subsection{Padrão de formação das matrizes de adjacências isomórficas}\label{sec:pattern}
 
 Após um estudo aprofundado e dedução do algoritmo de formação das matrizes
 de adjacência isomórficas para a regra 184 descrito na Seção \ref{sec:184},
@@ -1651,7 +1651,7 @@ obter o semi-autômato limite da regra 184.
 \newpage
 
 \appendix
-\section{Tabelas de Evolução das 26 Regras do Espaço Elementar Estudadas}\label{sec:matrices}
+\section{Tabelas de evolução das 26 regras do espaço elementar estudadas}\label{sec:matrices}
 
 Aqui são apresentadas a evolução e matrizes de adjacência isomórficas
 para as 26 regras estudadas na Seção \ref{sec:pattern}. Observe que
@@ -1868,9 +1868,9 @@ grandes para caberem na tabela.
 \end{center}
 \end{table}
 
-\def\refname{Referências Bibliográficas}
+\def\refname{Referências bibliográficas}
 \bibliography{masterthesis}
-\addcontentsline{toc}{section}{Referências Bibliográficas} 
+\addcontentsline{toc}{section}{Referências bibliográficas} 
 \bibliographystyle{abnt-alf}
 
 \end{document}
