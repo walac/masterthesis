@@ -34,7 +34,7 @@
 \textbf{\large Wander Lairson Costa}\\
 \vskip 3.5cm
 \setlength{\baselineskip}{1.5\baselineskip}
-\textbf{\large Complexidade em linguagem regular de autômatos celulares elementares através da análise das matrizes de adjacências}\\
+\textbf{\large Complexidade em linguagem regular de autômatos celulares elementares através da análise de matrizes de adjacência}\\
 \vskip 4.0cm
 \end{center}
 \hfill{\vbox{\hsize=8.5cm\noindent\strut
@@ -93,21 +93,21 @@ em um passo de tempo $t$ finito para um AC pode ser descrito por uma
 linguagem regular, a qual por sua vez pode ser representada por meio
 de um autômato finito (AF). Este trabalho propõe o estudo da complexidade da
 evolução dos ACs por meio da representação dos autômatos finitos que descrevem a
-configuração global do AC utilizando matrizes de adjacências. Para tanto,
-estende-se a notação clássica de matrizes de adjacências, já que ela se
+configuração global do AC utilizando matrizes de adjacência. Para tanto,
+estende-se a notação clássica de matrizes de adjacência, já que ela se
 mostra insuficiente para completamente descrever os semi-autômatos dos
 ACs. Esta nova representação facilita a análise da complexidade de ACs
 e a detecção de padrões de crescimento dos respectivos AFs.
 O objetivo final deste trabalho é, por meio da análise proposta, encontrar
 algoritmicamente o comportamento limite da regra 184. Para isso, pretende-se
 seguir duas vertentes: analisar o grafo limite da regra 184 por meio de
-representação em matrizes de adjacências; e tentar achar um algoritmo de
+representação em matrizes de adjacência; e tentar achar um algoritmo de
 detecção de padrões em matrizes de adjacência de forma automática, que
 poderá ser utilizado na obtenção do comportamento limite da regra 184.
 \\[0.5cm]
 \begin{flushleft}
 {\bf Palavras-chave:} {\it Autômato celular elementar, comportamento limite,
-linguagem regular, matriz de adjacências, complexidade, autômato finito.}
+linguagem regular, matriz de adjacência, complexidade, autômato finito.}
 \end{flushleft}
 
 % SUMÁRIO
@@ -162,7 +162,7 @@ estudaram, em seus respectivos trabalhos, a complexidade de ACs
 elementares por meio da análise da evolução dos sucessivos
 AFs para diferentes instantes de tempo. Este trabalho
 tem o objetivo de dar prosseguimento a este estudo, utilizando a abordagem
-de representação dos AFs por meio de matrizes de adjacências.
+de representação dos AFs por meio de matrizes de adjacência.
 Sobretudo, este trabalho objetiva estudar o comportamento da evolução da
 regra 184 e, assim, tentar derivar seu comportamento limite.
 
@@ -173,7 +173,7 @@ Adicionalmente, apresenta um resumo do trabalho relatado em
 
 O Capítulo \ref{sec:desenv} descreve a proposta deste trabalho. A obtenção do
 semi-autômato de tempo $t$ pode ser conseguida por meio de uma nova notação de 
-matrizes de adjacências isomórfica em relação ao respectivo semi-autômato.
+matrizes de adjacência isomórfica em relação ao respectivo semi-autômato.
 
 O Capítulo \ref{sec:conclude} apresenta as conclusões parciais obtidas até
 aqui e o cronograma de trabalho.
@@ -1089,10 +1089,10 @@ tem um elemento igual a $1$ e todos os outros iguais a $0$.
 \end{enumerate}
 
 Neste capítulo, é proposta uma nova abordagem para o problema, por meio da
-análise das matrizes de adjacências correspondentes aos AFs
+análise das matrizes de adjacência correspondentes aos AFs
 das respectivas regras do espaço elementar. Porém, como será visto adiante,
 não é possível representar completamente um AF utilizando a
-notação clássica de matrizes de adjacências. É proposta, então, uma
+notação clássica de matrizes de adjacência. É proposta, então, uma
 nova notação que, dada a matriz de adjacência, é possível construir
 integralmente o grafo da respectiva matriz.
 
@@ -1108,7 +1108,7 @@ e \citecustom{miki2006}.
 
 \subsubsection{Matrizes de Adjacências}
 
-Uma \textit{matriz de adjacências}, algumas vezes também chamada de 
+Uma \textit{matriz de adjacência}, algumas vezes também chamada de 
 \textit{matriz de conexões}, representa os estados e transições de grafos
 em forma matricial, rotulando as linhas e colunas com os vértices do grafo.
 As linhas e colunas representam, respectivamente, os estados de origem e destino
@@ -1120,7 +1120,7 @@ A representação de um grafo direcionado $G$ com $n$ vértices se dá por uma
 matriz $M$ de dimensão $n \times n$. O valor da posição $a_{ij}$ da matriz
 $M$ será $1$ se existir uma transição do estado $i$ para o estado $j$.
 A Figura \ref{fig:graph} mostra um grafo direcionado e a Figura \ref{fig:adjm}
-mostra a matriz de adjacências correspondente.
+mostra a matriz de adjacência correspondente.
 
 \begin{figure}[ht]
 \begin{minipage}[b]{0.5\linewidth}
@@ -1146,13 +1146,13 @@ mostra a matriz de adjacências correspondente.
 0 & 1 & 1
 \end{pmatrix}
 \end{math}
-\caption{Representação em matriz de adjacências.}
+\caption{Representação em matriz de adjacência.}
 \label{fig:adjm}
 \end{center}
 \end{minipage}
 \end{figure}
 
-Embora matrizes de adjacências possam representar grafos direcionados simples,
+Embora matrizes de adjacência possam representar grafos direcionados simples,
 não é possível representar completamente um semi-autômato, dado que:
 
 \begin{enumerate}
@@ -1167,14 +1167,14 @@ transição por par de estados $(i,j)$.
 \end{enumerate}
 
 Para ilustrar a dificuldade de se representar semi-autômatos utilizando
-matrizes de adjacências, considere o semi-autômato da Figura
-\ref{fig:initconfigautomaton}. A matriz de adjacências deste autômato
+matrizes de adjacência, considere o semi-autômato da Figura
+\ref{fig:initconfigautomaton}. A matriz de adjacência deste autômato
 seria uma matriz $1 \times 1$ com valor $a_{1,1}=1$. Porém, perde-se a informação
 de que existem duas transições reflexivas no semi-autômato. Mais ainda,
 não existe qualquer menção ao valor das transições.
 
 Uma notação possível seria utilizar uma lista em cada índice da matriz de
-adjacências. Neste caso, o índice $a_{ij}$ conteria uma lista com todos
+adjacência. Neste caso, o índice $a_{ij}$ conteria uma lista com todos
 os possíveis valores de transição do estado $i$ para o estado $j$.
 Porém, com este tipo de notação, além de ser mais complicado
 detectar padrões nos sucessivos passos de tempo, perde-se qualquer possibilidade
@@ -1182,14 +1182,14 @@ de operações algébricas com as matrizes. Por exemplo, não seria possível
 estudar possíveis padrões baseados nos autovalores das matrizes.
 
 A próxima seção introduz uma notação alternativa de matrizes de
-adjacências que contorna as dificuldades apresentadas.
+adjacência que contorna as dificuldades apresentadas.
 
 \subsubsection{Matrizes de Adjacências Isomórficas}
 
-Uma matriz de adjacências isomórfica é uma notação de matriz de
-adjacências para representar semi-autômatos que possui uma relação
+Uma matriz de adjacência isomórfica é uma notação de matriz de
+adjacência para representar semi-autômatos que possui uma relação
 de isomorfismo entre a matriz e sua representação em grafo.
-Formalmente, dado o conjunto de matrizes de adjacências
+Formalmente, dado o conjunto de matrizes de adjacência
 isomórficas $\mathbb{M}$ e o conjunto de semi-autômatos $\mathbb{G}$,
 existe uma transformação $T: \mathbb{G} \mapsto \mathbb{M}$ e uma
 transformação $T^{-1}: \mathbb{M} \mapsto \mathbb{G}$. 
@@ -1231,7 +1231,7 @@ transições e, do ponto de vista de arquitetura computacional, a base 2 é a
 base mais natural para se trabalhar. A Figura \ref{fig:semigraph}
 mostra o grafo da Figura \ref{fig:graph}, agora representado como um semi-autômato
 (repare que agora existe um valor para cada transição), e a Figura \ref{fig:iadjm}
-mostra a matriz de adjacências isomórfica correspondente.
+mostra a matriz de adjacência isomórfica correspondente.
 
 \begin{figure}[ht]
 \begin{minipage}[b]{0.5\linewidth}
@@ -1257,17 +1257,17 @@ mostra a matriz de adjacências isomórfica correspondente.
 0 & 2 & 1
 \end{pmatrix}
 \end{math}
-\caption{Representação em matriz de adjacências isomórfica.}
+\caption{Representação em matriz de adjacência isomórfica.}
 \label{fig:iadjm}
 \end{center}
 \end{minipage}
 \end{figure}
 
-A transformação de um semi-autômato em uma matriz de adjacências
+A transformação de um semi-autômato em uma matriz de adjacência
 isomórfica é executada por meio do Algoritmo \ref{alg:stom}.
 
 \begin{algorithm}
-\caption{Algoritmo para gerar a matriz de adjacências isomórfica a partir
+\caption{Algoritmo para gerar a matriz de adjacência isomórfica a partir
 de um semi-autômato.}
 \label{alg:stom}
 \begin{algorithmic}
@@ -1286,19 +1286,19 @@ de estados do semi-autômato, e atribuindo à posição $A_{ij}$ o valor
 da função $\eta(\mathbb{L}_{ij}),\forall i,j$, onde $\mathbb{L}_{ij}$
 é o conjunto de transições de $i$ para $j$.
 
-O algoritmo de transformação de uma matriz de adjacências isomórfica em
+O algoritmo de transformação de uma matriz de adjacência isomórfica em
 um semi-autômato é baseado na representação binária dos valores dos
 índices da matriz. Por exemplo, se no índice $A_{1,2}$ existir o valor
 $3$, então existe uma transição em $0$ e uma transição em $1$ do estado
 \emph{1} para o estado \emph{2}, pois $2^0+2^1=3$. O Algoritmo \ref{alg:mtos}
 mostra o processo de geração do semi-autômato a partir de uma matriz de
-adjacências isomórfica. O algoritmo pressupõe a existência de uma função
+adjacência isomórfica. O algoritmo pressupõe a existência de uma função
 \emph{MakeTransition(i,j,m)} que cria uma transição em \emph{m} do estado
 \emph{i} para o estado \emph{j}.
 
 \begin{algorithm}
 \caption{Algoritmo para gerar o semi-autômato a partir de uma matriz de
-adjacências isomórfica.}
+adjacência isomórfica.}
 \label{alg:mtos}
 \begin{algorithmic}
 \FOR{$i=1$ to $n$}
@@ -1324,12 +1324,12 @@ adjacências isomórfica.}
 O algoritmo executa em tempo $O(n^2)$ em relação à dimensão da matriz.
 De posse do Algoritmo \ref{alg:mtos}, é possível criar o algoritmo para gerar o
 autômato limite de uma regra apenas elaborando-se um outro algoritmo para gerar a
-matriz de adjacências isomórfica da regra. A próxima seção apresenta este
+matriz de adjacência isomórfica da regra. A próxima seção apresenta este
 algoritmo para a regra 184.
 
 \subsection{Algoritmo do Semi-autômato de Tempo \emph{t} para a regra 184}\label{sec:184}
 
-Esta seção mostra como utilizar a notação de matriz de adjacências
+Esta seção mostra como utilizar a notação de matriz de adjacência
 isomórfica para deduzir um algoritmo que gere o semi-autômato de uma
 regra do espaço elementar para um passo de tempo discreto $t$ qualquer. Em
 particular, aqui é deduzido o algoritmo para gerar a matriz isomórfica para
@@ -1377,7 +1377,7 @@ semi-autômatos da regra 184.
 
 É difícil identificar visualmente estas estruturas, ou qualquer padrão de
 crescimento, por meio dos semi-autômatos. Porém, convertendo estes grafos
-em matrizes de adjacências isomórficas, é possível detectar os padrões
+em matrizes de adjacência isomórficas, é possível detectar os padrões
 de crescimento e visualizar o efeito das estruturas adicionada e
 excluída. As Figuras \ref{fig:addstructm} e \ref{fig:excstructm} mostram
 as respectivas estruturas adicionada e excluída em notação matricial, e
@@ -1420,7 +1420,7 @@ de grafo e matricial.
 
 Embora devido à diferença nos tamanhos das matrizes não seja possível
 derivar uma operação algébrica, é fácil notar o que acontece na evolução
-da regra 184 olhando as matrizes de adjacências da regra e as estruturas
+da regra 184 olhando as matrizes de adjacência da regra e as estruturas
 adicionada e excluída.
 
 Observando duas matrizes de tempo $t$ e tempo $t+1$, repara-se que:
@@ -1448,11 +1448,11 @@ atribuída na posição $A_{n,n-1}$.
 \end{enumerate}
 
 Baseando-se nesta análise, é possível derivar um algoritmo de construção da
-matriz de adjacências isomórfica do semi-autômato de tempo $t$ para a
+matriz de adjacência isomórfica do semi-autômato de tempo $t$ para a
 regra 184. O algoritmo é mostrado no Algoritmo \ref{alg:r184}.
 
 \begin{algorithm}
-\caption{Algoritmo para gerar a matriz de adjacências isomórfica do
+\caption{Algoritmo para gerar a matriz de adjacência isomórfica do
 semi-autômato de tempo $t$ para a regra 184.}
 \label{alg:r184}
 \begin{algorithmic}
@@ -1494,7 +1494,7 @@ possível, então, recriar o semi-autômato de tempo $t$ para a regra 184.
 \subsection{Padrão de Formação das Matrizes de Adjacências Isomórficas}\label{sec:pattern}
 
 Após um estudo aprofundado e dedução do algoritmo de formação das matrizes
-de adjacências isomórficas para a regra 184 descrito na Seção \ref{sec:184},
+de adjacência isomórficas para a regra 184 descrito na Seção \ref{sec:184},
 estudou-se o padrão de formação para todas as mesmas 26 regras estudadas em
 \citecustom{mikietal2011}. Conforme mostrado na Tabela \ref{tab:pattern},
 todas as regras apresentam um padrão de formação, embora nem sempre a
@@ -1531,7 +1531,7 @@ partir do primeiro instante de tempo.
 224 & $t=2$ & Não \\
 252 & $t=2$ & Não \\
 \end{tabular}
-\caption{Padrão de formação de matrizes de adjacências isomórficas das
+\caption{Padrão de formação de matrizes de adjacência isomórficas das
 regras elementares.}
 \label{tab:pattern}
 \end{center}
@@ -1571,24 +1571,24 @@ análises dos semi-autômatos dos diferentes passos de tempo
 para as regras elementares.
 
 Aqui, a abordagem utilizada é a de converter os semi-autômatos dos sucessivos
-passos de tempo das regras do espaço elementar em matrizes de adjacências e analisar
-tais matrizes. Porém, a notação comumente utilizada para matrizes de adjacências
+passos de tempo das regras do espaço elementar em matrizes de adjacência e analisar
+tais matrizes. Porém, a notação comumente utilizada para matrizes de adjacência
 não consegue completamente descrever os semi-autômatos. É, então, proposta uma
-nova notação de matriz de adjacências, chamada de \textit{matriz de
-adjacências isomórfica}, assim nomeadas porque existe um isomorfismo entre
-o semi-autômato e sua respectiva matriz de adjacências. Com isso, foi possível
-construir o semi-autômato a partir de sua matriz de adjacências isomórfica.
+nova notação de matriz de adjacência, chamada de \textit{matriz de
+adjacência isomórfica}, assim nomeadas porque existe um isomorfismo entre
+o semi-autômato e sua respectiva matriz de adjacência. Com isso, foi possível
+construir o semi-autômato a partir de sua matriz de adjacência isomórfica.
 
 Depois, mostra-se que é possível deduzir um algoritmo para o semi-autômato
 de tempo $t$ da regra 184 baseado na análise das respectivas matrizes de
-adjacências. Em seguida, o trabalho analisa
+adjacência. Em seguida, o trabalho analisa
 os padrões de evolução das matrizes para as 26 regras estudadas em
 \citecustom{mikietal2011}. Desta análise, descobriu-se que esse grupo de regras
 também apresentam padrão de formação, embora nem sempre desde o primeiro
 instante de tempo. Estes resultados representam uma nova abordagem em relação
 aos trabalhos de \citecustom{trafaniuc2004} e \citecustom{miki2006}.
 
-Conclui-se então que a nova notação de matrizes de adjacências proposta
+Conclui-se então que a nova notação de matrizes de adjacência proposta
 pode melhor representar um semi-autômato para caracterização da complexidade
 de ACs elementares, e que a relação de isomorfismo entre
 a matriz e seu semi-autômato torna possível a obtenção do algoritmo de
@@ -1600,7 +1600,7 @@ geração dos sucessivos semi-autômatos é necessário gerar o
 semi-autômato para cada passo de tempo. Por exemplo, em uma implementação dos
 algoritmos utilizando o software \textit{Mathematica} o tempo para geração
 do semi-autômato de tempo $20$ foi de $80$ ms para o método de matrizes
-de adjacências isomórficas, enquanto foi de $7,18$ segundos para o método
+de adjacência isomórficas, enquanto foi de $7,18$ segundos para o método
 dos autômatos sucessivos.
 
 Permanece aberta, porém, a questão da convergência da evolução dos AFs da
@@ -1610,7 +1610,7 @@ seguidas:
 
 \begin{enumerate}
 \item Transformar o semi-autômato da Figura \ref{fig:limit184} em uma matriz
-de adjacências isomórfica, fazer a análise da formação desta matriz e tentar
+de adjacência isomórfica, fazer a análise da formação desta matriz e tentar
 conectar as matrizes dos sucessivos passos de tempo com a matriz do
 comportamento limite, assim como \citeonline{miki2006} o fez para
 a notação de semi-autômatos.
@@ -1619,7 +1619,7 @@ a notação de semi-autômatos.
 fez \citeonline{trafaniuc2004}.
 
 \item Tentar inferir um algoritmo genérico
-de detecção de padrões para matrizes de adjacências e, a partir deste,
+de detecção de padrões para matrizes de adjacência e, a partir deste,
 obter o semi-autômato limite da regra 184.
 \end{enumerate}
 
@@ -1650,7 +1650,7 @@ obter o semi-autômato limite da regra 184.
 \appendix
 \section{Tabelas de Evolução das 26 Regras do Espaço Elementar Estudadas}\label{sec:matrices}
 
-Aqui são apresentadas a evolução e matrizes de adjacências isomórficas
+Aqui são apresentadas a evolução e matrizes de adjacência isomórficas
 para as 26 regras estudadas na Seção \ref{sec:pattern}. Observe que
 algumas matrizes estão parcialmente mostradas devido ao fato de serem muito
 grandes para caberem na tabela.
