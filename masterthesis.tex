@@ -1592,29 +1592,24 @@ Depois, mostra-se que é possível deduzir um algoritmo para o semi-autômato
 de tempo $t$ da regra 184 baseado na análise das respectivas matrizes de
 adjacência. Em seguida, o trabalho analisa
 os padrões de evolução das matrizes para as 26 regras estudadas em
-\citecustom{mikietal2011}. Desta análise, descobriu-se que esse grupo de regras
+\citecustom{mikietal2011}. Desta análise, nota-se que esse grupo de regras
 também apresenta um padrão de formação, embora nem sempre desde o primeiro
-instante de tempo. Estes resultados representam uma nova abordagem em relação
-aos trabalhos de \citecustom{trafaniuc2004} e \citecustom{miki2006}.
+instante de tempo, da mesma maneira que \citeonline{trafaniuc2004} e
+\citeonline{miki2006} já haviam demonstrado para a notação em semi-autômatos.
+\citeonline{trafaniuc2004} deduziu a regra de formação do autômato de
+tempo $t$ para outras 11 regras, além da regra 184. \citeonline{miki2006}
+conseguiu automatizar o processo de detecção de padrões em tempos adjacentes
+dos semi-autômatos que representam a evolução dos ACs, ainda dentro do
+conjunto de 26 regras abordadas. Este trabalho pretende obter os mesmos
+resultados para a notação de matrizes de adjacência de evolução temporal.
 
-Conclui-se então que a nova notação de matrizes de adjacência proposta
-pode melhor representar um semi-autômato para caracterização da complexidade
-de ACs elementares, e que a relação de isomorfismo entre
-a matriz e seu semi-autômato torna possível a obtenção do algoritmo de
-geração do semi-autômato de tempo $t$ a um custo computacional muito
-menor em relação à abordagem de geração de semi-autômatos sucessivos.
-Isto ocorre porque a combinação dos Algoritmos \ref{alg:mtos} e
-\ref{alg:r184} executa em um único passo, enquanto no método de
-geração dos sucessivos semi-autômatos é necessário gerar o
-semi-autômato para cada passo de tempo. Por exemplo, em uma implementação dos
-algoritmos utilizando o software \textit{Mathematica} o tempo para geração
-do semi-autômato de tempo $20$ foi de $80$ ms para o método de matrizes
-de adjacência de evolução temporal, enquanto foi de $7,18$ segundos para o método
-dos autômatos sucessivos.
+Acredita-se então que essa nova representação por meio de matrizes de
+adjacência possa ajudar no estudo da complexidade de ACs e na identificação
+de padrões de crescimento dos respectivos AFs.
 
 Permanece aberta, porém, a questão da convergência da evolução dos AFs da
 regra 184 para o seu comportamento limite \citecustom{miki2006}. Partindo
-dos resultados conseguidos até aqui, duas vertentes de trabalho serão
+dos resultados conseguidos até aqui, três vertentes de trabalho serão
 seguidas:
 
 \begin{enumerate}
