@@ -2052,6 +2052,66 @@ semi-autômato de tempo $t$ para a regra 11.}
 \end{algorithmic}
 \end{algorithm}
 
+\begin{algorithm}[H]
+\caption{Algoritmo para gerar a matriz de adjacências isomórfica do
+semi-autômato de tempo $t$ para a regra 14.}
+\label{alg:r14}
+\begin{algorithmic}
+\STATE $k \leftarrow \lfloor t \div 2 \rfloor$
+\STATE $m = t-2k$
+\IF{$t=1$}
+    \STATE $n \leftarrow 3$
+    \STATE $A \leftarrow \mbox{ matriz nula } n \times n$
+    \STATE $A_{1,n} \leftarrow 1$
+    \STATE $A_{2,n} \leftarrow 1$
+    \STATE $A_{n,n} \leftarrow 1$
+    \STATE $A_{2,1} \leftarrow 2$
+    \STATE $A_{n,2} \leftarrow 2$
+\ELSE
+\algstore{rule14}
+\end{algorithmic}
+\end{algorithm}
+
+\begin{algorithm}[H]
+\begin{algorithmic}
+\algrestore{rule14}
+    \STATE $n \leftarrow 2(t+1)$
+    \STATE $A \leftarrow \mbox{ matriz nula } n \times n$
+    \FOR{$j=1$ to $k$}
+        \STATE $A_{t+k+m+j-1,j} \leftarrow 2$
+        \STATE $A_{t+k+m+j-1,t+k+m} \leftarrow 1$
+    \ENDFOR
+    \IF{$t>2$}
+        \FOR{$j=1$ to $k+m-1$}
+            \STATE $A_{j,k+j} \leftarrow 2$
+            \STATE $A_{k+j,t+j-1} \leftarrow 1$
+        \ENDFOR
+    \ENDIF
+    \IF{$t>3$}
+        \FOR{$j=1$ to $k-1$}
+            \STATE $A_{t+j-1,t+k+j} \leftarrow 1$
+        \ENDFOR
+    \ENDIF
+    \IF{$m=0$}
+        \STATE $A_{k,t+k-1} \leftarrow 2$
+    \ENDIF
+    \STATE $A_{n-3,n} \leftarrow 1$
+    \STATE $A_{t+k+m-1,n} \leftarrow 1$
+    \STATE $A_{n,n-3} \leftarrow 2$
+    \STATE $A_{n-1,n-3} \leftarrow 2$
+    \STATE $A_{n-1,t+k+m} \leftarrow 1$
+    \STATE $A_{n-2,t+k+m-1} \leftarrow 2$
+\ENDIF
+\end{algorithmic}
+\end{algorithm}
+
+\newpage
+
+\def\refname{Referências Bibliográficas}
+\bibliography{masterthesis}
+\addcontentsline{toc}{section}{Referências Bibliográficas} 
+\bibliographystyle{abnt-alf}
+
 \end{document}
 
 % vim:set spell spelllang=pt
