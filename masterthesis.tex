@@ -2074,6 +2074,39 @@ semi-autômato de tempo $t$ para a regra 14.}
 \end{algorithmic}
 \end{algorithm}
 
+\begin{algorithm}[H]
+\caption{Algoritmo para gerar a matriz de adjacências isomórfica do
+semi-autômato de tempo $t$ para a regra 23.}
+\label{alg:r23}
+\begin{algorithmic}
+\STATE $n \leftarrow 4t+6$
+\STATE $A \leftarrow \mbox{ matriz nula } n \times n$
+\IF{$t>1$}
+    \FOR{$j=1$ to $t-1$}
+        \STATE $A_{j,j+1} \leftarrow 2$
+        \STATE $A_{t+j,t+j+1} \leftarrow 1$
+        \STATE $A_{2t+j,2t+j+2} \leftarrow 2$
+        \STATE $A_{3t+j+2,3t+j+3} \leftarrow 1$
+    \ENDFOR
+\ENDIF
+\FOR{$j=1$ to $t$}
+    \STATE $A_{3t+j+2,t} \leftarrow 2$
+    \STATE $A_{2t+j+1,2t} \leftarrow 1$
+\ENDFOR
+\STATE $A_{n,n} \leftarrow 1$
+\STATE $A_{n,n-4} \leftarrow 1$
+\STATE $A_{n-1,n-1} \leftarrow 2$
+\STATE $A_{3t+1,n-1} \leftarrow 2$
+\STATE $A_{n-1,n-2} \leftarrow 1$
+\STATE $A_{n,n-3} \leftarrow 2$
+\STATE $A_{n-3,3t+3} \leftarrow 1$
+\STATE $A_{3t+2,1} \leftarrow 2$
+\STATE $A_{n-3,3t+2} \leftarrow 2$
+\STATE $A_{n-4,2t+1} \leftarrow 1$
+\STATE $A_{n-4,2t+2} \leftarrow 2$
+\end{algorithmic}
+\end{algorithm}
+
 \newpage
 
 \def\refname{Referências Bibliográficas}
