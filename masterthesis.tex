@@ -2090,16 +2090,19 @@ semi-autômato de tempo $t$ para a regra 14.}
     \ENDIF
     \IF{$t>3$}
         \FOR{$j=1$ to $k-1$}
-            \STATE $A_{t+j-1,t+k+j} \leftarrow 1$
+            \STATE $A_{t+j-1,t+k+m+j} \leftarrow 1$
         \ENDFOR
     \ENDIF
     \IF{$m=0$}
         \STATE $A_{k,t+k-1} \leftarrow 2$
+    \ELSE
+        \STATE $A_{3k,n-1} \leftarrow 1$
     \ENDIF
-    \STATE $A_{n-3,n} \leftarrow 1$
+    \STATE $A_{n-2,n} \leftarrow 1$
     \STATE $A_{t+k+m-1,n} \leftarrow 1$
-    \STATE $A_{n,n-3} \leftarrow 2$
-    \STATE $A_{n-1,n-3} \leftarrow 2$
+    \STATE $A_{n,n-1} \leftarrow 1$
+    \STATE $A_{n,n-2} \leftarrow 2$
+    \STATE $A_{n-1,n-2} \leftarrow 2$
     \STATE $A_{n-1,t+k+m} \leftarrow 1$
     \STATE $A_{n-2,t+k+m-1} \leftarrow 2$
 \ENDIF
