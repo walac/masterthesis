@@ -2129,16 +2129,21 @@ semi-autômato de tempo $t$ para a regra 23.}
     \STATE $A_{2t+j+1,2t} \leftarrow 1$
 \ENDFOR
 \STATE $A_{n,n} \leftarrow 1$
-\STATE $A_{n,n-4} \leftarrow 1$
 \STATE $A_{n-1,n-1} \leftarrow 2$
 \STATE $A_{3t+1,n-1} \leftarrow 2$
 \STATE $A_{n-1,n-2} \leftarrow 1$
 \STATE $A_{n,n-3} \leftarrow 2$
-\STATE $A_{n-3,3t+3} \leftarrow 1$
+\STATE $A_{n-2,3t+3} \leftarrow 1$
 \STATE $A_{3t+2,1} \leftarrow 2$
-\STATE $A_{n-3,3t+2} \leftarrow 2$
-\STATE $A_{n-4,2t+1} \leftarrow 1$
-\STATE $A_{n-4,2t+2} \leftarrow 2$
+\STATE $A_{n-2,3t+2} \leftarrow 2$
+\STATE $A_{n-3,2t+1} \leftarrow 1$
+\STATE $A_{n-3,2t+2} \leftarrow 2$
+\STATE $A_{t,2t+2} \leftarrow 2$
+\STATE $A_{2t,3t+3} \leftarrow 1$
+\STATE $A_{n-4,n} \leftarrow 1$
+\STATE $A_{2t+1,t+1} \leftarrow 1$
+\STATE $A_{3t+2,2t+1} \leftarrow 1$
+\STATE $A_{2t+1,3t+2} \leftarrow 2$
 \end{algorithmic}
 \end{algorithm}
 
