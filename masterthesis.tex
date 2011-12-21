@@ -2115,6 +2115,42 @@ semi-autômato de tempo $t$ para a regra 23.}
 \end{algorithmic}
 \end{algorithm}
 
+\begin{algorithm}[H]
+\caption{Algoritmo para gerar a matriz de adjacência de evolução temporal do
+semi-autômato de tempo $t$ para a regra 35.}
+\label{alg:r35}
+\begin{algorithmic}
+\STATE $k \leftarrow \lfloor t \div 2 \rfloor$
+\STATE $m \leftarrow t - 2k$
+\STATE $n \leftarrow t+k+3$
+\STATE $A \leftarrow \mbox{ matriz nula } n \times n$
+\IF{$t>2$}
+    \FOR{$j=1$ to $k+m-1$}
+        \STATE $A_{j,k+j+1} \leftarrow 2$
+    \ENDFOR
+\ENDIF
+\FOR{$j=1$ to $k+m$}
+    \STATE $A_{k+j,t+j} \leftarrow 1$
+\ENDFOR
+\IF{$t>1$}
+    \FOR{$j=1$ to $k$}
+        \STATE $A_{t+j,j} \leftarrow 1$
+    \ENDFOR
+\ENDIF
+\FOR{$j=1$ to $k+1$}
+    \STATE $A_{t+j,k+1} \leftarrow 2$
+\ENDFOR
+\IF{$m=0$}
+    \STATE $A_{k,n-1} \leftarrow 2$
+\ENDIF
+\STATE $A_{n,n} \leftarrow 1$
+\STATE $A_{n,n-1} \leftarrow 2$
+\STATE $A_{n-1,n-1} \leftarrow 2$
+\STATE $A_{n-1,n-2} \leftarrow 1$
+\STATE $A_{n-2,n} \leftarrow 1$
+\end{algorithmic}
+\end{algorithm}
+
 \newpage
 
 \def\refname{Referências Bibliográficas}
