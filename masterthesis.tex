@@ -2151,6 +2151,38 @@ semi-autômato de tempo $t$ para a regra 35.}
 \end{algorithmic}
 \end{algorithm}
 
+\begin{algorithm}[H]
+\caption{Algoritmo para gerar a matriz de adjacência de evolução temporal do
+semi-autômato de tempo $t$ para a regra 43.}
+\label{alg:r43}
+\begin{algorithmic}
+\STATE $n \leftarrow 4(t+1)$
+\STATE $A \leftarrow \mbox{ matriz nula } n \times n$
+\IF{t>1}
+    \FOR{$j=1$ to $t-1$}
+        \STATE $A_{t+j,2t+j+1} \leftarrow 1$
+    \ENDFOR
+\ENDIF
+\FOR{$j=1$ to $t$}
+    \STATE $A_{j,n-t-3+j} \leftarrow 2$
+    \STATE $A_{3t+j,t+j} \leftarrow 2$
+    \STATE $A_{2t+j,j} \leftarrow 1$
+    \STATE $A_{2t+j,3t+1} \leftarrow 2$
+\ENDFOR
+\FOR{$j=1$ to $t+1$}
+    \STATE $A_{3t+j,2t+1} \leftarrow 1$
+\ENDFOR
+\STATE $A_{n,n} \leftarrow 1$
+\STATE $A_{n,n-3} \leftarrow 2$
+\STATE $A_{n-1,n-1} \leftarrow 2$
+\STATE $A_{n-1,n-2} \leftarrow 1$
+\STATE $A_{n-2,n} \leftarrow 1$
+\STATE $A_{n-3,n-1} \leftarrow 2$
+\STATE $A_{2t,n-2} \leftarrow 1$
+\STATE $A_{n-2,3t+1} \leftarrow 2$
+\end{algorithmic}
+\end{algorithm}
+
 \newpage
 
 \def\refname{Referências Bibliográficas}
