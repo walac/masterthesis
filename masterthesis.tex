@@ -2183,6 +2183,64 @@ semi-autômato de tempo $t$ para a regra 43.}
 \end{algorithmic}
 \end{algorithm}
 
+\begin{algorithm}[H]
+\caption{Algoritmo para gerar a matriz de adjacência de evolução temporal do
+semi-autômato de tempo $t$ para a regra 50.}
+\label{alg:r50}
+\begin{algorithmic}
+\STATE $k \leftarrow \lfloor t \div 2 \rfloor$
+\STATE $m \leftarrow t - 2k$
+\IF{$t=1$}
+    \STATE $n=3$
+    \STATE $A \leftarrow \mbox{ matriz nula } n \times n$
+    \STATE $A_{2,1} \leftarrow 2$
+    \STATE $A_{n,2} \leftarrow 2$
+    \STATE $A_{1,n} \leftarrow 1$
+    \STATE $A_{2,n} \leftarrow 1$
+    \STATE $A_{n,n} \leftarrow 1$
+\ELSE
+    \STATE $n \leftarrow 2t+3$
+    \STATE $A \leftarrow \mbox{ matriz nula } n \times n$
+    \FOR{$j=1$ to $k+m-1$}
+        \STATE $A_{k+j,j} \leftarrow 1$
+        \STATE $A_{t+k+j,2k+j+1} \leftarrow 1$
+        \STATE $A_{t+k+j,t} \leftarrow 2$
+    \ENDFOR
+    \FOR{$j=1$ to $k-1$}
+        \STATE $A_{t+j,3k+2m+j} \leftarrow 2$
+        \STATE $A_{j,k+j+1} \leftarrow 2$
+    \ENDFOR
+    \FOR{$j=1$ to $k$}
+        \STATE $A_{t+j,k} \leftarrow 1$
+    \ENDFOR
+    \IF{$t=2$}
+        \STATE $A_{n-1,n-2} \leftarrow 2$
+        \STATE $A_{1,n-2} \leftarrow 2$
+    \ENDIF
+\algstore{rule50}
+\end{algorithmic}
+\end{algorithm}
+
+\begin{algorithm}[H]
+\begin{algorithmic}
+\algrestore{rule50}
+    \IF{$t>2$}
+        \STATE $A_{k,t+k+1} \leftarrow 2$
+        \STATE $A_{n-1,n-(k+m+2)} \leftarrow 2$
+    \ENDIF
+    \STATE $A_{n-2,n} \leftarrow 1$
+    \STATE $A_{n,n-1} \leftarrow 1$
+    \STATE $A_{n,n-2} \leftarrow 2$
+    \STATE $A_{n-1,n-3} \leftarrow 1$
+    \STATE $A_{n-3,n-3} \leftarrow 1$
+    \STATE $A_{t+k,n-2} \leftarrow 2$
+    \STATE $A_{t,t+1} \leftarrow 1$
+    \STATE $A_{2t,k+1} \leftarrow 2$
+    \STATE $A_{2t+1,t} \leftarrow 2$
+\ENDIF
+\end{algorithmic}
+\end{algorithm}
+
 \newpage
 
 \def\refname{Referências Bibliográficas}
