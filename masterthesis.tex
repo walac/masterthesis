@@ -2312,6 +2312,8 @@ semi-autômato de tempo $t$ para a regra 70.}
         \STATE $n = t+6$
     \ENDIF
 \ENDIF
+\STATE $k \leftarrow \lfloor t \div 2 \rfloor$
+\STATE $m \leftarrow t - 2k$
 \STATE $A \leftarrow \mbox{ matriz nula } n \times n$
 \IF{$t=1$}
     \STATE $A_{1,n} \leftarrow 1$
@@ -2352,6 +2354,42 @@ semi-autômato de tempo $t$ para a regra 70.}
     \STATE $A_{t+1,k+1} \leftarrow 2$
     \STATE $A_{t+2,k+1} \leftarrow 2$
     \STATE $A_{t+1,1} \leftarrow 1$
+\ENDIF
+\end{algorithmic}
+\end{algorithm}
+
+\begin{algorithm}[H]
+\caption{Algoritmo para gerar a matriz de adjacência de evolução temporal do
+semi-autômato de tempo $t$ para a regra 81.}
+\label{alg:r81}
+\begin{algorithmic}
+\IF{$t=1$}
+    \STATE $n = 3$
+\ELSE
+    \IF{$t=2$}
+        \STATE $n = 7$
+    \ELSE
+        \STATE $n = 2t+2$
+    \ENDIF
+\ENDIF
+\STATE $k \leftarrow \lfloor t \div 2 \rfloor$
+\STATE $m \leftarrow t - 2k$
+\STATE $A \leftarrow \mbox{ matriz nula } n \times n$
+\IF{$j>1$}
+    \FOR{$j=1$ to $k$}
+        \STATE $A_{j,t+j+m} \leftarrow 2$
+        \STATE $A_{n-k+j-1,j} \leftarrow 2$
+    \ENDFOR
+\ENDIF
+\FOR{$j=1$ to $k+m$}
+    \STATE $A_{k+j,n-k-m+j} \leftarrow 1$
+    \STATE $A_{t+j,t+1} \leftarrow 2$
+    \STATE $A_{t+j,k+j} \leftarrow 1$
+\ENDFOR
+\STATE $A_{n,n-k-1} \leftarrow 2$
+\IF{$t>2$}
+    \STATE $A_{n-k-1,t} \leftarrow 1$
+    \STATE $A_{n-k-1,n-k-2} \leftarrow 2$
 \ENDIF
 \end{algorithmic}
 \end{algorithm}
