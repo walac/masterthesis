@@ -2298,6 +2298,64 @@ semi-autômato de tempo $t$ para a regra 56.}
 \end{algorithmic}
 \end{algorithm}
 
+\begin{algorithm}[H]
+\caption{Algoritmo para gerar a matriz de adjacência de evolução temporal do
+semi-autômato de tempo $t$ para a regra 70.}
+\label{alg:r70}
+\begin{algorithmic}
+\IF{$t=1$}
+    \STATE $n = 3$
+\ELSE
+    \IF{$t=2$}
+        \STATE $n = 7$
+    \ELSE
+        \STATE $n = t+6$
+    \ENDIF
+\ENDIF
+\STATE $A \leftarrow \mbox{ matriz nula } n \times n$
+\IF{$t=1$}
+    \STATE $A_{1,n} \leftarrow 1$
+    \STATE $A_{2,n} \leftarrow 1$
+    \STATE $A_{n,n} \leftarrow 1$
+    \STATE $A_{2,1} \leftarrow 2$
+    \STATE $A_{n,2} \leftarrow 2$
+\ELSE
+    \IF{$t>2$}
+        \FOR{$j=1$ to $k+m-1$}
+            \STATE $A_{k+j,1-m+j} \leftarrow 1$
+        \ENDFOR
+        \FOR{$j=1$ to $4$}
+            \STATE $A_{t+j+2,t+j-1} \leftarrow 2$
+        \ENDFOR
+        \STATE $A_{n-3,n} \leftarrow 1$
+    \ENDIF
+    \FOR{$j=1$ to $k$}
+        \STATE $A_{j,k+m+2} \leftarrow 2$
+    \ENDFOR
+\algstore{rule70}
+\end{algorithmic}
+\end{algorithm}
+
+\begin{algorithm}[H]
+\begin{algorithmic}
+\algrestore{rule70}
+    \STATE $A_{t,n} \leftarrow 1$
+    \STATE $A_{t+2,n} \leftarrow 1$
+    \STATE $A_{n,n-1} \leftarrow 1$
+    \STATE $A_{n-1,n-2} \leftarrow 1$
+    \STATE $A_{n-2,n-2} \leftarrow 1$
+    \IF{$t=2$}
+        \STATE $A_{n,n-3} \leftarrow 2$
+        \STATE $A_{n-1,n-3} \leftarrow 2$
+        \STATE $A_{n-2,3} \leftarrow 2$
+    \ENDIF
+    \STATE $A_{t+1,k+1} \leftarrow 2$
+    \STATE $A_{t+2,k+1} \leftarrow 2$
+    \STATE $A_{t+1,1} \leftarrow 1$
+\ENDIF
+\end{algorithmic}
+\end{algorithm}
+
 \newpage
 
 \def\refname{Referências Bibliográficas}
