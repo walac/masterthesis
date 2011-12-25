@@ -1604,7 +1604,7 @@ de um grafo de processo.}
 \STATE $A \leftarrow \mbox{ Matriz nula } n \times n$
 \FORALL{$i,j \in \mathbb{Q}$}
     \IF{$\mathbb{L}_{ij} \neq \emptyset$}
-        \STATE $A_{ij} = \eta(\mathbb{\mathbb{L}}_{ij})$
+        \STATE $A_{ij} \leftarrow \eta(\mathbb{\mathbb{L}}_{ij})$
     \ENDIF
 \ENDFOR
 \end{algorithmic}
@@ -1631,21 +1631,21 @@ adjacência de evolução temporal.}
 \label{alg:mtos}
 \begin{algorithmic}
 \FOR{$i=1$ to $n$}
-\FOR{$j=1$ to $n$}
-\IF{$A_{ij} \neq 0$}
-\REPEAT
-\STATE $q = \lfloor A_{ij} \div 2 \rfloor$
-\STATE $r = Mod(A_{ij},2)$
-\IF{$r \neq 0$}
-    \STATE $n=0$
-    \WHILE{$2^n \le A_{ij}$}
-        \STATE $n=n+1$
-    \ENDWHILE
-    \STATE MakeTransition$(i,j,n-1)$
-\ENDIF
-\UNTIL{$q \neq 0$}
-\ENDIF
-\ENDFOR
+    \FOR{$j=1$ to $n$}
+        \IF{$A_{ij} \neq 0$}
+            \REPEAT
+                \STATE $q \leftarrow \lfloor A_{ij} \div 2 \rfloor$
+                \STATE $r \leftarrow Mod(A_{ij},2)$
+                \IF{$r \neq 0$}
+                    \STATE $n \leftarrow 0$
+                    \WHILE{$2^n \le A_{ij}$}
+                        \STATE $n \leftarrow n+1$
+                    \ENDWHILE
+                    \STATE MakeTransition$(i,j,n-1)$
+                \ENDIF
+            \UNTIL{$q \neq 0$}
+        \ENDIF
+    \ENDFOR
 \ENDFOR
 \end{algorithmic}
 \end{algorithm}
@@ -1793,7 +1793,7 @@ regra 184. O algoritmo é mostrado no Algoritmo \ref{alg:r184}.
 grafo de processo de tempo $t$ para a regra 184.}
 \label{alg:r184}
 \begin{algorithmic}
-\STATE $A \leftarrow \mbox{ matriz nula } n \times n \mbox{, onde } n=2(t+1)$
+\STATE $A \leftarrow \mbox{ matriz nula } n \times n \mbox{, onde } n \leftarrow 2(t+1)$
 \STATE $i \leftarrow t+1$
 \FOR{$j=1$ to t}
     \STATE $A_{ij} \leftarrow 1$
@@ -1976,7 +1976,7 @@ semi-autômato de tempo $t$ para a regra 11.}
 \label{alg:r11}
 \begin{algorithmic}
 \STATE $k \leftarrow \lfloor t \div 2 \rfloor$
-\STATE $m = t-2k$
+\STATE $m \leftarrow t-2k$
 \IF{$t=1$}
     \STATE $n \leftarrow 3$
     \STATE $A \leftarrow \mbox{ matriz nula } n \times n$
@@ -2027,7 +2027,7 @@ semi-autômato de tempo $t$ para a regra 14.}
 \label{alg:r14}
 \begin{algorithmic}
 \STATE $k \leftarrow \lfloor t \div 2 \rfloor$
-\STATE $m = t-2k$
+\STATE $m \leftarrow t-2k$
 \IF{$t=1$}
     \STATE $n \leftarrow 3$
     \STATE $A \leftarrow \mbox{ matriz nula } n \times n$
@@ -2158,7 +2158,7 @@ semi-autômato de tempo $t$ para a regra 43.}
 \begin{algorithmic}
 \STATE $n \leftarrow 4(t+1)$
 \STATE $A \leftarrow \mbox{ matriz nula } n \times n$
-\IF{t>1}
+\IF{$t>1$}
     \FOR{$j=1$ to $t-1$}
         \STATE $A_{t+j,2t+j+1} \leftarrow 1$
     \ENDFOR
@@ -2191,7 +2191,7 @@ semi-autômato de tempo $t$ para a regra 50.}
 \STATE $k \leftarrow \lfloor t \div 2 \rfloor$
 \STATE $m \leftarrow t - 2k$
 \IF{$t=1$}
-    \STATE $n=3$
+    \STATE $n \leftarrow 3$
     \STATE $A \leftarrow \mbox{ matriz nula } n \times n$
     \STATE $A_{2,1} \leftarrow 2$
     \STATE $A_{n,2} \leftarrow 2$
@@ -2272,12 +2272,12 @@ semi-autômato de tempo $t$ para a regra 70.}
 \label{alg:r70}
 \begin{algorithmic}
 \IF{$t=1$}
-    \STATE $n = 3$
+    \STATE $n \leftarrow 3$
 \ELSE
     \IF{$t=2$}
-        \STATE $n = 7$
+        \STATE $n \leftarrow 7$
     \ELSE
-        \STATE $n = t+6$
+        \STATE $n \leftarrow t+6$
     \ENDIF
 \ENDIF
 \STATE $k \leftarrow \lfloor t \div 2 \rfloor$
@@ -2332,12 +2332,12 @@ semi-autômato de tempo $t$ para a regra 81.}
 \label{alg:r81}
 \begin{algorithmic}
 \IF{$t=1$}
-    \STATE $n = 3$
+    \STATE $n \leftarrow 3$
 \ELSE
     \IF{$t=2$}
-        \STATE $n = 7$
+        \STATE $n \leftarrow 7$
     \ELSE
-        \STATE $n = 2t+2$
+        \STATE $n \leftarrow 2t+2$
     \ENDIF
 \ENDIF
 \STATE $k \leftarrow \lfloor t \div 2 \rfloor$
