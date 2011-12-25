@@ -2446,6 +2446,33 @@ semi-autômato de tempo $t$ para a regra 128.}
 \end{algorithmic}
 \end{algorithm}
 
+\begin{algorithm}[H]
+\caption{Algoritmo para gerar a matriz de adjacência de evolução temporal do
+semi-autômato de tempo $t$ para a regra 132.}
+\label{alg:r132}
+\begin{algorithmic}
+\STATE $n \leftarrow 2t+3$
+\STATE $A \leftarrow \mbox{ matriz nula } n \times n$
+\IF{$t>1$}
+    \FOR{$j=1$ to $t-1$}
+        \STATE $A_{j,j+1} \leftarrow 1$
+        \STATE $A_{t+j+1,t+j+2} \leftarrow 1$
+    \ENDFOR
+\ENDIF
+\FOR{$j=1$ to $t$}
+    \STATE $A_{t+j+1,t} \leftarrow 2$
+\ENDFOR
+\STATE $A_{n,n} \leftarrow 1$
+\STATE $A_{n-2,n} \leftarrow 1$
+\STATE $A_{n,n-1} \leftarrow 2$
+\STATE $A_{t,t+2} \leftarrow 1$
+\STATE $A_{n-1,t+2} \leftarrow 1$
+\STATE $A_{n-1,t+1} \leftarrow 2$
+\STATE $A_{t+1,t+1} \leftarrow 2$
+\STATE $A_{t+1,1} \leftarrow 1$
+\end{algorithmic}
+\end{algorithm}
+
 \newpage
 
 \def\refname{Referências Bibliográficas}
