@@ -2460,6 +2460,24 @@ semi-autômato de tempo $t$ para a regra 113.}
 \end{algorithmic}
 \end{algorithm}
 
+\begin{algorithm}[H]
+\caption{Algoritmo para gerar a matriz de adjacência de evolução temporal do
+semi-autômato de tempo $t$ para a regra 128.}
+\label{alg:r128}
+\begin{algorithmic}
+\STATE $n \leftarrow 2(t+1)$
+\STATE $A \leftarrow \mbox{ matriz nula } n \times n$
+\FOR{$j=1$ to $2t-1$}
+    \STATE $A_{j,j+1} \leftarrow 1$
+\ENDFOR
+\STATE $A_{n,n} \leftarrow 1$
+\STATE $A_{n,n-1} \leftarrow 2$
+\STATE $A_{n-1,n-1} \leftarrow 2$
+\STATE $A_{n-2,n} \leftarrow 1$
+\STATE $A_{n-1,1} \leftarrow 1$
+\end{algorithmic}
+\end{algorithm}
+
 \newpage
 
 \def\refname{Referências Bibliográficas}
