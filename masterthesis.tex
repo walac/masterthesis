@@ -2547,6 +2547,38 @@ semi-autômato de tempo $t$ para a regra 140.}
 \end{algorithmic}
 \end{algorithm}
 
+\begin{algorithm}[H]
+\caption{Algoritmo para gerar a matriz de adjacência de evolução temporal do
+semi-autômato de tempo $t$ para a regra 142.}
+\label{alg:r142}
+\begin{algorithmic}
+\STATE $n \leftarrow 4(t+1)$
+\STATE $A \leftarrow \mbox{ matriz nula } n \times n$
+\IF{$t>1$}
+    \FOR{$j=1$ to $t-1$}
+        \STATE $A_{j,2t+j+1} \leftarrow 2$
+    \ENDFOR
+\ENDIF
+\FOR{$j=1$ to $t$}
+    \STATE $A_{3t+j,j} \leftarrow 2$
+    \STATE $A_{2t+j,t+j} \leftarrow 1$
+    \STATE $A_{t+j,3t+j+1} \leftarrow 1$
+    \STATE $A_{2t+j,2t+1} \leftarrow 2$
+\ENDFOR
+\FOR{$j=1$ to $t+1$}
+    \STATE $A_{3t+j,3t+1} \leftarrow 1$
+\ENDFOR
+\STATE $A_{n-1,n} \leftarrow 2$
+\STATE $A_{n,n-1} \leftarrow 1$
+\STATE $A_{n,n-2} \leftarrow 2$
+\STATE $A_{n-2,n-1} \leftarrow 1$
+\STATE $A_{n-1,n-3} \leftarrow 1$
+\STATE $A_{t,n-2} \leftarrow 2$
+\STATE $A_{n-2,2t+1} \leftarrow 2$
+\STATE $A_{n-3,n} \leftarrow 2$
+\end{algorithmic}
+\end{algorithm}
+
 \newpage
 
 \def\refname{Referências Bibliográficas}
