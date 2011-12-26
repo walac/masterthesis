@@ -2579,6 +2579,32 @@ semi-autômato de tempo $t$ para a regra 142.}
 \end{algorithmic}
 \end{algorithm}
 
+\begin{algorithm}[H]
+\caption{Algoritmo para gerar a matriz de adjacência de evolução temporal do
+semi-autômato de tempo $t$ para a regra 162.}
+\label{alg:r162}
+\begin{algorithmic}
+\STATE $n \leftarrow 2t+3$
+\STATE $A \leftarrow \mbox{ matriz nula } n \times n$
+\FOR{$j=1$ to $t$}
+    \STATE $A_{t+j,j} \leftarrow 2$
+\ENDFOR
+\IF{$t>1$}
+    \FOR{$j=1$ to $t-1$}
+        \STATE $A_{j,t+j+1} \leftarrow 1$
+    \ENDFOR
+\ENDIF
+\FOR{$j=1$ to $t+2$}
+    \STATE $A_{t+j,t+1} \leftarrow 1$
+\ENDFOR
+\STATE $A_{n-1,n} \leftarrow 2$
+\STATE $A_{t,n-1} \leftarrow 1$
+\STATE $A_{n,n-1} \leftarrow 1$
+\STATE $A_{n,n-2} \leftarrow 2$
+\STATE $A_{n-2,n-2} \leftarrow 2$
+\end{algorithmic}
+\end{algorithm}
+
 \newpage
 
 \def\refname{Referências Bibliográficas}
