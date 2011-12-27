@@ -2573,6 +2573,80 @@ semi-autômato de tempo $t$ para a regra 162.}
 \end{algorithmic}
 \end{algorithm}
 
+\begin{algorithm}[H]
+\caption{Algoritmo para gerar a matriz de adjacência de evolução temporal do
+semi-autômato de tempo $t$ para a regra 168.}
+\label{alg:r168}
+\begin{algorithmic}
+\STATE $n \leftarrow t+3$
+\STATE $A \leftarrow \mbox{ matriz nula } n \times n$
+\IF{$t>1$}
+    \FOR{$j=1$ to $t-1$}
+        \STATE $A_{j,j+1} \leftarrow 1$
+    \ENDFOR
+\ENDIF
+\STATE $A_{n,n} \leftarrow 1$
+\STATE $A_{n-3,n} \leftarrow 1$
+\STATE $A_{n,n-1} \leftarrow 2$
+\STATE $A_{n-1,n-1} \leftarrow 2$
+\STATE $A_{n-2,n-1} \leftarrow 2$
+\STATE $A_{n-1,n-2} \leftarrow 1$
+\STATE $A_{n-2,1} \leftarrow 1$
+\end{algorithmic}
+\end{algorithm}
+
+\begin{algorithm}[H]
+\caption{Algoritmo para gerar a matriz de adjacência de evolução temporal do
+semi-autômato de tempo $t$ para a regra 172.}
+\label{alg:r172}
+\begin{algorithmic}
+\IF{$t=1$}
+    \STATE $n \leftarrow 8$
+    \STATE $A \leftarrow \mbox{ matriz nula } n \times n$
+    \STATE $A_{4,n} \leftarrow 1$
+    \STATE $A_{n-1,n-1} \leftarrow 2$
+    \STATE $A_{n,n-2} \leftarrow 2$
+    \STATE $A_{1,n-2} \leftarrow 2$
+    \STATE $A_{n-3,n-2} \leftarrow 2$
+    \STATE $A_{n-2,n-3} \leftarrow 2$
+    \STATE $A_{5,3} \leftarrow 1$
+    \STATE $A_{n-1,4} \leftarrow 1$
+    \STATE $A_{n-2,4} \leftarrow 1$
+\algstore{rule172}
+\end{algorithmic}
+\end{algorithm}
+
+\begin{algorithm}[H]
+\begin{algorithmic}
+\algrestore{rule172}
+\ELSE
+    \STATE $n \leftarrow t+9$
+    \STATE $A \leftarrow \mbox{ matriz nula } n \times n$
+    \FOR{$j=1$ to $t-1$}
+        \STATE $A_{j+1,j+2} \leftarrow 1$
+    \ENDFOR
+    \STATE $A_{n,n-1} \leftarrow 2$
+    \STATE $A_{n-1,n-2} \leftarrow 2$
+    \STATE $A_{n-2,n-2} \leftarrow 2$
+    \STATE $A_{1,n-3} \leftarrow 2$
+    \STATE $A_{n-4,n-3} \leftarrow 2$
+    \STATE $A_{n-3,n-4} \leftarrow 2$
+    \STATE $A_{t+4,1} \leftarrow 2$
+    \STATE $A_{t+3,3} \leftarrow 1$
+    \STATE $A_{t+5,t+2} \leftarrow 1$
+    \STATE $A_{n-2,t+3} \leftarrow 1$
+    \STATE $A_{n-5,n} \leftarrow 1$
+    \STATE $A_{n-1,n-5} \leftarrow 1$
+    \STATE $A_{n-3,t+3} \leftarrow 1$
+\ENDIF
+\STATE $A_{n,n} \leftarrow 1$
+\STATE $A_{t+1,n} \leftarrow 1$
+\STATE $A_{t+2,1} \leftarrow 2$
+\STATE $A_{t+3,1} \leftarrow 2$
+\STATE $A_{t+2,2} \leftarrow 1$
+\end{algorithmic}
+\end{algorithm}
+
 \newpage
 
 \def\refname{Referências Bibliográficas}
