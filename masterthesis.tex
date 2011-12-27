@@ -1788,31 +1788,6 @@ Baseando-se nesta análise, é possível derivar um algoritmo de construção da
 matriz de adjacência de evolução temporal do grafos de processo de tempo $t$ para a
 regra 184. O algoritmo é mostrado no Algoritmo \ref{alg:r184}.
 
-\begin{algorithm}
-\caption{Algoritmo para gerar a matriz de adjacência de evolução temporal do
-grafo de processo de tempo $t$ para a regra 184.}
-\label{alg:r184}
-\begin{algorithmic}
-\STATE $A \leftarrow \mbox{ matriz nula } n \times n \mbox{, onde } n \leftarrow 2(t+1)$
-\STATE $i \leftarrow t+1$
-\FOR{$j=1$ to t}
-    \STATE $A_{ij} \leftarrow 1$
-    \STATE $i \leftarrow i+1$
-\ENDFOR
-\FOR{$i=t+1$ to $n$}
-    \STATE $A_{i,t+1} \leftarrow 2$
-\ENDFOR
-\STATE $j \leftarrow t+2$
-\FOR{$i=1$ to $t$}
-    \STATE $A_{ij} \leftarrow 2$
-    \STATE $j \leftarrow j+1$
-\ENDFOR
-\STATE $A_{n,n} \leftarrow 1$
-\STATE $A_{n-1,n} \leftarrow 1$
-\STATE $A_{n,n-1} \leftarrow 2$
-\end{algorithmic}
-\end{algorithm}
-
 O algoritmo executa em tempo $O(t)$. A combinação dos Algoritmos
 \ref{alg:mtos} e \ref{alg:r184} executa em tempo:
 
@@ -2667,6 +2642,50 @@ semi-autômato de tempo $t$ para a regra 176.}
 \STATE $A_{n-1,n-2} \leftarrow 2$
 \STATE $A_{n-2,n-2} \leftarrow 2$
 \STATE $A_{n-2,1} \leftarrow 1$
+\end{algorithmic}
+\end{algorithm}
+
+\begin{algorithm}
+\caption{Algoritmo para gerar a matriz de adjacência de evolução temporal do
+semi-autômato de tempo $t$ para a regra 184.}
+\label{alg:r184}
+\begin{algorithmic}
+\STATE $n \leftarrow 2(t+1)$
+\STATE $A \leftarrow \mbox{ matriz nula } n \times n$
+\STATE $i \leftarrow t+1$
+\FOR{$j=1$ to t}
+    \STATE $A_{ij} \leftarrow 1$
+    \STATE $i \leftarrow i+1$
+\ENDFOR
+\FOR{$i=t+1$ to $n$}
+    \STATE $A_{i,t+1} \leftarrow 2$
+\ENDFOR
+\STATE $j \leftarrow t+2$
+\FOR{$i=1$ to $t$}
+    \STATE $A_{ij} \leftarrow 2$
+    \STATE $j \leftarrow j+1$
+\ENDFOR
+\STATE $A_{n,n} \leftarrow 1$
+\STATE $A_{n-1,n} \leftarrow 1$
+\STATE $A_{n,n-1} \leftarrow 2$
+\end{algorithmic}
+\end{algorithm}
+
+\begin{algorithm}
+\caption{Algoritmo para gerar a matriz de adjacência de evolução temporal do
+semi-autômato de tempo $t$ para a regra 192.}
+\label{alg:r192}
+\begin{algorithmic}
+\STATE $n \leftarrow t+2$
+\STATE $A \leftarrow \mbox{ matriz nula } n \times n$
+\FOR{$j=1$ to $t-1$}
+    \STATE $A_{j,j+1} \leftarrow 1$
+\ENDFOR
+\STATE $A_{n,n} \leftarrow 1$
+\STATE $A_{n-2,n} \leftarrow 1$
+\STATE $A_{n,n-1} \leftarrow 2$
+\STATE $A_{n-1,n-1} \leftarrow 2$
+\STATE $A_{n-1,1} \leftarrow 1$
 \end{algorithmic}
 \end{algorithm}
 
