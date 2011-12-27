@@ -2677,7 +2677,7 @@ semi-autômato de tempo $t$ para a regra 176.}
 \end{algorithmic}
 \end{algorithm}
 
-\begin{algorithm}
+\begin{algorithm}[H]
 \caption{Algoritmo para gerar a matriz de adjacência de evolução temporal do
 semi-autômato de tempo $t$ para a regra 184.}
 \label{alg:r184}
@@ -2703,7 +2703,7 @@ semi-autômato de tempo $t$ para a regra 184.}
 \end{algorithmic}
 \end{algorithm}
 
-\begin{algorithm}
+\begin{algorithm}[H]
 \caption{Algoritmo para gerar a matriz de adjacência de evolução temporal do
 semi-autômato de tempo $t$ para a regra 192.}
 \label{alg:r192}
@@ -2721,7 +2721,7 @@ semi-autômato de tempo $t$ para a regra 192.}
 \end{algorithmic}
 \end{algorithm}
 
-\begin{algorithm}
+\begin{algorithm}[H]
 \caption{Algoritmo para gerar a matriz de adjacência de evolução temporal do
 semi-autômato de tempo $t$ para a regra 196.}
 \label{alg:r196}
@@ -2737,6 +2737,38 @@ semi-autômato de tempo $t$ para a regra 196.}
 \STATE $A_{n,n-1} \leftarrow 2$
 \STATE $A_{n-1,n-1} \leftarrow 2$
 \STATE $A_{n-1,2} \leftarrow 1$
+\end{algorithmic}
+\end{algorithm}
+
+\begin{algorithm}[H]
+\caption{Algoritmo para gerar a matriz de adjacência de evolução temporal do
+semi-autômato de tempo $t$ para a regra 212.}
+\label{alg:r212}
+\begin{algorithmic}
+\STATE $n \leftarrow 4(t+1)$
+\STATE $A \leftarrow \mbox{ matriz nula } n \times n$
+\FOR{$j=1$ to $t$}
+    \STATE $A_{j,3t+j+1} \leftarrow 2$
+    \STATE $A_{3t+j,t+j} \leftarrow 2$
+    \STATE $A_{2t+j,j} \leftarrow 1$
+    \STATE $A_{2t+j,3t+1} \leftarrow 2$
+\ENDFOR
+\IF{$t>1$}
+    \FOR{$j=1$ to $t-1$}
+        \STATE $A_{t+j,2t+j+1} \leftarrow 1$
+    \ENDFOR
+\ENDIF
+\FOR{$j=1$ to $t+1$}
+    \STATE $A_{n-(t-j+4),2t+1} \leftarrow 1$
+\ENDFOR
+\STATE $A_{n,n} \leftarrow 1$
+\STATE $A_{n-2,n} \leftarrow 1$
+\STATE $A_{n-1,n-1} \leftarrow 2$
+\STATE $A_{n-3,n-1} \leftarrow 2$
+\STATE $A_{n-1,n-2} \leftarrow 1$
+\STATE $A_{n,n-3} \leftarrow 2$
+\STATE $A_{n-2,3t+1} \leftarrow 2$
+\STATE $A_{2t,n-2} \leftarrow 1$
 \end{algorithmic}
 \end{algorithm}
 
