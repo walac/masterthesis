@@ -2679,6 +2679,29 @@ semi-autômato de tempo $t$ para a regra 172.}
 \end{algorithmic}
 \end{algorithm}
 
+\begin{algorithm}[H]
+\caption{Algoritmo para gerar a matriz de adjacência de evolução temporal do
+semi-autômato de tempo $t$ para a regra 176.}
+\label{alg:r176}
+\begin{algorithmic}
+\STATE $n \leftarrow 2t+3$
+\STATE $A \leftarrow \mbox{ matriz nula } n \times n$
+\FOR{$j=1$ to $t$}
+    \STATE $A_{j,t+j} \leftarrow 2$
+\ENDFOR
+\FOR{$j=1$ to $t-1$}
+    \STATE $A_{t+j,j+1} \leftarrow 1$
+\ENDFOR
+\STATE $A_{n,n} \leftarrow 1$
+\STATE $A_{n-1,n} \leftarrow 1$
+\STATE $A_{n-3,n} \leftarrow 1$
+\STATE $A_{n,n-1} \leftarrow 2$
+\STATE $A_{n-1,n-2} \leftarrow 2$
+\STATE $A_{n-2,n-2} \leftarrow 2$
+\STATE $A_{n-2,1} \leftarrow 1$
+\end{algorithmic}
+\end{algorithm}
+
 \newpage
 
 \def\refname{Referências Bibliográficas}
