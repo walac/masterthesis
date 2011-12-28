@@ -2760,6 +2760,24 @@ semi-autômato de tempo $t$ para a regra 224.}
 \end{algorithmic}
 \end{algorithm}
 
+\begin{algorithm}[H]
+\caption{Algoritmo para gerar a matriz de adjacência de evolução temporal do
+semi-autômato de tempo $t$ para a regra 252.}
+\label{alg:r252}
+\begin{algorithmic}
+\STATE $n \leftarrow t+2$
+\STATE $A \leftarrow \mbox{ matriz nula } n \times n$
+\FOR{$j=1$ to $t-1$}
+    \STATE $A_{j,j+1} \leftarrow 2$
+\ENDFOR
+\STATE $A_{n,n} \leftarrow 2$
+\STATE $A_{n-2,n} \leftarrow 2$
+\STATE $A_{n,n-1} \leftarrow 1$
+\STATE $A_{n-1,n-1} \leftarrow 1$
+\STATE $A_{n-1,1} \leftarrow 2$
+\end{algorithmic}
+\end{algorithm}
+
 \newpage
 
 \def\refname{Referências Bibliográficas}
