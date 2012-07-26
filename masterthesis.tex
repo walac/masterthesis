@@ -589,23 +589,30 @@ das quatro classes de complexidade.
 \end{figure}
 
 Trabalhos posteriores se concentraram em formalizar a classificação intuitiva
-feita por Wolfram \citecustom{sarkar2000}. \citeonline{culik1988} propuseram a seguinte
-classificação.  Seja $\rho$ a regra local para o AC, então:
+feita por Wolfram \citecustom{sarkar2000}. \citeonline{li1990} propuseram a seguinte
+classificação \citecustom{trafaniuc2004}:
 
-\begin{enumerate}
-\item A regra $\rho$ está na classe 1 se e somente se toda configuração finita,
-isto é, configurações nas quais somente um número finito de células estão em
-estados não quiescentes, evoluem para uma configuração estável em muitos passos
-finitos.
+\begin{description}
+\item[Regras Nulas] A configuração limite é formada somente por 0s e 1s.
 
-\item A regra $\rho$ está na classe 2 se e somente se toda configuração finita
-evolui para uma configuração periódica em um número finito de passos.
+\item[Regras Ponto-Fixo] A configuração limite não se altera ao
+reaplicarmos a regra do autômato celular.
 
-\item A regra $\rho$ está na classe 3 se e somente se é decidível se a
-configuração ocorre na órbita de outra.
+\item[Regras Ciclo Duplo] A configuração limite não se altera ao
+reaplicarmos a regra do autômato celular duas vezes.
 
-\item A classe 4 engloba todas as regras locais.
-\end{enumerate}
+\item[Regras Periódicas] A configuração limite não se altera à aplicação
+da regra N vezes, com o tamanho do ciclo N, ou independente ou fracamente
+dependente do tamanho do reticulado.
+
+\item[Regras Complexas] Embora a dinâmica limite possa ser periódica,
+o intervalo de transição pode ser extremamente longo e, tipicamente,
+este intervalo cresce mais que linearmente com o tamanho do sistema.
+
+\item[Regras Caóticas] Produzem dinâmicas não periódicas e se caracterizam
+pela divergência exponencial do comprimento do seu ciclo com o tamanho do
+reticulado e pela instabilidade com respeito a perturbações.
+\end{description}
 
 \subsection{Linguagens formais}
 
