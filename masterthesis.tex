@@ -655,7 +655,7 @@ ela recebe o nome de cadeia \textit{vazia}, e é denotada por $\varepsilon$.
 O conjunto de todas as palavras não vazias sobre um alfabeto $\Sigma$ é
 denotado por $\Sigma^+$, e o conjunto de todas as palavras, incluindo
 a cadeia vazia, sobre um alfabeto $\Sigma$ é denotado por
-${\Sigma}^+ \bigcup \{\varepsilon\} = \Sigma^*$. O comprimento de uma palavra
+${\Sigma}^+ \bigcup \emptyset = \Sigma^*$. O comprimento de uma palavra
 é o número de símbolos que a forma. Logo, o comprimento da palavra
 \emph{abcd} é 4. Denota-se o comprimento de uma cadeia $w$ por
 $|w|$; portanto, $|101| = 3$ e $|\varepsilon| = 0$. Alternativamente,
@@ -666,7 +666,7 @@ posição em $w$ \citecustom{lewis2008}.
 
 Dá-se o nome de \textbf{linguagem} a qualquer conjunto de palavras sobre um
 alfabeto $\Sigma$, ou seja, a qualquer subconjunto de $\Sigma^*$. Portanto,
-$\Sigma^*$, $\emptyset$ e $\Sigma$ são linguagens. Sendo uma linguagem 
+$\Sigma^*$, $\varepsilon$ e $\Sigma$ são linguagens. Sendo uma linguagem 
 simplesmente um tipo particular de conjunto, pode-se especificar linguagens
 finitas enumerando-se todas as suas palavras. Por exemplo, $\{aba, czr, d, f\}$
 é uma linguagem sobre $\{a, b, \ldots, z\}$. Entretanto, a maioria das
