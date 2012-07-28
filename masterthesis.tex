@@ -764,21 +764,31 @@ O conjunto de palavras reconhecidas por um autômato forma a linguagem do
 autômato. Seja $M$ um autômato, $L(M)$ constitui sua linguagem. A classe
 de linguagens reconhecidas por AFs são as linguagens regulares.
 Linguagens regulares podem também ser representadas por meio das chamadas
-expressões regulares. Uma expressão regular é construída a partir dos
-seguintes elementos \citecustom{trafaniuc2004}:
+expressões regulares. 
+
+Dadas as operações:
+
+\begin{description}
+\item[União] $A+B=\{x | x \in A \mbox{ ou } x \in B\}$
+\item[Concatenação] $AB=\{xy | x \in A \mbox{ e } y \in B\}$
+\item[Estrela] $A^*=\{x_1x_2 \ldots x_k | k \ge 0 \mbox{ e cada } x_i \in A\}$
+\end{description}
+
+Uma expressão $R$ é considerada uma expressão regular
+se ela é \citecustom{sipser1996}:
 
 \begin{enumerate}
-\item O alfabeto de símbolos $\sigma \in \Sigma$;
-\item $xy$ representa a concatenação de $x$ e $y$;
-\item $x+y$ representa $x$ ou $y$;
-\item $x^+$ representa uma ou mais concatenações de $x$;
-\item $x^*$ representa qualquer número de concatenações de $x$, incluindo
-nenhuma (o que representa a cadeia vazia).
+\item $a$ para algum $a \in \Sigma$
+\item $\varepsilon$
+\item $\emptyset$, $1^*\emptyset=\emptyset$, $\emptyset^*=\{\varepsilon\}$, $R\emptyset=R$
+\item $R_1+R_2$, onde $R_1$ e $R_2$ são expressões regulares e
+o $+$ representa a união das duas expressões
+\item $R_1R_2$, onde $R_1$ e $R_2$ são expressões regulares
+\item ${R_1}^*$, onde $R_1$ é uma expressão regular
 \end{enumerate}
 
 Por exemplo, a expressão regular do autômato da Figura \ref{fig:automata}
-é $(0+1)^*1^+$.
-
+é $(0+1)^*1^+$
 \subsection{Evolução de um autômato celular}
 
 Linguagens formais consistem do conjunto de palavras formadas a partir de
