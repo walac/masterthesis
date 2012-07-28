@@ -790,6 +790,23 @@ o $+$ representa a união das duas expressões
 Por exemplo, a expressão regular do autômato da Figura \ref{fig:automata}
 é $(0+1)^*1^+$.
 
+\subsection{Semi-autômato}
+
+De acordo com \citeonline{miki2006}, um semi-autômato é um AF
+não determinístico, onde todos os estados da máquina são iniciais
+e finais e é definido formalmente por uma tripla $\{\mathbb{Q},\Sigma,\delta\}$,
+onde:
+
+\begin{description}
+\item[$\mathbb{Q}$] representa o conjunto de estados;
+\item[$\Sigma$] é o alfabeto de símbolos;
+\item[$\delta:\mathbb{Q} \times \Sigma \mapsto 2^\mathbb{Q}$] é a regra de transição, onde
+$2^\mathbb{Q}$ é o conjunto potência de $\mathbb{Q}$ e pode ser representado na forma
+$\delta(q,a) = \{p_1,p_2,p_3,\ldots,p_n\}$, onde $q$ é o estado atual, $a$
+é o símbolo que a máquina lê, e $\{p_1,p_2,p_3,\ldots,p_n\}$ é o
+conjunto de possíveis novos estados;
+\end{description}
+
 \subsection{Evolução de um autômato celular}
 
 Linguagens formais consistem do conjunto de palavras formadas a partir de
@@ -877,24 +894,6 @@ AF, e cada arco a uma transição no AF, ou
 equivalentemente a uma regra  de produção na gramática representada pelo
 AF. O conjunto $\Omega^{(1)}$ assim forma uma linguagem
 regular.
-
-\subsection{Semi-autômato}
-
-O grafo da Figura \ref{fig:A1} é definido como um semi-autômato.
-De acordo com \citeonline{miki2006}, um semi-autômato é um AF
-não determinístico, onde todos os estados da máquina são iniciais
-e finais e é definido formalmente por uma tripla $\{\mathbb{Q},\Sigma,\delta\}$,
-onde:
-
-\begin{description}
-\item[$\mathbb{Q}$] representa o conjunto de estados;
-\item[$\Sigma$] é o alfabeto de símbolos;
-\item[$\delta:\mathbb{Q} \times \Sigma \mapsto 2^\mathbb{Q}$] é a regra de transição, onde
-$2^\mathbb{Q}$ é o conjunto potência de $\mathbb{Q}$ e pode ser representado na forma
-$\delta(q,a) = \{p_1,p_2,p_3,\ldots,p_n\}$, onde $q$ é o estado atual, $a$
-é o símbolo que a máquina lê, e $\{p_1,p_2,p_3,\ldots,p_n\}$ é o
-conjunto de possíveis novos estados;
-\end{description}
 
 \subsection{Configuração inicial de um autômato celular}
 
