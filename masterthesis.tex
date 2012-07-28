@@ -788,12 +788,13 @@ o $+$ representa a união das duas expressões
 \end{enumerate}
 
 Por exemplo, a expressão regular do autômato da Figura \ref{fig:automata}
-é $(0+1)^*1^+$
+é $(0+1)^*1^+$.
+
 \subsection{Evolução de um autômato celular}
 
 Linguagens formais consistem do conjunto de palavras formadas a partir de
 cadeias de símbolos em um alfabeto finito $\Sigma$ de acordo com regras
-gramaticais definidas. Conjuntos de configurações de AFs
+gramaticais definidas. Conjuntos de configurações de ACs
 podem assim ser considerados como linguagens formais, com cada palavra na
 linguagem representando uma configuração do AC. Tais conjuntos
 infinitos de configurações são então completamente especificados por
@@ -804,8 +805,9 @@ representados por linguagens regulares simples. Os atratores da classe 3 podem
 ser representados por linguagens regulares mais complexas. Os atratores da
 classe 4 podem ou não ser representados por uma linguagem regular \citecustom{li1987}.
 
-O conjunto de configurações possíveis em um AF depois de $t$
-passos de evolução pode ser representado por um conjunto $\Omega^{(t)}$.
+O conjunto de configurações possíveis em um AC unidimensional depois de $t$
+passos de evolução pode ser representado por um conjunto $\Omega^{(t)}$
+\citecustom{wolfram1984}.
 
 O seguinte exemplo, retirado de \citecustom{wolfram1984}, ilustra o processo de
 geração do AF que representa o conjunto de configurações
@@ -822,13 +824,13 @@ local $\phi$ dada por (regra número 76):
 
 O valor $a_i^{(1)}$ de uma célula na posição $i$ em uma configuração
 $A^{(1)} = \phi A^{(0)} \in \Omega^{(1)}$ depende da vizinhança de três
-células $\{a_{i-1}^{(0)},a_i^{(0)},a_{i+1}^{(0)}\}$ na configuração precedente
+células $(a_{i-1}^{(0)},a_i^{(0)},a_{i+1}^{(0)})$ na configuração precedente
 $A^{(0)} \in \Omega^{(0)}$. A célula adjacente de $a_{i+1}^{(1)}$ depende da
 vizinhança sobreposta $\{a_i^{(0)},a_{i+1}^{(0)},a_{i+2}^{(0)}\}$. A
 dependência de $a_{i+1}^{(0)}$ em $a_i^{(0)}$ associada com esta sobreposição
 de duas células nas vizinhanças pode ser representada por um grafo $g$, conforme
 ilustra a Figura \ref{fig:A1}. Os nós no grafo representam as sobreposições
-$\{a_i^{(0)},a_{i+1}^{(0)}\}$. Este nós são agregados por arcos direcionados
+$(a_i^{(0)},a_{i+1}^{(0)})$. Este nós são agregados por arcos direcionados
 correspondentes a vizinhanças de três células. A regra local do AC
 $\phi$ da Equação \ref{eqn:r76} define uma transformação para cada
 vizinhança de três células, e assim associa um símbolo com cada arco de $g$.
