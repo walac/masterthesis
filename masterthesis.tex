@@ -1331,7 +1331,7 @@ adjacência de evolução temporal.}
 \IF{$A_{ij} \neq 0$}
 \REPEAT
 \STATE $q = \lfloor A_{ij} \div 2 \rfloor$
-\STATE $r = A_{ij}-2q$ \COMMENT{resto}
+\STATE $r = Mod(A_{ij},2)$
 \IF{$r \neq 0$}
 \STATE $n=0$
 \WHILE{$2^n \le A_{ij}$}
