@@ -19,6 +19,9 @@
 
 \floatname{algorithm}{Algoritmo}
 
+\newenvironment{definition}[1][Definition]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+
 \counterwithin{equation}{section}
 \counterwithin{figure}{section}
 \counterwithin{table}{section}
@@ -174,8 +177,8 @@ Adicionalmente, apresenta um resumo do trabalho relatado em
 \citecustom{mikietal2011}.
 
 O Capítulo \ref{sec:desenv} descreve a proposta deste trabalho. A obtenção do
-semi-autômato de tempo $t$ pode ser conseguida por meio de uma nova notação de 
-matrizes de adjacência em relação ao respectivo semi-autômato.
+grafo de processo de tempo $t$ pode ser conseguida por meio de uma nova notação de 
+matrizes de adjacência em relação ao respectivo grafo de processo.
 
 O Capítulo \ref{sec:conclude} apresenta as conclusões parciais obtidas até
 aqui e o cronograma de trabalho.
@@ -790,22 +793,26 @@ o $+$ representa a união das duas expressões
 Por exemplo, a expressão regular do autômato da Figura \ref{fig:automata}
 é $(0+1)^*1^+$.
 
-\subsection{Semi-autômato}
+\subsection{Grafos de processo}
 
-De acordo com \citeonline{miki2006}, um semi-autômato é um AF
-não determinístico, onde todos os estados da máquina são iniciais
-e finais e é definido formalmente por uma tripla $\{\mathbb{Q},\Sigma,\delta\}$,
-onde:
+Uma importante subclasse das linguagens regulares é a classe de linguagens
+de processo. Isto é, para todas as palavras $\omega \in L$, todas as
+sub-palavras
+$v \in \{s^i \ldots s^{i+j}:s^k=(\omega)_k,i+j\le \|\omega\|,i,j\ge 0\}$
+de $\omega$ estão em $L$. Forma-se o fechamento das sub-palavras sub($L$)
+de uma linguagem $L$ pela inclusão em sub($L$) de todas as sub-palavras
+de cada $\omega in L$. AFs para linguagens regulares de processo tem a
+propriedade que todos os estados são estados de aceitação
+\citecustom{hanson1992}.
 
-\begin{description}
-\item[$\mathbb{Q}$] representa o conjunto de estados;
-\item[$\Sigma$] é o alfabeto de símbolos;
-\item[$\delta:\mathbb{Q} \times \Sigma \mapsto 2^\mathbb{Q}$] é a regra de transição, onde
-$2^\mathbb{Q}$ é o conjunto potência de $\mathbb{Q}$ e pode ser representado na forma
-$\delta(q,a) = \{p_1,p_2,p_3,\ldots,p_n\}$, onde $q$ é o estado atual, $a$
-é o símbolo que a máquina lê, e $\{p_1,p_2,p_3,\ldots,p_n\}$ é o
-conjunto de possíveis novos estados;
-\end{description}
+\begin{definition}
+O \textbf{grafo de processo} de uma linguagem de processo $L$ é o grafo
+formado permitindo a máquina associada $M(L)$ iniciar em qualquer estado,
+e minimizando o resultado.
+\end{definition}
+
+Todos os estados de um grafo de processo são, então, estados iniciais e de
+aceitação.
 
 \subsection{Evolução de um autômato celular}
 
@@ -902,7 +909,7 @@ elementar pode ser qualquer combinação de sequências de 0s e 1s
 representando os estados iniciais das células. O AF
 que representa tal sequência pode ser visualizado na Figura
 \ref{fig:initconfigautomaton}, e sua representação em formato de
-semi-autômato na Figura \ref{fig:initconfigmathematica}.
+grafo de processo na Figura \ref{fig:initconfigmathematica}.
 
 \begin{figure}[htp]
 \begin{center}
@@ -921,7 +928,7 @@ determinístico. É fácil perceber que o autômato aceita qualquer sequência d
 \begin{figure}[htp]
 \begin{center}
 \includegraphics[scale=0.3]{img/InitialConfig.eps}
-\caption{Semi-autômato representando as possíveis configurações
+\caption{Grafo de processo representando as possíveis configurações
 iniciais. Arcos vermelhos representam transições em 0 e arcos
 pretos representam transições em 1.}
 \label{fig:initconfigmathematica}
@@ -939,7 +946,7 @@ funções desenvolvidas no \textit{Mathematica} para gerar AFs
 que representam a evolução para um passo de tempo de um AC
 elementar.
 
-Dado um semi-autômato relacionado à configuração do AC para
+Dado um grafo de processo relacionado à configuração do AC para
 um instante de tempo $t$, a função \emph{NetCAStep} \citecustom{wolfram2002}
 retorna um AF relacionado ao instante de tempo $t+1$
 \citecustom{miki2006}.
@@ -1019,7 +1026,7 @@ expressões de crescimento e outros resultados.
 
 \newpage
 
-\section{Construção do semi-autômato por meio de matrizes de
+\section{Construção do grafo de processo por meio de matrizes de
 adjacências}\label{sec:desenv}
 
 Conforme já explicado anteriormente, o conjunto de configurações globais de
@@ -1039,18 +1046,18 @@ análises para as outras 25 regras. Do total das 26 regras, 16 regras
 apresentaram relações entre passos de tempo distintos, sendo elas: 43, 113,
 128, 132, 136 140, 142, 162, 168, 176, 184, 192, 196, 212, 224 e 232. Destas
 16 regras, para 12 delas foram encontradas as expressões que caracterizam o
-crescimento dos semi-autômatos de acordo com o passo de tempo, sendo
-apresentado o método de obtenção do semi-autômato de passo $t$ para cada uma.
+crescimento dos grafos de processo de acordo com o passo de tempo, sendo
+apresentado o método de obtenção do grafo de processo de passo $t$ para cada uma.
 O trabalho chegou à conclusão que são necessárias duas
-propriedades para caracterização do semi-autômato de uma regra
+propriedades para caracterização do grafo de processo de uma regra
 \citecustom{trafaniuc2004}:
 
 \begin{enumerate}
-\item O crescimento do número de estados do semi-autômato deve ser
+\item O crescimento do número de estados do grafo de processo deve ser
 proporcional ao passo de tempo, ou seja, o número de estados cresce
 a cada passo de tempo.
 
-\item Os semi-autômatos para passos de tempo distintos devem possuir uma
+\item Os grafos de processo para passos de tempo distintos devem possuir uma
 relação de crescimento, conforme descrito na Seção \ref{sec:mikialgo}.
 \end{enumerate}
 
@@ -1070,11 +1077,11 @@ foi construído manualmente como referência, conforme mostrado na Figura
 \end{center}
 \end{figure}
 
-\citeonline{miki2006} identificou que os semi-autômatos dos sucessivos passos de
-tempo da regra são assimétricos, mas o semi-autômato limite é simétrico, e não
+\citeonline{miki2006} identificou que os grafos de processo dos sucessivos passos de
+tempo da regra são assimétricos, mas o grafo de processo limite é simétrico, e não
 conseguiu achar uma operação que faça essa transformação de simetria;
-não conseguindo, assim, encontrar o semi-autômato limite da regra 184
-partindo-se dos semi-autômatos intermediários.
+não conseguindo, assim, encontrar o grafo de processo limite da regra 184
+partindo-se dos grafos de processo intermediários.
 
 \citeonline{wang2011} propuseram uma representação matricial alternativa para
 ACs. Eles descreveram a representação linear de sistemas não lineares com
@@ -1122,7 +1129,7 @@ a regra 184 para ilustrar o processo se deve ao fato de ser
 uma regra que já foi extensivamente estudada em \citecustom{trafaniuc2004}
 e \citecustom{miki2006}.
 
-\subsection{Representação de semi-autômatos em forma matricial}
+\subsection{Representação de grafos de processo em forma matricial}
 
 \subsubsection{Matrizes de adjacências}
 
@@ -1171,7 +1178,7 @@ mostra a matriz de adjacência correspondente.
 \end{figure}
 
 Embora matrizes de adjacência possam representar grafos direcionados simples,
-não é possível representar completamente um semi-autômato, dado que:
+não é possível representar completamente um grafo de processo, dado que:
 
 \begin{enumerate}
 \item É possível haver mais de uma transição do estado $i$ para o estado
@@ -1184,11 +1191,11 @@ da matriz é inviável devido à possibilidade de existir mais de uma
 transição por par de estados $(i,j)$.
 \end{enumerate}
 
-Para ilustrar a dificuldade de se representar semi-autômatos utilizando
-matrizes de adjacência, considere o semi-autômato da Figura
+Para ilustrar a dificuldade de se representar grafos de processo utilizando
+matrizes de adjacência, considere o grafo de processo da Figura
 \ref{fig:initconfigautomaton}. A matriz de adjacência deste autômato
 seria uma matriz $1 \times 1$ com valor $a_{1,1}=1$. Porém, perde-se a informação
-de que existem duas transições reflexivas no semi-autômato. Mais ainda,
+de que existem duas transições reflexivas no grafo de processo. Mais ainda,
 não existe qualquer menção ao valor das transições.
 
 Uma notação possível seria utilizar uma lista em cada índice da matriz de
@@ -1205,10 +1212,10 @@ adjacência que contorna as dificuldades apresentadas.
 \subsubsection{Matrizes de adjacência de evolução temporal}
 
 Uma matriz de adjacência de evolução temporal é uma notação de matriz de
-adjacência para representar semi-autômatos que possui uma relação
+adjacência para representar grafos de processo que possui uma relação
 de isomorfismo entre a matriz e sua representação em grafo.
 Formalmente, dado o conjunto de matrizes de adjacência
-de evolução temporal $\mathbb{M}$ e o conjunto de semi-autômatos $\mathbb{G}$,
+de evolução temporal $\mathbb{M}$ e o conjunto de grafos de processo $\mathbb{G}$,
 existe uma transformação $T: \mathbb{G} \mapsto \mathbb{M}$ e uma
 transformação $T^{-1}: \mathbb{M} \mapsto \mathbb{G}$. 
 
@@ -1247,7 +1254,7 @@ bases. Todavia, a única implicação na mudança de base é a quantidade de dí
 necessária para representar um dado conjunto $2^{\mathbb{L}}$ de possíveis combinações de
 transições e, do ponto de vista de arquitetura computacional, a base 2 é a
 base mais natural para se trabalhar. A Figura \ref{fig:semigraph}
-mostra o grafo da Figura \ref{fig:graph}, agora representado como um semi-autômato
+mostra o grafo da Figura \ref{fig:graph}, agora representado como um grafo de processo
 (repare que agora existe um valor para cada transição), e a Figura \ref{fig:iadjm}
 mostra a matriz de adjacência de evolução temporal correspondente.
 
@@ -1261,7 +1268,7 @@ mostra a matriz de adjacência de evolução temporal correspondente.
 \ArcL{B}{A}{1}
 \ArcR{C}{B}{1} \LoopS{C}{0}
 \end{VCPicture}
-\caption{Semi-autômato representado através de um grafo direcionado.}
+\caption{Grafo de processo representado através de um grafo direcionado.}
 \label{fig:semigraph}
 \end{center}
 \end{minipage}
@@ -1281,12 +1288,12 @@ mostra a matriz de adjacência de evolução temporal correspondente.
 \end{minipage}
 \end{figure}
 
-A transformação de um semi-autômato em uma matriz de adjacência
+A transformação de um grafo de processo em uma matriz de adjacência
 de evolução temporal é executada por meio do Algoritmo \ref{alg:stom}.
 
 \begin{algorithm}
 \caption{Algoritmo para gerar a matriz de adjacência de evolução temporal a partir
-de um semi-autômato.}
+de um grafo de processo.}
 \label{alg:stom}
 \begin{algorithmic}
 \STATE $n \leftarrow \mbox{Length}(\mathbb{Q})$ \COMMENT{número de estados}
@@ -1300,22 +1307,22 @@ de um semi-autômato.}
 \end{algorithm}
 
 O algoritmo atua criando uma matriz $A_{n \times n}$, onde $n$ é o número
-de estados do semi-autômato, e atribuindo à posição $A_{ij}$ o valor
+de estados do grafo de processo, e atribuindo à posição $A_{ij}$ o valor
 da função $\eta(\mathbb{L}_{ij}),\forall i,j$, onde $\mathbb{L}_{ij}$
 é o conjunto de transições de $i$ para $j$.
 
 O algoritmo de transformação de uma matriz de adjacência de evolução temporal em
-um semi-autômato é baseado na representação binária dos valores dos
+um grafo de processo é baseado na representação binária dos valores dos
 índices da matriz. Por exemplo, se no índice $A_{1,2}$ existir o valor
 $3$, então existe uma transição em $0$ e uma transição em $1$ do estado
 \emph{1} para o estado \emph{2}, pois $2^0+2^1=3$. O Algoritmo \ref{alg:mtos}
-mostra o processo de geração do semi-autômato a partir de uma matriz de
+mostra o processo de geração do grafo de processo a partir de uma matriz de
 adjacência de evolução temporal. O algoritmo pressupõe a existência de uma função
 \emph{MakeTransition(i,j,m)} que cria uma transição em \emph{m} do estado
 \emph{i} para o estado \emph{j}.
 
 \begin{algorithm}
-\caption{Algoritmo para gerar o semi-autômato a partir de uma matriz de
+\caption{Algoritmo para gerar o grafo de processo a partir de uma matriz de
 adjacência de evolução temporal.}
 \label{alg:mtos}
 \begin{algorithmic}
@@ -1345,27 +1352,27 @@ autômato limite de uma regra apenas elaborando-se um outro algoritmo para gerar
 matriz de adjacência de evolução temporal da regra. A próxima seção apresenta este
 algoritmo para a regra 184.
 
-\subsection{Algoritmo do semi-autômato de tempo \emph{t} para a regra 184}\label{sec:184}
+\subsection{Algoritmo do grafo de processo de tempo \emph{t} para a regra 184}\label{sec:184}
 
 Esta seção mostra como utilizar a notação de matriz de adjacência
-de evolução temporal para deduzir um algoritmo que gere o semi-autômato de uma
+de evolução temporal para deduzir um algoritmo que gere o grafo de processo de uma
 regra do espaço elementar para um passo de tempo discreto $t$ qualquer. Em
 particular, aqui é deduzido o algoritmo para gerar a matriz de evolução temporal para
 a regra 184 e, a partir desta, poderá ser aplicado o Algoritmo \ref{alg:mtos}
-para obtenção do semi-autômato.
+para obtenção do grafo de processo.
 
 \citeonline{miki2006}, baseado nos resultados de \citeonline{trafaniuc2004},
 estudou extensivamente o padrão de crescimento da regra 184 através da análise
-dos semi-autômatos gerados pelos sucessivos passos de tempo. No caso, ele estudou
-os semi-autômatos gerados dentro dos cinco primeiros passos de tempo. A Figura
-\ref{fig:184-5t} mostra os semi-autômatos da regra 184 gerados para os cinco
+dos grafos de processo gerados pelos sucessivos passos de tempo. No caso, ele estudou
+os grafos de processo gerados dentro dos cinco primeiros passos de tempo. A Figura
+\ref{fig:184-5t} mostra os grafos de processo da regra 184 gerados para os cinco
 primeiros passos de tempo. A notação de grafo é a mesma da Figura
 \ref{fig:initconfigmathematica}.
 
 \begin{figure}[htp]
 \begin{center}
 \includegraphics[scale=1]{img/184_5t.eps}
-\caption{Semi-autômatos para os cinco primeiros passos de tempo da regra 184.}
+\caption{Grafos de processo para os cinco primeiros passos de tempo da regra 184.}
 \label{fig:184-5t}
 \end{center}
 \end{figure}
@@ -1375,7 +1382,7 @@ foi a de que a cada passo de tempo, sempre existia uma mesma estrutura
 de grafo sendo adicionada e uma sendo excluída, e essas estruturas eram
 invariantes no tempo. As Figuras \ref{fig:addstruct} e \ref{fig:excstruct}
 mostram, respectivamente, as estruturas adicionada e excluída dos sucessivos
-semi-autômatos da regra 184.
+grafos de processo da regra 184.
 
 \begin{figure}[htp]
 \begin{minipage}[b]{0.5\linewidth}
@@ -1394,7 +1401,7 @@ semi-autômatos da regra 184.
 \end{figure}
 
 É difícil identificar visualmente estas estruturas, ou qualquer padrão de
-crescimento, por meio dos semi-autômatos. Porém, convertendo estes grafos
+crescimento, por meio dos grafos de processo. Porém, convertendo estes grafos
 em matrizes de adjacência de evolução temporal, é possível detectar os padrões
 de crescimento e visualizar o efeito das estruturas adicionada e
 excluída. As Figuras \ref{fig:addstructm} e \ref{fig:excstructm} mostram
@@ -1474,12 +1481,12 @@ atribuída na posição $A_{n,n-1}$.
 \end{enumerate}
 
 Baseando-se nesta análise, é possível derivar um algoritmo de construção da
-matriz de adjacência de evolução temporal do semi-autômato de tempo $t$ para a
+matriz de adjacência de evolução temporal do grafos de processo de tempo $t$ para a
 regra 184. O algoritmo é mostrado no Algoritmo \ref{alg:r184}.
 
 \begin{algorithm}
 \caption{Algoritmo para gerar a matriz de adjacência de evolução temporal do
-semi-autômato de tempo $t$ para a regra 184.}
+grafo de processo de tempo $t$ para a regra 184.}
 \label{alg:r184}
 \begin{algorithmic}
 \STATE $A \leftarrow \mbox{ matriz nula } n \times n \mbox{, onde } n=2(t+1)$
@@ -1515,7 +1522,7 @@ O algoritmo executa em tempo $O(t)$. A combinação dos Algoritmos
 \end{equation}
 
 De posse do Algoritmo \ref{alg:r184} e do Algoritmo \ref{alg:mtos} é
-possível, então, recriar o semi-autômato de tempo $t$ para a regra 184.
+possível, então, recriar o grafo de processo de tempo $t$ para a regra 184.
 
 \subsection{Padrão de formação das matrizes de adjacências de evolução temporal}\label{sec:pattern}
 
@@ -1592,29 +1599,29 @@ por um autômato finito.
 Este trabalho trata do estudo da complexidade de um subconjunto dos ACs
 elementares. O objetivo é dar continuidade aos trabalhos de
 \citeonline{trafaniuc2004} e \citeonline{miki2006}, onde foram feitas
-análises dos semi-autômatos dos diferentes passos de tempo
+análises dos grafos de processo dos diferentes passos de tempo
 para as regras elementares.
 
-Aqui, a abordagem utilizada é a de converter os semi-autômatos dos sucessivos
+Aqui, a abordagem utilizada é a de converter os grafos de processo dos sucessivos
 passos de tempo das regras do espaço elementar em matrizes de adjacência e analisar
 tais matrizes. Porém, a notação comumente utilizada para matrizes de adjacência
-não consegue completamente descrever os semi-autômatos. É, então, proposta uma
+não consegue completamente descrever os grafos de processo. É, então, proposta uma
 nova notação de matriz de adjacência, chamada de \textit{matriz de
 adjacência de evolução temporal}. Com isso, é possível construir o
-semi-autômato a partir de sua matriz de adjacência de evolução temporal.
+grafo de processo a partir de sua matriz de adjacência de evolução temporal.
 
 Especificamente, mostrou-se aqui que é possível deduzir um algoritmo para o
-semi-autômato de tempo $t$ da regra 184 baseado na análise das respectivas
+grafo de processo de tempo $t$ da regra 184 baseado na análise das respectivas
 matrizes de adjacência. Em seguida, analisou-se
 os padrões de evolução das matrizes para as 26 regras estudadas em
 \citecustom{mikietal2011}, evidenciando-se que esse grupo de regras
 também apresenta padrão de formação, embora nem sempre desde o primeiro
 instante de tempo, da mesma maneira que \citeonline{trafaniuc2004} e
-\citeonline{miki2006} já haviam demonstrado para a notação em semi-autômatos.
+\citeonline{miki2006} já haviam demonstrado para a notação em grafo de processo.
 \citeonline{trafaniuc2004} deduziu a regra de formação do autômato de
 tempo $t$ para outras 11 regras, além da regra 184. \citeonline{miki2006}
 conseguiu automatizar o processo de detecção de padrões em tempos adjacentes
-dos semi-autômatos que representam a evolução dos ACs, ainda dentro do
+dos grafos de processo que representam a evolução dos ACs, ainda dentro do
 conjunto de 26 regras abordadas. Este trabalho pretende obter os mesmos
 resultados para a notação de matrizes de adjacência de evolução temporal.
 
@@ -1628,18 +1635,18 @@ dos resultados conseguidos até aqui, três vertentes de trabalho serão
 seguidas:
 
 \begin{enumerate}
-\item Transformar o semi-autômato da Figura \ref{fig:limit184} em uma matriz
+\item Transformar o grafo de processo da Figura \ref{fig:limit184} em uma matriz
 de adjacência de evolução temporal, fazer a análise da formação desta matriz e tentar
 conectar as matrizes dos sucessivos passos de tempo com a matriz do
 comportamento limite, assim como \citeonline{miki2006} o fez para
-a notação de semi-autômatos.
+a notação de grafos de processo.
 
-\item Gerar os semi-autômatos de tempo $t$ para as outras regras, como
+\item Gerar os grafos de processo de tempo $t$ para as outras regras, como
 fez \citeonline{trafaniuc2004}.
 
 \item Tentar inferir um algoritmo genérico
 de detecção de padrões para matrizes de adjacência e, a partir deste,
-obter o semi-autômato limite da regra 184.
+obter o grafo de processo limite da regra 184.
 \end{enumerate}
 
 \subsection{Cronograma de trabalho}\label{sec:schedule}
@@ -1654,7 +1661,7 @@ obter o semi-autômato limite da regra 184.
 \footnotesize \textbf{Atividade} & \footnotesize Janeiro & \footnotesize Fevereiro & \footnotesize Março & \footnotesize Abril
 & \footnotesize Maio & \footnotesize Junho\\ \hline
 {\footnotesize Elaboração de artigo para submissão} & X & X &   &   &  &  \\ \hline
-{\footnotesize Gerar o semi-autômato de tempo $t$ para as outras regras} & X & X &   &   &  &  \\ \hline
+{\footnotesize Gerar o grafo de processo de tempo $t$ para as outras regras} & X & X &   &   &  &  \\ \hline
 {\footnotesize Trabalhar em um algoritmo de detecção de padrões genérico} &   &   & X &   &  &  \\ \hline
 {\footnotesize Analisar a representação matricial do grafo limite da regra 184} &   &   &   & X &  &  \\ \hline
 {\footnotesize Elaboração do documento final} &   &   &   &   & X  & X \\ \hline
