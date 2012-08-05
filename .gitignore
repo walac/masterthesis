@@ -1,0 +1,11 @@
+*.aux
+*.bbl
+*.blg
+*.dvi
+*.lof
+*.log
+*.lot
+*.out
+*.toc
+rulesel.tex
+*.pdf
