@@ -138,26 +138,28 @@ complexo quanto uma máquina de Turing \citecustom{wolfram1984a}. Ele
 é caracterizado por um reticulado de células cujos estados posteriores
 dependem dos estados anteriores de si próprias e de suas vizinhas.
 Este tipo de comportamento, que é localmente simples mas globalmente
-complexo da origem à chamada \textit{computação emergente}. 
-ACs são utilizados na modelagem de diversos sistemas naturais.
+complexo dá origem à chamada \textit{computação emergente}, e é
+a base da utilização dos ACs na modelagem de diversos sistemas naturais.
 
 A vizinhança das células de um AC por ser definida por
 um raio de vizinhança que tem seu centro na célula em questão, e engloba
 todas as células que está dentro do raio. Um AC
-elementar possui raio igual a 1 e um conjunto de estados $\{0,1\}$.
+elementar possui raio igual a 1 e conjunto de estados $\{0,1\}$, o que
+permite a definição de um espaço de 256 regras possíveis, que são
+usualmente identificadas por um número entre 0 e 255 \citecustom{wolfram1984}.
 Este trabalho estuda um subconjunto dos ACs elementares, que consiste
 em 26 regras estudadas em \citecustom{trafaniuc2004},
 \citecustom{miki2006} e \citecustom{mikietal2011}.
 
 O comportamento limite de ACs pode ser descrito por meio
-de linguagens formais. Uma linguagem formal é um conjunto de cadeias ou
-palavras formadas a partir de um alfabeto da linguagem
-\citecustom{lewis2008}. A classe mais simples de linguagens formais é
+de linguagens formais, a partir das cadeias ou
+palavras formadas por seu alfabeto \citecustom{lewis2008}.
+A classe mais simples de linguagens formais é
 a das linguagens regulares, que pode ser gerada por uma gramática regular ou
 pelas chamadas expressões regulares. Qualquer linguagem regular pode ser
-reconhecida por um autômato finito (AF), que é um tipo de autômato que
+reconhecida por um autômato finito (AF), que é uma modalidade de autômato que
 possui memória restrita. As linguagens regulares são o tipo mais simples
-de linguagem da hierarquia de Chomsky.
+de linguagem na hierarquia de Chomsky.
 
 O conjunto de todas as configurações globais de um AC
 elementar em um dado momento no tempo discreto pode ser descrito por
@@ -1240,7 +1242,9 @@ arcos $\mathbb{L}$ em um número natural é o polinômio de base 2:
 \end{equation}
 
 Onde $\mathbb{L}_{ij}$ é o conjunto de transições do estado $i$ para o estado
-$j$. Repare que como $k \in \mathbb{N}$, então $\eta(\mathbb{L}_{ij}) \in \mathbb{Z}$,
+$j$, o que permite a definição de um espaço de 256 regras possíveis, que são usualmente
+identificadas por um número entre 0 e 255 \citecustom{wolfram1984}.
+Nota-se que como $k \in \mathbb{N}$, então $\eta(\mathbb{L}_{ij}) \in \mathbb{Z}$,
 ou seja, $\eta(\mathbb{L}_{ij})$ está restrita ao domínio dos inteiros. Se
 $k \in \mathbb{Z}$ ($\mathbb{L}_{ij} \mapsto \mathbb{Z}$), então
 $\eta(\mathbb{L}_{ij}) \in \Re$, pois admitiria-se a possibilidade de expoentes negativos.
