@@ -1,0 +1,40 @@
+.PS
+down;
+box "Início";
+arrow;
+NDFA: box wid 2.0 height 1.0 rjust "Entrada:" "- NDFA" "- Número da regra do CA"
+arrow;
+NetCAStep: box wid 0.9 "NetCAStep";
+arrow;
+box wid 1.8 height 1.0 "Saída:" "- autômato finito não" "determinístico (t+1)";
+arrow;
+Decision: box wid 2.1 ht 1.6 "Gerar para próximo" "passo de tempo?" invis;
+move to NetCAStep.ne;
+move right 1.8;
+down;
+MinNet: box "MinNet";
+down;
+arrow;
+MinNetOut: box wid 1.5 height 1.0 "Saída:" "- autômato finito" "determinístico";
+move to NDFA.ne;
+move right 3.3;
+down;
+InputDFA: box "Entrada:" "- DFA";
+down;
+arrow;
+TrimNet: box "TrimNet";
+arrow;
+ProcessGraph: box wid 1.4 "Entrada:" "- grafo de processo"
+line from Decision.n to Decision.e to Decision.s to Decision.w to Decision.n; 
+line from Decision.w left;
+line up NetCAStep.w.y-Decision.w.y "Sim" rjust;
+arrow to NetCAStep.w;
+line from Decision.e right 0.15;
+line up MinNet.w.y-Decision.e.y then up then up;
+line right MinNet.n.x-0.15-Decision.e.x "Não" above;
+arrow to MinNet.n;
+line from MinNetOut.s down then right 0.9 then up then up InputDFA.w.y-MinNetOut.s.y \
+then up then up then right InputDFA.n.x-0.9-MinNetOut.s.x;
+arrow down to InputDFA.n;
+.PE
+
