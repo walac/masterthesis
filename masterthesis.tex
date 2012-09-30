@@ -1256,6 +1256,50 @@ diferença com um grafo de referência $G'$. Tal algoritmo não é conhecido
 na literatura, sendo o problema do isomorfismo de grafos o mais próximo do
 problem em questão.
 
+\subsection{Comportamento limite da regra 184}
+
+\citeonline{miki2006} analisou a regra elementar 184, e dividiu seu
+comportamento limite em três partes, dependendo da configuração inicial:
+
+\begin{itemize}
+\item Configuração inicial com número de 1s igual ao número de 0s
+(\#1s = \#0s), implica em configuração limite com 0s e 1s
+intercalados.
+
+\item Configuração inicial com número de 1s maior que o número de 0s
+(\#1s > \#0s), implica em configuração limite com formação de grupos de
+1s, intercalados por blocos 01.
+
+\item Configuração inicial com número de 0s maior que o número de 1s
+(\#1s < \#0s), implica em configuração limite com formação de grupos
+de 0s, intercalados por blocos 10.
+\end{itemize}
+
+Com base nesta descrição, ele construiu um AF que seria
+o AF limite da regra 184 (Figura \ref{fig:limit184}). Mas este AF não
+aceita, por exemplo, a cadeia 011, que faz parte da linguagem limite e,
+portanto, não descreve o comportamento limite da regra 184.  
+
+A Figura \ref{fig:limit184w} mostra o que acredita-se ser o grafo de processo
+que representa o comportamento limite da regra 184. Em busca de evidências
+de que este se trata do comportamento limite, primeiramente foram geradas
+todas as cadeias limites a partir de todas as combinações de configurações
+iniciais de tamanho 20, e então foi verificado se o grafo aceitaria cada
+configuração limite gerada. Além disso, o grafo foi testado com algumas
+configurações que sabe-se não fazerem parte do comportamento limite.
+Todos os testes foram executados com sucesso.
+Então, embora não haja um prova formal de que este grafo de processo seja
+realmente o comportamento limite da regra 184, há fortes evidências que
+levam a tal conclusão.
+
+\begin{figure}[htp]
+\begin{center}
+\includegraphics[scale=0.35]{img/limit184w.eps}
+\caption{Grafo limite da regra 184.}
+\label{fig:limit184w}
+\end{center}
+\end{figure}
+
 \newpage
 
 \section{Construção do grafo de processo por meio de matrizes de
