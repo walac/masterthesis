@@ -16,6 +16,7 @@
 \usepackage{float}
 \usepackage{chngcntr}
 \usepackage{lscape}
+\usepackage{rotating}
 
 \floatname{algorithm}{Algoritmo}
 
@@ -1147,7 +1148,7 @@ obter as expressões de crescimento das regras 11, 14, 35, 50, 70 e 81, que
 \citecustom{trafaniuc2004} não tinha conseguido.
 
 \subsection{Problemas encontrados no trabalho de
-\citecustom{trafaniuc2004}}
+\citecustom{trafaniuc2004}}\label{sec:problem}
 
 Tanto \citecustom{trafaniuc2004} quanto \citecustom{miki2006} basearam seus
 respectivos trabalhos nas funções NetCAStep, MinNet e TrimNet.
@@ -1299,18 +1300,87 @@ levam a tal conclusão.
 \end{center}
 \end{figure}
 
+\subsection{Nova tabela de complexidade de regras}
+
+Conforme já relatado na Seção \ref{sec:problem}, o encadeamento das
+funções NetCAStep, MinNet e TrimNet nos trabalhos anteriores estava
+equivocado. Como consequência, a construção da tabela de complexidade
+de Wolfram foi refeita. As Tabelas \ref{tbl:Table1}, \ref{tbl:Table2}
+e \ref{tbl:Table3} apresentam os novos resultados.
+
+\begin{sidewaystable}
+\centering
+\includegraphics[scale=0.5]{img/Table1.eps}
+\caption{Tabela de complexidade de linguagens regulares (1/3).}
+\label{tbl:Table1}
+\end{sidewaystable}
+
+\begin{sidewaystable}
+\centering
+\includegraphics[scale=0.5]{img/Table2.eps}
+\caption{Tabela de complexidade de linguagens regulares (2/3).}
+\label{tbl:Table2}
+\end{sidewaystable}
+
+\begin{sidewaystable}
+\centering
+\includegraphics[scale=0.5]{img/Table3.eps}
+\caption{Tabela de complexidade de linguagens regulares (3/3).}
+\label{tbl:Table3}
+\end{sidewaystable}
+
+Um ponto importante é que, para algumas regras em que os resultados de
+\citecustom{wolfram1994} e \citecustom{trafaniuc2004} coincidiram, houve
+divergências neste trabalho. Um exemplo é a regra 18, onde Wolfram e
+Trafaniuc obtiveram os mesmos resultados mas este trabalho obteve valores
+diferentes, embora Wolfram trabalhou com grafos de processo e Trafaniuc
+com AFs.
+
+Outra questão é com relação às regras 32, 128, 136, 160, 168, e 224. Estas têm
+o número de estados e arestas do grafo limite apresentados em
+\citecustom{wolfram1994} mas não há qualquer registro de como seus grafos
+de processo limite foram obtidos. O grafo de processo da regra 128 está
+em \citecustom{wolfram1984} e é mostrado na Figura \ref{fig:limit128}, mas
+não há qualquer indício de onde os outros grafos vieram.
+
+Baseado no comportamento limite da regra 128, neste trabalho foi desenvolvida
+uma técnica manual para inferir o grafo de processo limite das outras regras.
+A técnica parte das estruturas imutáveis dos grafos dos
+sucessivos passos de tempo, observar a evolução do grafo e deduzir o caso
+limite.
+
+Por exemplo, observando os grafos da regra 128 (Figura \ref{fig:r128t}, ele
+inicia sempre em um conjuntos de 0s, então uma transição em 1 para um
+conjunto de 1s.  Então inicia-se um ciclo de volta ao cojunto de 0s; mas a
+distância deste ciclo fica cada vez maior conforme aumenta-se o passo de
+tempo. Deduz-se então que esta distância tende a $\infty$ conforme
+$t \mapsto \infty$, resultando em um segundo conjunto de 0s visto no grafo
+limite.
+
+Seguindo a mesma linha de raciocínio, os grafos de processo limites das
+outras regras foram também deduzidos.
+
+\begin{figure}[htp]
+\begin{center}
+\includegraphics[scale=0.6]{img/Limits.eps}
+\caption{Grafos de processo limite.}
+\label{fig:limits}
+\end{center}
+\end{figure}
+
+O mesmo procedimento de validação aplicado ao grafo de processo limite da
+regra 184 foi aplicado a estes grafos como forma de evidenciar sua
+veracidade.
+
 \newpage
 
 \section{Construção do grafo de processo por meio de matrizes de
 adjacências}\label{sec:desenv}
 
-Conforme já explicado anteriormente, o conjunto de configurações globais de
-um AC pode ser descrito por uma linguagem regular e,
-consequentemente, por um AF determinístico.
-
-Estudos sobre a complexidade de ACs elementares por meio da
-análise dos grafos dos AFs gerados pelas respectivas regras
-foram realizados por \citeonline{miki2006} e por \citeonline{trafaniuc2004}.
+Qualquer grafo pode ter uma representação matricial. Para AFs, é necessário
+ainda definir uma forma de representar os estados iniciais e finais. No
+caso de grafos de processo, esta informação é irrelevante, pois todos
+os estados são iniciais e finais.
 
 \citeonline{wang2011} propuseram uma representação matricial alternativa para
 ACs. Eles descreveram a representação linear de sistemas não lineares com
@@ -1343,14 +1413,14 @@ tem um elemento igual a $1$ e todos os outros iguais a $0$.
 \end{enumerate}
 
 Neste capítulo, é proposta uma nova abordagem para o problema, por meio da
-análise das matrizes de adjacência correspondentes aos AFs
+análise das matrizes de adjacência correspondentes aos grafos de processo
 das respectivas regras do espaço elementar. Porém, como será visto adiante,
-não é possível representar completamente um AF utilizando a
+não é possível representar completamente um grafo de processo utilizando a
 notação clássica de matrizes de adjacência. É proposta, então, uma
 nova notação que, dada a matriz de adjacência, é possível construir
 integralmente o grafo da respectiva matriz.
 
-O texto então deduz o algoritmo de formação do AF
+O texto então deduz o algoritmo de formação do grafo de processo
 de tempo $t$ para a regra 184; e então finaliza com uma breve
 descrição dos padrões de formação de matrizes das mesmas regras
 estudadas em \citecustom{mikietal2011}. O motivo de escolher
