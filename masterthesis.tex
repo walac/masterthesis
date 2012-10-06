@@ -1897,13 +1897,24 @@ número de passos de evolução pode ser descrito por uma linguagem
 regular. Linguagens regulares são aquelas que sempre podem ser reconhecidas
 por um autômato finito.
 
-Este trabalho trata do estudo da complexidade de um subconjunto dos ACs
-elementares. O objetivo é dar continuidade aos trabalhos de
+O objetivo deste trabalho é dar continuidade aos trabalhos de
 \citeonline{trafaniuc2004} e \citeonline{miki2006}, onde foram feitas
 análises dos grafos de processo dos diferentes passos de tempo
 para as regras elementares.
 
-Aqui, a abordagem utilizada é a de converter os grafos de processo dos sucessivos
+Durante a pesquisa, foram encontradas inconsistências nos trabalhos anteriores,
+fruto da ambiguidade da desrição das funções NetCAStep, MinNet e TrimNet 
+em \citecustom{wolfram2002}. A tabela de \citecustom{wolfram1994} foi novamente
+refeita, e novos resultados apareceram, inclusive uma técnica para inferir
+o comportamento limite de regras quando isto é possível. O grafo de processo
+limite da regra 184 também foi inferido, mas partindo-se da expressão regular
+que descreve seu comportamento. Os testes realizados evidenciam que o grafo
+de processo apresentado pode ser o grafo limite da regra. A implementação do
+algoritmo de seleção de regras de \citecustom{trafaniuc2004} apresenta um
+problema com relação a operação de diferença de grafos, e um método para
+resolvê-lo ainda não foi obtido.
+
+Outra estratégia foi a de converter os grafos de processo dos sucessivos
 passos de tempo das regras do espaço elementar em matrizes de adjacência e analisar
 tais matrizes. Porém, a notação comumente utilizada para matrizes de adjacência
 não consegue completamente descrever os grafos de processo. É, então, proposta uma
@@ -1923,15 +1934,26 @@ instante de tempo, da mesma maneira que \citeonline{trafaniuc2004} e
 tempo $t$ para outras 11 regras, além da regra 184. \citeonline{miki2006}
 conseguiu automatizar o processo de detecção de padrões em tempos adjacentes
 dos grafos de processo que representam a evolução dos ACs, ainda dentro do
-conjunto de 26 regras abordadas. Este trabalho pretende obter os mesmos
-resultados para a notação de matrizes de adjacência de evolução temporal.
+conjunto de 26 regras abordadas. Após, foi deduzido o algoritmo para as
+outras 25 regras.
 
 Acredita-se então que essa nova representação por meio de matrizes de
 adjacência possa ajudar no estudo da complexidade de ACs e na identificação
-de padrões de crescimento dos respectivos AFs.
+de padrões de crescimento dos respectivos grafos de processo.
 
-Permanece aberta, porém, a questão da convergência da evolução dos AFs da
-regra 184 para o seu comportamento limite \citecustom{miki2006}.
+Permanece aberta, porém, a questão da convergência da evolução dos grafos
+de processo da regra 184 para o seu comportamento limite \citecustom{miki2006}.
+Como trabalhos futuros, sugere-se trabalhar em um prova formal da veracidade
+do grafo de processo da Figura \ref{fig:limit184w} como o grafo limite da regra
+184. Também é necessário encontrar um algoritmo de tempo polinomial que resolva
+o problema de diferença de grafos apresentado na Seção \ref{sec:problem}.
+Pelo fato de este problema ser muito parecido com o de isomorfismo de grafos,
+é aconselhável começar a investigação pela literatura existente sobre tal
+problema.
+
+Como sugestão final, a exploração da notação matricial foi feita de forma
+superficial neste trabalho.  Pesquisas posteriores podem se aprofundar em
+tal tema.
 
 \newpage
 
