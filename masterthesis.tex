@@ -95,22 +95,21 @@ localmente de forma simples e determinística, mas cujo comportamento
 global resultante pode ser extremamente complexo. O conjunto de possíveis
 configurações globais em um passo de tempo $t$ finito para um AC pode ser
 descrito por uma linguagem regular, a qual por sua vez pode ser representada
-por meio de um autômato finito (AF). Estuda-se aqui a complexidade da
-evolução temporal dos ACs, substituindo a representação dos autômatos
-finitos que descrevem a configuração a cada passo de tempo por matrizes de
-adjacência deles derivadas. De fato, estende-se a notação clássica de
-matriz de adjacência, já que ela se mostra insuficiente para descrever 
-completamente os autômatos finitos em questão É premissa deste trabalho que essa
-nova representação possa facilitar a análise da complexidade de ACs e a
-detecção de padrões de crescimento dos respectivos AFs, suplementando
-esforços anteriores na literatura. Com isso, objetiva-se encontrar
-algoritmicamente o comportamento limite da regra elementar 184, que é
-conhecido, mas ainda não detectável computacionalmente. Para tanto,
-pretende-se seguir duas vertentes: analisar o autômato finito limite da
-regra 184 por meio de representação em matrizes de adjacência; e tentar
-achar um algoritmo de detecção de padrões em matrizes de adjacência de
-forma automática, que poderá ser utilizado na obtenção do comportamento
-limite da regra 184.
+por meio de um autômato finito (AF). Uma classe de AFs relevante para este
+trabalho são os chamados grafos de processo, que são AFs em que todos os
+estados são iniciais e finais, pois estes permitem uma notação matricial
+compacta e inequívoca. Estuda-se aqui a complexidade da evolução temporal
+dos ACs, onde trabalhos anteriores são revisados e discutidos, apontando
+problemas nos experimentos e seu impacto nos resultados. Também inicia-se
+uma inédita abordagem para o problema, substituindo a representação dos
+grafos de processo que descrevem a configuração a cada passo de tempo
+por matrizes de adjacência deles derivadas. De fato, estende-se a notação
+clássica de matriz de adjacência, já que ela se mostra insuficiente para
+descrever completamente os grafos de processo em questão. Com essa nova
+notação, mostra-se que é possível obter o algoritmo que gere o grafo de
+processo de tempo $t$ para cada uma das regras estudadas. Conclui-se que,
+embora houve avanços para o problema do grafo limite, este ainda permanece
+aberto, e sugestões para continuação da pesquisa são dadas.
 \\[0.5cm]
 \begin{flushleft}
 {\bf Palavras-chave:} {\it Autômato celular elementar, comportamento limite,
