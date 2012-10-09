@@ -168,7 +168,8 @@ uma linguagem regular e, consequentemente, um AF
 estudaram, em seus respectivos trabalhos, a complexidade de ACs
 elementares por meio da análise da evolução dos sucessivos
 AFs para diferentes instantes de tempo. Este trabalho
-tem o objetivo de dar prosseguimento àqueles estudos, utilizando a abordagem
+tem o objetivo de dar prosseguimento àqueles estudos, estendendo os
+experimentos realizados e introduzindo a abordagem
 de representação dos AFs por meio de matrizes de adjacência.
 Sobretudo, este trabalho objetiva estudar o comportamento da evolução da
 regra 184 e, assim, tentar derivar seu comportamento limite.
@@ -178,12 +179,15 @@ os ACs, linguagens formais e comportamento limite.
 Adicionalmente, apresenta um resumo do trabalho relatado em
 \citecustom{mikietal2011}.
 
-O Capítulo \ref{sec:desenv} descreve a proposta deste trabalho. A obtenção do
+O Capítulo \ref{sec:complexity} descreve os trabalhos anteriores, aponta
+os problemas encontrados nestes e discute novos resultados obtidos.
+
+O Capítulo \ref{sec:matrix} descreve uma nova abordagem por meio de matrizes
+de adjacência. A obtenção do
 grafo de processo de tempo $t$ pode ser conseguida por meio de uma nova notação de 
 matrizes de adjacência em relação ao respectivo grafo de processo.
 
-O Capítulo \ref{sec:conclude} apresenta as conclusões parciais obtidas até
-aqui e o cronograma de trabalho.
+O Capítulo \ref{sec:conclude} conclui o trabalho.
 
 \newpage
 
@@ -966,7 +970,7 @@ em um grafo de processo.
 \newpage
 
 \section{Complexidade de linguagens regulares de autômatos
-finitos elementares}
+finitos elementares}\label{sec:complexity}
 
 O conjunto de possíveis configurações globais de um AC elementar pode ser
 representado por um AF para um passo de tempo finito. Para
@@ -1374,7 +1378,7 @@ veracidade.
 \newpage
 
 \section{Construção do grafo de processo por meio de matrizes de
-adjacências}\label{sec:desenv}
+adjacências}\label{sec:matrix}
 
 Qualquer grafo pode ter uma representação matricial. Para AFs, é necessário
 ainda definir uma forma de representar os estados iniciais e finais. No
