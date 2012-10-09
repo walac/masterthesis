@@ -1979,6 +1979,8 @@ tal tema.
 \section{Algoritmos para gerar o semi-autômato de tempo $t$ para as 26 regras
 estudadas}
 
+Para todos os algoritmos, $\psi(n) = \mbox{ matriz nula } n \times n$.
+
 \begin{algorithm}[H]
 \caption{Algoritmo para gerar a matriz de adjacência de evolução temporal do
 semi-autômato de tempo $t$ para a regra 11.}
@@ -1988,11 +1990,11 @@ semi-autômato de tempo $t$ para a regra 11.}
 \STATE $m \leftarrow t-2k$
 \IF{$t=1$}
     \STATE $n \leftarrow 3$
-    \STATE $A \leftarrow \mbox{ matriz nula } n \times n$
+    \STATE $A \leftarrow \psi(n)$
     \STATE $A_{n,n-1} \leftarrow 2$
 \ELSE
     \STATE $n \leftarrow 2(t+1)$
-    \STATE $A \leftarrow \mbox{ matriz nula } n \times n$
+    \STATE $A \leftarrow \psi(n)$
     \STATE $A_{n-2,n-1} \leftarrow 2$
     \STATE $A_{n,n-2} \leftarrow 2$
     \FOR {$j=1$ to $k$}
@@ -2039,7 +2041,7 @@ semi-autômato de tempo $t$ para a regra 14.}
 \STATE $m \leftarrow t-2k$
 \IF{$t=1$}
     \STATE $n \leftarrow 3$
-    \STATE $A \leftarrow \mbox{ matriz nula } n \times n$
+    \STATE $A \leftarrow \psi(n)$
     \STATE $A_{1,n} \leftarrow 1$
     \STATE $A_{2,n} \leftarrow 1$
     \STATE $A_{n,n} \leftarrow 1$
@@ -2054,7 +2056,7 @@ semi-autômato de tempo $t$ para a regra 14.}
 \begin{algorithmic}
 \algrestore{rule14}
     \STATE $n \leftarrow 2(t+1)$
-    \STATE $A \leftarrow \mbox{ matriz nula } n \times n$
+    \STATE $A \leftarrow \psi(n)$
     \FOR{$j=1$ to $k$}
         \STATE $A_{t+k+m+j-1,j} \leftarrow 2$
         \STATE $A_{t+k+m+j-1,t+k+m} \leftarrow 1$
@@ -2092,7 +2094,7 @@ semi-autômato de tempo $t$ para a regra 23.}
 \label{alg:r23}
 \begin{algorithmic}
 \STATE $n \leftarrow 4t+6$
-\STATE $A \leftarrow \mbox{ matriz nula } n \times n$
+\STATE $A \leftarrow \psi(n)$
 \IF{$t>1$}
     \FOR{$j=1$ to $t-1$}
         \STATE $A_{j,j+1} \leftarrow 2$
@@ -2132,7 +2134,7 @@ semi-autômato de tempo $t$ para a regra 35.}
 \STATE $k \leftarrow \lfloor t \div 2 \rfloor$
 \STATE $m \leftarrow t - 2k$
 \STATE $n \leftarrow t+k+3$
-\STATE $A \leftarrow \mbox{ matriz nula } n \times n$
+\STATE $A \leftarrow \psi(n)$
 \IF{$t>2$}
     \FOR{$j=1$ to $k+m-1$}
         \STATE $A_{j,k+j+1} \leftarrow 2$
@@ -2166,7 +2168,7 @@ semi-autômato de tempo $t$ para a regra 43.}
 \label{alg:r43}
 \begin{algorithmic}
 \STATE $n \leftarrow 4(t+1)$
-\STATE $A \leftarrow \mbox{ matriz nula } n \times n$
+\STATE $A \leftarrow \psi(n)$
 \IF{$t>1$}
     \FOR{$j=1$ to $t-1$}
         \STATE $A_{t+j,2t+j+1} \leftarrow 1$
@@ -2201,7 +2203,7 @@ semi-autômato de tempo $t$ para a regra 50.}
 \STATE $m \leftarrow t - 2k$
 \IF{$t=1$}
     \STATE $n \leftarrow 3$
-    \STATE $A \leftarrow \mbox{ matriz nula } n \times n$
+    \STATE $A \leftarrow \psi(n)$
     \STATE $A_{2,1} \leftarrow 2$
     \STATE $A_{n,2} \leftarrow 2$
     \STATE $A_{1,n} \leftarrow 1$
@@ -2209,7 +2211,7 @@ semi-autômato de tempo $t$ para a regra 50.}
     \STATE $A_{n,n} \leftarrow 1$
 \ELSE
     \STATE $n \leftarrow 2t+3$
-    \STATE $A \leftarrow \mbox{ matriz nula } n \times n$
+    \STATE $A \leftarrow \psi(n)$
     \FOR{$j=1$ to $k+m-1$}
         \STATE $A_{k+j,j} \leftarrow 1$
         \STATE $A_{t+k+j,2k+j+1} \leftarrow 1$
@@ -2257,12 +2259,12 @@ semi-autômato de tempo $t$ para a regra 56.}
 \begin{algorithmic}
 \IF{$t=1$}
     \STATE $n \leftarrow 3$
-    \STATE $A \leftarrow \mbox{ matriz nula } n \times n$
+    \STATE $A \leftarrow \psi(n)$
     \STATE $A_{1,n} \leftarrow 1$
     \STATE $A_{2,1} \leftarrow 2$
 \ELSE
     \STATE $n \leftarrow 2t$
-    \STATE $A \leftarrow \mbox{ matriz nula } n \times n$
+    \STATE $A \leftarrow \psi(n)$
     \FOR{$j=1$ to $t-1$}
         \STATE $A_{t+j-1,j} \leftarrow 1$
         \STATE $A_{j,t+j} \leftarrow 2$
@@ -2291,7 +2293,7 @@ semi-autômato de tempo $t$ para a regra 70.}
 \ENDIF
 \STATE $k \leftarrow \lfloor t \div 2 \rfloor$
 \STATE $m \leftarrow t - 2k$
-\STATE $A \leftarrow \mbox{ matriz nula } n \times n$
+\STATE $A \leftarrow \psi(n)$
 \IF{$t=1$}
     \STATE $A_{1,n} \leftarrow 1$
     \STATE $A_{2,n} \leftarrow 1$
@@ -2351,7 +2353,7 @@ semi-autômato de tempo $t$ para a regra 81.}
 \ENDIF
 \STATE $k \leftarrow \lfloor t \div 2 \rfloor$
 \STATE $m \leftarrow t - 2k$
-\STATE $A \leftarrow \mbox{ matriz nula } n \times n$
+\STATE $A \leftarrow \psi(n)$
 \IF{$j>1$}
     \FOR{$j=1$ to $k$}
         \STATE $A_{j,t+j+m} \leftarrow 2$
@@ -2378,7 +2380,7 @@ semi-autômato de tempo $t$ para a regra 98.}
 \begin{algorithmic}
 \IF{$t=1$}
     \STATE $n \leftarrow 3$
-    \STATE $A \leftarrow \mbox{ matriz nula } n \times n$
+    \STATE $A \leftarrow \psi(n)$
     \STATE $A_{2,1} \leftarrow 2$
     \STATE $A_{1,n} \leftarrow 1$
     \STATE $A_{2,n} \leftarrow 1$
@@ -2386,7 +2388,7 @@ semi-autômato de tempo $t$ para a regra 98.}
     \STATE $A_{n,n-1} \leftarrow 2$
 \ELSE
     \STATE $n \leftarrow 2t$
-    \STATE $A \leftarrow \mbox{ matriz nula } n \times n$
+    \STATE $A \leftarrow \psi(n)$
     \FOR{$j=1$ to $t-1$}
         \STATE $A_{t+j-1,j} \leftarrow 2$
         \STATE $A_{t+j-1,t} \leftarrow 1$
@@ -2411,7 +2413,7 @@ semi-autômato de tempo $t$ para a regra 113.}
 \label{alg:r113}
 \begin{algorithmic}
 \STATE $n \leftarrow 4(t+1)$
-\STATE $A \leftarrow \mbox{ matriz nula } n \times n$
+\STATE $A \leftarrow \psi(n)$
 \IF{$t>1$}
     \FOR{$j=1$ to $t-1$}
         \STATE $A_{j,2t+j+1} \leftarrow 2$
@@ -2443,7 +2445,7 @@ semi-autômato de tempo $t$ para a regra 128.}
 \label{alg:r128}
 \begin{algorithmic}
 \STATE $n \leftarrow 2(t+1)$
-\STATE $A \leftarrow \mbox{ matriz nula } n \times n$
+\STATE $A \leftarrow \psi(n)$
 \FOR{$j=1$ to $2t-1$}
     \STATE $A_{j,j+1} \leftarrow 1$
 \ENDFOR
@@ -2461,7 +2463,7 @@ semi-autômato de tempo $t$ para a regra 132.}
 \label{alg:r132}
 \begin{algorithmic}
 \STATE $n \leftarrow 2t+3$
-\STATE $A \leftarrow \mbox{ matriz nula } n \times n$
+\STATE $A \leftarrow \psi(n)$
 \IF{$t>1$}
     \FOR{$j=1$ to $t-1$}
         \STATE $A_{j,j+1} \leftarrow 1$
@@ -2488,7 +2490,7 @@ semi-autômato de tempo $t$ para a regra 136.}
 \label{alg:r136}
 \begin{algorithmic}
 \STATE $n \leftarrow t+2$
-\STATE $A \leftarrow \mbox{ matriz nula } n \times n$
+\STATE $A \leftarrow \psi(n)$
 \IF{$t>1$}
     \FOR{$j=1$ to $t-1$}
         \STATE $A_{j,j+1} \leftarrow 1$
@@ -2508,7 +2510,7 @@ semi-autômato de tempo $t$ para a regra 140.}
 \label{alg:r140}
 \begin{algorithmic}
 \STATE $n \leftarrow t+3$
-\STATE $A \leftarrow \mbox{ matriz nula } n \times n$
+\STATE $A \leftarrow \psi(n)$
 \IF{$t>1$}
     \FOR{$j=1$ to $t-1$}
         \STATE $A_{j,j+1} \leftarrow 1$
@@ -2530,7 +2532,7 @@ semi-autômato de tempo $t$ para a regra 142.}
 \label{alg:r142}
 \begin{algorithmic}
 \STATE $n \leftarrow 4(t+1)$
-\STATE $A \leftarrow \mbox{ matriz nula } n \times n$
+\STATE $A \leftarrow \psi(n)$
 \IF{$t>1$}
     \FOR{$j=1$ to $t-1$}
         \STATE $A_{j,2t+j+1} \leftarrow 2$
@@ -2562,7 +2564,7 @@ semi-autômato de tempo $t$ para a regra 162.}
 \label{alg:r162}
 \begin{algorithmic}
 \STATE $n \leftarrow 2t+3$
-\STATE $A \leftarrow \mbox{ matriz nula } n \times n$
+\STATE $A \leftarrow \psi(n)$
 \FOR{$j=1$ to $t$}
     \STATE $A_{t+j,j} \leftarrow 2$
 \ENDFOR
@@ -2588,7 +2590,7 @@ semi-autômato de tempo $t$ para a regra 168.}
 \label{alg:r168}
 \begin{algorithmic}
 \STATE $n \leftarrow t+3$
-\STATE $A \leftarrow \mbox{ matriz nula } n \times n$
+\STATE $A \leftarrow \psi(n)$
 \IF{$t>1$}
     \FOR{$j=1$ to $t-1$}
         \STATE $A_{j,j+1} \leftarrow 1$
@@ -2611,7 +2613,7 @@ semi-autômato de tempo $t$ para a regra 172.}
 \begin{algorithmic}
 \IF{$t=1$}
     \STATE $n \leftarrow 8$
-    \STATE $A \leftarrow \mbox{ matriz nula } n \times n$
+    \STATE $A \leftarrow \psi(n)$
     \STATE $A_{4,n} \leftarrow 1$
     \STATE $A_{n-1,n-1} \leftarrow 2$
     \STATE $A_{n,n-2} \leftarrow 2$
@@ -2630,7 +2632,7 @@ semi-autômato de tempo $t$ para a regra 172.}
 \algrestore{rule172}
 \ELSE
     \STATE $n \leftarrow t+9$
-    \STATE $A \leftarrow \mbox{ matriz nula } n \times n$
+    \STATE $A \leftarrow \psi(n)$
     \FOR{$j=1$ to $t-1$}
         \STATE $A_{j+1,j+2} \leftarrow 1$
     \ENDFOR
@@ -2662,7 +2664,7 @@ semi-autômato de tempo $t$ para a regra 176.}
 \label{alg:r176}
 \begin{algorithmic}
 \STATE $n \leftarrow 2t+3$
-\STATE $A \leftarrow \mbox{ matriz nula } n \times n$
+\STATE $A \leftarrow \psi(n)$
 \FOR{$j=1$ to $t$}
     \STATE $A_{j,t+j} \leftarrow 2$
 \ENDFOR
@@ -2685,7 +2687,7 @@ semi-autômato de tempo $t$ para a regra 184.}
 \label{alg:r184}
 \begin{algorithmic}
 \STATE $n \leftarrow 2(t+1)$
-\STATE $A \leftarrow \mbox{ matriz nula } n \times n$
+\STATE $A \leftarrow \psi(n)$
 \STATE $i \leftarrow t+1$
 \FOR{$j=1$ to t}
     \STATE $A_{ij} \leftarrow 1$
@@ -2711,7 +2713,7 @@ semi-autômato de tempo $t$ para a regra 192.}
 \label{alg:r192}
 \begin{algorithmic}
 \STATE $n \leftarrow t+2$
-\STATE $A \leftarrow \mbox{ matriz nula } n \times n$
+\STATE $A \leftarrow \psi(n)$
 \FOR{$j=1$ to $t-1$}
     \STATE $A_{j,j+1} \leftarrow 1$
 \ENDFOR
@@ -2729,7 +2731,7 @@ semi-autômato de tempo $t$ para a regra 196.}
 \label{alg:r196}
 \begin{algorithmic}
 \STATE $n \leftarrow t+3$
-\STATE $A \leftarrow \mbox{ matriz nula } n \times n$
+\STATE $A \leftarrow \psi(n)$
 \FOR{$j=1$ to $t$}
     \STATE $A_{j,j+1} \leftarrow 1$
     \STATE $A_{j+1,1} \leftarrow 2$
@@ -2748,7 +2750,7 @@ semi-autômato de tempo $t$ para a regra 212.}
 \label{alg:r212}
 \begin{algorithmic}
 \STATE $n \leftarrow 4(t+1)$
-\STATE $A \leftarrow \mbox{ matriz nula } n \times n$
+\STATE $A \leftarrow \psi(n)$
 \FOR{$j=1$ to $t$}
     \STATE $A_{j,3t+j+1} \leftarrow 2$
     \STATE $A_{3t+j,t+j} \leftarrow 2$
@@ -2780,7 +2782,7 @@ semi-autômato de tempo $t$ para a regra 224.}
 \label{alg:r224}
 \begin{algorithmic}
 \STATE $n \leftarrow t+3$
-\STATE $A \leftarrow \mbox{ matriz nula } n \times n$
+\STATE $A \leftarrow \psi(n)$
 \FOR{$j=1$ to $t-1$}
     \STATE $A_{j,j+1} \leftarrow 1$
 \ENDFOR
@@ -2800,7 +2802,7 @@ semi-autômato de tempo $t$ para a regra 224.}
 %\label{alg:r252}
 %\begin{algorithmic}
 %\STATE $n \leftarrow t+2$
-%\STATE $A \leftarrow \mbox{ matriz nula } n \times n$
+%\STATE $A \leftarrow \psi(n)$
 %\FOR{$j=1$ to $t-1$}
 %    \STATE $A_{j,j+1} \leftarrow 2$
 %\ENDFOR
@@ -2818,7 +2820,7 @@ semi-autômato de tempo $t$ para a regra 232.}
 \label{alg:r232}
 \begin{algorithmic}
 \STATE $n \leftarrow 4t+6$
-\STATE $A \leftarrow \mbox{ matriz nula } n \times n$
+\STATE $A \leftarrow \psi(n)$
 \IF{$t>1$}
     \FOR{$j=1$ to $t-1$}
         \STATE $A_{j,j+1} \leftarrow 2$
