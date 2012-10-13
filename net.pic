@@ -1,40 +1,192 @@
-.PS
+.PS #20/25.4 #Scale drawing to 20/25.4 in = 20/25.4[in]/25.4[mm/in] = 20 mm
+# FLOWCHART - Basic flow chart blocks.
+scale=25.4 #Scale units from inches to mm
+csize=2.0  #Cell size in mm
+pstricks=0
+dx=0; dy=2;
+fillval = 0.1;
+#sshade(): Starts shading of an arbitrary closed curve.
+define sshade
+{
+  if pstricks==0 then 
+  {
+   sprintf("\special{sh %g}",0.1)
+   #command "\special{sh 0.1}"
+  } else 
+  {
+   #sprintf("\newgray{xcolor}{%s}",0.9)
+   command "\newgray{xcolor}{0.9}"
+   command "\pscustom[fillstyle=solid, fillcolor=xcolor]{"
+  }
+}
+#eshade(): Ends shading of an arbitrary close curve.
+define eshade
+{ 
+  if pstricks==1 then 
+  {
+   command "}%"
+  }
+}
+define process
+{[
+  w=$1*12*csize; h=$2*8*csize;
+  B: box wid w ht h invis;
+  sshade;
+  line from B.ne to B.nw to B.sw to B.se to B.ne;
+  eshade;
+  #$3 at B.c;
+]}
+# data(): parallelogram -> "data input/output block"
+define data
+{[
+  w=$1*12*csize; h=$2*8*csize;
+  dx=(h/4)/2;
+  B: box wid w ht h invis;
+  sshade;
+  line from B.sw-(dx,0) to B.se-(dx,0) to B.ne+(dx,0) to B.nw+(dx,0) to B.sw-(dx,0);
+  eshade;
+  #$3 at B.c;
+]}
+define connector
+{[
+  r=$1*2*csize;
+  sshade;
+  B: circle rad r;
+  eshade;
+  #$3 at B.c;
+]}
+# decision(): rhomboid -> "if block"
+define decision
+{[
+  w=$1*12*csize; h=$2*8*csize;
+  B: box wid w ht h invis;
+  sshade;
+  line from B.n to B.e to B.s to B.w to B.n;
+  eshade;
+  #$3 at B.c;
+]}
+define preparation
+{[
+  w=$1*12*csize; h=$2*8*csize;
+  dx=(h/2)/2;
+  B: box wid w ht h invis;
+  sshade;
+  line from B.w to B.nw+(dx,0) to B.ne-(dx,0) to B.e to B.se-(dx,0) to B.sw+(dx,0) to B.w;
+  eshade;
+  #$3 at B.c;
+]}
+define terminator 
+{[
+  w=$1*12*csize; h=$2*4*csize;
+  r=h/2;
+  B: box wid w ht h rad 15 filled;
+#  sshade;
+#  line from B.sw+(r,0) to B.se-(r,0);
+#  right; arc rad r from Here to B.ne-(r,0);
+#  line from Here to B.nw+(r,0);
+#  left; arc rad r from Here to B.sw+(r,0);
+#  eshade;
+  #$3 at B.c;
+]}
+define keying
+{[
+  w=$1*14*csize; h=$2*8*csize;
+  dx=(h/4)/2;
+  r=dx/2+(h/2)^2/(2*dx);
+  B: box wid w ht h invis;
+  sshade;
+  line from B.sw+(dx,0) to B.se-(dx,0);
+  left; arc rad r from Here to B.ne-(dx,0);
+  line from Here to B.nw+(dx,0);
+  right; arc rad r from Here to B.sw+(dx,0);
+  eshade;
+  #$3 at B.c;
+]}
+define keyboard
+{[
+  w=$1*12*csize; h=$2*5*csize;
+  dy=(w/6)/2;
+  B: box wid w ht h invis;
+  sshade;
+  line from B.nw-(0,dy) to B.sw to B.se to B.ne+(0,dy) to B.nw-(0,dy);
+  eshade;
+  #$3 at B.c;
+]}
+define document
+{[
+  w=$1*12*csize; h=$2*7*csize;
+  dy=(w/6)/2;
+  r=sqrt((w/2)^2+dy^2);
+  B: box wid w ht h invis;
+  sshade;
+  line from B.se+(0,dy) to B.ne to B.nw to B.sw;
+  up; arc rad w/2 from B.sw to B.s;
+  arc cw rad r from B.s to B.se+(0,dy);
+  eshade;
+  #$3 at B.c;
+]}
+define display 
+{[
+  w=$1*12*csize; h=$2*8*csize;
+  dx=1.5*(h/4)/2;
+  r=dx/2+(h/2)^2/(2*dx);
+  B: box wid w ht h invis;
+  sshade;
+  line from B.sw+(4*dx/1.5,0) to B.se-(dx,0);
+  left; arc rad r from Here to B.ne-(dx,0);
+  line from Here to B.nw+(4*dx/1.5,0);
+  arc rad r from Here to B.w;
+  right; arc rad r from Here to B.sw+(4*dx/1.5,0);
+  eshade;
+  #$3 at B.c;
+]}
+#--- END OF MACROS ---
+
+
 down;
-box "Início";
+connector(1);
 arrow;
-NDFA: box wid 2.0 height 1.0 rjust "Entrada:" "- NDFA" "- Número da regra do AC"
+H0: preparation(1,1); "\sf Início" at H0.c;
+move to H0.B.s;
 arrow;
-NetCAStep: box wid 0.9 "NetCAStep";
+NDFA: data(2.2,2);  "\sf Entrada:" "\sf - NDFA" "- Número da regra do AC" at NDFA.c;
+move to NDFA.B.s;
 arrow;
-box wid 1.8 height 1.0 "Saída:" "- autômato finito não" "determinístico (t+1)";
+NetCAStep: process(1,1); "\sf NetCAStep" at NetCAStep.c;
+move to NetCAStep.B.s;
 arrow;
-Decision: box wid 2.1 ht 1.6 "Gerar para próximo" "passo de tempo?" invis;
-move to NetCAStep.ne;
-move right 1.8;
+O0: data(2,2); "\sf Saída:" "\sf - autômato finito não" "\sf determinístico (t+1)" at O0.c;
+move to O0.B.s;
+arrow;
+R0: decision(2,2); "\sf Gerar para próximo" "\sf passo de tempo?" at R0.c;
+move to NetCAStep.B.ne;
+move right 50;
 down;
-MinNet: box "MinNet";
+MinNet: process(1,1); "\sf MinNet" at MinNet.c;
+move to MinNet.B.s;
 down;
 arrow;
-MinNetOut: box wid 1.5 height 1.0 "Saída:" "- autômato finito" "determinístico";
-move to NDFA.ne;
-move right 3.3;
+MinNetOut: data(1.5,1.5); "\sf Saída:" "\sf - autômato finito" "\sf determinístico" at MinNetOut.c;
+move to NDFA.B.ne;
+move right 90;
 down;
-InputDFA: box "Entrada:" "- DFA";
+InputDFA: data(1,1); "\sf Entrada:" "\sf - DFA" at InputDFA.c;
+move to InputDFA.B.s;
 down;
 arrow;
-TrimNet: box "TrimNet";
+TrimNet: process(1,1); "\sf TrimNet" at TrimNet.c;
+move to TrimNet.B.s;
 arrow;
-ProcessGraph: box wid 1.4 "Saída:" "- grafo de processo"
-line from Decision.n to Decision.e to Decision.s to Decision.w to Decision.n; 
-line from Decision.w left;
-line up NetCAStep.w.y-Decision.w.y "Sim" rjust;
+ProcessGraph: terminator(2,2); "\sf Saída:" "\sf - grafo de processo" at ProcessGraph.c;
+line from R0.w left;
+line up NetCAStep.w.y-R0.w.y "\sf Sim" rjust;
 arrow to NetCAStep.w;
-line from Decision.e right 0.15;
-line up MinNet.w.y-Decision.e.y then up then up;
-line right MinNet.n.x-0.15-Decision.e.x "Não" above;
+line from R0.e right 8;
+line up MinNet.w.y-R0.e.y then up then up;
+line right MinNet.n.x-8-R0.e.x "\sf Não" above;
 arrow to MinNet.n;
-line from MinNetOut.s down then right 0.9 then up then up InputDFA.w.y-MinNetOut.s.y \
-then up then up then right InputDFA.n.x-0.9-MinNetOut.s.x;
+line from MinNetOut.s down then right 25 then up then up InputDFA.w.y-MinNetOut.s.y \
+then up then up then right InputDFA.n.x-25-MinNetOut.s.x;
 arrow down to InputDFA.n;
 .PE
 

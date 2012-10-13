@@ -1,26 +1,172 @@
-.PS
+.PS #20/25.4 #Scale drawing to 20/25.4 in = 20/25.4[in]/25.4[mm/in] = 20 mm
+# FLOWCHART - Basic flow chart blocks.
+scale=25.4 #Scale units from inches to mm
+csize=2.0  #Cell size in mm
+pstricks=0
+dx=0; dy=2;
+fillval = 0.1;
+#sshade(): Starts shading of an arbitrary closed curve.
+define sshade
+{
+  if pstricks==0 then 
+  {
+   sprintf("\special{sh %g}",0.1)
+   #command "\special{sh 0.1}"
+  } else 
+  {
+   #sprintf("\newgray{xcolor}{%s}",0.9)
+   command "\newgray{xcolor}{0.9}"
+   command "\pscustom[fillstyle=solid, fillcolor=xcolor]{"
+  }
+}
+#eshade(): Ends shading of an arbitrary close curve.
+define eshade
+{ 
+  if pstricks==1 then 
+  {
+   command "}%"
+  }
+}
+define process
+{[
+  w=$1*12*csize; h=$2*8*csize;
+  B: box wid w ht h invis;
+  sshade;
+  line from B.ne to B.nw to B.sw to B.se to B.ne;
+  eshade;
+  #$3 at B.c;
+]}
+# data(): parallelogram -> "data input/output block"
+define data
+{[
+  w=$1*12*csize; h=$2*8*csize;
+  dx=(h/4)/2;
+  B: box wid w ht h invis;
+  sshade;
+  line from B.sw-(dx,0) to B.se-(dx,0) to B.ne+(dx,0) to B.nw+(dx,0) to B.sw-(dx,0);
+  eshade;
+  #$3 at B.c;
+]}
+define connector
+{[
+  r=$1*2*csize;
+  sshade;
+  B: circle rad r;
+  eshade;
+  #$3 at B.c;
+]}
+# decision(): rhomboid -> "if block"
+define decision
+{[
+  w=$1*12*csize; h=$2*8*csize;
+  B: box wid w ht h invis;
+  sshade;
+  line from B.n to B.e to B.s to B.w to B.n;
+  eshade;
+  #$3 at B.c;
+]}
+define preparation
+{[
+  w=$1*12*csize; h=$2*8*csize;
+  dx=(h/2)/2;
+  B: box wid w ht h invis;
+  sshade;
+  line from B.w to B.nw+(dx,0) to B.ne-(dx,0) to B.e to B.se-(dx,0) to B.sw+(dx,0) to B.w;
+  eshade;
+  #$3 at B.c;
+]}
+define terminator 
+{[
+  w=$1*12*csize; h=$2*4*csize;
+  r=h/2;
+  B: box wid w ht h rad 15 filled;
+#  sshade;
+#  line from B.sw+(r,0) to B.se-(r,0);
+#  right; arc rad r from Here to B.ne-(r,0);
+#  line from Here to B.nw+(r,0);
+#  left; arc rad r from Here to B.sw+(r,0);
+#  eshade;
+  #$3 at B.c;
+]}
+define keying
+{[
+  w=$1*14*csize; h=$2*8*csize;
+  dx=(h/4)/2;
+  r=dx/2+(h/2)^2/(2*dx);
+  B: box wid w ht h invis;
+  sshade;
+  line from B.sw+(dx,0) to B.se-(dx,0);
+  left; arc rad r from Here to B.ne-(dx,0);
+  line from Here to B.nw+(dx,0);
+  right; arc rad r from Here to B.sw+(dx,0);
+  eshade;
+  #$3 at B.c;
+]}
+define keyboard
+{[
+  w=$1*12*csize; h=$2*5*csize;
+  dy=(w/6)/2;
+  B: box wid w ht h invis;
+  sshade;
+  line from B.nw-(0,dy) to B.sw to B.se to B.ne+(0,dy) to B.nw-(0,dy);
+  eshade;
+  #$3 at B.c;
+]}
+define document
+{[
+  w=$1*12*csize; h=$2*7*csize;
+  dy=(w/6)/2;
+  r=sqrt((w/2)^2+dy^2);
+  B: box wid w ht h invis;
+  sshade;
+  line from B.se+(0,dy) to B.ne to B.nw to B.sw;
+  up; arc rad w/2 from B.sw to B.s;
+  arc cw rad r from B.s to B.se+(0,dy);
+  eshade;
+  #$3 at B.c;
+]}
+define display 
+{[
+  w=$1*12*csize; h=$2*8*csize;
+  dx=1.5*(h/4)/2;
+  r=dx/2+(h/2)^2/(2*dx);
+  B: box wid w ht h invis;
+  sshade;
+  line from B.sw+(4*dx/1.5,0) to B.se-(dx,0);
+  left; arc rad r from Here to B.ne-(dx,0);
+  line from Here to B.nw+(4*dx/1.5,0);
+  arc rad r from Here to B.w;
+  right; arc rad r from Here to B.sw+(4*dx/1.5,0);
+  eshade;
+  #$3 at B.c;
+]}
+#--- END OF MACROS ---
+
 down;
-box wid 1.7 ht 0.9 "Regras de Autômato" "Celular Elementar" "[256]";
+connector(1);
 arrow;
-B0: box wid 1 ht 1 "NetCAStep," "MinNet," "TrimNet";
+D0: data(2,2); "\sf Regras de Autômato" "\sf Celular Elementar" "\sf [256]" at D0.c;
+move to D0.B.s;
 arrow;
-box wid 1.8 "Autômato para o" "passo de tempo (t+1)";
+B0: process(2,2); "\sf NetCAStep," "\sf MinNet," "\sf TrimNet" at B0.c;
+move to B0.B.s;
 arrow;
-B1: box wid 2.7 ht 1.7 "Autômato (t+1) é o" "mesmo que o Autômato (t)?" invis;
-line from B1.n to B1.e to B1.s to B1.w to B1.n; 
-move to B1.s;
-arrow "Sim" ljust;
-box wid 1.5 "Regras do Grupo 2";
+D1: data(2,2.2); "\sf Autômato para o" "\sf passo de tempo (t+1)" at D1.c;
+move to D1.B.s;
+arrow;
+B1: decision(3,3); "\sf Autômato (t+1) é o" "\sf mesmo que o Autômato (t)?" at B1.c;
+move to B1.B.s;
+arrow "\sf Sim" ljust;
+T0: terminator(2,2); "\sf Regras do Grupo 2" at T0.c;
 move to B1.w;
 left;
-arrow "Não" above;
-B2: box wid 2.5 ht 1.5 "Número da iteração" "é 5?" invis;
-line from B2.n to B2.e to B2.s to B2.w to B2.n; 
-move to B2.s;
+arrow "\sf Não" above;
+B2: decision(3,3); "\sf Número da iteração" "\sf é 5?" at B2.c;
+move to B2.B.s;
 down;
-arrow "Sim" ljust;
-box wid 1.5 "Regras do Grupo 1";
+arrow "\sf Sim" ljust;
+T1: terminator(2,2); "\sf Regras do Grupo 1" at T1.c;
 move to B2.n;
-line up B0.w.y-B2.n.y "Não" ljust;
+line up B0.w.y-B2.n.y "\sf Não" ljust;
 arrow right to B0.w;
 .PE
