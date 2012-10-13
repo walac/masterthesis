@@ -2,7 +2,7 @@
 down;
 box "Início";
 arrow;
-NDFA: box wid 2.0 height 1.0 rjust "Entrada:" "- NDFA" "- Número da regra do CA"
+NDFA: box wid 2.0 height 1.0 rjust "Entrada:" "- NDFA" "- Número da regra do AC"
 arrow;
 NetCAStep: box wid 0.9 "NetCAStep";
 arrow;
@@ -24,7 +24,7 @@ down;
 arrow;
 TrimNet: box "TrimNet";
 arrow;
-ProcessGraph: box wid 1.4 "Entrada:" "- grafo de processo"
+ProcessGraph: box wid 1.4 "Saída:" "- grafo de processo"
 line from Decision.n to Decision.e to Decision.s to Decision.w to Decision.n; 
 line from Decision.w left;
 line up NetCAStep.w.y-Decision.w.y "Sim" rjust;
