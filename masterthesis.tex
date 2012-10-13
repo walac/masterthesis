@@ -1608,7 +1608,7 @@ de um grafo de processo.}
 \label{alg:stom}
 \begin{algorithmic}
 \STATE $n \leftarrow \mbox{Length}(\mathbb{Q})$ \COMMENT{número de estados}
-\STATE $A \leftarrow \mbox{ Matriz nula } n \times n$
+\STATE $A \leftarrow \psi(n)$
 \FORALL{$i,j \in \mathbb{Q}$}
     \IF{$\mathbb{L}_{ij} \neq \emptyset$}
         \STATE $A_{ij} \leftarrow \eta(\mathbb{\mathbb{L}}_{ij})$
@@ -1617,6 +1617,7 @@ de um grafo de processo.}
 \end{algorithmic}
 \end{algorithm}
 
+Onde $\psi(n) = \mbox{ matriz nula } n \times n$.
 O algoritmo atua criando uma matriz $A_{n \times n}$, onde $n$ é o número
 de estados do grafo de processo, e atribuindo à posição $A_{ij}$ o valor
 da função $\eta(\mathbb{L}_{ij}),\forall i,j$, onde $\mathbb{L}_{ij}$
@@ -1978,8 +1979,6 @@ tal tema.
 \appendix
 \section{Algoritmos para gerar o semi-autômato de tempo $t$ para as 26 regras
 estudadas}
-
-Para todos os algoritmos, $\psi(n) = \mbox{ matriz nula } n \times n$.
 
 \begin{algorithm}[H]
 \caption{Algoritmo para gerar a matriz de adjacência de evolução temporal do
