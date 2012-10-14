@@ -1945,6 +1945,33 @@ Acredita-se então que essa nova representação por meio de matrizes de
 adjacência possa ajudar no estudo da complexidade de ACs e na identificação
 de padrões de crescimento dos respectivos grafos de processo.
 
+Resumidamente, este trabalho apresentou as seguintes críticas aos estudos
+anteriores e contribuições:
+
+\begin{itemize}
+\item A ordem de chamada das funções NetCAStep, MinNet e TrimNet estava
+equivocada em trabalhos anteriores. A Figura \ref{fig:net} mostra o
+encademento correto das funções.
+
+\item O algoritmo de seleção de regras de \citecustom{trafaniuc2004} possui
+um problema de implementação na operação de diferença de grafos. Este
+problema causa a aparição de falsos negativos no algoritmo.
+
+\item O suposto AF limite da regra 184 apresentado por \citecustom{miki2006}
+(Figura \ref{fig:limit184}) não representa o comportamento limite da regra.
+
+\item A tabela de \citecustom{wolfram1994} foi novamente reconstruída.
+
+\item A tabela de \citecustom{wolfram1994} apresentou o número de estados
+e transições do grafo de processo limite para algumas regras, mas não
+apresentou esses grafos e nem documentou como foram obtidos. Neste trabalho
+foi desenvolvida uma técnica para inferir o grafo limite dessas regras.
+
+\item Aqui, por meio de uma abordagem baseada em matrizes, foi possível
+obter o algoritmo do grafo de passo de tempo $t$ para todas as 26 regras
+obtidas pelo algoritmo de seleção de regras de \citecustom{trafaniuc2004}.
+\end{itemize}
+
 Permanece aberta, porém, a questão da convergência da evolução dos grafos
 de processo da regra 184 para o seu comportamento limite \citecustom{miki2006}.
 Como trabalhos futuros, sugere-se trabalhar em um prova formal da veracidade
