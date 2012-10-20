@@ -1937,17 +1937,23 @@ anteriores e contribuições:
 
 \begin{itemize}
 \item A ordem de chamada das funções NetCAStep, MinNet e TrimNet estava
-equivocada em trabalhos anteriores. A Figura \ref{fig:net} mostra o
+equivocada nos trabalhos de \citecustom{trafaniuc2004} e \citecustom{miki2006}.
+A ordem das funções MinNet e TrimNet estava invertida e o ponto de
+realimentação de NetCAStep estava incorreto. A Figura \ref{fig:net} mostra o
 encademento correto das funções.
 
 \item O algoritmo de seleção de regras de \citecustom{trafaniuc2004} possui
-um problema de implementação na operação de diferença de grafos. Este
-problema causa a aparição de falsos negativos no algoritmo.
+um problema de implementação na operação de diferença de grafos. Dependendo
+de como os vértices são nomeados, diferentes resultados na operação de
+diferença ocorrem. Este problema causa a aparição de falsos negativos no
+algoritmo.
 
 \item O suposto AF limite da regra 184 apresentado por \citecustom{miki2006}
 (Figura \ref{fig:limit184}) não representa o comportamento limite da regra.
 
-\item A tabela de \citecustom{wolfram1994} foi novamente reconstruída.
+\item Devido ao problemas mencionados acima, a tabela de
+\citecustom{wolfram1994} foi novamente reconstruída, da mesma forma que
+\citecustom{trafaniuc2004} já havia feito.
 
 \item A tabela de \citecustom{wolfram1994} apresentou o número de estados
 e transições do grafo de processo limite para algumas regras, mas não
