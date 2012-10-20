@@ -850,10 +850,11 @@ passos de evolução pode ser representado por um conjunto $\Omega^{(t)}$
 O seguinte exemplo, retirado de \citecustom{wolfram1984}, ilustra o processo de
 geração do AF que representa o conjunto de configurações
 possíveis $\Omega^{(t)}$ após $t$ iterações. A construção do AF se baseia no
-grafo de DeBruijn, onde todos os estados os estados são iniciais e finais
-(como nos grafos de processos), e uma cadeia é reconhecida se existe um
-caminho no grafo que reconhece essa cadeia. Toda regra elementar pode ser
-inicialmente representada por um grafo de DeBruijn de 4 estados, somente 
+grafo de De Bruijn \citecustom{debruijn1946}. Um grafo de De Bruijn com $m$ símbolos
+é um grafo direcionado representando sobreposições entre sequências de símbolos.
+Ele tem $m^n$ vértices, consistindo de todos os possíveis caminhos de tamanho $n$
+dos símbolos do grafo. Toda regra elementar pode ser
+inicialmente representada por um grafo de De Bruijn de 4 estados, somente 
 as transições mudam para cada regra.
 
 Considere a construção do conjunto $\Omega^{(1)}$ gerado por um passo de
@@ -872,7 +873,7 @@ $A^{(0)} \in \Omega^{(0)}$. A célula adjacente de $a_{i+1}^{(1)}$ depende da
 vizinhança sobreposta $\{a_i^{(0)},a_{i+1}^{(0)},a_{i+2}^{(0)}\}$. A
 dependência de $a_{i+1}^{(0)}$ em $a_i^{(0)}$ associada com esta sobreposição
 de duas células nas vizinhanças pode ser representada por um grafo de
-DeBruijn $g$, conforme
+De Bruijn $g$, conforme
 ilustra a Figura \ref{fig:A1}. Os nós no grafo representam as sobreposições
 $(a_i^{(0)},a_{i+1}^{(0)})$. Estes nós são agregados por arcos direcionados
 correspondentes a vizinhanças de três células. A regra local do AC
