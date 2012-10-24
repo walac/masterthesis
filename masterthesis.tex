@@ -33,6 +33,14 @@
 
 \algrenewcommand\algorithmicindent{0.9em}%
 
+\newtheorem{theorem}{Teorema}[section]
+\newtheorem{lemma}[theorem]{Lema}
+\newtheorem{proposition}[theorem]{Proposição}
+\newtheorem{corollary}[theorem]{Corolário}
+
+\newenvironment{proof}[1][Prova]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+
 % CAPA
 \pagestyle{empty}
 \begin{document}
@@ -1023,7 +1031,29 @@ unidimensional de um AC pode ou não ser representada por um grafo de
 processo. É importante ressaltar que esta abordagem limita-se à condição
 de contorno não periódica. Para condição de contorno periódica, este grafo
 pode não existir para uma determinada regra, mesmo existindo na condição de
-contorno não periódica. Pode-se imaginar que, para os casos em que o grafo
+contorno não periódica. Como exemplo, segue uma prova de que não é possível
+representar o comportamento limite da regra 184 por meio de grafos de processo
+para condição de contorno periódica.
+
+\begin{theorem}
+Não é possível representar o comportamento limite da regra 184 por meio de
+um grafo de processo para condição de contorno periódica.
+\end{theorem}
+
+\begin{proof}
+Considera-se $L$ como sendo a linguagem limite da regra 184. Considera-se $G$
+como sendo o grafo de processo que reconhece $L$. Admite-se também a
+cadeia $w = 000101$ pertencente a $L$. Defini-se então $v = 100010$.
+$v$ também pertence a $L$ uma vez que é igual
+a $w$ com um deslocamento à direita, logo $v$ também é reconhecida por $G$.
+Dado $v' = 10001$, uma sub-cadeia de $v$, da definição de
+linguagens regulares de processo e grafos de processo, $v'$ também é
+reconhecida por $G$, mas não pode pertencer a $L$, porque $v'$ é
+a cadeia $11000$ deslocada, e sabe-se que essa string não
+faz parte do conjunto limite da regra 184.
+\end{proof}
+
+Pode-se imaginar que, para os casos em que o grafo
 limite existe, a execução do encadeamento das funções NetCAStep, MinNet e
 TrimNet por um período suficiente de tempo levará ao grafo limite, conforme
 se exemplifica na Figura \ref{fig:r8t}. Mas existem regras em que esta
