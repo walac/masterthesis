@@ -1858,33 +1858,33 @@ partir do primeiro instante de tempo.
 \begin{center}
 \begin{tabular}{c c c}
 \hline
-\textbf{Regra} & \textbf{Início do padrão de formação} & \textbf{Intercalado}\\ \hline
- 11 & $t=4$ & Sim \\
- 14 & $t=4$ & Sim \\
- 23 & $t=2$ & Não \\
- 35 & $t=3$ & Sim \\
- 43 & $t=2$ & Não \\
- 50 & $t=3$ & Sim \\
- 56 & $t=2$ & Não \\
- 70 & $t=3$ & Sim \\
- 81 & $t=3$ & Sim \\
- 98 & $t=3$ & Não \\
-113 & $t=2$ & Não \\
-128 & $t=1$ & Não \\
-132 & $t=2$ & Não \\
-136 & $t=2$ & Não \\
-140 & $t=2$ & Não \\
-142 & $t=2$ & Não \\
-162 & $t=2$ & Não \\
-168 & $t=2$ & Não \\
-172 & $t=2$ & Não \\
-176 & $t=2$ & Não \\
-184 & $t=1$ & Não \\
-192 & $t=2$ & Não \\
-196 & $t=1$ & Não \\
-212 & $t=2$ & Não \\
-224 & $t=2$ & Não \\
-232 & $t=2$ & Não \\
+\textbf{Regra} & \textbf{Início do padrão de formação} & \textbf{Linear}\\ \hline
+ 11 & $t=4$ & Não \\
+ 14 & $t=4$ & Não \\
+ 23 & $t=2$ & Sim \\
+ 35 & $t=3$ & Não \\
+ 43 & $t=2$ & Sim \\
+ 50 & $t=3$ & Não \\
+ 56 & $t=2$ & Sim \\
+ 70 & $t=3$ & Não \\
+ 81 & $t=3$ & Não \\
+ 98 & $t=3$ & Sim \\
+113 & $t=2$ & Sim \\
+128 & $t=1$ & Sim \\
+132 & $t=2$ & Sim \\
+136 & $t=2$ & Sim \\
+140 & $t=2$ & Sim \\
+142 & $t=2$ & Sim \\
+162 & $t=2$ & Sim \\
+168 & $t=2$ & Sim \\
+172 & $t=2$ & Sim \\
+176 & $t=2$ & Sim \\
+184 & $t=1$ & Sim \\
+192 & $t=2$ & Sim \\
+196 & $t=1$ & Sim \\
+212 & $t=2$ & Sim \\
+224 & $t=2$ & Sim \\
+232 & $t=2$ & Sim \\
 \end{tabular}
 \caption{Padrão de formação de matrizes de adjacência de evolução temporal das
 regras elementares.}
@@ -1893,15 +1893,15 @@ regras elementares.}
 \end{table}
 
 Além de especificar a regra, a tabela mostra em que passo de tempo a regra
-começou a apresentar um padrão de formação e se esse padrão é intercalado
+começou a apresentar um padrão de formação e se esse padrão é linear
 ou não. Por \textit{padrão de formação} entende-se por uma estrutura
 presente em $t$ que pode ser vista em $t+1$ de forma expandida ou contraída.
-Um \textit{padrão de formação intercalado} significa que uma
-expansão de um padrão na matriz ocorre a cada dois instantes de tempo.
+Um \textit{padrão de formação linear} significa que uma
+expansão de um padrão na matriz ocorre linearmente com o tempo.
 
 A partir da Tabela \ref{tab:pattern}, conclui-se que as regras estão divididas
-em dois grupos base: as que apresentam um padrão a partir de $t=n$ e as que
-apresentam um padrão intercalado a partir de $t=n,\exists n \in \mathbb{N}$.
+em dois grupos base: as que apresentam um padrão linear a partir de $t=n$ e as que
+apresentam um padrão não linear a partir de $t=n,\exists n \in \mathbb{N}$.
 A análise baseou-se a partir da observação dos cinco primeiros passos de
 tempo e, quando o padrão de formação se deu a partir de $t=4$, analisou-se
 os dez primeiros passos de tempo.
@@ -2018,7 +2018,7 @@ tal tema.
 
 \appendix
 \section{Algoritmos para gerar o grafo de processo de tempo $t$ para as 26 regras
-estudadas}
+estudadas}\label{sec:algorithms}
 
 \begin{algorithm}[H]
 \caption{Algoritmo para gerar a matriz de adjacência de evolução temporal do
