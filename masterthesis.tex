@@ -990,6 +990,38 @@ gera um AF determinístico mínimo equivalente ao autômato gerado por
 A função \emph{TrimNet} transformação do AF de saída da \emph{MinNet}
 em um grafo de processo.
 
+\subsection{Comportamento limite de autômatos celulares}
+
+O conjunto de atratores de um AC define seu comportamento limite.
+Diversos trabalhos trataram de estudar e caracterizar o comportamento
+de ACs.
+
+O comportamento limite de um AC pode ser definido por uma linguagem
+formal dentro da hierarquia de Chomsky. \citeonline{hurd1987} apresentou
+exemplos de ACs para os quais o conjunto limite eram linguagens não
+regulares. Exemplos adicionais foram apresentados em \citecustom{hurd19902}.
+\citeonline{hurd1987}também provou que o problema de derterminar se uma
+dada cadeia aparece no conjunto limite de um AC é indecidível.
+Uma prova alternativa utilizando uma abordagem topológica foi demonstrada
+por \citecustom{culik1989}.  \citeonline{hurd1990} construiu um AC cuja
+linguagem limite não é recursivamente enumerável.
+
+\citeonline{culik1988} formalizaram a classificação de ACs proposta por
+\citecustom{wolfram2002}. Com a formalização, conseguiram provar que é
+indecidível determinar a qual classe um determinado AC pertence, e que
+ACs que evoluem para um estado quiescente não necessariamente possuem
+comportamento limite descrito por uma linguagem regular.
+
+\citeonline{zhisong2001}, utilizando dinâmica simbólica e teoria de
+linguagens formais, provou que o conjunto limite da regra 122 é,
+pelo menos, sensível ao contexto.
+
+\citeonline{kurka2000} analisaram a probabilidade do aparecimento de
+determinadas estruturas conforme $t \mapsto \infty$ para as regras
+18, 54, 62 e 184, e também comparou este conceito probabilístico
+com os conceitos de atratatores, tanto do ponto de vista topológico
+quanto de teoria de medidas.
+
 \newpage
 
 \section{Complexidade de linguagens regulares de autômatos
