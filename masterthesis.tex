@@ -991,11 +991,16 @@ gera um AF determinístico mínimo equivalente ao autômato gerado por
 A função \emph{TrimNet} transformação do AF de saída da \emph{MinNet}
 em um grafo de processo.
 
-\subsection{Comportamento limite de autômatos celulares}
+\newpage
 
-O conjunto de atratores de um AC define seu comportamento limite.
-Diversos trabalhos trataram de estudar e caracterizar o comportamento
-de ACs.
+\section{Complexidade de linguagens regulares de autômatos
+finitos elementares}\label{sec:complexity}
+
+O conjunto de possíveis configurações globais de um AC elementar pode ser
+representado por um AF para um passo de tempo finito. Para
+o caso $t \rightarrow \infty$, o conjunto de configurações globais pode ou
+não ser representado por um AF. Diversos trabalhos trataram de estudar e
+caracterizar o comportamento limite de ACs.
 
 O comportamento limite de um AC pode ser definido por uma linguagem
 formal dentro da hierarquia de Chomsky. \citeonline{hurd1987} apresentou
@@ -1019,19 +1024,11 @@ pelo menos, sensível ao contexto.
 
 \citeonline{kurka2000} analisaram a probabilidade do aparecimento de
 determinadas estruturas conforme $t \mapsto \infty$ para as regras
-18, 54, 62 e 184, e também comparou este conceito probabilístico
+18, 54, 62 e 184, e também compararam este conceito probabilístico
 com o conceito de atratores, tanto do ponto de vista topológico
 quanto de teoria de medidas.
 
-\newpage
-
-\section{Complexidade de linguagens regulares de autômatos
-finitos elementares}\label{sec:complexity}
-
-O conjunto de possíveis configurações globais de um AC elementar pode ser
-representado por um AF para um passo de tempo finito. Para
-o caso $t \rightarrow \infty$, o conjunto de configurações globais pode ou
-não ser representado por um AF. O encadeamento das funções NetCAStep, MinNet
+O encadeamento das funções NetCAStep, MinNet
 e TrimNet rende um grafo de processo que representa o conjunto de
 configurações globais para um passo de tempo finito, conforme ilustra
 a Figura \ref{fig:net}.
