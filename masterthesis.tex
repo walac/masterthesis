@@ -821,7 +821,8 @@ sub-palavras
 $v \in \{s^i \ldots s^{i+j}:s^k=(\omega)_k,i+j\le \|\omega\|,i,j\ge 0\}$
 de $\omega$ estão em $L$. Forma-se o fechamento das sub-palavras sub($L$)
 de uma linguagem $L$ pela inclusão em sub($L$) de todas as sub-palavras
-de cada $\omega \in L$ \citecustom{hanson1992}.
+de cada $\omega \in L$ \citecustom{hanson1992}, ou seja, para cada
+cadeia $w \in L$, todas as subcadeias de $w$ também pertencem a $L$.
 
 \begin{definition}
 O \textbf{grafo de processo} de uma linguagem de processo $L$ é o grafo
@@ -833,7 +834,7 @@ Todos os estados de um grafo de processo são, então, estados iniciais e de
 aceitação.
 
 Claramente linguagens regulares de processo são um conjunto menor do que
-linguagens regulares. Por exemplo, a linguagem $L = {0011}$ só pode ser
+linguagens regulares. Por exemplo, a linguagem $L = \{0011\}$ só pode ser
 representada por uma linguagem regular.
 
 \subsection{Evolução de um autômato celular}
