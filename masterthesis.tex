@@ -156,9 +156,9 @@ Este tipo de comportamento, que é localmente simples mas globalmente
 complexo dá origem à chamada \textit{computação emergente}, e é
 a base da utilização dos ACs na modelagem de diversos sistemas naturais.
 
-A vizinhança das células de um AC por ser definida por
-um raio de vizinhança que tem seu centro na célula em questão, e engloba
-todas as células que está dentro do raio. Um AC
+A vizinhança das células de um AC pode ser definida por
+um \textit{raio} centrado na célula em questão, de forma a englobar
+todas as células dentro do raio. Um AC
 elementar possui raio igual a 1 e conjunto de estados $\{0,1\}$, o que
 permite a definição de um espaço de 256 regras possíveis, que são
 usualmente identificadas por um número entre 0 e 255 \citecustom{wolfram1984}.
@@ -183,13 +183,13 @@ uma linguagem regular e, consequentemente, um AF
 estudaram, em seus respectivos trabalhos, a complexidade de ACs
 elementares por meio da análise da evolução dos sucessivos
 AFs para diferentes instantes de tempo. Este trabalho
-tem o objetivo de dar prosseguimento àqueles estudos, estendendo os
-experimentos realizados e introduzindo a abordagem
+tem o objetivo de dar prosseguimento àqueles estudos, criticando os
+experimentos anteriormente realizados e introduzindo a abordagem
 de representação dos AFs por meio de matrizes de adjacência.
-Sobretudo, este trabalho objetiva estudar o comportamento da evolução da
-regra 184 e, assim, tentar derivar seu comportamento limite.
+Sobretudo, este trabalho visa estender os resultados até então obtidos
+sobre a análise da complexidade de ACs por meio de grafos.
 
-O Capítulo \ref{sec:refteo} apresenta um referencial teórico sobre 
+O Capítulo \ref{sec:refteo} apresenta referencial teórico sobre 
 os ACs, linguagens formais e comportamento limite.
 
 O Capítulo \ref{sec:complexity} descreve os trabalhos anteriores, aponta
@@ -219,13 +219,13 @@ infinita cujo tempo, espaço e estado são todos discretos e os estados de cada 
 podem ser obtidos a partir de um conjunto finito de estados possíveis \citecustom{zhisong2001}. 
 
 ACs são, fundamentalmente, as representações matemáticas mais simples
-de uma classe muito maior de sistemas complexos (onde \textit{sistema complexo} significa
-qualquer sistema dinâmico que consiste de mais do que algumas poucas - tipicamente
+de uma classe muito maior dos chamados \textit{sistemas complexos}, termo que se refere
+a qualquer sistema dinâmico que consiste de mais do que algumas poucas - tipicamente
 não lineares - partes que se interagem). Assim, ACs têm se provado
 serem idealizações extremamente úteis do comportamento dinâmico de muitos sistemas
 complexos reais, incluindo fluídos físicos, redes neurais, sistemas dinâmicos
-moleculares, ecologias naturais, comando militar e redes de controle, economia, entre
-outros. Por causa de sua simplicidade subjacente, ACs são máquinas
+moleculares, economia, entre outros \citecustom{ilachinski2002}. Por causa de sua
+simplicidade subjacente, ACs são máquinas
 conceituais poderosas com as quais se estuda padrões generalizados de formação. Eles
 já forneceram ideias cruciais sobre auto organização de reações químicas, sistemas de
 difusão, crescimento de cristais, formação de padrões de conchas e fenômenos em fluxo
@@ -269,30 +269,29 @@ uma análise experimental dos padrões de crescimento de ACs
 datam do final de 1981. Duas características inicialmente chamaram sua atenção.
 Primeiro, que iniciando de condições iniciais aleatórias, os ACs
 podiam se auto organizar para produzir padrões complexos. E segundo, que em casos
-como a regra 90, simples condições iniciais levavam a padrões fractais auto similares.
+como acontece com o AC elementar número 90, simples condições iniciais levavam a
+padrões fractais auto similares.
 Durante a metade de 1982, ele trabalhou duramente em analisar o comportamento de
 ACs usando ideias da mecânica estatística, teoria de sistemas
 dinâmicos e matemática discreta \citecustom{wolfram2002}.
 
 \subsection{Autômatos celulares elementares}
 
-Um AC unidimensional tem grade $\mathbb{Z}_N$ no caso finito, ou $\mathbb{Z}$
-no caso infinito (deste ponto de vista, frequentemente usa-se $N$ para denotar
-o tamanho da grade para ACs unidimensionais). A configuração de um AC
-unidimensional finito é uma função $c: \mathbb{Z}_N \mapsto S$, onde $S$ é o
-conjunto de estados de uma célula. É conveniente escrever tal função como
-uma cadeia de comprimento $N$ sobre $S$, efetivamente mudando o conjunto de
-todas as configurações de $S^{\mathbb{Z}_N}$ para $S^N$. É comum especificar
-a vizinhança de um AC unidimensional em termos de um
-\textit{raio}. Um AC com raio $r$ tem vizinhança $(-r,-r+1,\ldots,r-1,r)$,
-de maneira que cada vizinhança consiste de $2r+1$ células. Um AC
-\textit{elementar} é um AC unidimensional com conjunto de estados
-$\mathbb{Z}_2 = \{0,1\}$ e radio $r=1$. A regra local é então uma função
-$f: \mathbb{Z}^{2^3}_2 \mapsto \mathbb{Z}_2$; existem 256 funções deste
-tipo \citecustom{powley2009}.
+Um AC unimensional consiste de uma grade bi-infinita (podendo também ter tamanho
+$N$, para o caso finito), onde existe uma função de transição $\sigma: Z_r \mapsto \Sigma$,
+que determina a dinâmica do AC, onde $r$ representa o raio (inteiro) de vizinhança do AC e
+$\Sigma$ é o conjunto de estados possíveis de uma célula. Um AC com raio $r$ tem 
+vizinhança $(-r,-r+1,\ldots,r-1,r)$, de maneira que cada vizinhança consiste
+de $2r+1$ células.
 
-Para ACs elementares uma configuração inicial tipicamente aleatória será atraída
+Um AC \textit{elementar} é um AC unidimensional com conjunto de estados
+$\Sigma = \{0,1\}$ e raio $r=1$ \citecustom{kari2005}.
+
+Em ACs unidimensionais uma configuração inicial tipicamente aleatória será atraída
 para uma condição de \textit{equilíbrio} a qual é chamada de atrator \citecustom{li1987}.
+Atratores representam pontos de equílibrio em sistemas dinâmicos, e, no caso de ACs,
+representam configurações estáveis quando $t \mapsto \infty$. O conjunto de atratores
+de um AC representa sua \textit{configuração limite}.
 
 Embora teoricamente um autômato unidimensional possa ser interpretado como uma linha bi-infinita,
 na prática existe uma quantidade fixa de células e é necessário adotar uma condição de contorno
@@ -331,12 +330,14 @@ elementares. A regra local pode ser formalizada como:
 x^{t+1}_i = \phi(x^t_{i-1}, x^t_i, x^t_{i+1})
 \end{equation}
 
-Onde $x^t_i$ é o estado da célula $i$ no instante $t$ em que a regra local atua, e $\phi$ é a função
-que executa a regra local.  A Tabela \ref{tab:localrule} mostra como é aplicada a regra local.
-As regras locais para ACs podem ser descritas por um número número binário de
-oito dígitos, codificado pelo resultado das oito combinações de vizinhança da regra local
-\citecustom{wolfram1983}. No caso da Figura \ref{fig:celnumbering}, este número é o número $90_{10}$, e
-este autômato é chamado de \textit{regra 90}.
+\hspace{1 mm} onde $x^t_i$ é o estado da célula $i$ no instante $t$ em que a
+regra local atua, e $\phi$ é a função que executa a regra local.  A Tabela
+\ref{tab:localrule} mostra como é aplicada a regra local.  As regras locais
+para ACs podem ser descritas por um número número binário de oito dígitos,
+codificado pelo resultado das oito combinações de vizinhança da regra local
+$\{x_{i-1},x_i,x_{i+1}\}$ \citecustom{wolfram1983}. No caso da Figura
+\ref{fig:celnumbering}, este número é o número $90_{10}$, e este autômato
+é chamado de \textit{regra 90}.
 
 \begin{table}[htp]
 \begin{center}
@@ -383,8 +384,9 @@ podem ser de três tipos:
 
 \begin{description}
 
-\item[Transformação de complemento] nesta transformação todos os estados são complementados,
-ou seja, troca-se 0 por 1 e vice-versa, conforme exemplificado na Figura \ref{fig:complement}.
+\item[Transformação de complemento (ou conjugação)] nesta transformação
+todos os estados são complementados, ou seja, troca-se 0 por 1 e vice-versa,
+conforme exemplificado na Figura \ref{fig:complement}.
 
 \begin{figure}[htp]
 \begin{center}
@@ -427,8 +429,8 @@ trocado com o estado do vizinho da esquerda. A Figura \ref{fig:reflex} ilustra o
 
 \newpage
 
-\item[Transformação conjunta] neste caso é realizada uma operação conjunta das duas
-operações anteriores.
+\item[Transformação conjunta] neste caso é realizada uma operação
+conjunta de composição das duas operações anteriores.
 
 \end{description}
 
@@ -558,7 +560,8 @@ de regra é escolhida como representante de classe.
 \end{tabular}
 }
 \end{minipage}
-\caption{Autômatos celulares elementares equivalentes \citecustom{wolfram1994}.}
+\caption{Autômatos celulares elementares dinamicamente equivalentes
+\citecustom{wolfram1994}.}
 \label{tab:equiv}
 \end{table}
 
@@ -591,8 +594,9 @@ classes segundo a complexidade do padrão gerado pelo seu comportamento dinâmic
 conforme descrito a seguir:
 
 \begin{description}
-\item[Classe 1] A evolução leva a um estado nulo.
-\item[Classe 2] A evolução leva a um conjunto de estruturas de ponto-fixo e periódicas.
+\item[Classe 1] A evolução leva a um estado nulo, ou seja, quase todas as condições
+iniciais levam ao mesmo estado uniforme.
+\item[Classe 2] A evolução leva a um conjunto de estruturas de ponto-fixo ou periódicas.
 \item[Classe 3] A evolução leva a um padrão caótico.
 \item[Classe 4] A evolução leva a estruturas localizadas complexas.
 \end{description}
@@ -629,7 +633,7 @@ da regra N vezes, com o tamanho do ciclo N, ou independente ou fracamente
 dependente do tamanho do reticulado.
 
 \item[Regras Complexas] Embora a dinâmica limite possa ser periódica,
-o intervalo de transição pode ser extremamente longo e, tipicamente,
+o intervalo transiente pode ser extremamente longo e, tipicamente,
 este intervalo cresce mais que linearmente com o tamanho do sistema.
 
 \item[Regras Caóticas] Produzem dinâmicas não periódicas e se caracterizam
@@ -648,12 +652,11 @@ o que uma máquina de computação podia fazer e aquilo que ela não podia fazer
 
 Nas décadas de 1940 e 1950, tipos de máquinas mais simples, que hoje são
 conhecidas como \textit{autômatos finitos}, foram estudados por diversos
-pesquisadores. Esses autômatos, propostos originalmente para modelar a
-função do cérebro, se mostraram extremamente úteis para uma grande variedade
+pesquisadores. Esses autômatos, propostos originalmente no contexto de
+modelagem matemática do cérebro, se mostraram extremamente úteis para uma grande variedade
 de propósitos. Também no final dos anos 50, o linguista N. Chomsky, iniciou
-o estudo de gramáticas formais. Embora não sejam estritamente máquinas,
-essas gramáticas têm relacionamentos estreitos com os autômatos abstratos
-\citecustom{hopcroft2002}.
+o estudo de gramáticas formais gerativas, as quais guardam relacionamentos
+estreitos com os autômatos abstratos \citecustom{hopcroft2002}.
 
 Linguagens regulares estão entre os tópicos mais antigos em teoria de
 linguagens formais. O estudo formal de linguagens regulares
@@ -678,12 +681,12 @@ ela recebe o nome de cadeia \textit{vazia}, e é denotada por $\varepsilon$.
 O conjunto de todas as palavras não vazias sobre um alfabeto $\Sigma$ é
 denotado por $\Sigma^+$, e o conjunto de todas as palavras, incluindo
 a cadeia vazia, sobre um alfabeto $\Sigma$ é denotado por
-${\Sigma}^+ \bigcup \emptyset = \Sigma^*$. O comprimento de uma palavra
+${\Sigma}^+ \bigcup \varepsilon = \Sigma^*$. O comprimento de uma palavra
 é o número de símbolos que a forma. Logo, o comprimento da palavra
 \emph{abcd} é 4. Denota-se o comprimento de uma cadeia $w$ por
 $|w|$; portanto, $|101| = 3$ e $|\varepsilon| = 0$. Alternativamente,
 por meio de um isomorfismo natural, uma cadeia $w \in \Sigma^*$ pode ser
-considerada como uma função $w: \{1,\ldots,|w|\} \mapsto \Sigma$; o
+considerada uma função $w: \{1,\ldots,|w|\} \mapsto \Sigma$; o
 valor de $w(j)$, onde $1 \le j \le |w|$ é o símbolo que ocupa a j-ésima
 posição em $w$ \citecustom{lewis2008}.
 
@@ -713,7 +716,7 @@ uma quíntupla $A = (\mathbb{Q},\Sigma,\delta,q_0,\mathbb{F})$, onde:
 A função de transição toma um estado e um símbolo de entrada e retorna um novo estado.
 $\delta$ também é chamada de \textit{tabela de transição de estados}.
 \item[$q_0$] é o estado inicial.
-\item[$\mathbb{F}$] é o conjunto de estado finais. $\mathbb{F} \subseteq \mathbb{Q}$.
+\item[$\mathbb{F}$] é o conjunto de estado finais, com $\mathbb{F} \subseteq \mathbb{Q}$.
 \end{description}
 
 O autômato atua lendo símbolos de uma fita de entrada onde cada posição na fita
@@ -794,16 +797,17 @@ Dadas as operações:
 \begin{description}
 \item[União] $A+B=\{x | x \in A \mbox{ ou } x \in B\}$
 \item[Concatenação] $AB=\{xy | x \in A \mbox{ e } y \in B\}$
-\item[Estrela] $A^*=\{x_1x_2 \ldots x_k | k \ge 0 \mbox{ e cada } x_i \in A\}$
+\item[Fechamento de Kleene] $A^*=\{x_1x_2 \ldots x_k | k \ge 0 \mbox{ e cada } x_i \in A\}$.
+Adicionalmente também pode-se utilizar a notação $A^+$, que é equivalente a $AA^*$.
 \end{description}
 
-Uma expressão $R$ é considerada uma expressão regular
-se ela é \citecustom{sipser1996}:
+Uma expressão $R$ é considerada uma expressão regular \citecustom{sipser1996}
+se ela é:
 
 \begin{enumerate}
 \item $a$ para algum $a \in \Sigma$
 \item $\varepsilon$
-\item $\emptyset$, $1^*\emptyset=\emptyset$, $\emptyset^*=\{\varepsilon\}$, $R\emptyset=R$
+\item $\varepsilon$, $1^*\varepsilon=\varepsilon$, $\varepsilon^*=\{\varepsilon\}$, $R\varepsilon=R$
 \item $R_1+R_2$, onde $R_1$ e $R_2$ são expressões regulares e
 o $+$ representa a união das duas expressões
 \item $R_1R_2$, onde $R_1$ e $R_2$ são expressões regulares
@@ -839,6 +843,12 @@ representada por uma linguagem regular.
 
 \subsection{Evolução de um autômato celular}
 
+Uma configuração de um AC pode ser definida por uma concatenação de estados
+de células $x_i$, com $-\infty < i < \infty$ para o caso infinito ou
+$0 < i < N$ para o caso finito. O conjunto de todos os estados de um
+AC é chamado de \textit{configuração global}, e um subconjunto destes
+estados define uma \textit{configuração local}.
+
 Linguagens formais consistem do conjunto de palavras formadas a partir de
 cadeias de símbolos em um alfabeto finito $\Sigma$ de acordo com regras
 gramaticais definidas. Conjuntos de configurações de ACs
@@ -859,12 +869,12 @@ passos de evolução pode ser representado por um conjunto $\Omega^{(t)}$
 O seguinte exemplo, retirado de \citecustom{wolfram1984}, ilustra o processo de
 geração do AF que representa o conjunto de configurações
 possíveis $\Omega^{(t)}$ após $t$ iterações. A construção do AF se baseia no
-grafo de De Bruijn \citecustom{debruijn1946}. Um grafo de De Bruijn com $m$ símbolos
-é um grafo direcionado representando sobreposições entre sequências de símbolos.
-Ele tem $m^n$ vértices, consistindo de todos os possíveis caminhos de tamanho $n$
-dos símbolos do grafo. Toda regra elementar pode ser
-inicialmente representada por um grafo de De Bruijn de 4 estados, somente 
-as transições mudam para cada regra.
+grafo de De Bruijn \citecustom{debruijn1946,powley2009,mcintosh2009}.
+Um grafo de De Bruijn com $m$ símbolos
+é um grafo direcionado representando sobreposições entre sequências de símbolos,
+onde cada estado possui $m$ arestas chegando e $m$ arestas deixando o estado.
+Toda regra elementar pode ser inicialmente representada por um grafo de De
+Bruijn de 4 estados, somente as transições mudam para cada regra.
 
 Considere a construção do conjunto $\Omega^{(1)}$ gerado por um passo de
 tempo na evolução do AC elementar com uma regra
@@ -1069,10 +1079,10 @@ contorno não periódica. Como exemplo, segue uma prova de que não é possível
 representar o comportamento limite da regra 184 por meio de grafos de processo
 para condição de contorno periódica.
 
-\begin{theorem}
+\begin{proposition}
 Não é possível representar o comportamento limite da regra 184 por meio de
 um grafo de processo para condição de contorno periódica.
-\end{theorem}
+\end{proposition}
 
 \begin{proof}
 Considera-se $L$ como sendo a linguagem limite da regra 184. Considera-se $G$
