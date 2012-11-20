@@ -1,4 +1,4 @@
-VERSION = v14
+VERSION = v15
 OUTPUT_FILENAME = $(VERSION)_final.pdf
 INPUT_FILENAME = masterthesis
 
