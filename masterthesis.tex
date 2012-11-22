@@ -214,8 +214,8 @@ simples. Muito foi descoberto sobre a natureza dos componentes em sistemas físi
 e biológicos, mas pouco é conhecido sobre os mecanismos pelos quais tais componentes
 agem cooperativamente para gerar o comportamento global observado \citecustom{wolfram1984a}.
 
-ACs podem ser vistos como uma classe de sistemas dinâmicos de dimensão
-infinita cujo tempo, espaço e estado são todos discretos e os estados de cada célula
+ACs podem ser vistos como uma classe de sistemas dinâmicos que atua em um reticulado
+infinito cujo tempo, espaço e estado são todos discretos e os estados de cada célula
 podem ser obtidos a partir de um conjunto finito de estados possíveis \citecustom{zhisong2001}. 
 
 ACs são, fundamentalmente, as representações matemáticas mais simples
@@ -776,8 +776,7 @@ $\delta: \mathbb{Q} \times \Sigma \mapsto \mathbb{Q}$. Nos AFs não
 determinísticos, cada entrada na tabela de transição é da forma
 $\delta: \mathbb{Q} \times \Sigma \mapsto 2^{\mathbb{Q}}$,
 ou seja, para um dado estado e um símbolo de entrada, o número de possíveis
-transições pode ser maior que um \citecustom{rozenberg1997}.  Um autômato não
-determinístico também pode possuir mais de um estado inicial.
+transições pode ser maior que um \citecustom{rozenberg1997}.
 
 A mecânica básica de um AF é simples.
 O processamento em um autômato não determinístico é análogo à sua contraparte
@@ -857,11 +856,6 @@ podem assim ser considerados como linguagens formais, com cada palavra na
 linguagem representando uma configuração do AC. Tais conjuntos
 infinitos de configurações são então completamente especificados por
 conjuntos finitos de regras gramaticais \citecustom{wolfram1984}.
-
-Os atratores das classes 1 e 2 de AFs elementares podem ser
-representados por linguagens regulares simples. Os atratores da classe 3 podem
-ser representados por linguagens regulares mais complexas. Os atratores da
-classe 4 podem ou não ser representados por uma linguagem regular \citecustom{li1987}.
 
 O conjunto de configurações possíveis em um AC unidimensional depois de $t$
 passos de evolução pode ser representado por um conjunto $\Omega^{(t)}$
@@ -1031,7 +1025,8 @@ comportamento limite descrito por uma linguagem regular.
 
 \citeonline{zhisong2001}, utilizando dinâmica simbólica e teoria de
 linguagens formais, provou que o conjunto limite da regra 122 é,
-pelo menos, sensível ao contexto.
+pelo menos, sensível ao contexto. \citeonline{zhisong2005} provaram que
+o comportamento limite da regra 22 não é regular.
 
 \citeonline{kurka2000} analisaram a probabilidade do aparecimento de
 determinadas estruturas conforme $t \mapsto \infty$ para as regras
