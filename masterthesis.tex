@@ -1480,12 +1480,18 @@ e \ref{tbl:Table3} apresentam os novos resultados.
 \label{tbl:Table3}
 \end{sidewaystable}
 
+Em cada tabela, existe uma divisão de duas subtabelas, à esquerda são
+mostrados os resultados de \citecustom{wolfram1994}, enquando à direita
+são os resultados deste trabalho. \textit{Novos resultados} são a soma
+dos resultos presentes em \citecustom{trafaniuc2004}, \citecustom{miki2006}
+e neste trabalho.
+
 Um ponto importante é que, para algumas regras em que os resultados de
 \citecustom{wolfram1994} e \citecustom{trafaniuc2004} coincidiram, houve
 divergências neste trabalho. Um exemplo é a regra 18, onde Wolfram e
 Trafaniuc obtiveram os mesmos resultados mas este trabalho obteve valores
-diferentes, embora Wolfram trabalhou com grafos de processo e Trafaniuc
-com AFs.
+diferentes, embora Wolfram tenha trabalhado com grafos de processo e Trafaniuc
+com AFs. A tabelas apresentadas mostra os resultados para grafos de processo.
 
 Outra questão é com relação às regras 32, 128, 136, 160, 168, e 224. Estas têm
 o número de estados e arestas do grafo limite apresentados em
@@ -1494,22 +1500,30 @@ de processo limite foram obtidos. O grafo de processo da regra 128 está
 em \citecustom{wolfram1984} e é mostrado na Figura \ref{fig:limit128}, mas
 não há qualquer indício de onde os outros grafos vieram.
 
-Baseado no comportamento limite da regra 128, neste trabalho foi desenvolvida
-uma técnica manual para inferir o grafo de processo limite das outras regras.
-A técnica parte das estruturas imutáveis dos grafos dos
-sucessivos passos de tempo, observar a evolução do grafo e deduzir o caso
-limite.
+Baseado no comportamento limite da regra 128, no presente trabalho foi
+desenvolvida uma técnica manual para inferir o grafo de processo limite
+das outras regras.  A técnica parte das estruturas imutáveis dos grafos
+dos sucessivos passos de tempo, observando a evolução do grafo e assim
+deduzir o caso limite.
 
-Por exemplo, observando os grafos da regra 128 (Figura \ref{fig:r128t}, ele
-inicia sempre em um conjuntos de 0s, então uma transição em 1 para um
-conjunto de 1s.  Então inicia-se um ciclo de volta ao cojunto de 0s; mas a
+Por exemplo, observando os grafos da regra 128 (Figura \ref{fig:r128ta}), ele
+inicia sempre em um conjunto de 0s, a partir do qual sai uma transição em 1 para um
+conjunto de 1s. Inicia-se então um ciclo de volta ao conjunto de 0s; mas a
 distância deste ciclo fica cada vez maior conforme aumenta-se o passo de
-tempo. Deduz-se então que esta distância tende a $\infty$ conforme
+tempo. Infere-se então que esta distância deve tender a $\infty$ conforme
 $t \mapsto \infty$, resultando em um segundo conjunto de 0s visto no grafo
 limite.
 
+\begin{figure}[H]
+\begin{center}
+\includegraphics[scale=0.55]{img/Rule128.eps}
+\caption{Sequência de grafos de processo da regra 128.}
+\label{fig:r128ta}
+\end{center}
+\end{figure}
+
 Seguindo a mesma linha de raciocínio, os grafos de processo limites das
-outras regras foram também deduzidos.
+regras 32, 136, 160, 168 e 224 foram também inferidos.
 
 \begin{figure}[H]
 \begin{center}
