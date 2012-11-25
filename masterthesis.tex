@@ -973,20 +973,16 @@ pretos representam transições em 1.}
 \end{center}
 \end{figure}
 
-Na representação do \textit{Mathematica}, transições em 0 são
-representadas por arcos vermelhos e transições em 1 são
-representadas por arcos pretos.
-
 \subsection{Funções NetCAStep, TrimNet e MinNet}
 
 \emph{NetCAStep}, \emph{TrimNet} e \emph{MinNet} \citecustom{wolfram2002} são
 funções desenvolvidas no \textit{Mathematica} para gerar AFs
 que representam a evolução para um passo de tempo de um AC
-elementar.
+unidimensional.
 
 Dado um grafo de processo relacionado à configuração do AC para
 um instante de tempo $t$, a função \emph{NetCAStep} \citecustom{wolfram2002}
-retorna um AF relacionado ao instante de tempo $t+1$
+retorna um AF não determinístico relacionado ao instante de tempo $t+1$
 \citecustom{miki2006}.
 
 A função \emph{NetCAStep} gera como saída uma lista de transições
@@ -996,7 +992,7 @@ Sobre a lista de transições de estado resultante da função
 gera um AF determinístico mínimo equivalente ao autômato gerado por
 \emph{NetCAStep}.
 
-A função \emph{TrimNet} transformação do AF de saída da \emph{MinNet}
+A função \emph{TrimNet} faz a transformação do AF de saída da \emph{MinNet}
 em um grafo de processo.
 
 \newpage
