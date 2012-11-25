@@ -1180,24 +1180,58 @@ grafo limite (Grupo 2) das que não convergem (Grupo 1).
 
 Foram então analisadas as estruturas de crescimento de complexidade das regras
 do Grupo 1, primeiro manualmente e, depois, automaticamente por meio do
-seguinte método \citecustom{trafaniuc2004}:
+seguinte método \citecustom{trafaniuc2004}, que seleciona regras com crescimento
+estruturado:
 
 \begin{enumerate}\label{sec:mikialgo}
 \item Gerar os grafos das regras de transição, para dois passos de tempo
 consecutivos, $t$ e $t+1$, de uma regra do espaço elementar.
 
+\begin{figure}[H]
+\begin{center}
+\includegraphics[scale=0.3]{img/GraphT.eps}
+\caption{Grafos de processo de $t$ e $t+1$ para a regra 128.}
+\label{fig:grapht}
+\end{center}
+\end{figure}
+
 \item Gerar todos os possíveis subgrafos do passo de tempo $t+1$ que tenham
 o mesmo número de estados que o grafo do passo de tempo $t$.
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[scale=0.7]{img/SubGraph.eps}
+\caption{Subgrafos de $t+1$ que possuem o mesmo número de nós do grafo de $t$.}
+\label{fig:subgraph}
+\end{center}
+\end{figure}
 
 \item Selecionar todos os subgrafos gerados com base no passo de tempo $t+1$
 que se encaixam perfeitamente no grafo do passo de tempo $t$. Ou seja,
 selecionar os subgrafos gerados no passo dois, que também são subgrafos do
 grafo no tempo $t$.
 
+\begin{figure}[H]
+\begin{center}
+\includegraphics[scale=0.6]{img/SelectSubGraph.eps}
+\caption{Subgrafos de $t+1$ que se encaixam perfeitamente em $t$.}
+\label{fig:selectsubgraph}
+\end{center}
+\end{figure}
+
 \item Realizar uma operação de diferença entre o grafo de $t$ e todos os
 subgrafos de $t+1$ selecionados no passo três, com o mesmo número de nós. O
 subgrafo que apresentar a menor diferença no número de transições de estados
 é selecionado. No caso de empate, o primeiro subgrafo é selecionado.
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[scale=0.6]{img/DiffGraph.eps}
+\caption{Operação de diferença entre $t$ e os subgrafos do passo anterior.}
+\label{fig:diffgraph}
+\end{center}
+\end{figure}
+
 \end{enumerate}
 
 O algoritmo selecionou 26 regras que apresentavam padrão
