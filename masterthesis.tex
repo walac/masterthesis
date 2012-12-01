@@ -1102,28 +1102,9 @@ unidimensional de um AC pode ou não ser representada por um grafo de
 processo. É importante ressaltar que esta abordagem limita-se à condição
 de contorno não periódica. Para condição de contorno periódica, este grafo
 pode não existir para uma determinada regra, mesmo existindo na condição de
-contorno não periódica. Como exemplo, segue uma prova de que não é possível
-representar o comportamento limite da regra 184 por meio de grafos de processo
-para condição de contorno periódica (a descrição do comportamento limite da
-regra 184 pode ser encontrada mais adiante na Seção \ref{sec:limit184}).
-
-\begin{proposition}
-Não é possível representar o comportamento limite da regra 184 por meio de
-um grafo de processo para condição de contorno periódica.
-\end{proposition}
-
-\begin{proof}
-Seja $L$ a linguagem limite da regra 184, e $G$
-o grafo de processo que reconhece $L$. Assumindo-se a
-cadeia $w = 000101$ pertencente a $L$, e defini-se $v = 100010$,
-$v$ também pertence a $L$ uma vez que é igual
-a $w$ com um deslocamento à direita; logo $v$ também é reconhecida por $G$.
-Dado $v' = 10001$, uma sub-cadeia de $v$, da definição de
-linguagens regulares de processo e grafos de processo, $v'$ também é
-reconhecida por $G$, mas não pode pertencer a $L$, porque $v'$ é
-a cadeia $11000$ deslocada, e sabe-se que essa string não
-faz parte do conjunto limite da regra 184.
-\end{proof}
+contorno não periódica. A Seção \ref{sec:limit184} apresenta uma prova de que
+não é possível representar a configuração limite da regra 184 em condição de
+contorno periódica por meio de um grafo de processo.
 
 Pode-se imaginar que, para os casos em que o grafo
 limite existe, a execução do encadeamento das funções \emph{NetCAStep},
@@ -1429,13 +1410,59 @@ intercalados.
 de 0s, intercalados por blocos 10.
 \end{itemize}
 
-Com base nesta descrição, ele construiu um AF que seria
+Quando atinge sua configuração limite, novas aplicações da função
+$\Phi$ da regra fazem com que haja um deslocamento da configuração,
+conforme exemplificado na Figura \ref{fig:shift}.
+Observar que, embora esta descrição do comportamento limite da regra
+184 seja válida tanto para condição de contorno periódica (CCP) quanto
+para condição de contorno não periódica (CCNP), o efeito destas faz
+com que algumas configurações sejam válidas em uma condição de contorno
+mas não sejam na outra. Por exemplo, a cadeia 1001 não faz parte
+da configuração limite da regra 184 em CCP, pois é simplesmente a
+cadeia 0011 deslocada, mas é válida em CCNP sobre um fundo de 0s, pois
+representa 1s separados por blocos de 0s.
+
+Com base na descrição do comportamento limite da regra 184,
+\citeonline{miki2006} construiu um AF que seria
 o AF limite da regra 184 (Figura \ref{fig:limit184}). Mas este AF não
 aceita, por exemplo, a cadeia 011, que faz parte da linguagem limite e,
-portanto, não descreve o comportamento limite da regra 184.  
+portanto, não descreve o comportamento limite da regra.
+
+\begin{figure}[htp]
+\begin{center}
+\includegraphics[scale=1.0]{img/shift.eps}
+\caption{Deslocamento da regra 184 na configuração limite. Na figura,
+quadrados em preto representam 0s em quadrados em azul representam 1s.
+O bloco de 1s é deslocado à esquerda a cada aplicação da regra.}
+\label{fig:shift}
+\end{center}
+\end{figure}
 
 A Figura \ref{fig:limit184w} mostra o que acredita-se ser o grafo de processo
-que representa o comportamento limite da regra 184. Em busca de evidências
+que representa o comportamento limite da regra 184.
+Importante observar que este grafo de processo somente descreve o comportamento
+limite da regra 184 em CCNP, pois é impossível representar o comportamento limite
+da regra em CCP por meio de um grafo de processo, conforme demonstrado a seguir.
+
+\begin{proposition}
+Não é possível representar o comportamento limite da regra 184 por meio de
+um grafo de processo para condição de contorno periódica.
+\end{proposition}
+
+\begin{proof}
+Seja $L$ a linguagem limite da regra 184, e $G$
+o grafo de processo que reconhece $L$. Assumindo-se a
+cadeia $w = 000101$ pertencente a $L$, e defini-se $v = 100010$,
+$v$ também pertence a $L$ uma vez que é igual
+a $w$ com um deslocamento à direita; logo $v$ também é reconhecida por $G$.
+Dado $v' = 10001$, uma sub-cadeia de $v$, da definição de
+linguagens regulares de processo e grafos de processo, $v'$ também é
+reconhecida por $G$, mas não pode pertencer a $L$, porque $v'$ é
+a cadeia $11000$ deslocada, e sabe-se que essa string não
+faz parte do conjunto limite da regra 184.
+\end{proof}
+
+Em busca de evidências
 de que este se trata do comportamento limite, primeiramente foram geradas
 todas as cadeias limites a partir de todas as combinações de configurações
 iniciais de tamanho 20, e então foi verificado se o grafo aceitaria cada
