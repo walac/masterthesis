@@ -973,7 +973,7 @@ pretos representam transições em 1.}
 \end{center}
 \end{figure}
 
-\subsection{Funções NetCAStep, TrimNet e MinNet}
+\subsection{Funções \emph{NetCAStep}, \emph{TrimNet} e \emph{MinNet}}
 
 \emph{NetCAStep}, \emph{TrimNet} e \emph{MinNet} \citecustom{wolfram2002} são
 funções desenvolvidas no \textit{Mathematica} para gerar AFs
@@ -1060,15 +1060,16 @@ determinadas estruturas conforme $t \mapsto \infty$ para as regras
 com o conceito de atratores, tanto do ponto de vista topológico
 quanto de teoria de medidas.
 
-O encadeamento das funções NetCAStep, MinNet
-e TrimNet rende um grafo de processo que representa o conjunto de
+O encadeamento das funções \emph{NetCAStep}, \emph{MinNet}
+e \emph{TrimNet} rende um grafo de processo que representa o conjunto de
 configurações globais para um passo de tempo finito, conforme ilustra
 a Figura \ref{fig:net}.
 
 \begin{figure}[htp]
 \begin{center}
 \includegraphics[scale=0.9]{img/net.eps}
-\caption{Sequência de utilização das funções NetCAStep, MinNet e TrimNet.}
+\caption{Sequência de utilização das funções \emph{NetCAStep},
+\emph{MinNet} e \emph{TrimNet}.}
 \label{fig:net}
 \end{center}
 \end{figure}
@@ -1125,11 +1126,11 @@ faz parte do conjunto limite da regra 184.
 \end{proof}
 
 Pode-se imaginar que, para os casos em que o grafo
-limite existe, a execução do encadeamento das funções NetCAStep, MinNet e
-TrimNet por um período suficiente de tempo levará ao grafo limite, conforme
-se exemplifica na Figura \ref{fig:r8t}. Mas existem regras em que esta
-convergência não ocorre, como a regra 128 (Figura \ref{fig:r128t}),
-mesmo seu comportamento limite
+limite existe, a execução do encadeamento das funções \emph{NetCAStep},
+\emph{MinNet} e \emph{TrimNet} por um período suficiente de tempo levará
+ao grafo limite, conforme se exemplifica na Figura \ref{fig:r8t}. Mas
+existem regras em que esta convergência não ocorre, como a regra 128
+(Figura \ref{fig:r128t}), mesmo seu comportamento limite
 sendo conhecido (Figura \ref{fig:limit128}) \citecustom{wolfram1984}.
 
 \begin{figure}[htp]
@@ -1265,7 +1266,7 @@ relação de crescimento, conforme descrito anteriormente.
 encontrou alguns valores divergentes em relação à tabela original, embora
 não tenha mencionado nada em relação a tal discrepância.
 \citeonline{miki2006}, posteriormente, identificou que a descrição da função
-MinNet estava errada em \citecustom{wolfram2002}, que apontava o primeiro
+\emph{MinNet} estava errada em \citecustom{wolfram2002}, que apontava o primeiro
 estado como sendo o estado inicial no autômato gerado pela função, mas na
 verdade o último estado é o que representa o estado inicial, e atribuiu
 a esse fato como possível causa das diferenças entre as tabelas de
@@ -1300,23 +1301,23 @@ obter as expressões de crescimento das regras 11, 14, 35, 50, 70 e 81, que
 \citecustom{trafaniuc2004}}\label{sec:problem}
 
 Tanto \citecustom{trafaniuc2004} quanto \citecustom{miki2006} basearam seus
-respectivos trabalhos nas funções NetCAStep, MinNet e TrimNet.
-\citeonline{trafaniuc2004} usava a saída da função NetCAStep como entrada
-para a função TrimNet, cuja saída era usada como entrada da função
-MinNet, que então realimentava a função NetCAStep. Como primeira
+respectivos trabalhos nas funções \emph{NetCAStep}, \emph{MinNet} e \emph{TrimNet}.
+\citeonline{trafaniuc2004} usava a saída da função \emph{NetCAStep} como entrada
+para a função \emph{TrimNet}, cuja saída era usada como entrada da função
+\emph{MinNet}, que então realimentava a função \emph{NetCAStep}. Como primeira
 consequência (e já apontado em \citecustom{miki2006}),
 \citeonline{trafaniuc2004} trabalhou com AFs determinísticos, e não com
 grafos de processo como descreveu. \citeonline{trafaniuc2004} realimentou
-a função NetCAStep com a saída da função MinNet, enquanto
-\citeonline{miki2006} utilizou a saída da função TrimNet para realimentar
-a função NetCAStep. A Figura \ref{fig:net-miki} mostra o encadeamento de
-chamadas das funções NetCAStep, MinNet e TrimNet de acordo com
+a função \emph{NetCAStep} com a saída da função \emph{MinNet}, enquanto
+\citeonline{miki2006} utilizou a saída da função \emph{TrimNet} para realimentar
+a função \emph{NetCAStep}. A Figura \ref{fig:net-miki} mostra o encadeamento de
+chamadas das funções \emph{NetCAStep}, \emph{MinNet} e \emph{TrimNet} de acordo com
 \citecustom{miki2006}.
 
 \begin{figure}[htp]
 \begin{center}
 \includegraphics[scale=0.8]{img/net-miki.eps}
-\caption{Sequência de chamada das funções NetCAStep, MinNet e TrimNet de
+\caption{Sequência de chamada das funções \emph{NetCAStep}, \emph{MinNet} e \emph{TrimNet} de
 acordo com \citecustom{miki2006}.}
 \label{fig:net-miki}
 \end{center}
@@ -1457,7 +1458,7 @@ levam a tal conclusão.
 \subsection{Nova tabela de complexidade de regras}\label{sec:table}
 
 Conforme já relatado na Seção \ref{sec:problem}, o encadeamento das
-funções NetCAStep, MinNet e TrimNet nos trabalhos anteriores estava
+funções \emph{NetCAStep}, \emph{MinNet} e \emph{TrimNet} nos trabalhos anteriores estava
 equivocado. Como consequência, a construção da tabela de complexidade
 de Wolfram foi refeita. As Tabelas \ref{tbl:Table1}, \ref{tbl:Table2}
 e \ref{tbl:Table3} apresentam os novos resultados.
@@ -2053,7 +2054,7 @@ análises dos grafos de processo dos diferentes passos de tempo
 para as regras elementares.
 
 Durante a pesquisa, foram encontradas inconsistências nos trabalhos anteriores,
-fruto da ambiguidade da descrição das funções NetCAStep, MinNet e TrimNet 
+fruto da ambiguidade da descrição das funções \emph{NetCAStep}, \emph{MinNet} e \emph{TrimNet}
 em \citecustom{wolfram2002}. A tabela de \citecustom{wolfram1994} foi novamente
 refeita, e novos resultados apareceram, inclusive uma técnica para inferir
 o comportamento limite de regras quando isto é possível. O grafo de processo
@@ -2095,10 +2096,10 @@ Resumidamente, este trabalho apresentou as seguintes críticas aos estudos
 anteriores e contribuições:
 
 \begin{itemize}
-\item A ordem de chamada das funções NetCAStep, MinNet e TrimNet estava
+\item A ordem de chamada das funções \emph{NetCAStep}, \emph{MinNet} e \emph{TrimNet} estava
 equivocada nos trabalhos de \citecustom{trafaniuc2004} e \citecustom{miki2006}.
-A ordem das funções MinNet e TrimNet estava invertida e o ponto de
-realimentação de NetCAStep estava incorreto. A Figura \ref{fig:net} mostra o
+A ordem das funções \emph{MinNet} e \emph{TrimNet} estava invertida e o ponto de
+realimentação de \emph{NetCAStep} estava incorreto. A Figura \ref{fig:net} mostra o
 encademento correto das funções.
 
 \item O algoritmo de seleção de regras de \citecustom{trafaniuc2004} possui
