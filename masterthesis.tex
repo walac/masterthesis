@@ -998,30 +998,6 @@ gera um AF determinístico mínimo equivalente ao autômato gerado por
 A função \emph{TrimNet} faz a transformação do AF de saída da \emph{MinNet}
 em um grafo de processo.
 
-É importante enfatizar que as funções \emph{MinNet} e \emph{TrimNet} não se tratam
-de funções genéricas para minimização de autômatos e transformação de grafos
-de processo, respectivamente. Elas só são garantidas de funcionar no contexto
-do encadeamento de chamadas das funções
-\emph{NetCAStep} $\mapsto$ \emph{MinNet} $\mapsto$ \emph{TrimNet}.
-Por exemplo, a Figura \ref{fig:mintrimfail} mostra um AF genérico e
-o resultado de se aplicar as funções \emph{MinNet} e \emph{TrimNet} sobre ele.
-Claramente a linguagem reconhecida pelo AF original é diferente da reconhecida
-tanto pelo AF de saída da \emph{MinNet} quanto pelo AF de saída da função
-\emph{TrimNet}, independente se considerar-se que todos os estados do AF original
-são de aceitação ou se apenas o último estado o é.
-
-\begin{figure}[htp]
-\begin{center}
-\includegraphics[scale=1.0]{img/MinNetTrimNetFail.eps}
-\caption{Ilustração de como as funções \emph{MinNet} e \emph{TrimNet}
-falham para um AF genérico. À esquerda o AF original, no centro a saída
-da função \emph{MiNnet} e à direita a saída da função \emph{TrimNet}.}
-\label{fig:mintrimfail}
-\end{center}
-\end{figure}
-
-O Capítulo \ref{sec:complexity} demonstra a forma correta de encadeá-las.
-
 \newpage
 
 \section{Complexidade de linguagens regulares de autômatos
