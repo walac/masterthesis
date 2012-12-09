@@ -1458,10 +1458,11 @@ Em busca de evidências
 de que este se trata do comportamento limite, primeiramente foram geradas
 todas as cadeias limites a partir de todas as combinações de configurações
 iniciais de tamanho 20, e então foi verificado se o grafo aceitaria cada
-configuração limite gerada. Além disso, os testes incluem a geração de 5
-configurações que sabe-se não fazerem parte do comportamento limite e verificar
-que o grafo de processo não reconhece essas configurações.
-Todos os testes foram executados com sucesso.
+configuração limite gerada. Além disso, durante o processo de dedução do
+grafo de processo, foram aplicadas configurações inválidas do comportamento
+limite da regra para testes contra falsos positivos, e estas configurações
+foram testadas também contra o grafo de processo limite da Figura
+\ref{fig:limit184w}. Todos os testes foram executados com sucesso.
 Assim, embora não haja um prova formal de que este grafo de processo seja
 realmente o comportamento limite da regra 184, há fortes evidências que
 levam a tal conclusão.
