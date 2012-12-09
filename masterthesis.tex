@@ -1112,7 +1112,7 @@ sendo conhecido (Figura \ref{fig:limit128}) \citecustom{wolfram1984}.
 \begin{figure}[htp]
 \begin{center}
 \includegraphics[scale=0.8]{img/limit128.eps}
-\caption{Grafo de processo limite da regra 128.}
+\caption{AF determinístico limite da regra 128.}
 \label{fig:limit128}
 \end{center}
 \end{figure}
@@ -1479,8 +1479,10 @@ levam a tal conclusão.
 Conforme já relatado na Seção \ref{sec:problem}, o encadeamento das
 funções \emph{NetCAStep}, \emph{MinNet} e \emph{TrimNet} nos trabalhos anteriores estava
 equivocado. Como consequência, a construção da tabela de complexidade
-de Wolfram foi refeita, aplicando as funções \emph{NetCAStep},
-\emph{MinNet} e \emph{TrimNet} conforme ilustrado na Figura \ref{fig:net}.
+de Wolfram foi refeita, aplicando as funções \emph{NetCAStep} e
+\emph{MinNet} conforme ilustrado na Figura \ref{fig:net}. Observar que esta
+tabela está construída com base nas saídas da função \emph{MinNet}, então
+tratam-se de AFs determinísticos e não grafos de processo.
 As Tabelas \ref{tbl:Table1}, \ref{tbl:Table2} e \ref{tbl:Table3}
 apresentam os novos resultados.
 
@@ -1508,52 +1510,102 @@ apresentam os novos resultados.
 Em cada tabela, existe uma divisão de duas subtabelas, à esquerda são
 mostrados os resultados de \citecustom{wolfram1994}, enquando à direita
 são os resultados deste trabalho. \textit{Novos resultados} são a soma
-dos resultos presentes em \citecustom{trafaniuc2004}, \citecustom{miki2006}
+dos resultados presentes em \citecustom{trafaniuc2004}, \citecustom{miki2006}
 e neste trabalho.
 
 Um ponto importante é que, para algumas regras em que os resultados de
 \citecustom{wolfram1994} e \citecustom{trafaniuc2004} coincidiram, houve
-divergências neste trabalho. Um exemplo é a regra 18, onde Wolfram e
+divergências neste trabalho. Um exemplo é a regra 38, onde Wolfram e
 Trafaniuc obtiveram os mesmos resultados mas este trabalho obteve valores
-diferentes, embora Wolfram tenha trabalhado com grafos de processo e Trafaniuc
-com AFs. A tabelas apresentadas mostra os resultados para grafos de processo.
+diferentes.
 
 Outra questão é com relação às regras 32, 128, 136, 160, 168, e 224. Estas têm
-o número de estados e arestas do grafo limite apresentados em
-\citecustom{wolfram1994} mas não há qualquer registro de como seus grafos
-de processo limite foram obtidos. O grafo de processo da regra 128 está
+o número de estados e arestas do AF limite apresentados em
+\citecustom{wolfram1994} mas não há qualquer registro de como seus AFs limite
+foram  obtidos. O AF determinístico da regra 128 está
 em \citecustom{wolfram1984} e é mostrado na Figura \ref{fig:limit128}, mas
 não há qualquer indício de onde os outros grafos vieram.
 
 Baseado no comportamento limite da regra 128, no presente trabalho foi
-desenvolvida uma técnica manual para inferir o grafo de processo limite
+desenvolvida uma técnica manual para inferir o AF determinístico limite
 das outras regras.  A técnica parte das estruturas imutáveis dos grafos
 dos sucessivos passos de tempo, observando a evolução do grafo e assim
 deduzir o caso limite.
 
-Por exemplo, observando os grafos da regra 128 (Figura \ref{fig:r128ta}), ele
+Por exemplo, observando os AFs determinísticos da regra 128 (Figura \ref{fig:r128ta}), ele
 inicia sempre em um conjunto de 0s, a partir do qual sai uma transição em 1 para um
 conjunto de 1s. Inicia-se então um ciclo de volta ao conjunto de 0s; mas a
 distância deste ciclo fica cada vez maior conforme aumenta-se o passo de
 tempo. Infere-se então que esta distância deve tender a $\infty$ conforme
-$t \mapsto \infty$, resultando em um segundo conjunto de 0s visto no grafo
+$t \mapsto \infty$, resultando em um segundo conjunto de 0s visto no AF
 limite.
 
 \begin{figure}[H]
 \begin{center}
-\includegraphics[scale=0.70]{img/Rule128.eps}
-\caption{Sequência de grafos de processo da regra 128.}
+\includegraphics[scale=0.60]{img/Rule32dfa.eps}
+\caption{Sequência de AFs da regra 32.}
+\label{fig:r32ta}
+\end{center}
+\end{figure}
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[scale=0.60]{img/Rule128dfa.eps}
+\caption{Sequência de AFs da regra 128.}
 \label{fig:r128ta}
 \end{center}
 \end{figure}
 
-Seguindo a mesma linha de raciocínio, os grafos de processo limites das
-regras 32, 136, 160, 168 e 224 foram também inferidos.
+\begin{figure}[H]
+\begin{center}
+\includegraphics[scale=0.55]{img/Rule136dfa.eps}
+\caption{Sequência de AFs da regra 136.}
+\label{fig:r136ta}
+\end{center}
+\end{figure}
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[scale=0.47]{img/Rule168dfa.eps}
+\caption{Sequência de AFs da regra 168.}
+\label{fig:r168ta}
+\end{center}
+\end{figure}
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[scale=0.47]{img/Rule224dfa.eps}
+\caption{Sequência de AFs da regra 224.}
+\label{fig:r224ta}
+\end{center}
+\end{figure}
+
+As sequências das regras 32, 136, 168 e 224 possuem comportamento análogo à
+sequência da regra 128 (Figuras \ref{fig:r32ta}, \ref{fig:r136ta}, \ref{fig:r168ta}
+e \ref{fig:r224ta}, e seus AFs limites são inferidos da mesma forma que a regra 128.
+A regra 160 apresenta uma estrutura mais complexa, portanto será feita uma descrição
+de seu comportamento aqui. Observando a sequência da Figura
+\ref{fig:r160ta}, o estado inicial é o estado 1, possui uma transição em 0 para ele mesmo, e então
+uma transição em 1 para o estado 2. O estado 2 faz um ciclo com o estado 3, e também possui uma
+transição em 1 para o estado 4. O estado 3, a partir de $t=2$, tem 3 transições em zero sequenciais
+e então ou entra num ciclo de $(01)^+$ ou entra em um sequência de zeros conforme aumenta-se o
+passo de tempo. O estado 4 possui uma transição em 1 para ele mesmo, e uma transição em 0 que
+irá resultar em uma sequência cada vez maior de 0s. Extrapolando para $t=\infty$,
+o AFs limites das regras 32, 136, 160, 168 e 224 são inferidos e mostrados na Figura
+\ref{fig:limits}.
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[scale=0.49]{img/Rule160dfa.eps}
+\caption{Sequência de AFs da regra 160.}
+\label{fig:r160ta}
+\end{center}
+\end{figure}
 
 \begin{figure}[H]
 \begin{center}
 \includegraphics[scale=1.0]{img/Limits.eps}
-\caption{Grafos de processo limite.}
+\caption{AFs limite.}
 \label{fig:limits}
 \end{center}
 \end{figure}
@@ -1561,6 +1613,13 @@ regras 32, 136, 160, 168 e 224 foram também inferidos.
 O mesmo procedimento de validação aplicado ao grafo de processo limite da
 regra 184 foi aplicado a estes grafos como forma de evidenciar sua
 veracidade.
+
+Uma observação importante sobre o AF limite da regra 128 apresentado em
+\citecustom{wolfram1984} é que ele admite configurações que possuem
+0s e 1s. O que ocorre é que a regra 128 possui a propriedade de
+\textit{spreading state}, ou seja, sempre que aparecer um 0 em uma
+configuração, o AC tenderá para uma configuração nula de 0s, o que
+invalidaria o AF limite em \citecustom{wolfram1984}.
 
 \newpage
 
