@@ -984,10 +984,10 @@ funções desenvolvidas no \textit{Mathematica} para gerar AFs
 que representam a evolução para um passo de tempo de um AC
 unidimensional.
 
-Dado um AF não determinístico relacionado à configuração do AC para
+Dado um grafo de processo relacionado à configuração do AC para
 um instante de tempo $t$, a função \emph{NetCAStep} \citecustom{wolfram2002}
-retorna um AF não determinístico relacionado ao instante de tempo $t+1$
-\citecustom{miki2006}. O AF não determinístico de saída para $\Omega^{(1)}$
+retorna um grafo de processo não mínimo relacionado ao instante de tempo $t+1$
+\citecustom{miki2006}. O grafo de processo de saída para $\Omega^{(1)}$
 sempre será um grafo de De Bruijn, pois ele representa o conjunto de
 configurações possíveis da regra para qualquer combinação de células
 em $\Omega^{(0)}$ (configuração inicial).
@@ -997,10 +997,11 @@ de estados correspondente a um AF não determinístico.
 Sobre a lista de transições de estado resultante da função
 \emph{NetCAStep} é aplicada a função \emph{MinNet}, que, por sua vez,
 gera um AF determinístico mínimo equivalente ao autômato gerado por
-\emph{NetCAStep}.
+\emph{NetCAStep}, em que o último estado é o estado inicial e todos os
+estados são finais.
 
 A função \emph{TrimNet} faz a transformação do AF de saída da \emph{MinNet}
-em um grafo de processo.
+em um grafo de processo mínimo.
 
 \newpage
 
