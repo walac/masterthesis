@@ -77,7 +77,7 @@ São Paulo\\
 \thispagestyle{plain}
 \pagenumbering{roman}
 \begin{center}
-\large  
+\large
 \textbf{AGRADECIMENTOS}
 \end{center}
 \renewcommand{\baselinestretch}{0.6666666}
@@ -90,7 +90,7 @@ Agradeço também aos colegas de curso, que sempre me incentivaram, em especial
 agradeço aos meus amigos Israel Florentino dos Santos e Adílson Eduardo
 Spagiari.
 
-Por fim, mas não menos importante, agradeço ao meu orientador e amigo 
+Por fim, mas não menos importante, agradeço ao meu orientador e amigo
 Prof. Pedro Paulo Balbi de Oliveira, pelo trabalho de orientação com
 dedicação, empenho e amizade, e que tanto contribuiu para a elaboração e
 evolução deste estudo.
@@ -101,7 +101,7 @@ evolução deste estudo.
 \thispagestyle{plain}
 %\pagenumbering{roman}
 \begin{center}
-\large  
+\large
 \textbf{RESUMO}
 \end{center}
 \renewcommand{\baselinestretch}{0.6666666}
@@ -140,7 +140,7 @@ linguagem regular, matriz de adjacência, complexidade, autômato finito.}
 \newpage
 \pagestyle{plain}
 \pagenumbering{arabic}
-\renewcommand{\baselinestretch}{1.5} 
+\renewcommand{\baselinestretch}{1.5}
 \normalsize
 
 \newcommand{\citecustom}[1]{[\citeauthoronline{#1}, \citeyear{#1}]}
@@ -163,7 +163,7 @@ elementar possui raio igual a 1 e conjunto de estados $\{0,1\}$, o que
 permite a definição de um espaço de 256 regras possíveis, que são
 usualmente identificadas por um número entre 0 e 255 \citecustom{wolfram1984}.
 Este trabalho estuda um subconjunto dos ACs elementares, que consiste
-em 26 regras estudadas em \citecustom{trafaniuc2004} e 
+em 26 regras estudadas em \citecustom{trafaniuc2004} e
 \citecustom{miki2006}.
 
 O comportamento limite de ACs pode ser descrito por meio
@@ -189,7 +189,7 @@ de representação dos AFs por meio de matrizes de adjacência.
 Sobretudo, este trabalho visa estender os resultados até então obtidos
 sobre a análise da complexidade de ACs por meio de grafos.
 
-O Capítulo \ref{sec:refteo} apresenta referencial teórico sobre 
+O Capítulo \ref{sec:refteo} apresenta referencial teórico sobre
 os ACs, linguagens formais e comportamento limite.
 
 O Capítulo \ref{sec:complexity} descreve os trabalhos anteriores, aponta
@@ -197,10 +197,10 @@ os problemas encontrados nestes e discute novos resultados obtidos.
 
 O Capítulo \ref{sec:matrix} descreve uma nova abordagem por meio de matrizes
 de adjacência. A obtenção do
-grafo de processo de tempo $t$ pode ser conseguida por meio de uma nova notação de 
+grafo de processo de tempo $t$ pode ser conseguida por meio de uma nova notação de
 matrizes de adjacência em relação ao respectivo grafo de processo.
 
-O Capítulo \ref{sec:conclude} conclui o trabalho, onde são resumidos todas
+O Capítulo \ref{sec:conclude} conclui o trabalho, onde são resumidas todas
 as críticas a trabalhos anteriores e os resultados conseguidos nesta pesquisa.
 
 \newpage
@@ -216,7 +216,7 @@ agem cooperativamente para gerar o comportamento global observado \citecustom{wo
 
 ACs podem ser vistos como uma classe de sistemas dinâmicos que atua em um reticulado
 infinito cujo tempo, espaço e estado são todos discretos e os estados de cada célula
-podem ser obtidos a partir de um conjunto finito de estados possíveis \citecustom{zhisong2001}. 
+podem ser obtidos a partir de um conjunto finito de estados possíveis \citecustom{zhisong2001}.
 
 ACs são, fundamentalmente, as representações matemáticas mais simples
 de uma classe muito maior dos chamados \textit{sistemas complexos}, termo que se refere
@@ -278,9 +278,9 @@ dinâmicos e matemática discreta \citecustom{wolfram2002}.
 \subsection{Autômatos celulares elementares}
 
 Um AC unimensional consiste de uma grade bi-infinita (podendo também ter tamanho
-$N$, para o caso finito), onde existe uma função de transição $\sigma: Z_r \mapsto \Sigma$,
+$N$, para o caso finito), onde existe uma função de transição $\phi: Z_r \mapsto \Sigma$,
 que determina a dinâmica do AC, onde $r$ representa o raio (inteiro) de vizinhança do AC e
-$\Sigma$ é o conjunto de estados possíveis de uma célula. Um AC com raio $r$ tem 
+$\Sigma$ é o conjunto de estados possíveis de uma célula. Um AC com raio $r$ tem
 vizinhança $(-r,-r+1,\ldots,r-1,r)$, de maneira que cada vizinhança consiste
 de $2r+1$ células.
 
@@ -365,7 +365,7 @@ $\mathbf{x_{i-1}}$ & $\mathbf{x_i}$ & $\mathbf{x_{i+1}}$ & $\mathbf{\phi}$ \\ \h
 \[ \fbox {
 {\Large
 \begin{tabular}{c c c c c c c c c c c}
-$\frac{1 1 1}{0}$ & $\frac{1 1 0}{1}$ & $\frac{1 0 1}{0}$ & $\frac{1 0 0}{1}$ & 
+$\frac{1 1 1}{0}$ & $\frac{1 1 0}{1}$ & $\frac{1 0 1}{0}$ & $\frac{1 0 0}{1}$ &
 $\frac{0 1 1}{1}$ & $\frac{0 1 0}{0}$ & $\frac{0 0 1}{1}$ & $\frac{0 0 0}{0}$ &
 = & 90
 \end{tabular}
@@ -622,7 +622,7 @@ feita por Wolfram \citecustom{sarkar2000}. \citeonline{li1990} propuseram a segu
 classificação \citecustom{trafaniuc2004}:
 
 \begin{description}
-\item[Regras Nulas] A configuração limite é formada somente por 0s e 1s.
+\item[Regras Nulas] A configuração limite é formada somente por 0s ou somente por 1s.
 
 \item[Regras Ponto-Fixo] A configuração limite não se altera ao
 reaplicarmos a regra do autômato celular.
@@ -648,7 +648,7 @@ reticulado e pela instabilidade com respeito a perturbações.
 A teoria dos autômatos é o estudo dos dispositivos de computação abstratos,
 ou \textit{máquinas}. Antes de existirem computadores, na década de 1930, Alan
 Turing estudou uma máquina abstrata que tinha todas as características dos
-computadores atuais, pelo menos no que se refere ao quanto eles poderiam 
+computadores atuais, pelo menos no que se refere ao quanto eles poderiam
 calcular. O objetivo de Turing era descrever com exatidão o limite entre
 o que uma máquina de computação podia fazer e aquilo que ela não podia fazer.
 
@@ -694,7 +694,7 @@ posição em $w$ \citecustom{lewis2008}.
 
 Dá-se o nome de \textbf{linguagem} a qualquer conjunto de palavras sobre um
 alfabeto $\Sigma$, ou seja, a qualquer subconjunto de $\Sigma^*$. Portanto,
-$\Sigma^*$, $\varepsilon$ e $\Sigma$ são linguagens. Sendo uma linguagem 
+$\Sigma^*$, $\varepsilon$ e $\Sigma$ são linguagens. Sendo uma linguagem
 simplesmente um tipo particular de conjunto, pode-se especificar linguagens
 finitas enumerando-se todas as suas palavras. Por exemplo, $\{aba, czr, d, f\}$
 é uma linguagem sobre $\{a, b, \ldots, z\}$. Entretanto, quando as
@@ -792,7 +792,7 @@ O conjunto de palavras reconhecidas por um autômato forma a linguagem do
 autômato. Seja $M$ um autômato, $L(M)$ constitui sua linguagem. A classe
 de linguagens reconhecidas por AFs são as linguagens regulares.
 Linguagens regulares podem também ser representadas por meio das chamadas
-expressões regulares. 
+expressões regulares.
 
 Dadas as operações:
 
@@ -824,7 +824,7 @@ Por exemplo, a expressão regular do autômato da Figura \ref{fig:automata}
 Uma importante subclasse das linguagens regulares é a classe de linguagens
 de processo. Isto é, para todas as palavras $\omega \in L$, todas as
 sub-palavras
-$v \in \{s^i \ldots s^{i+j}:s^k=(\omega)_k,i+j\le \|\omega\|,i,j\ge 0\}$
+$v \in \{s^i \ldots s^{i+j}:s^k=(\omega)_k,i+j\le |\omega|,i,j\ge 0\}$
 de $\omega$ estão em $L$. Forma-se o fechamento das sub-palavras sub($L$)
 de uma linguagem $L$ pela inclusão em sub($L$) de todas as sub-palavras
 de cada $\omega \in L$ \citecustom{hanson1992}, ou seja, para cada
@@ -986,8 +986,9 @@ unidimensional.
 
 Dado um grafo de processo relacionado à configuração do AC para
 um instante de tempo $t$, a função \emph{NetCAStep} \citecustom{wolfram2002}
-retorna um grafo de processo não mínimo relacionado ao instante de tempo $t+1$
-\citecustom{miki2006}. O grafo de processo de saída para $\Omega^{(1)}$
+retorna um AF não determinístico onde todos os estados são inicais e
+finais relacionado ao instante de tempo $t+1$
+\citecustom{miki2006}. O AF de saída para $\Omega^{(1)}$
 sempre será um grafo de De Bruijn, pois ele representa o conjunto de
 configurações possíveis da regra para qualquer combinação de células
 em $\Omega^{(0)}$ (configuração inicial).
@@ -1001,7 +1002,7 @@ gera um AF determinístico mínimo equivalente ao autômato gerado por
 estados são finais.
 
 A função \emph{TrimNet} faz a transformação do AF de saída da \emph{MinNet}
-em um grafo de processo mínimo.
+em um grafo de processo.
 
 \newpage
 
@@ -1062,7 +1063,7 @@ a Figura \ref{fig:net}.
 \end{center}
 \end{figure}
 
-Conforme avançam-se os passos de tempo, a tendência é que o conjunto de 
+Conforme avançam-se os passos de tempo, a tendência é que o conjunto de
 configurações fique mais restrito e, como consequência, o grafo torne-se
 mais complexo. A Figura \ref{fig:r11t} mostra os grafos de processo de
 4 passos de tempo para a regra 11. Nota-se que, com o passar do tempo,
@@ -1073,7 +1074,7 @@ regra, ou seja, a complexidade da regra é proporcional ao aumento do número
 de estados e transições dos grafos dos sucessivos passos de tempo.
 \citeonline{wolfram1994} construiu uma tabela contendo a relação
 do número de estados e arestas das regras do espaço elementar
-(agrupadas pelas classes de equivalencia) para os cinco primeiros
+(agrupadas pelas classes de equivalência) para os cinco primeiros
 passos de tempo, e, quando possível, para o grafo limite, além da
 expressão de crescimento dos nós e arestas para $t > 5$.
 
@@ -1086,20 +1087,18 @@ expressão de crescimento dos nós e arestas para $t > 5$.
 \end{figure}
 
 Conforme já mencionado, o conjunto de configurações globais de uma regra
-unidimensional de um AC pode ou não ser representada por um grafo de
+unidimensional para $t < \infty$ de um AC pode representada por um grafo de
 processo. É importante ressaltar que esta abordagem limita-se à condição
 de contorno não periódica. Para condição de contorno periódica, este grafo
 pode não existir para uma determinada regra, mesmo existindo na condição de
-contorno não periódica. A Seção \ref{sec:limit184} apresenta uma prova de que
-não é possível representar a configuração limite da regra 184 em condição de
-contorno periódica por meio de um grafo de processo.
+contorno não periódica.
 
-Pode-se imaginar que, para os casos em que o grafo
-limite existe, a execução do encadeamento das funções \emph{NetCAStep},
-\emph{MinNet} e \emph{TrimNet} por um período suficiente de tempo levará
-ao grafo limite, conforme se exemplifica na Figura \ref{fig:r8t}. Mas
-existem regras em que esta convergência não ocorre, como a regra 128
-(Figura \ref{fig:r128t}), mesmo seu comportamento limite
+Pode-se imaginar que, para os casos em que a configuração limite de um AC
+possa ser representada por um grafo de processo, a execução do encadeamento
+das funções \emph{NetCAStep}, \emph{MinNet} e \emph{TrimNet} por um
+período suficiente de tempo levará ao grafo limite, conforme se exemplifica
+na Figura \ref{fig:r8t}. Mas existem regras em que esta convergência não
+ocorre, como a regra 128 (Figura \ref{fig:r128t}), mesmo seu comportamento limite
 sendo conhecido (Figura \ref{fig:limit128}) \citecustom{wolfram1984}.
 
 \begin{figure}[htp]
@@ -1149,7 +1148,7 @@ AF em até cinco passos de tempo.
 \end{description}
 
 Na prática, o que o algoritmo faz é isolar as regras que convergem para o
-grafo limite (Grupo 2) das que não convergem (Grupo 1). 
+grafo limite (Grupo 2) das que não convergem (Grupo 1).
 
 Foram então analisadas as estruturas de crescimento de complexidade das regras
 do Grupo 1, primeiro manualmente e, depois, automaticamente por meio do
@@ -1256,11 +1255,11 @@ foi construído manualmente como referência, conforme mostrado na Figura
 \end{center}
 \end{figure}
 
-\citeonline{miki2006} identificou que os grafos de processo dos sucessivos passos de
-tempo da regra são assimétricos, mas o grafo de processo limite é simétrico, e não
+\citeonline{miki2006} identificou que os AFs dos sucessivos passos de
+tempo da regra são assimétricos, mas o AF limite é simétrico, e não
 conseguiu achar uma operação que faça essa transformação de simetria;
-não conseguindo, assim, encontrar o grafo de processo limite da regra 184
-partindo-se dos grafos de processo intermediários.
+não conseguindo, assim, encontrar o AF limite da regra 184
+partindo-se dos AFs intermediários.
 
 \citeonline{miki2006} conseguiu, por meio da automação do processo de análise,
 obter as expressões de crescimento das regras 11, 14, 35, 50, 70 e 81, que
@@ -1305,7 +1304,7 @@ encadeá-las e realimentá-las.
 
 Diante deste problema das chamadas das funções, os resultados da tabela de
 \citecustom{wolfram1994} reconstruída por \citecustom{trafaniuc2004} poderiam
-estar incorretos, então a a tabela foi novamente refeita neste trabalho. A nova tabela e a
+estar incorretos, então a tabela foi novamente refeita neste trabalho. A nova tabela e a
 discussão dos resultados são apresentados na Seção \ref{sec:table}.
 
 Outro ponto é que descobriu-se que o algoritmo de seleção de regras com
@@ -1616,12 +1615,12 @@ O mesmo procedimento de validação aplicado ao grafo de processo limite da
 regra 184 foi aplicado a estes grafos como forma de evidenciar sua
 veracidade.
 
-Uma observação importante sobre o AF limite da regra 128 apresentado em
-\citecustom{wolfram1984} é que ele admite configurações que possuem
-0s e 1s. O que ocorre é que a regra 128 possui a propriedade de
-\textit{spreading state}, ou seja, sempre que aparecer um 0 em uma
-configuração, o AC tenderá para uma configuração nula de 0s, o que
-invalidaria o AF limite em \citecustom{wolfram1984}.
+Uma observação importanto é que a regra 128 possui um estado propagante
+(\textit{spreading state}). Um estado $s \in \Sigma$ é dito propagante
+para um AC com raio $r$ e regra local $\phi$ se $\phi(u)=s$ sempre que
+$s$ aparecer na cadeia $u$ \citecustom{guillon2011}. Neste caso, o AF limite da
+Figura \ref{fig:limit128} não seria o AF limite da regra 128. Porém,
+\citeonline{kari2007} demonstra que este AF está correto.
 
 \newpage
 
@@ -1641,7 +1640,7 @@ espaço, e qualquer sistema lógico multi agente com $n$ agentes e $m$ estados
 pode ser traduzido em um sistema linear de dimensão $m^n$ construindo uma
 bijeção adequada. Especificamente, o produto semi tensorial desenvolvido
 por \citeonline{cheng2007} fornece uma ferramenta para a construção de
-tal bijeção \citecustom{wang2011}.  
+tal bijeção \citecustom{wang2011}.
 
 Ao final, os autores definem e provam os seguintes teoremas
 \citecustom{wang2011}:
@@ -1684,12 +1683,12 @@ para todas as 26 regras estudadas são apresentados.
 
 \subsubsection{Matrizes de adjacências}
 
-Uma \textit{matriz de adjacência}, algumas vezes também chamada de 
+Uma \textit{matriz de adjacência}, algumas vezes também chamada de
 \textit{matriz de conexões}, representa os estados e transições de grafos
 em forma matricial, rotulando as linhas e colunas com os vértices do grafo.
 As linhas e colunas representam, respectivamente, os estados de origem e destino
 do grafo\footnote{No caso de grafos não direcionados, não existe
-distinção de estados origem e destino, mas somente grafos direcionados são 
+distinção de estados origem e destino, mas somente grafos direcionados são
 de interesse neste trabalho}.
 
 A representação de um grafo direcionado $G$ com $n$ vértices se dá por uma
@@ -1704,7 +1703,7 @@ mostra a matriz de adjacência correspondente.
 \begin{VCPicture}{(0,-4)(4,1)}
 \vState[1]{(0,0)}{A} \vState[2]{(4,0)}{B}
 \vState[3]{(2,-2)}{C}
-\ArcL{A}{B}{} \ArcR{A}{C}{} 
+\ArcL{A}{B}{} \ArcR{A}{C}{}
 \ArcL{B}{A}{}
 \ArcR{C}{B}{} \LoopS{C}{}
 \end{VCPicture}
@@ -1768,7 +1767,7 @@ de isomorfismo entre a matriz e sua representação em grafo.
 Formalmente, dado o conjunto de matrizes de adjacência
 de evolução temporal $\mathbb{M}$ e o conjunto de grafos de processo $\mathbb{G}$,
 existe uma transformação $T: \mathbb{G} \mapsto \mathbb{M}$ e uma
-transformação $T^{-1}: \mathbb{M} \mapsto \mathbb{G}$ \citecustom{costa2012}. 
+transformação $T^{-1}: \mathbb{M} \mapsto \mathbb{G}$ \citecustom{costa2012}.
 
 O elemento chave para conseguir essa relação de isomorfismo
 é encontrar uma representação do conjunto de transições e
@@ -1792,9 +1791,7 @@ arcos $\mathbb{L}$ em um número natural é o polinômio de base 2:
 \end{equation}
 
 Onde $\mathbb{L}_{ij}$ é o conjunto de transições do estado $i$ para o estado
-$j$, o que permite a definição de um espaço de 256 regras possíveis, que são usualmente
-identificadas por um número entre 0 e 255 \citecustom{wolfram1984}.
-Nota-se que como $k \in \mathbb{N}$, então $\eta(\mathbb{L}_{ij}) \in \mathbb{Z}$,
+$j$. Nota-se que como $k \in \mathbb{N}$, então $\eta(\mathbb{L}_{ij}) \in \mathbb{Z}$,
 ou seja, $\eta(\mathbb{L}_{ij})$ está restrita ao domínio dos inteiros. Se
 $k \in \mathbb{Z}$ ($\mathbb{L}_{ij} \mapsto \mathbb{Z}$), então
 $\eta(\mathbb{L}_{ij}) \in \Re$, pois admitiria-se a possibilidade de expoentes negativos.
@@ -1817,7 +1814,7 @@ mostra a matriz de adjacência de evolução temporal correspondente.
 \begin{VCPicture}{(0,-4)(4,1)}
 \vState[1]{(0,0)}{A} \vState[2]{(4,0)}{B}
 \vState[3]{(2,-2)}{C}
-\ArcL{A}{B}{0} \ArcR{A}{C}{0} 
+\ArcL{A}{B}{0} \ArcR{A}{C}{0}
 \ArcL{B}{A}{1}
 \ArcR{C}{B}{1} \LoopS{C}{0}
 \end{VCPicture}
@@ -2198,7 +2195,7 @@ algoritmo.
 \citecustom{trafaniuc2004} já havia feito.
 
 \item A tabela de \citecustom{wolfram1994} apresentou o número de estados
-e transições do grafo de processo limite para algumas regras, mas não
+e transições do AF limite para algumas regras, mas não
 apresentou esses grafos e nem documentou como foram obtidos. Neste trabalho
 foi desenvolvida uma técnica para inferir o grafo limite dessas regras.
 
@@ -2225,7 +2222,7 @@ tal tema.
 
 \def\refname{Referências bibliográficas}
 \bibliography{masterthesis}
-\addcontentsline{toc}{section}{Referências bibliográficas} 
+\addcontentsline{toc}{section}{Referências bibliográficas}
 \bibliographystyle{abnt-alf}
 
 \appendix
