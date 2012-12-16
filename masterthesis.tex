@@ -96,6 +96,40 @@ dedicação, empenho e amizade, e que tanto contribuiu para a elaboração e
 evolução deste estudo.
 \\[0.5cm]
 
+% ABSTRACT
+\newpage
+\thispagestyle{plain}
+%\pagenumbering{roman}
+\begin{center}
+\large
+\textbf{ABSTRACT}
+\end{center}
+\renewcommand{\baselinestretch}{0.6666666}
+Cellular automata (CAs) are totally discrete systems that act locally in
+a simple and deterministic way, but whose resulting global behavior  can
+be extremelly complex. The set of possible global configurations in
+one finite time step $t$ for a CA can be described by a regular language,
+which in turn can be represented by a finite automaton (FA). An important
+FAs class for this work are the so called process graphs, which are FAs
+in which all states are initial and final, as these allow an compact and
+unequivocal matrix representation. We study here the complexity of
+CAs temporal evolution, where previous works are revised and discussed,
+indicating problems on the experiments and their impact on the results.
+We also begin a novel approach for the problem, substituting the process
+graphs representation  which describe the one step configuration by
+adjacency matrixes derived from them. In fact, we extend the classic
+adjacency matrix notation, as it can not fully represent process graphs.
+With this new notation, we show that is possible to obtain the algorithm
+to generate a process graph for an arbitrary time step $t$ for each
+of the studied rule. We conclude that, although there were advances for
+the limit graph problem, it still remains open, and suggestions for
+new researches are given.
+\\[0.5cm]
+\begin{flushleft}
+{\bf Keywords:} {\it Elementar cellular automaton, limit behavior,
+regular language, adjacency matrix, complexity, finite automaton.}
+\end{flushleft}
+
 % RESUMO
 \newpage
 \thispagestyle{plain}
@@ -987,14 +1021,14 @@ unidimensional.
 Dado um grafo de processo relacionado à configuração do AC para
 um instante de tempo $t$, a função \emph{NetCAStep} \citecustom{wolfram2002}
 retorna um AF não determinístico onde todos os estados são inicais e
-finais relacionado ao instante de tempo $t+1$
-\citecustom{miki2006}. O AF de saída para $\Omega^{(1)}$
+finais (grafo de processo) relacionado ao instante de tempo $t+1$
+\citecustom{miki2006}. O grafo de processo de saída para $\Omega^{(1)}$
 sempre será um grafo de De Bruijn, pois ele representa o conjunto de
 configurações possíveis da regra para qualquer combinação de células
 em $\Omega^{(0)}$ (configuração inicial).
 
 A função \emph{NetCAStep} gera como saída uma lista de transições
-de estados correspondente a um AF não determinístico.
+de estados correspondente a um grafo de processo.
 Sobre a lista de transições de estado resultante da função
 \emph{NetCAStep} é aplicada a função \emph{MinNet}, que, por sua vez,
 gera um AF determinístico mínimo equivalente ao autômato gerado por
@@ -1002,7 +1036,7 @@ gera um AF determinístico mínimo equivalente ao autômato gerado por
 estados são finais.
 
 A função \emph{TrimNet} faz a transformação do AF de saída da \emph{MinNet}
-em um grafo de processo.
+em um grafo de processo mínimo.
 
 \newpage
 
