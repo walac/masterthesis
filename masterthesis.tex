@@ -1254,14 +1254,15 @@ O algoritmo divide as regras em dois grupos \citecustom{trafaniuc2004}:
 
 \begin{description}
 \item[Grupo 1:] Regras que apresentam crescimento de complexidade no AF
-limite a cada passo de tempo, e o método é interrompido quando o
-número máximo de passos de execução for atingido.
+limite a cada passo de tempo, e o método é interrompido após cinco passos de
+tempo.
 \item[Grupo 2:] Regras que deixam de apresentar crescimento de complexidade no
 AF em até cinco passos de tempo.
 \end{description}
 
 Na prática, o que o algoritmo faz é isolar as regras que convergem para o
-grafo limite (Grupo 2) das que não convergem (Grupo 1).
+grafo limite (Grupo 2) das que não convergem (Grupo 1) em até cinco
+passos de tempo.
 
 Foram então analisadas as estruturas de crescimento de complexidade das regras
 do Grupo 1, primeiro manualmente e, depois, automaticamente por meio do
