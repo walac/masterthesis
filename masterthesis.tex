@@ -1242,14 +1242,6 @@ estruturas comuns nos sucessivos passos de tempo. Primeiramente, sobre as
 que apresentam grafos com complexidade crescente a cada passo de tempo. O
 algoritmo é ilustrado na Figura \ref{fig:rulesel}.
 
-\begin{figure}[htp]
-\begin{center}
-\includegraphics[scale=0.5]{img/rulesel.eps}
-\caption{Algoritmo de seleção de regras \citecustom{trafaniuc2004}.}
-\label{fig:rulesel}
-\end{center}
-\end{figure}
-
 O algoritmo divide as regras em dois grupos \citecustom{trafaniuc2004}:
 
 \begin{description}
@@ -1264,6 +1256,14 @@ Na prática, o que o algoritmo faz é isolar as regras que convergem para o
 grafo limite (Grupo 2) das que não convergem (Grupo 1) em até cinco
 passos de tempo.
 
+\begin{figure}[H]
+\begin{center}
+\includegraphics[scale=0.5]{img/rulesel.eps}
+\caption{Algoritmo de seleção de regras \citecustom{trafaniuc2004}.}
+\label{fig:rulesel}
+\end{center}
+\end{figure}
+
 Foram então analisadas as estruturas de crescimento de complexidade das regras
 do Grupo 1, primeiro manualmente e, depois, automaticamente por meio do
 seguinte método \citecustom{trafaniuc2004}, que seleciona regras com crescimento
@@ -1271,7 +1271,8 @@ estruturado:
 
 \begin{enumerate}\label{sec:mikialgo}
 \item Gerar os grafos das regras de transição, para dois passos de tempo
-consecutivos, $t$ e $t+1$, de uma regra do espaço elementar.
+    consecutivos, $t$ e $t+1$, de uma regra do espaço elementar
+    (Figura \ref{fig:grapht}).
 
 \begin{figure}[H]
 \begin{center}
@@ -1282,7 +1283,8 @@ consecutivos, $t$ e $t+1$, de uma regra do espaço elementar.
 \end{figure}
 
 \item Gerar todos os possíveis subgrafos do passo de tempo $t+1$ que tenham
-o mesmo número de estados que o grafo do passo de tempo $t$.
+o mesmo número de estados que o grafo do passo de tempo $t$
+(Figura \ref{fig:subgraph}).
 
 \begin{figure}[H]
 \begin{center}
@@ -1295,7 +1297,7 @@ o mesmo número de estados que o grafo do passo de tempo $t$.
 \item Selecionar todos os subgrafos gerados com base no passo de tempo $t+1$
 que se encaixam perfeitamente no grafo do passo de tempo $t$. Ou seja,
 selecionar os subgrafos gerados no passo dois, que também são subgrafos do
-grafo no tempo $t$.
+grafo no tempo $t$ (Figura \ref{fig:selectsubgraph}).
 
 \begin{figure}[H]
 \begin{center}
@@ -1308,7 +1310,8 @@ grafo no tempo $t$.
 \item Realizar uma operação de diferença entre o grafo de $t$ e todos os
 subgrafos de $t+1$ selecionados no passo três, com o mesmo número de nós. O
 subgrafo que apresentar a menor diferença no número de transições de estados
-é selecionado. No caso de empate, o primeiro subgrafo é selecionado.
+é selecionado. No caso de empate, o primeiro subgrafo é selecionado
+(Figura \ref{fig:diffgraph}).
 
 \begin{figure}[H]
 \begin{center}
