@@ -1782,34 +1782,7 @@ caso de grafos de processo, esta informação é irrelevante, pois todos
 os estados são iniciais e finais.
 
 \citeonline{wang2011} propuseram uma representação matricial alternativa para
-ACs. Eles descreveram a representação linear de sistemas não lineares com
-dinâmica local (o que inclui ACs) por meio do produto semi tensorial de
-matrizes. A representação linear de tais sistemas é essencialmente uma expansão de
-espaço, e qualquer sistema lógico multi agente com $n$ agentes e $m$ estados
-pode ser traduzido em um sistema linear de dimensão $m^n$ construindo uma
-bijeção adequada. Especificamente, o produto semi tensorial desenvolvido
-por \citeonline{cheng2007} fornece uma ferramenta para a construção de
-tal bijeção \citecustom{wang2011}.
-
-Ao final, os autores definem e provam os seguintes teoremas
-\citecustom{wang2011}:
-
-\begin{enumerate}
-\item Para um sistema linear, todo estado possível do sistema será
-atingível a partir de qualquer estado inicial se e somente se os autovalores
-da matriz $L_{m^n \times m^n}$ do sistema são
-$e^{\frac{2k\pi i}{m^n}},k=0,1,\ldots,m^n-1$, onde $i$ é o número
-imaginário tal que $i^2=-1$.
-
-\item Se $e^{\frac{2k\pi i}{r}},k=0,1,\ldots,r-1$ são autovalores de $L$,
-então o sistema terá um ciclo de período $r$. Adicionalmente,
-o número de séries $\left\{e^{\frac{2k\pi i}{r}}\right\}^{r-1}_{k=0}$
-é o número de ciclos de comprimento $r$.
-
-\item O conjunto limite do sistema representado por $L$ consiste de somente um
-ponto fixo se e somente se os autovalores da matriz $L$
-tem um elemento igual a $1$ e todos os outros iguais a $0$.
-\end{enumerate}
+ACs, a qual é baseada na própria evolução do AC.
 
 Neste capítulo, é proposta uma nova abordagem para o problema, por meio da
 análise das matrizes de adjacência correspondentes aos grafos de processo
