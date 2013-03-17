@@ -1000,7 +1000,15 @@ aparecer nas configurações de $\Omega^{(1)}$. Por exemplo, não existe um
 caminho em $g$ que pode incluir a sequência $111$, e assim nenhuma
 configuração em $\Omega^{(1)}$ pode conter blocos de células $111$.
 
-\begin{figure}[htp]
+O grafo $g$ da Figura \ref{fig:A1} pode ser considerado como um grafo
+de transição de estados para um AC o qual gera a linguagem
+formal $\Omega^{(1)}$. Cada nó de $g$ corresponde a um estado do
+AF, e cada arco a uma transição no AF, ou
+equivalentemente a uma regra  de produção na gramática representada pelo
+AF. O conjunto $\Omega^{(1)}$ assim forma uma linguagem
+regular.
+
+\begin{figure}[H]
 \begin{center}
 \begin{VCPicture}{(0,-2)(12,8)}
 \vState[00]{(0,3)}{A} \vState[01]{(6,6)}{B}
@@ -1024,14 +1032,6 @@ de um passo de tempo \citecustom{wolfram1984}.}
 \end{center}
 \end{figure}
 
-O grafo $g$ da Figura \ref{fig:A1} pode ser considerado como um grafo
-de transição de estados para um AC o qual gera a linguagem
-formal $\Omega^{(1)}$. Cada nó de $g$ corresponde a um estado do
-AF, e cada arco a uma transição no AF, ou
-equivalentemente a uma regra  de produção na gramática representada pelo
-AF. O conjunto $\Omega^{(1)}$ assim forma uma linguagem
-regular.
-
 \subsection{Configuração inicial de um autômato celular}\label{sec:initcfg}
 
 O espaço de configurações iniciais $\Omega^{(0)}$ de um AC
@@ -1041,7 +1041,7 @@ que representa tal sequência pode ser visualizado na Figura
 \ref{fig:initconfigautomaton}, e sua representação em formato de
 grafo de processo na Figura \ref{fig:initconfigmathematica}.
 
-\begin{figure}[htp]
+\begin{figure}[H]
 \begin{center}
 \begin{VCPicture}{(0,-2)(3,2)}
 \FinalState[A]{(0,0)}{A}
@@ -1055,7 +1055,7 @@ determinístico. É fácil perceber que o autômato aceita qualquer sequência d
 \end{center}
 \end{figure}
 
-\begin{figure}[htp]
+\begin{figure}[H]
 \begin{center}
 \includegraphics[scale=0.3]{img/InitialConfig.eps}
 \caption{Grafo de processo representando as possíveis configurações
@@ -1077,7 +1077,8 @@ que representam a evolução para um passo de tempo de um AC
 unidimensional.
 
 Dado um grafo de processo relacionado à configuração do AC para
-um instante de tempo $t$, a função \emph{NetCAStep} \citecustom{wolfram2002}
+um instante de tempo $t$ e sua respectiva regra de transição,
+a função \emph{NetCAStep} \citecustom{wolfram2002}
 retorna um AF não determinístico onde todos os estados são inicais e
 finais (grafo de processo) relacionado ao instante de tempo $t+1$
 \citecustom{miki2006}. O grafo de processo de saída para $\Omega^{(1)}$
@@ -1095,6 +1096,23 @@ estados são finais.
 
 A função \emph{TrimNet} faz a transformação do AF de saída da \emph{MinNet}
 em um grafo de processo mínimo.
+
+A Figura \ref{fig:wfexample} mostra um exemplo de grafos de saída
+das três funções.
+
+\begin{figure}[htp]
+\begin{tabular}{c c c}
+\includegraphics[scale=0.5]{img/NetCAStep.eps} &
+\includegraphics[scale=0.5]{img/MinNet.eps} &
+\includegraphics[scale=0.5]{img/TrimNet.eps} \\
+\emph{NetCAStep} & \emph{MinNet} & \emph{TrimNet} \\
+\end{tabular}
+\caption{Exemplo de saída das funções \emph{NetCAStep}, \emph{MinNet} e
+\emph{TrimNet} para um passo de tempo da regra elementar 172. No caso
+houve uma transformação na saída da função MinNet na sua representação
+gráfica para que o primeiro estado seja o estado inicial do grafo.}
+\label{fig:wfexample}
+\end{figure}
 
 \newpage
 
