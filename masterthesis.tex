@@ -898,16 +898,18 @@ se ela é:
 
 \begin{enumerate}
 \item $a$ para algum $a \in \Sigma$
-\item $\varepsilon$
-\item $\varepsilon$, $1^*\varepsilon=\varepsilon$, $\varepsilon^*=\{\varepsilon\}$, $R\varepsilon=R$
+\item $\emptyset$
+\item $\varepsilon$, $1^*\varepsilon=1^*$, $\varepsilon^*=\{\varepsilon\}$, $R\varepsilon=R$
 \item $R_1+R_2$, onde $R_1$ e $R_2$ são expressões regulares e
-o $+$ representa a união das duas expressões
-\item $R_1R_2$, onde $R_1$ e $R_2$ são expressões regulares
-\item ${R_1}^*$, onde $R_1$ é uma expressão regular
+o $+$ representa a união de duas linguagens representadas pelas expressões
+\item $R_1R_2$, onde $R_1$ e $R_2$ são expressões regulares e $R_1R_2$ representa
+a concatenação das duas linguagens expostas
+\item ${R_1}^*$, onde $R_1$ é uma expressão regular e ${R_1}^*$ denota o fechamento
+de Kleene aplicado sobre $R_1$
 \end{enumerate}
 
 Por exemplo, a expressão regular do autômato da Figura \ref{fig:automata}
-é $(0+1)^*1^+$.
+é $(0+1)^*11^*$.
 
 \subsection{Grafos de processo}
 
