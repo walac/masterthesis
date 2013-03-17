@@ -1540,7 +1540,7 @@ da configuração limite da regra 184 em CCP, pois é simplesmente a
 cadeia 0011 deslocada, mas é válida em CCNP sobre um fundo de 0s, pois
 representa 1s separados por blocos de 0s.
 
-Com base na descrição do comportamento limite da regra 184,
+Com base na descrição do comportamento limite da regra 184 acima,
 \citeonline{miki2006} construiu um AF que seria
 o AF limite da regra 184 (Figura \ref{fig:limit184}). Mas este AF não
 aceita, por exemplo, a cadeia 011, que faz parte da linguagem limite e,
@@ -1557,7 +1557,8 @@ O bloco de 1s é deslocado à esquerda a cada aplicação da regra.}
 \end{figure}
 
 A Figura \ref{fig:limit184w} mostra o que acredita-se ser o grafo de processo
-que representa o comportamento limite da regra 184.
+que representa o comportamento limite da regra 184, gerado manualmente
+a partir da descrição de seu comportamento limite dada anteriormente.
 Importante observar que este grafo de processo somente descreve o comportamento
 limite da regra 184 em CCNP, pois é impossível representar o comportamento limite
 da regra em CCP por meio de um grafo de processo, conforme demonstrado a seguir.
