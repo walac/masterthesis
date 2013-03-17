@@ -1119,17 +1119,18 @@ gráfica para que o primeiro estado seja o estado inicial do grafo.}
 \section{Complexidade de linguagens regulares de autômatos
 finitos elementares}\label{sec:complexity}
 
-O conjunto de possíveis configurações globais de um AC elementar pode ser
-representado por um AF para um passo de tempo finito. Para
-o caso $t \rightarrow \infty$, o conjunto de configurações globais pode ou
-não ser representado por um AF. Diversos trabalhos trataram de estudar e
-caracterizar o comportamento limite de ACs.
+O conjunto de possíveis configurações globais de um AC elementar sempre
+pode ser representado por um AF para um passo de tempo finito. Para
+o caso $t \rightarrow \infty$, o conjunto de configurações globais nem
+sempre pode ser representado por um AF, pois a configuração limite de
+uma regra não necessariamente é regular. Diversos trabalhos trataram
+de estudar e caracterizar o comportamento limite de ACs.
 
 O comportamento limite de um AC pode ser definido por uma linguagem
 formal dentro da hierarquia de Chomsky. \citeonline{hurd1987} apresentou
 exemplos de ACs para os quais o conjunto limite eram linguagens não
 regulares. Exemplos adicionais foram apresentados em \citecustom{hurd19902}.
-\citeonline{hurd1987}também provou que o problema de determinar se uma
+\citeonline{hurd1987} também provou que o problema de determinar se uma
 dada cadeia aparece no conjunto limite de um AC é indecidível.
 Uma prova alternativa utilizando uma abordagem topológica foi demonstrada
 por \citecustom{culik1989}.  \citeonline{hurd1990} provou que é possível
@@ -1197,11 +1198,13 @@ expressão de crescimento dos nós e arestas para $t > 5$.
 \end{figure}
 
 Conforme já mencionado, o conjunto de configurações globais de uma regra
-unidimensional para $t < \infty$ de um AC pode representada por um grafo de
-processo. É importante ressaltar que esta abordagem limita-se à condição
+unidimensional para $t < \infty$ de um AC sempre pode ser representada por um
+grafo de processo. É importante ressaltar que esta abordagem limita-se à condição
 de contorno não periódica. Para condição de contorno periódica, este grafo
 pode não existir para uma determinada regra, mesmo existindo na condição de
-contorno não periódica.
+contorno não periódica. A Seção \ref{sec:limit184} apresenta uma prova de que em
+condição de contorno periódica, o comportamento limite da regra 184 não
+pode ser representado por um grafo de processo.
 
 Pode-se imaginar que, para os casos em que a configuração limite de um AC
 possa ser representada por um grafo de processo, a execução do encadeamento
