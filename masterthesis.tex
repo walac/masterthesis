@@ -21,6 +21,7 @@
 \usepackage{algcompatible}
 \let\vState=\origState
 \usepackage{rotating}
+\usepackage{notoccite}
 
 \hyphenation{NetCAStep}
 \hyphenation{MinNet}
@@ -173,6 +174,14 @@ linguagem regular, matriz de adjacência, complexidade, autômato finito.}
 \newpage
 \thispagestyle{empty}
 \tableofcontents
+
+\newpage
+\thispagestyle{empty}
+\listoffigures
+
+\newpage
+\thispagestyle{empty}
+\listoftables
 
 % DESENVOLVIMENTO
 \newpage
@@ -391,8 +400,9 @@ da direita da última célula é a primeira célula, e vice-versa, conforme ilus
 \begin{figure}[htp]
 \begin{center}
 \includegraphics[scale=0.3]{img/ring.eps}
-\caption{Condição de contorno periódica: a última célula é ligada à primeira,
-formando um anel \citecustom{chua2002a}.}
+\caption[Condição de contorno periódica]{Condição de contorno periódica:
+a última célula é ligada à primeira, formando um anel
+\citecustom{chua2002a}.}
 \label{fig:ring}
 \end{center}
 \end{figure}
@@ -459,7 +469,8 @@ $\frac{0 1 1}{1}$ & $\frac{0 1 0}{0}$ & $\frac{0 0 1}{1}$ & $\frac{0 0 0}{0}$ &
 \end{tabular}
 }
 } \]
-\caption{Exemplo de esquema de numeração de Wolfram para ACs unidimensionais
+\caption[Exemplo de esquema de numeração de Wolfram para ACs unidimensionais]
+{Exemplo de esquema de numeração de Wolfram para ACs unidimensionais
 \citecustom{wolfram1983}.}
 \label{fig:celnumbering}
 \end{center}
@@ -655,7 +666,8 @@ de regra é escolhida como representante de classe.
 \end{tabular}
 }
 \end{minipage}
-\caption{Autômatos celulares elementares dinamicamente equivalentes
+\caption[Autômatos celulares elementares dinamicamente equivalentes]
+{Autômatos celulares elementares dinamicamente equivalentes
 \citecustom{wolfram1994}.}
 \label{tab:equiv}
 \end{table}
@@ -705,7 +717,7 @@ das quatro classes de complexidade.
 \begin{figure}[htp]
 \begin{center}
 \includegraphics[scale=0.5]{img/classes.eps}
-\caption{Classes dinâmicas dos ACs \citecustom{wolfram1984}.
+\caption[Classes dinâmicas dos ACs]{Classes dinâmicas dos ACs \citecustom{wolfram1984}.
 (a) classe 2, (b) classe 1, (c) classe 3 e (d) classe 4.}
 \label{fig:classes}
 \end{center}
@@ -1022,7 +1034,8 @@ regular.
 \ArcL{C}{B}{101 \mapsto 0} \ArcL{C}{A}{100 \mapsto 0}
 \ArcL{D}{C}{110 \mapsto 1} \LoopE{D}{111 \mapsto 0}
 \end{VCPicture}
-\caption{O grafo de transição de estados $g$ para um AF
+\caption[Grafo de transição de estados]
+{O grafo de transição de estados $g$ para um AF
 não determinístico que gera as configurações obtidas depois de um passo
 de tempo na evolução do AC com a regra número 76.
 Possíveis sequências de valores de células são representadas por
@@ -1052,7 +1065,8 @@ grafo de processo na Figura \ref{fig:initconfigmathematica}.
 \Initial{A}
 \LoopN{A}{0,1}
 \end{VCPicture}
-\caption{Possíveis configurações iniciais representadas por um AF
+\caption[Configurações iniciais do AF]
+{Possíveis configurações iniciais representadas por um AF
 determinístico. É fácil perceber que o autômato aceita qualquer sequência de
 0s e 1s.}
 \label{fig:initconfigautomaton}
@@ -1062,7 +1076,8 @@ determinístico. É fácil perceber que o autômato aceita qualquer sequência d
 \begin{figure}[H]
 \begin{center}
 \includegraphics[scale=0.3]{img/InitialConfig.eps}
-\caption{Grafo de processo representando as possíveis configurações
+\caption[Grafo de processo representando configurações iniciais]
+{Grafo de processo representando as possíveis configurações
 iniciais. Arcos vermelhos representam transições em 0 e arcos
 pretos representam transições em 1.}
 \label{fig:initconfigmathematica}
@@ -1111,7 +1126,9 @@ das três funções.
 \includegraphics[scale=0.5]{img/TrimNet.eps} \\
 \emph{NetCAStep} & \emph{MinNet} & \emph{TrimNet} \\
 \end{tabular}
-\caption{Exemplo de saída das funções \emph{NetCAStep}, \emph{MinNet} e
+\caption[Exemplo de saída das funções \emph{NetCAStep}, \emph{MinNet} e
+\emph{TrimNet}]
+{Exemplo de saída das funções \emph{NetCAStep}, \emph{MinNet} e
 \emph{TrimNet} para um passo de tempo da regra elementar 172. No caso
 houve uma transformação na saída da função MinNet na sua representação
 gráfica para que o primeiro estado seja o estado inicial do grafo.}
@@ -1263,7 +1280,8 @@ passos de tempo.
 \begin{figure}[H]
 \begin{center}
 \includegraphics[scale=0.5]{img/rulesel.eps}
-\caption{Algoritmo de seleção de regras \citecustom{trafaniuc2004}.}
+\caption[Algoritmo de seleção de regras]
+{Algoritmo de seleção de regras \citecustom{trafaniuc2004}.}
 \label{fig:rulesel}
 \end{center}
 \end{figure}
@@ -1374,7 +1392,8 @@ foi construído manualmente como referência, conforme mostrado na Figura
 \begin{figure}[htp]
 \begin{center}
 \includegraphics[scale=0.8]{img/limit184.eps}
-\caption{Grafo limite da regra 184 segundo \citecustom{miki2006}.}
+\caption[Grafo limite da regra 184]
+{Grafo limite da regra 184 segundo \citecustom{miki2006}.}
 \label{fig:limit184}
 \end{center}
 \end{figure}
@@ -1414,7 +1433,8 @@ chamadas das funções \emph{NetCAStep}, \emph{MinNet} e \emph{TrimNet} de acord
 \begin{minipage}[b]{0.47\linewidth}
 \includegraphics[scale=0.26]{img/net.eps}
 \end{minipage}
-\caption{Comparação de como as funções \emph{NetCAStep}, \emph{MinNet} e \emph{TrimNet} são
+\caption[Comparação de encadeamento das funções \emph{NetCAStep}, \emph{MinNet} e \emph{TrimNet}]
+{Comparação de como as funções \emph{NetCAStep}, \emph{MinNet} e \emph{TrimNet} são
 chamadas em \citecustom{trafaniuc2004} (à esquerda) e como é a forma correta de
 executá-las (à direita).}
 \label{fig:net-miki}
@@ -2066,14 +2086,14 @@ grafos de processo da regra 184.
 \begin{minipage}[b]{0.5\linewidth}
 \centering
 \includegraphics[scale=1]{img/addStruct.eps}
-\caption{Estrutura adicionada \citecustom{miki2006}.}
+\caption[Estrutura adicionada]{Estrutura adicionada \citecustom{miki2006}.}
 \label{fig:addstruct}
 \end{minipage}
 \hspace{0.5cm}
 \begin{minipage}[b]{0.5\linewidth}
 \centering
 \includegraphics[scale=1]{img/excStruct.eps}
-\caption{Estrutura excluída \citecustom{miki2006}.}
+\caption[Estrutura excluída]{Estrutura excluída \citecustom{miki2006}.}
 \label{fig:excstruct}
 \end{minipage}
 \end{figure}
