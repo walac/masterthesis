@@ -417,7 +417,7 @@ x^{t+1}_i = \phi(x^t_{i-1}, x^t_i, x^t_{i+1})
 \hspace{1 mm} onde $x^t_i$ é o estado da célula $i$ no instante $t$ em que a
 regra local atua, e $\phi$ é a função que executa a regra local.  A Tabela
 \ref{tab:localrule} mostra como é aplicada a regra local.  As regras locais
-para ACs podem ser descritas por um número número binário de oito dígitos,
+para ACs podem ser descritas por um número binário de oito bits,
 codificado pelo resultado das oito combinações de vizinhança da regra local
 $\{x_{i-1},x_i,x_{i+1}\}$ \citecustom{wolfram1983}. No caso da Figura
 \ref{fig:celnumbering}, este número é o número $90_{10}$, e este autômato
@@ -472,7 +472,10 @@ podem ser de três tipos:
 
 \item[Transformação de complemento (ou conjugação)] nesta transformação
 todos os estados são complementados, ou seja, troca-se 0 por 1 e vice-versa,
-conforme exemplificado na Figura \ref{fig:complement}.
+tanto nas vizinhanças quanto nos bits de saída,
+conforme exemplificado na Figura \ref{fig:complement}, onde é mostrada
+a vizinhança original, depois a operação de complemento e, após,
+o resultado depois das vizinhanças serem reordenadas.
 
 \begin{figure}[htp]
 \begin{center}
@@ -493,7 +496,9 @@ conforme exemplificado na Figura \ref{fig:complement}.
 \end{figure}
 
 \item[Transformação por reflexão] nesta transformação o estado do vizinho da direita é
-trocado com o estado do vizinho da esquerda. A Figura \ref{fig:reflex} ilustra o processo.
+trocado com o estado do vizinho da esquerda, ou seja, o valor do estado do vizinho
+da esquerda passa a ser o valor do vizinho da direita e vice-versa.
+A Figura \ref{fig:reflex} ilustra o processo.
 
 \begin{figure}[htp]
 \begin{center}
