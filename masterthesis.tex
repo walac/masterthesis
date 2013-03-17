@@ -1482,7 +1482,7 @@ adjacentes da regra 32.}
 \end{center}
 \end{figure}
 
-Agora, a Figura \ref{fig:gd2} mostra o que ocorre quando se muda a numeração
+A Figura \ref{fig:gd2} mostra o que ocorre quando se muda a numeração
 dos vértices do primeiro grafo.
 
 \begin{figure}[htp]
@@ -1498,7 +1498,9 @@ Repara-se que, apesar de os vértices terem sido renomeados, trata-se ainda do
 mesmo grafo, mas a operação resulta em uma diferença
 menor entre os grafos de referência para o segundo caso. É exatamente essa
 dependência da nomeação de vértices que faz com que a implementação do
-algoritmo de seleção de regras (Seção \ref{sec:mikialgo}) gere falsos negativos.
+algoritmo de seleção de regras (Seção \ref{sec:mikialgo}) gere falsos negativos,
+uma vez que o algoritmo acaba selecionando o subgrafo errado como o menor
+subgrafo entre dois grafos de passos adjacentes.
 
 Para contornar este problema, seria necessário um algoritmo que, dado
 um grafo $G$, reordernasse seus vértices de tal forma a gerar a menor
