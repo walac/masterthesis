@@ -211,13 +211,62 @@ possui memória restrita. As linguagens regulares são o tipo mais simples
 de linguagem na hierarquia de Chomsky.
 
 O conjunto de todas as configurações globais de um AC
-elementar em um dado momento no tempo discreto pode ser descrito por
+unidimensional em um dado momento no tempo discreto sempre pode ser descrito por
 uma linguagem regular e, consequentemente, um AF
-\citecustom{wolfram1984}. \citeonline{trafaniuc2004} e \citeonline{miki2006}
+\citecustom{wolfram1984}. Uma subclasse de AFs importante para este
+trabalho são os chamados \emph{grafos de processos}, que são AFs em que
+todos os estados são iniciais e finais. O conjunto de todas as configurações globais
+de um AC unidimensional sempre pode ser representado por um grafo de processo
+para $t < \infty$. \citeonline{wolfram1984} propôs utilizar
+o crescimento destes grafos de processo como medida de complexidade da própria regra
+de um AC e \citeonline{wolfram2002} construiu três funções que, juntas, geram o
+grafo de processo mínimo de uma regra unidimensional para um passo de tempo finito a partir
+do grafo de processo do passo anterior e da função de transição da regra. Estas funções
+estão descritas na Seção \ref{sec:wolframfunctions}.
+
+\citeonline{trafaniuc2004} e \citeonline{miki2006}
 estudaram, em seus respectivos trabalhos, a complexidade de ACs
 elementares por meio da análise da evolução dos sucessivos
-AFs para diferentes instantes de tempo. Este trabalho
-tem o objetivo de dar prosseguimento àqueles estudos, criticando os
+grafos de processo para diferentes instantes de tempo. Uma questão que ficou aberta
+nestes trabalhos foi a eventual convergência dos grafos de processo para o comportamento
+limite da regra quando $t \mapsto \infty$. Por exemplo, na Figura \ref{fig:gp8} são
+mostrados os sucessivos grafos de processo da evolução temporal da regra elementar 8,
+onde após dois passos de tempo o seu grafo limite é atingido (a descrição da notação
+de grafos de processo utilizada neste trabalho é apresentada na Seção \ref{sec:initcfg}).
+Na Figura \ref{fig:gp184} são apresentados os grafos de processo da regra elementar 184,
+a qual não converge para a configuração limite.
+\begin{figure}[htp]
+\begin{tabular}{c c c}
+\includegraphics[scale=0.5]{img/8/1.eps} &
+\includegraphics[scale=0.5]{img/8/limit.eps} &
+\includegraphics[scale=0.5]{img/8/limit.eps}  \\
+$t = 1$ & $t = 2$ & $t = 3$ \\
+\end{tabular}
+\caption{Convergência da regra 8 para configuração limite.}
+\label{fig:gp8}
+\end{figure}
+
+\begin{figure}[htp]
+\begin{tabular}{c c c}
+\includegraphics[scale=0.5]{img/184/1.eps} &
+\includegraphics[scale=0.5]{img/184/2.eps} &
+\includegraphics[scale=0.5]{img/184/3.eps}  \\
+$t = 1$ & $t = 2$ & $t = 3$ \\
+\includegraphics[scale=0.5]{img/184/4.eps} &
+\includegraphics[scale=0.5]{img/184/5.eps} &
+\includegraphics[scale=0.5]{img/184/50.eps}  \\
+$t = 4$ & $t = 5$ & $t = 50$ \\
+& \includegraphics[scale=0.5]{img/184/100.eps} & \\
+& $t = 100$ & \\
+\end{tabular}
+\caption{Evolução da regra 184.}
+\label{fig:gp184}
+\end{figure}
+
+A motivação deste trabalho é entender o porque de regras com comportamento
+limite regular como a regra 184 não convergerirem. Este trabalho
+tem o objetivo de dar prosseguimento aos estudos de
+\citecustom{trafaniuc2004} e \citecustom{miki2006}, criticando os
 experimentos anteriormente realizados e introduzindo a abordagem
 de representação dos AFs por meio de matrizes de adjacência.
 Sobretudo, este trabalho visa estender os resultados até então obtidos
@@ -974,7 +1023,7 @@ equivalentemente a uma regra  de produção na gramática representada pelo
 AF. O conjunto $\Omega^{(1)}$ assim forma uma linguagem
 regular.
 
-\subsection{Configuração inicial de um autômato celular}
+\subsection{Configuração inicial de um autômato celular}\label{sec:initcfg}
 
 O espaço de configurações iniciais $\Omega^{(0)}$ de um AC
 elementar pode ser qualquer combinação de sequências de 0s e 1s
@@ -1011,7 +1060,7 @@ Neste trabalho, o estado inicial dos AFs determinísticos apresentados
 é o primeiro estado, também destacado por um círculo preenchido, enquanto
 os demais estados possuem um círculo vazio.
 
-\subsection{Funções \emph{NetCAStep}, \emph{TrimNet} e \emph{MinNet}}
+\subsection{Funções \emph{NetCAStep}, \emph{TrimNet} e \emph{MinNet}}\label{sec:wolframfunctions}
 
 \emph{NetCAStep}, \emph{TrimNet} e \emph{MinNet} \citecustom{wolfram2002} são
 funções desenvolvidas no \textit{Mathematica} para gerar AFs
