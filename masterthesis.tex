@@ -781,19 +781,19 @@ com saída por Mealy e Moore e a introdução de AFs não
 determinísticos por Rabin e Scott \citecustom{rozenberg1997}.
 
 O elemento básico de uma linguagem é o alfabeto, um conjunto finito de símbolos
-utilizados para formar as palavras pertencentes à linguagem. Por exemplo, o
-alfabeto $\Sigma = \{0,1\}$ contém os símbolos $0$ e $1$, e todas as palavras
+utilizados para formar as cadeias pertencentes à linguagem. Por exemplo, o
+alfabeto $\Sigma = \{0,1\}$ contém os símbolos $0$ e $1$, e todas as cadeias
 formadas a partir deste alfabeto só poderão conter estes símbolos.
 
 Uma palavra ou cadeia sobre um alfabeto é uma sequência finita de símbolos
-pertencentes a este alfabeto. Assim, $011101$ é uma palavra sobre o alfabeto
-$\Sigma = \{0, 1\}$. Uma palavra pode não conter símbolo algum. Neste caso,
+pertencentes a este alfabeto. Assim, $011101$ é uma cadeia sobre o alfabeto
+$\Sigma = \{0, 1\}$. Uma cadeia pode não conter símbolo algum. Neste caso,
 ela recebe o nome de cadeia \textit{vazia}, e é denotada por $\varepsilon$.
-O conjunto de todas as palavras não vazias sobre um alfabeto $\Sigma$ é
-denotado por $\Sigma^+$, e o conjunto de todas as palavras, incluindo
+O conjunto de todas as cadeias não vazias sobre um alfabeto $\Sigma$ é
+denotado por $\Sigma^+$, e o conjunto de todas as cadeias, incluindo
 a cadeia vazia, sobre um alfabeto $\Sigma$ é denotado por
-${\Sigma}^+ \bigcup \varepsilon = \Sigma^*$. O comprimento de uma palavra
-é o número de símbolos que a forma. Logo, o comprimento da palavra
+${\Sigma}^+ \bigcup \varepsilon = \Sigma^*$. O comprimento de uma cadeia
+é o número de símbolos que a forma. Logo, o comprimento da cadeia
 \emph{abcd} é 4. Denota-se o comprimento de uma cadeia $w$ por
 $|w|$; portanto, $|101| = 3$ e $|\varepsilon| = 0$. Alternativamente,
 por meio de um isomorfismo natural, uma cadeia $w \in \Sigma^*$ pode ser
@@ -801,13 +801,13 @@ considerada uma função $w: \{1,\ldots,|w|\} \mapsto \Sigma$; o
 valor de $w(j)$, onde $1 \le j \le |w|$, é o símbolo que ocupa a j-ésima
 posição em $w$ \citecustom{lewis2008}.
 
-Dá-se o nome de \textbf{linguagem} a qualquer conjunto de palavras sobre um
+Dá-se o nome de \textbf{linguagem} a qualquer conjunto de cadeias sobre um
 alfabeto $\Sigma$, ou seja, a qualquer subconjunto de $\Sigma^*$. Portanto,
 $\Sigma^*$, $\varepsilon$ e $\Sigma$ são linguagens. Sendo uma linguagem
 simplesmente um tipo particular de conjunto, pode-se especificar linguagens
-finitas enumerando-se todas as suas palavras. Por exemplo, $\{aba, czr, d, f\}$
+finitas enumerando-se todas as suas cadeias. Por exemplo, $\{aba, czr, d, f\}$
 é uma linguagem sobre $\{a, b, \ldots, z\}$. Entretanto, quando as
-linguagens são infinitas, não é possível listar todas as palavras
+linguagens são infinitas, não é possível listar todas as cadeias
 \citecustom{lewis2008}. Assim, especifica-se linguagens infinitas da seguinte forma:
 
 \begin{center}
@@ -847,7 +847,7 @@ q_0 = A, \break \mathbb{F} = \{B\} \}$
 
 Neste caso, o estado inicial é o estado $A$, e o conjunto de estados finais
 é formado pelo estado único $B$. É fácil verificar que este autômato aceita
-qualquer palavra sobre o alfabeto $\{0,1\}$ que termine com o símbolo $1$.
+qualquer cadeia sobre o alfabeto $\{0,1\}$ que termine com o símbolo $1$.
 Considere a cadeia $00101$. O autômato começa no estado $A$ e lê o primeiro
 símbolo $0$, a função $\delta$ possui uma entrada $A \times 0 \mapsto A$,
 então o autômato consome o símbolo $0$, avança a fita de entrada e permanece
@@ -897,7 +897,7 @@ o caminho dos $n$ estados objetivos. A entrada é considerada aceita se, ao
 final do processamento, pelo menos uma instância do autômato está em um
 estado final.
 
-O conjunto de palavras reconhecidas por um autômato forma a linguagem do
+O conjunto de cadeias reconhecidas por um autômato forma a linguagem do
 autômato. Seja $M$ um autômato, $L(M)$ constitui sua linguagem. A classe
 de linguagens reconhecidas por AFs são as linguagens regulares.
 Linguagens regulares podem também ser representadas por meio das chamadas
@@ -964,10 +964,10 @@ de um reticulado do AC em um dado passo em sua evolução temporal é chamado de
 \textit{configuração global}, e um subconjunto dos estados destas
 células define uma \textit{configuração local}.
 
-Linguagens formais consistem do conjunto de palavras formadas a partir de
+Linguagens formais consistem do conjunto de cadeias formadas a partir de
 cadeias de símbolos em um alfabeto finito $\Sigma$ de acordo com regras
 gramaticais definidas. Conjuntos de configurações de ACs
-podem assim ser considerados como linguagens formais, com cada palavra na
+podem assim ser considerados como linguagens formais, com cada cadeia na
 linguagem representando uma configuração do AC. Tais conjuntos
 infinitos de configurações são então completamente especificados por
 conjuntos finitos de regras gramaticais \citecustom{wolfram1984}.
@@ -1153,8 +1153,8 @@ de estudar e caracterizar o comportamento limite de ACs.
 
 O comportamento limite de um AC pode ser definido por uma linguagem
 formal dentro da hierarquia de Chomsky. \citeonline{hurd1987} apresentou
-exemplos de ACs para os quais o conjunto limite eram linguagens não
-regulares. Exemplos adicionais foram apresentados em \citecustom{hurd19902}.
+exemplos de ACs para os quais o conjunto limite era uma linguagem não
+regular. Exemplos adicionais foram apresentados em \citecustom{hurd19902}.
 \citeonline{hurd1987} também provou que o problema de determinar se uma
 dada cadeia aparece no conjunto limite de um AC é indecidível.
 Uma prova alternativa utilizando uma abordagem topológica foi demonstrada
@@ -1211,7 +1211,7 @@ de estados e transições dos grafos dos sucessivos passos de tempo.
 \citeonline{wolfram1994} construiu uma tabela contendo a relação
 do número de estados e arestas das regras do espaço elementar
 (agrupadas pelas classes de equivalência) para os cinco primeiros
-passos de tempo, e, quando possível, para o grafo limite, além da
+passos de tempo e, quando possível, para o grafo limite, além da
 expressão de crescimento dos nós e arestas para $t > 5$.
 
 \begin{figure}[htp]
@@ -1256,7 +1256,7 @@ sendo conhecido (Figura \ref{fig:limit128}) \citecustom{wolfram1984}.
 \end{figure}
 
 A explicação do porque regras como a 128 não convergirem e a busca por um
-método algorítmico que gerasse o comportamento limite de tais regras foi
+método algorítmico capaz de gerar o comportamento limite de tais regras foi
 a motivação do trabalho de \citecustom{trafaniuc2004} e, posteriormente,
 \citecustom{miki2006}.
 
@@ -1481,7 +1481,7 @@ enquanto a regra 32 é descartada.
 \end{figure}
 
 Nota-se que ambas as regras possuem grafos de processo com a mesma estrutura geral:
-uma pequena estrutura imutável é formada, e existe
+uma pequena estrutura imutável é formada e existe
 uma sequência de transições que parte desta estrutura e retorna à mesma, com
 a distância deste caminho aumentando a cada passo de tempo.
 
@@ -1601,7 +1601,7 @@ a $w$ com um deslocamento à direita; logo $v$ também é reconhecida por $G$.
 Dado $v' = 10001$, uma sub-cadeia de $v$, da definição de
 linguagens regulares de processo e grafos de processo, $v'$ também é
 reconhecida por $G$, mas não pode pertencer a $L$, porque $v'$ é
-a cadeia $11000$ deslocada, e sabe-se que essa string não
+a cadeia $11000$ deslocada, e sabe-se que essa cadeia não
 faz parte do conjunto limite da regra 184.
 \end{proof}
 
@@ -1631,8 +1631,8 @@ levam a tal conclusão.
 Conforme já relatado na Seção \ref{sec:problem}, o encadeamento das
 funções \emph{NetCAStep}, \emph{MinNet} e \emph{TrimNet} nos trabalhos anteriores estava
 equivocado. Como consequência, a construção da tabela de complexidade
-de Wolfram foi refeita, aplicando as funções \emph{NetCAStep} e
-\emph{MinNet} conforme ilustrado na Figura \ref{fig:net}. Observar que esta
+de Wolfram foi refeita aplicando as funções \emph{NetCAStep} e
+\emph{MinNet}, conforme ilustrado na Figura \ref{fig:net}. Observar que esta
 tabela está construída com base nas saídas da função \emph{MinNet}, então
 tratam-se de AFs determinísticos e não grafos de processo.
 As Tabelas \ref{tbl:Table1}, \ref{tbl:Table2} e \ref{tbl:Table3}
