@@ -356,8 +356,8 @@ mais simples de ACs capazes de auto replicação e computação
 universal. No início da década de 60 foram notadas algumas características gerais
 incrivelmente simples de ACs que acreditava-se serem relevantes para
 auto replicação - e foram estudadas com um formalismo técnico mais elaborado. Existiram
-também várias construções de ACs cujo comportamento mostraram
-características particularmente simples talvez relevantes para a auto
+também várias construções de ACs cujo comportamento mostrou
+características particularmente simples, talvez relevantes, para a auto
 replicação \citecustom{wolfram2002}.
 
 A década de 80 é um período importante na história dos ACs,
@@ -366,7 +366,7 @@ representa uma mudança de paradigma na pesquisa com ACs. Wolfram conduziu
 uma análise experimental dos padrões de crescimento de ACs
 \citecustom{sarkar2000}. Seus primeiros experimentos mais importantes em ACs
 datam do final de 1981. Duas características inicialmente chamaram sua atenção.
-Primeiro, que iniciando de condições iniciais aleatórias, os ACs
+Primeiro, que partindo de condições iniciais aleatórias, os ACs
 podiam se auto organizar para produzir padrões complexos. E segundo, que em casos
 como acontece com o AC elementar número 90, simples condições iniciais levavam a
 padrões fractais auto similares.
@@ -787,7 +787,7 @@ formadas a partir deste alfabeto só poderão conter estes símbolos.
 
 Uma palavra ou cadeia sobre um alfabeto é uma sequência finita de símbolos
 pertencentes a este alfabeto. Assim, $011101$ é uma palavra sobre o alfabeto
-$\Sigma = \{0, 1\}$. Uma palavra pode não conter nenhum símbolo. Neste caso,
+$\Sigma = \{0, 1\}$. Uma palavra pode não conter símbolo algum. Neste caso,
 ela recebe o nome de cadeia \textit{vazia}, e é denotada por $\varepsilon$.
 O conjunto de todas as palavras não vazias sobre um alfabeto $\Sigma$ é
 denotado por $\Sigma^+$, e o conjunto de todas as palavras, incluindo
@@ -811,7 +811,7 @@ linguagens são infinitas, não é possível listar todas as palavras
 \citecustom{lewis2008}. Assim, especifica-se linguagens infinitas da seguinte forma:
 
 \begin{center}
-$L = \{w \in \Sigma^*: \mbox{ w possui a propriedade P}\}$
+$L = \{w \in \Sigma^*: \mbox{ } w \mbox{ possui a propriedade P}\}$
 \end{center}
 
 \subsection{Autômatos finitos e linguagens regulares}
@@ -933,13 +933,13 @@ Por exemplo, a expressão regular do autômato da Figura \ref{fig:automata}
 \subsection{Grafos de processo}
 
 Uma importante subclasse das linguagens regulares é a classe de linguagens
-de processo. Isto é, para todas as palavras $\omega \in L$, todas as
-sub-palavras
-$v \in \{s^i \ldots s^{i+j}:s^k=(\omega)_k,i+j\le |\omega|,i,j\ge 0\}$
-de $\omega$ estão em $L$. Forma-se o fechamento das sub-palavras sub($L$)
-de uma linguagem $L$ pela inclusão em sub($L$) de todas as sub-palavras
-de cada $\omega \in L$ \citecustom{hanson1992}, ou seja, para cada
-cadeia $w \in L$, todas as subcadeias de $w$ também pertencem a $L$.
+de processo. 
+
+\begin{definition}
+\textit{Linguagens regulares de processo} são um subconjunto das linguagens regulares
+em que dada uma cadeia $w \in L$, qualquer subcadeia de $w$ também
+está em $L$.
+\end{definition}
 
 \begin{definition}
 O \textbf{grafo de processo} de uma linguagem de processo $L$ é o grafo
@@ -952,7 +952,8 @@ aceitação.
 
 Claramente linguagens regulares de processo são um conjunto menor do que
 linguagens regulares. Por exemplo, a linguagem $L = \{0011\}$ só pode ser
-representada por uma linguagem regular.
+representada por uma linguagem regular, pois as subcadeias de $0011$ não
+fazem parte de $L$.
 
 \subsection{Evolução de um autômato celular}
 
