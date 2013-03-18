@@ -1906,7 +1906,7 @@ A resposta para esta questão está em criar um mapeamento dos valores
 possíveis de transições para o conjunto de números naturais
 $\mathbb{L} \mapsto \mathbb{N}$ e então codificar os valores das transições
 em um número binário. Cada bit do número binário corresponde a um valor de
-transição. Se o valor no $k$-ésimo bit for 1, significa que existe uma
+transição. Se o valor no $k$-ésimo bit for 1, existe uma
 transição (mapeada no conjunto dos naturais) de valor $k$ do estado de
 origem para o estado destino em questão. A operação $\eta$ de codificação dos
 arcos $\mathbb{L}$ em um número natural é o polinômio de base 2:
@@ -1920,11 +1920,11 @@ $j$. Nota-se que como $k \in \mathbb{N}$, então $\eta(\mathbb{L}_{ij}) \in \mat
 ou seja, $\eta(\mathbb{L}_{ij})$ está restrita ao domínio dos inteiros. Se
 $k \in \mathbb{Z}$ ($\mathbb{L}_{ij} \mapsto \mathbb{Z}$), então
 $\eta(\mathbb{L}_{ij}) \in \Re$, pois admitiria-se a possibilidade de expoentes negativos.
-Como computacionalmente é mais custoso trabalhar-se com números reais do que com inteiros,
+Como computacionalmente é mais custoso trabalhar com números reais do que com inteiros
 e não há benefício aparente em expandir $\eta$ para o domínio dos reais,
 já que $\mathbb{N}$ é contavelmente infinito \citecustom{lewis2008}, optou-se
-por restringir-se $\eta$ ao domínio dos números inteiros. Outra observação
-é a de que a base númerica não necessariamente deve ser base 2. Poderia-se trabalhar com outras
+por restringir $\eta$ ao domínio dos números inteiros. Outra observação
+é a de que a base numérica não necessariamente deve ser base 2, poderia-se trabalhar com outras
 bases. Todavia, a única implicação na mudança de base é a quantidade de dígitos
 necessária para representar um dado conjunto $2^{\mathbb{L}}$ de possíveis combinações de
 transições e, do ponto de vista de arquitetura computacional, a base 2 é a
@@ -1964,7 +1964,8 @@ mostra a matriz de adjacência de evolução temporal correspondente.
 \end{figure}
 
 A transformação de um grafo de processo em uma matriz de adjacência
-de evolução temporal é executada por meio do Algoritmo \ref{alg:stom}.
+de evolução temporal é executada por meio do Algoritmo \ref{alg:stom},
+onde $\psi(n) = \mbox{ matriz nula } n \times n$.
 
 \begin{algorithm}
 \caption{Algoritmo para gerar a matriz de adjacência de evolução temporal a partir
@@ -1981,9 +1982,8 @@ de um grafo de processo.}
 \end{algorithmic}
 \end{algorithm}
 
-Onde $\psi(n) = \mbox{ matriz nula } n \times n$.
 O algoritmo atua criando uma matriz $A_{n \times n}$, onde $n$ é o número
-de estados do grafo de processo, e atribuindo à posição $A_{ij}$ o valor
+de estados do grafo de processo e atribuindo à posição $A_{ij}$ o valor
 da função $\eta(\mathbb{L}_{ij}),\forall i,j$, onde $\mathbb{L}_{ij}$
 é o conjunto de transições de $i$ para $j$.
 
@@ -2024,7 +2024,7 @@ adjacência de evolução temporal.}
 
 O algoritmo executa em tempo $O(n^2)$ em relação à dimensão da matriz.
 De posse do Algoritmo \ref{alg:mtos}, é possível criar o algoritmo para gerar o
-autômato limite de uma regra apenas elaborando-se um outro algoritmo para gerar a
+autômato limite de uma regra apenas elaborando um outro algoritmo para gerar a
 matriz de adjacência de evolução temporal da regra. A próxima seção apresenta este
 algoritmo para a regra 184.
 
@@ -2252,8 +2252,8 @@ número de passos de evolução pode ser descrito por uma linguagem
 regular. Linguagens regulares são aquelas que sempre podem ser reconhecidas
 por um autômato finito.
 
-O objetivo deste trabalho é dar continuidade aos trabalhos de
-\citeonline{trafaniuc2004} e \citeonline{miki2006}, onde foram feitas
+O objetivo deste trabalho foi dar continuidade aos trabalhos de
+\citeonline{trafaniuc2004} e \citeonline{miki2006}, nas quais foram feitas
 análises dos grafos de processo dos diferentes passos de tempo
 para as regras elementares.
 
@@ -2272,9 +2272,9 @@ resolvê-lo ainda não foi obtido.
 Outra estratégia foi a de converter os grafos de processo dos sucessivos
 passos de tempo das regras do espaço elementar em matrizes de adjacência e analisar
 tais matrizes. Porém, a notação comumente utilizada para matrizes de adjacência
-não consegue completamente descrever os grafos de processo. É, então, proposta uma
+não consegue completamente descrever os grafos de processo. Foi, então, proposta uma
 nova notação de matriz de adjacência, chamada de \textit{matriz de
-adjacência de evolução temporal}. Com isso, é possível construir o
+adjacência de evolução temporal}. Com isso, tornou-se possível construir o
 grafo de processo a partir de sua matriz de adjacência de evolução temporal.
 
 Especificamente, mostrou-se aqui que é possível deduzir um algoritmo para o
@@ -2331,7 +2331,7 @@ obtidas pelo algoritmo de seleção de regras de \citecustom{trafaniuc2004}.
 
 Permanece aberta, porém, a questão da convergência da evolução dos grafos
 de processo da regra 184 para o seu comportamento limite \citecustom{miki2006}.
-Como trabalhos futuros, sugere-se trabalhar em um prova formal da veracidade
+Como pesquisas futuras sugere-se trabalhar em um prova formal da veracidade
 do grafo de processo da Figura \ref{fig:limit184w} como o grafo limite da regra
 184. Também é necessário encontrar um algoritmo de tempo polinomial que resolva
 o problema de diferença de grafos apresentado na Seção \ref{sec:problem}.
@@ -2339,7 +2339,6 @@ Pelo fato de este problema ser muito parecido com o de isomorfismo de grafos,
 é aconselhável começar a investigação pela literatura existente sobre tal
 problema. Outro possível trabalho futuro seria um algoritmo que automatizasse
 o processor de inferência do grafo limite a partir dos grafos intermediários.
-
 Como sugestão final, a exploração da notação matricial foi feita de forma
 superficial neste trabalho.  Pesquisas posteriores podem se aprofundar em
 tal tema.
