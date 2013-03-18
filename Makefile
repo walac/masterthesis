@@ -1,6 +1,6 @@
-VERSION = v21
-OUTPUT_FILENAME = $(VERSION)_final.pdf
+VERSION = v22
 INPUT_FILENAME = masterthesis
+OUTPUT_FILENAME = $(VERSION)_$(INPUT_FILENAME).pdf
 
 IMAGES := $(shell ls img/*.* img/mat/*.*)
 PIC_IMAGES := $(patsubst %.pic,%.tex,$(shell ls *.pic))
