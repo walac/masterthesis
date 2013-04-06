@@ -906,7 +906,7 @@ de linguagens reconhecidas por AFs são as linguagens regulares.
 Linguagens regulares podem também ser representadas por meio das chamadas
 expressões regulares.
 
-Dadas as operações:
+Sejam as operações:
 
 \begin{description}
 \item[União] $A+B=\{x | x \in A \mbox{ ou } x \in B\}$
@@ -915,15 +915,14 @@ Dadas as operações:
 Adicionalmente também pode-se utilizar a notação $A^+$, que é equivalente a $AA^*$.
 \end{description}
 
-Uma expressão $R$ é considerada uma expressão regular \citecustom{sipser1996}
+Uma cadeia $R$ é considerada uma expressão regular \citecustom{sipser1996}
 se ela é:
 
 \begin{enumerate}
 \item $a$ para algum $a \in \Sigma$
-\item $\emptyset$
-\item $\varepsilon$, $1^*\varepsilon=1^*$, $\varepsilon^*=\{\varepsilon\}$, $R\varepsilon=R$
+\item $\varepsilon$ (a cadeia vazia)
 \item $R_1+R_2$, onde $R_1$ e $R_2$ são expressões regulares e
-o $+$ representa a união de duas linguagens representadas pelas expressões
+a operação $+$ representa a união de duas linguagens representadas pelas expressões
 \item $R_1R_2$, onde $R_1$ e $R_2$ são expressões regulares e $R_1R_2$ representa
 a concatenação das duas linguagens expostas
 \item ${R_1}^*$, onde $R_1$ é uma expressão regular e ${R_1}^*$ denota o fechamento
