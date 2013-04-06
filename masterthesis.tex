@@ -203,7 +203,7 @@ local extremamente simples, mas cujo comportamento global pode ser
 complexo ao ponto de eles poderem ser equivalentes a uma máquina de Turing
 universal \citecustom{wolfram1984a}. Ele
 é caracterizado por um reticulado de células cujos estados posteriores
-dependem dos estados anteriores de si próprias e de suas vizinhas.
+dependem dos estados atuais de si próprias e de suas vizinhas.
 Este tipo de comportamento, que é localmente simples mas globalmente
 complexo dá origem à chamada \textit{computação emergente}, e é
 a base da utilização dos ACs na modelagem de diversos sistemas naturais.
@@ -224,19 +224,19 @@ palavras formadas por seu alfabeto \citecustom{lewis2008}.
 A classe mais simples de linguagens formais é
 a das linguagens regulares, que pode ser gerada por uma gramática regular ou
 pelas chamadas expressões regulares. Qualquer linguagem regular pode ser
-reconhecida por um autômato finito (AF), que é uma modalidade de autômato que
-possui memória restrita. As linguagens regulares são o tipo mais simples
-de linguagem na hierarquia de Chomsky.
+reconhecida por um autômato finito (AF), que é uma modalidade de reconhecedor
+de linguagem com memória restrita. As linguagens regulares são o tipo mais
+simples de linguagem na hierarquia de Chomsky.
 
 O conjunto de todas as configurações globais de um AC
-unidimensional em um dado momento no tempo discreto sempre pode ser descrito por
+unidimensional em um dado tempo discreto sempre pode ser descrito por
 uma linguagem regular e, consequentemente, um AF
 \citecustom{wolfram1984}. Uma subclasse de AFs importante para este
-trabalho são os chamados \emph{grafos de processos}, que são AFs em que
+trabalho são os chamados \emph{grafos de processos}, em que
 todos os estados são iniciais e finais. O conjunto de todas as configurações globais
 de um AC unidimensional sempre pode ser representado por um grafo de processo
 para $t < \infty$. \citeonline{wolfram1984} propôs utilizar
-o crescimento destes grafos de processo como medida de complexidade da própria regra
+o crescimento destes grafos de processo como medida de complexidade da regra
 de um AC e \citeonline{wolfram2002} construiu três funções que, juntas, geram o
 grafo de processo mínimo de uma regra unidimensional para um passo de tempo finito a partir
 do grafo de processo do passo anterior e da função de transição da regra. Estas funções
@@ -246,13 +246,17 @@ estão descritas na Seção \ref{sec:wolframfunctions}.
 estudaram, em seus respectivos trabalhos, a complexidade de ACs
 elementares por meio da análise da evolução dos sucessivos
 grafos de processo para diferentes instantes de tempo. Uma questão que ficou aberta
-nestes trabalhos foi a eventual convergência dos grafos de processo para o comportamento
+nesses trabalhos foi a eventual convergência dos grafos de processo para o comportamento
 limite da regra quando $t \mapsto \infty$. Por exemplo, na Figura \ref{fig:gp8} são
 mostrados os sucessivos grafos de processo da evolução temporal da regra elementar 8,
-onde após dois passos de tempo o seu grafo limite é atingido (a descrição da notação
+onde após dois passos de tempo o seu grafo limite é atingido; em cada grafo, a ligação
+entre dois nós representa uma transição de estados entre eles, a partir do símbolo
+0, em vermelho, ou 1, em preto (outros aspectos da notação
 de grafos de processo utilizada neste trabalho é apresentada na Seção \ref{sec:initcfg}).
 Na Figura \ref{fig:gp184} são apresentados os grafos de processo da regra elementar 184,
-a qual não converge para a configuração limite.
+a qual não converge para a configuração limite, apesar de se saber que seu comportamento
+limite pode ser expresso por uma linguagem regular \citecustom{miki2006}.
+
 \begin{figure}[htp]
 \begin{tabular}{c c c}
 \includegraphics[scale=0.5]{img/8/1.eps} &
@@ -281,20 +285,21 @@ $t = 4$ & $t = 5$ & $t = 50$ \\
 \label{fig:gp184}
 \end{figure}
 
-A motivação deste trabalho é entender o porque de regras com comportamento
-limite regular como a regra 184 não convergerirem. Este trabalho
-tem o objetivo de dar prosseguimento aos estudos de
+A partir de uma compreensão de porque regras com comportamento
+limite regular como a regra 184 não convergem pelo método de
+\citecustom{wolfram1984}, a motivação principal deste trabalho foi
+estendê-lo. Nesse sentido, ele prossegue os estudos de
 \citecustom{trafaniuc2004} e \citecustom{miki2006}, criticando os
 experimentos anteriormente realizados e introduzindo a abordagem
 de representação dos AFs por meio de matrizes de adjacência.
-Sobretudo, este trabalho visa estender os resultados até então obtidos
+Com isso, visa-se estender os resultados até então obtidos
 sobre a análise da complexidade de ACs por meio de grafos.
 
 O Capítulo \ref{sec:refteo} apresenta referencial teórico sobre
 os ACs, linguagens formais e comportamento limite.
 
 O Capítulo \ref{sec:complexity} descreve os trabalhos anteriores, aponta
-os problemas encontrados nestes e discute novos resultados obtidos.
+os problemas neles encontrados e discute novos resultados obtidos.
 
 O Capítulo \ref{sec:matrix} descreve uma nova abordagem por meio de matrizes
 de adjacência. A obtenção do
