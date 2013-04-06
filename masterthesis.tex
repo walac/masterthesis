@@ -1092,8 +1092,8 @@ pretos representam transições em 1.}
 \end{figure}
 
 Neste trabalho, o estado inicial dos AFs determinísticos apresentados
-é o primeiro estado, também destacado por um círculo preenchido, enquanto
-os demais estados possuem um círculo vazio.
+é o primeiro estado, também destacado por um círculo preenchido (sólido),
+enquanto os demais estados possuem um círculo vazio.
 
 \subsection{Funções \emph{NetCAStep}, \emph{TrimNet} e \emph{MinNet}}\label{sec:wolframfunctions}
 
@@ -1105,8 +1105,9 @@ unidimensional.
 Dado um grafo de processo relacionado à configuração do AC para
 um instante de tempo $t$ e sua respectiva regra de transição,
 a função \emph{NetCAStep} \citecustom{wolfram2002}
-retorna um AF não determinístico onde todos os estados são inicais e
-finais (grafo de processo) relacionado ao instante de tempo $t+1$
+retorna um grafo de processo não determinístico (i.e., um AF
+não determinístico onde todos os estados são iniciais e
+finais) relacionado ao instante de tempo $t+1$
 \citecustom{miki2006}. O grafo de processo de saída para $\Omega^{(1)}$
 sempre será um grafo de De Bruijn, pois ele representa o conjunto de
 configurações possíveis da regra para qualquer combinação de células
@@ -1121,26 +1122,30 @@ gera um AF determinístico mínimo equivalente ao autômato gerado por
 estados são finais.
 
 A função \emph{TrimNet} faz a transformação do AF de saída da \emph{MinNet}
-em um grafo de processo mínimo.
+em um grafo de processo determinístico mínimo.
 
 A Figura \ref{fig:wfexample} mostra um exemplo de grafos de saída
 das três funções.
 
+\begin{center}
 \begin{figure}[htp]
-\begin{tabular}{c c c}
-\includegraphics[scale=0.5]{img/NetCAStep.eps} &
-\includegraphics[scale=0.5]{img/MinNet.eps} &
-\includegraphics[scale=0.5]{img/TrimNet.eps} \\
-\emph{NetCAStep} & \emph{MinNet} & \emph{TrimNet} \\
+\begin{tabular}{c}
+\includegraphics[scale=1.0]{img/NetCAStep.eps} \\
+\emph{NetCAStep} \\
+\includegraphics[scale=1.0]{img/MinNet.eps} \\
+\emph{MinNet} \\
+\includegraphics[scale=1.0]{img/TrimNet.eps} \\
+\emph{TrimNet} \\
 \end{tabular}
 \caption[Exemplo de saída das funções \emph{NetCAStep}, \emph{MinNet} e
 \emph{TrimNet}]
 {Exemplo de saída das funções \emph{NetCAStep}, \emph{MinNet} e
 \emph{TrimNet} para um passo de tempo da regra elementar 172. No caso
-houve uma transformação na saída da função MinNet na sua representação
+houve uma transformação na saída da função \emph{MinNet} na sua representação
 gráfica para que o primeiro estado seja o estado inicial do grafo.}
 \label{fig:wfexample}
 \end{figure}
+\end{center}
 
 \newpage
 
