@@ -1245,7 +1245,7 @@ das funções \emph{NetCAStep}, \emph{MinNet} e \emph{TrimNet} por um
 período suficiente de tempo levará ao grafo limite, conforme se exemplifica
 na Figura \ref{fig:r8t}. Mas existem regras em que esta convergência não
 ocorre, como a regra 128 (Figura \ref{fig:r128t}), mesmo seu comportamento limite
-sendo conhecido (Figura \ref{fig:limit128}) \citecustom{wolfram1984}.
+sendo conhecido \citecustom{wolfram1984} (Figura \ref{fig:limit128}).
 
 \begin{figure}[htp]
 \begin{center}
@@ -1263,10 +1263,10 @@ sendo conhecido (Figura \ref{fig:limit128}) \citecustom{wolfram1984}.
 \end{center}
 \end{figure}
 
-A explicação do porque regras como a 128 não convergirem e a busca por um
-método algorítmico capaz de gerar o comportamento limite de tais regras foi
+A explicação de porque regras como a 128 não convergirem e a busca por um
+algoritmo capaz de gerar o comportamento limite de tais regras foi
 a motivação do trabalho de \citecustom{trafaniuc2004} e, posteriormente,
-\citecustom{miki2006}.
+de \citecustom{miki2006}.
 
 \citecustom{trafaniuc2004} procurou isolar aquelas regras
 que possuem crescimento estruturado, ou seja, em que se pode observar
@@ -1279,15 +1279,17 @@ O algoritmo divide as regras em dois grupos \citecustom{trafaniuc2004}:
 
 \begin{description}
 \item[Grupo 1:] Regras que apresentam crescimento de complexidade no AF
-limite a cada passo de tempo, e o método é interrompido após cinco passos de
+limite a cada passo de tempo, e o método é interrompido após 5 passos de
 tempo.
 \item[Grupo 2:] Regras que deixam de apresentar crescimento de complexidade no
-AF em até cinco passos de tempo.
+AF em até 5 passos de tempo.
 \end{description}
 
 Na prática, o que o algoritmo faz é isolar as regras que convergem para o
-grafo limite (Grupo 2) das que não convergem (Grupo 1) em até cinco
-passos de tempo.
+grafo limite (Grupo 2) das que não convergem (Grupo 1) em até 5
+passos de tempo. A razão para a simulação em 5 passos de tempo é que
+as regras elementares que convergem para o grafo de processo limite, o
+fazem em no máximo 5 passos.
 
 \begin{figure}[H]
 \begin{center}
@@ -1300,11 +1302,11 @@ passos de tempo.
 
 Foram então analisadas as estruturas de crescimento de complexidade das regras
 do Grupo 1, primeiro manualmente e, depois, automaticamente por meio do
-seguinte método \citecustom{trafaniuc2004}, que seleciona regras com crescimento
-estruturado:
+seguinte método, que seleciona regras com crescimento
+estruturado \citecustom{trafaniuc2004}:
 
 \begin{enumerate}\label{sec:mikialgo}
-\item Gerar os grafos das regras de transição, para dois passos de tempo
+\item Gerar os grafos das regras de transição, para 2 passos de tempo
     consecutivos, $t$ e $t+1$, de uma regra do espaço elementar
     (Figura \ref{fig:grapht}).
 
@@ -1359,7 +1361,7 @@ subgrafo que apresentar a menor diferença no número de transições de estados
 
 O algoritmo selecionou 26 regras que apresentavam padrão
 de crescimento do AF gerado para os sucessivos passos de tempo na evolução
-do AC. O trabalho deduziu a expressão de crescimento da regra 184, inclusive
+do AC. Deduziu-se ainda a expressão de crescimento da regra 184, incluindo
 um método para a obtenção do AF de tempo $t$. Após, o trabalho fez as mesmas
 análises para as outras 25 regras. Do total das 26 regras, 16 regras
 apresentaram relações entre passos de tempo distintos, sendo elas: 43, 113,
@@ -1397,8 +1399,8 @@ será visto mais adiante.
 \citeonline{miki2006} automatizou o processo manual de análise de crescimento
 de AFs desenvolvido por \citeonline{trafaniuc2004} por meio de uma operação
 de diferença de grafos. Com os resultados, o trabalho passou a focar na análise
-da regra 184 no objetivo de obter o autômato limite. O autômato limite
-foi construído manualmente como referência, conforme mostrado na Figura
+da regra 184, com o objetivo de se obter o autômato limite, o qual
+foi construído manualmente como referência, conforme mostra a Figura
 \ref{fig:limit184}.
 
 \begin{figure}[htp]
@@ -1411,14 +1413,15 @@ foi construído manualmente como referência, conforme mostrado na Figura
 \end{figure}
 
 \citeonline{miki2006} identificou que os AFs dos sucessivos passos de
-tempo da regra são assimétricos, mas o AF limite é simétrico, e não
-conseguiu achar uma operação que faça essa transformação de simetria;
-não conseguindo, assim, encontrar o AF limite da regra 184
+tempo da regra são assimétricos, apesar de o AF limite ser simétrico; não
+conseguindo achar uma operação que fizesse essa transformação de simetria,
+não conseguiu, assim, encontrar o AF limite da regra 184
 partindo-se dos AFs intermediários.
 
-\citeonline{miki2006} conseguiu, por meio da automação do processo de análise,
+Por meio da automação do processo de análise, \citecustom{miki2006} conseguiu
 obter as expressões de crescimento das regras 11, 14, 35, 50, 70 e 81, que
-\citecustom{trafaniuc2004} não tinha conseguido.
+\citecustom{trafaniuc2004} não tinha conseguido, deixando aberto, portanto, 4
+regras do conjunto original das 26, sendo elas as regras 23, 56, 98 e 172.
 
 \subsection{Problemas encontrados no trabalho de
 \citecustom{trafaniuc2004}}\label{sec:problem}
