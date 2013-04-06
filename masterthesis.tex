@@ -428,18 +428,18 @@ e a cor branca um estado em 1.
 \end{center}
 \end{figure}
 
-Existem $2^3=8$ possíveis padrões de estados dentro de uma vizinhança para ACs.
-Cada combinação pode resultar nos valores 0 ou 1, assim podem existir $2^{2^3}=256$ ACs
+Existem $2^3=8$ possíveis padrões de estados dentro de uma vizinhança para ACs elementares.
+Como cada combinação pode resultar nos valores 0 ou 1, podem existir, portanto, $2^{2^3}=256$ ACs
 elementares. A regra local pode ser formalizada como:
 
 \begin{equation}
 x^{t+1}_i = \phi(x^t_{i-1}, x^t_i, x^t_{i+1})
 \end{equation}
 
-\hspace{1 mm} onde $x^t_i$ é o estado da célula $i$ no instante $t$ em que a
+\noindent onde $x^t_i$ é o estado da célula $i$ no instante $t$ em que a
 regra local atua, e $\phi$ é a função que executa a regra local.  A Tabela
 \ref{tab:localrule} mostra como é aplicada a regra local.  As regras locais
-para ACs podem ser descritas por um número binário de oito bits,
+para ACs elementares podem ser descritas por um número binário de oito bits,
 codificado pelo resultado das oito combinações de vizinhança da regra local
 $\{x_{i-1},x_i,x_{i+1}\}$ \citecustom{wolfram1983}. No caso da Figura
 \ref{fig:celnumbering}, este número é o número $90_{10}$, e este autômato
