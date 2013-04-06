@@ -961,7 +961,8 @@ fazem parte de $L$.
 
 Uma configuração de um AC pode ser definida por uma concatenação de estados
 de células $x_i$, com $-\infty < i < \infty$ para o caso infinito ou
-$0 < i < N$ para o caso finito. O conjunto dos estados de todas as células
+$1 \le i \le N$ para o caso finito, em que o AC é formado por $N$ células.
+O conjunto dos estados de todas as células
 de um reticulado do AC em um dado passo em sua evolução temporal é chamado de
 \textit{configuração global}, e um subconjunto dos estados destas
 células define uma \textit{configuração local}.
@@ -986,7 +987,7 @@ grafo de De Bruijn \citecustom{debruijn1946}, \citecustom{powley2009},
 é um grafo direcionado representando sobreposições entre sequências de símbolos,
 onde cada estado possui $m$ arestas chegando e $m$ arestas deixando o estado.
 Toda regra unidimensional pode ser inicialmente representada por um grafo de De
-Bruijn de 4 estados, somente as transições mudam para cada regra.
+Bruijn de 4 estados, em que somente as transições mudam para cada regra.
 
 Considere a construção do conjunto $\Omega^{(1)}$ gerado por um passo de
 tempo na evolução do AC elementar com uma regra
@@ -997,7 +998,7 @@ local $\phi$ dada por (regra número 76):
 001 \mapsto 0, 000 \mapsto 0
 \end{equation}
 
-O valor $a_i^{(1)}$ de uma célula na posição $i$ em uma configuração
+O valor $a_i^{(1)}$ de uma célula na posição $i$ na configuração
 $A^{(1)} = \phi A^{(0)} \in \Omega^{(1)}$ depende da vizinhança de três
 células $(a_{i-1}^{(0)},a_i^{(0)},a_{i+1}^{(0)})$ na configuração precedente
 $A^{(0)} \in \Omega^{(0)}$. A célula adjacente de $a_{i+1}^{(1)}$ depende da
@@ -1014,16 +1015,16 @@ Cada possível caminho através de $g$ corresponde a uma configuração particul
 $A^{(0)}$. O sucessor $A^{(1)}$ de cada configuração inicial é dado pela
 sequência de símbolos associada com os arcos no caminho. As sequências de
 símbolos obtidas seguindo todos os caminhos possíveis através de $g$ assim
-correspondem a todas as possíveis configurações $A^{(1)}$ obtidas depois
-de um passo de tempo na evolução do AC da Equação \ref{eqn:r76}. O
+correspondem a todas as possíveis configurações $A^{(1)}$, obtidas depois
+de 1 passo de tempo na evolução do AC da Equação \ref{eqn:r76}. O
 conjunto completo $\Omega^{(1)}$ pode assim ser representado pelo grafo
 $g$. Está claro que nem todas as possíveis sequências de 0s e 1s podem
 aparecer nas configurações de $\Omega^{(1)}$. Por exemplo, não existe um
-caminho em $g$ que pode incluir a sequência $111$, e assim nenhuma
+caminho em $g$ que inclui a sequência $111$, e assim nenhuma
 configuração em $\Omega^{(1)}$ pode conter blocos de células $111$.
 
 O grafo $g$ da Figura \ref{fig:A1} pode ser considerado como um grafo
-de transição de estados para um AC o qual gera a linguagem
+de transição de estados para um AC o qual aceita a linguagem
 formal $\Omega^{(1)}$. Cada nó de $g$ corresponde a um estado do
 AF, e cada arco a uma transição no AF, ou
 equivalentemente a uma regra  de produção na gramática representada pelo
@@ -1042,7 +1043,7 @@ regular.
 \end{VCPicture}
 \caption[Grafo de transição de estados]
 {O grafo de transição de estados $g$ para um AF
-não determinístico que gera as configurações obtidas depois de um passo
+não determinístico que representa as configurações obtidas depois de um passo
 de tempo na evolução do AC com a regra número 76.
 Possíveis sequências de valores de células são representadas por
 caminhos possíveis pelo grafo. Os nós no grafo são rotulados por pares
@@ -1073,7 +1074,7 @@ grafo de processo na Figura \ref{fig:initconfigmathematica}.
 \end{VCPicture}
 \caption[Configurações iniciais do AF]
 {Possíveis configurações iniciais representadas por um AF
-determinístico. É fácil perceber que o autômato aceita qualquer sequência de
+determinístico. É trival perceber que o autômato aceita qualquer sequência de
 0s e 1s.}
 \label{fig:initconfigautomaton}
 \end{center}
