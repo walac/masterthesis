@@ -893,11 +893,11 @@ ou seja, para um dado estado e um símbolo de entrada, o número de possíveis
 transições pode ser maior que um \citecustom{rozenberg1997}.
 
 A mecânica básica de um AF é simples.
-O processamento em um autômato não determinístico é análogo à sua contraparte
-determinística, exceto que quando existe uma ambiguidade na transição (existe
+O processamento em um autômato não determinístico é análogo ao da versão
+determinística, exceto que, quando existe uma ambiguidade na transição (i.e.,
 mais de um estado objetivo para uma dada entrada), o autômato se replica, tomando
 o caminho dos $n$ estados objetivos. A entrada é considerada aceita se, ao
-final do processamento, pelo menos uma instância do autômato está em um
+final do processamento, pelo menos uma instância das cópias geradas está em um
 estado final.
 
 O conjunto de cadeias reconhecidas por um autômato forma a linguagem do
