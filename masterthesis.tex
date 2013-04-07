@@ -2073,11 +2073,12 @@ particular, aqui é deduzido o algoritmo para gerar a matriz de evolução tempo
 a regra 184 e, a partir desta, poderá ser aplicado o Algoritmo \ref{alg:mtos}
 para obtenção do grafo de processo.
 
-\citeonline{miki2006}, baseado nos resultados de \citeonline{trafaniuc2004},
+Baseado nos resultados de \citeonline{trafaniuc2004}, \citeonline{miki2006}
 estudou extensivamente o padrão de crescimento da regra 184 através da análise
-dos grafos de processo gerados pelos sucessivos passos de tempo. No caso, ele estudou
-os grafos de processo gerados dentro dos cinco primeiros passos de tempo. A Figura
-\ref{fig:184-5t} mostra os grafos de processo da regra 184 gerados para os cinco
+dos grafos de processo gerados pelos sucessivos passos de tempo.
+Conforme relatado anteriormente, no caso estudou-se
+os grafos de processo gerados dentro dos 5 primeiros passos de tempo. A Figura
+\ref{fig:184-5t} mostra os grafos de processo da regra 184 gerados para os 5
 primeiros passos de tempo. A notação de grafo é a mesma da Figura
 \ref{fig:initconfigmathematica}.
 
@@ -2213,11 +2214,11 @@ possível, então, recriar o grafo de processo de tempo $t$ para a regra 184.
 
 \subsection{Padrão de formação das matrizes de adjacências de evolução temporal}\label{sec:pattern}
 
-Após um estudo aprofundado e dedução do algoritmo de formação das matrizes
+Após estudo aprofundado e dedução do algoritmo de formação das matrizes
 de adjacência de evolução temporal para a regra 184 descrito na Seção \ref{sec:184},
 estudou-se o padrão de formação para todas as mesmas 26 regras estudadas em
 \citecustom{trafaniuc2004}. Conforme mostrado na Tabela \ref{tab:pattern},
-todas as regras apresentam um padrão de formação, embora nem sempre a
+todas as regras apresentam padrão de formação, embora nem sempre a
 partir do primeiro instante de tempo.
 
 \begin{table}[htp]
@@ -2259,22 +2260,22 @@ regras elementares.}
 \end{table}
 
 Além de especificar a regra, a tabela mostra em que passo de tempo a regra
-começou a apresentar um padrão de formação e se esse padrão é linear
-ou não. Por \textit{padrão de formação} entende-se por uma estrutura
+começou a apresentar um padrão de formação, e se esse padrão é linear
+ou não. Por \textit{padrão de formação} entende-se uma estrutura
 presente em $t$ que pode ser vista em $t+1$ de forma expandida ou contraída.
-Um \textit{padrão de formação linear} significa que uma
+Um padrão de formação ser \textit{linear} significa que uma
 expansão de um padrão na matriz ocorre linearmente com o tempo.
 
 A partir da Tabela \ref{tab:pattern}, conclui-se que as regras estão divididas
-em dois grupos base: as que apresentam um padrão linear a partir de $t=n$ e as que
-apresentam um padrão não linear a partir de $t=n,\exists n \in \mathbb{N}$.
-A análise baseou-se a partir da observação dos cinco primeiros passos de
-tempo e, quando o padrão de formação se deu a partir de $t=4$, analisou-se
-os dez primeiros passos de tempo.
+em dois grupos base: as que apresentam padrão linear a partir de $t=n$, e as que
+apresentam padrão não linear a partir de $t=n, \, n \in \mathbb{N}$.
+A análise baseou-se na observação dos 5 primeiros passos de
+tempo e, quando o padrão de formação se deu a partir de $t=4$, analisaram-se
+os 10 primeiros passos de tempo.
 
 Com base nesta análise, foram construídos manualmente os algoritmos de geração da matriz
-de passo de tempo $t$ para a outras 25 regras restantes. Os algoritmos de todas as
-26 regras são apresentados no apêndice \ref{sec:algorithms}.
+de passo de tempo $t$ para as outras 25 regras restantes. Os algoritmos de todas as
+26 regras são apresentados no Apêndice \ref{sec:algorithms}.
 
 \newpage
 
