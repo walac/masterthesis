@@ -22,6 +22,8 @@
 \let\vState=\origState
 \usepackage{rotating}
 \usepackage{notoccite}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows}
 
 \hyphenation{NetCAStep}
 \hyphenation{MinNet}
@@ -187,6 +189,18 @@ complexidade.}
 \thispagestyle{empty}
 \listoftables
 
+\tikzstyle{decision} = [diamond, draw, fill=blue!20, 
+    text width=6em, text badly centered, node distance=3cm, inner sep=0pt, shade, ball color=blue!20]
+\tikzstyle{block} = [rectangle, draw, fill=blue!20, 
+    text width=7em, text centered, rounded corners, minimum height=4em, shade, ball color=blue!20]
+\tikzstyle{line} = [draw, -latex']
+\tikzstyle{cloud} = [draw, ellipse,fill=red!20, node distance=3cm,
+    minimum height=2em, shade, ball color=red!20]
+\tikzstyle{data} = [draw,trapezium,trapezium left angle=70,trapezium right angle=-70,
+                        minimum height=1cm, text width=7em, node distance=4cm, text centered, shade, ball color=blue!20]
+\tikzstyle{terminator} = [draw,shape=rounded rectangle,inner sep=2mm,minimum height=2em, shade,
+                        ball color=red!20, node distance=3cm, text width=9em, text centered]
+    
 % DESENVOLVIMENTO
 \newpage
 \pagestyle{plain}
@@ -1200,7 +1214,9 @@ a Figura \ref{fig:net}.
 
 \begin{figure}[htp]
 \begin{center}
-\includegraphics[scale=0.45]{img/net.eps}
+\begin{tikzpicture}[node distance=6cm, auto]
+\input net.tex
+\end{tikzpicture}
 \caption{Sequência de utilização das funções \emph{NetCAStep},
 \emph{MinNet} e \emph{TrimNet}.}
 \label{fig:net}
@@ -1293,7 +1309,9 @@ fazem em no máximo 5 passos.
 
 \begin{figure}[H]
 \begin{center}
-\includegraphics[scale=0.5]{img/rulesel.eps}
+\begin{tikzpicture}[node distance=3cm, auto]
+\input rulesel.tex
+\end{tikzpicture}
 \caption[Algoritmo de seleção de regras]
 {Algoritmo de seleção de regras \citecustom{trafaniuc2004}.}
 \label{fig:rulesel}
@@ -1440,20 +1458,28 @@ a função \emph{NetCAStep}. A Figura \ref{fig:net-miki} mostra o encadeamento d
 chamadas das funções \emph{NetCAStep}, \emph{MinNet} e \emph{TrimNet} de acordo com
 \citecustom{miki2006}.
 
-\begin{figure}[htp]
+\begin{sidewaysfigure}
+\begin{center}
+%\begin{figure}[htp]
 \begin{minipage}[b]{0.47\linewidth}
-\includegraphics[scale=0.4]{img/net-miki.eps}
+\begin{tikzpicture}[node distance = 4cm, auto, scale=0.75, transform shape]
+\input net-miki.tex
+\end{tikzpicture}
 \end{minipage}
 \hspace{0.3cm}
 \begin{minipage}[b]{0.47\linewidth}
-\includegraphics[scale=0.26]{img/net.eps}
+\begin{tikzpicture}[node distance=6cm, auto, scale=0.75, transform shape]
+\input net.tex
+\end{tikzpicture}
 \end{minipage}
 \caption[Comparação de encadeamento das funções \emph{NetCAStep}, \emph{MinNet} e \emph{TrimNet}]
 {Comparação de como as funções \emph{NetCAStep}, \emph{MinNet} e \emph{TrimNet} são
 chamadas em \citecustom{trafaniuc2004} (à esquerda) e como é a forma correta de
 executá-las (à direita).}
 \label{fig:net-miki}
-\end{figure}
+%\end{figure}
+\end{center}
+\end{sidewaysfigure}
 
 De acordo como está descrito em
 \citecustom{wolfram2002}, nenhuma das duas formas estaria correta e,

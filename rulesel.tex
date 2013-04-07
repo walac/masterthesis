@@ -1,0 +1,19 @@
+\node [cloud] (init) {Início};
+\node [data,below of=init] (input) {Regra de AC elementar};
+\node [block,below of=input] (functions) {\emph{NetCAStep}, \emph{MinNet}, \emph{TrimNet}};
+\node [data,below of=functions] (pg) {Autômato para o passo de tempo $t+1$};
+\node [decision,below of=pg,node distance=4cm] (equal) {Autômato $t+1$ é o mesmo que $t$?};
+\node [terminator,below of=equal,node distance=3.5cm] (group2) {Regras grupo 2};
+\node [decision,node distance=6cm,left of=equal] (different) {Número da iteração é 5?};
+\node [terminator,below of=different,node distance=3.5cm] (group1) {Regras grupo 1};
+
+\path [line] (init) -- (input);
+\path [line] (input) -- (functions);
+\path [line] (functions) -- (pg);
+\path [line] (pg) -- (equal);
+\path [line] (equal.south) -- node [left] {sim} ++(0,-7mm) -- (group2);
+\path [line] (equal.west) -- node [below] {não} ++(-1.5cm,0) -- (different.east);
+\path [line] (different.south) -- node [left] {sim} ++(0,-7mm) -- (group1);
+\path [line] (different.north) -- node [left] {não} ++(0,3cm) |- (functions.west);
+
+

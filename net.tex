@@ -1,0 +1,23 @@
+\node [cloud] (init) {Início};
+\node [data,below of=init] (innetcastep) {Entrada:\\- NDFA\\- número da regra do AC};
+\node [block,below of=innetcastep] (netcastep) {\emph{NetCAStep}};
+\node [data,below of=netcastep] (outnetcastep) {Saída:\\- autômato finito não determinístico};
+\node [decision,below of=outnetcastep,node distance=5.5cm] (decision) {Gerar para o próximo passo de tempo?};
+\node [block,right of=netcastep] (minnet) {\emph{MinNet}};
+\node [data,below of=minnet] (outminnet) {Saída:\\- autômato finito determinístico};
+\node [block,right of=minnet] (trimnet) {\emph{TrimNet}};
+\node [data,above of=trimnet] (intrimnet) {Entrada:\\- DFA};
+\node [terminator,below of=trimnet,node distance=5cm] (finish) {Saída:\\- grafo de processo};
+
+\path [line] (init) -- (innetcastep);
+\path [line] (innetcastep) -- (netcastep);
+\path [line] (netcastep) -- (outnetcastep);
+\path [line] (outnetcastep) -- (decision);
+\path [line] (decision.west) -- node [below] {sim} ++(-0.8cm,0) |- (netcastep.west);
+\path [line] (decision.east) -- node [below] {não} ++(5mm,0) |- (minnet.west);
+\path [line] (minnet) -- (outminnet);
+\path [line] (outminnet.south) -- ++(0,-1cm) -- ++(3cm,0) -- ++(0,14cm) -| (intrimnet.north);
+\path [line] (intrimnet) -- (trimnet);
+\path [line] (trimnet) -- (finish);
+
+

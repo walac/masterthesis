@@ -3,11 +3,7 @@ INPUT_FILENAME = masterthesis
 OUTPUT_FILENAME = $(VERSION)_$(INPUT_FILENAME).pdf
 
 IMAGES := $(shell ls img/*.* img/mat/*.*)
-PIC_IMAGES := $(patsubst %.pic,%.tex,$(shell ls *.pic))
-IMAGES += $(PIC_IMAGES)
-
-%.tex: %.pic
-	gpic -t $< > $@
+IMAGES += net-miki.tex net.tex rulesel.tex
 
 $(OUTPUT_FILENAME): $(IMAGES) $(INPUT_FILENAME).tex $(INPUT_FILENAME).bib
 	latex $(INPUT_FILENAME)
@@ -23,8 +19,7 @@ clean:
 	      $(INPUT_FILENAME).blg \
 	      $(INPUT_FILENAME).log \
 	      $(INPUT_FILENAME).out \
-	      $(INPUT_FILENAME).toc \
-	      $(PIC_IMAGES)
+	      $(INPUT_FILENAME).toc
 
 distclean: clean
 	rm -f $(OUTPUT_FILENAME)

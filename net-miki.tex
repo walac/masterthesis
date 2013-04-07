@@ -1,0 +1,23 @@
+\node [block] (innetcastep) {Entrada:\\- grafo de processo\\- número da regra do AC};
+\node [block, below of=innetcastep] (netcastep) {\emph{NetCAStep}};
+\node [block, below of=netcastep] (outnetcastep) {Saída:\\- autômato finito não determinístico};
+\node [block, right of=innetcastep] (intrimnet) {Entrada:\\- autômato finito não determinístico};
+\node [block, below of=intrimnet] (trimnet) {\emph{TrimNet}};
+\node [block, below of=trimnet] (outtrimnet) {Saída:\\- grafo de processo};
+\node [decision, below of=outtrimnet, node distance=6.5cm] (decision) {Deseja gerar o autômato para o próximo instante?};
+\node [block, right of=intrimnet, node distance=5.5cm] (inminnet) {Entrada:\\- grafo de processo};
+\node [block, below of=inminnet] (minnet) {\emph{MinNet}};
+\node [block, below of=minnet] (outminnet) {Saída:\\- autômato finito determinístico};
+
+\path [line] (innetcastep) -- (netcastep);
+\path [line] (netcastep) -- (outnetcastep);
+\path [line] (outnetcastep.east) -- ++(0.5cm,0) |- (intrimnet.west);
+\path [line] (intrimnet) -- (trimnet);
+\path [line] (trimnet) -- (outtrimnet);
+\path [line] (outtrimnet) -- (decision);
+\path [line] (decision.west) -- node [below] {sim} ++(-4.5cm,0) |- (innetcastep.west);
+\path [line] (decision.east) -- node [below] {não} ++(3mm,0) |- (inminnet.west);
+\path [line] (inminnet) -- (minnet);
+\path [line] (minnet) -- (outminnet);
+
+
