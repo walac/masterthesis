@@ -1629,16 +1629,17 @@ um grafo de processo para condição de contorno periódica.
 \end{proposition}
 
 \begin{proof}
-Seja $L$ a linguagem limite da regra 184, e $G$
-o grafo de processo que reconhece $L$. Assumindo-se a
-cadeia $w = 000101$ pertencente a $L$, e defini-se $v = 100010$,
-$v$ também pertence a $L$ uma vez que é igual
-a $w$ com um deslocamento à direita; logo $v$ também é reconhecida por $G$.
-Dado $v' = 10001$, uma sub-cadeia de $v$, da definição de
+Seja $L$ a linguagem limite da regra 184 em CCP, e $G$
+o grafo de processo que reconhece $L$. Como
+$w = 000101 \in L$, também $v = 100010 \in L$, uma vez que
+$v$ é igual
+a $w$ a menos de um deslocamento à direita; logo $v$ também é reconhecida por $G$.
+Como $v' = 10001$ é uma sub-cadeia de $v$, da definição de
 linguagens regulares de processo e grafos de processo, $v'$ também é
-reconhecida por $G$, mas não pode pertencer a $L$, porque $v'$ é
+reconhecida por $G$; entretanto, $v$ não pode pertencer a $L$, porque $v'$ é
 a cadeia $11000$ deslocada, e sabe-se que essa cadeia não
-faz parte do conjunto limite da regra 184.
+faz parte do conjunto limite da regra 184 em CCP. Portanto, $G$ não pode ser
+um grafo de processo.
 \end{proof}
 
 Em busca de evidências
