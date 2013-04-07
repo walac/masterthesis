@@ -1521,7 +1521,7 @@ uma pequena estrutura parcialmente recorrente é formada e existe
 uma sequência de transições que parte desta estrutura e retorna à mesma, com
 a distância deste caminho aumentando a cada passo de tempo.
 
-Após uma extensa análise da implementação do algoritmo, descobriu-se que o
+Após extensa análise da implementação do algoritmo, descobriu-se que o
 problema estava no comportamento da função \textit{GraphDifference} do
 software \textit{Mathematica}, utilizada para realizar a operação de
 diferença de grafos, utilizada na implementação do algoritmo de seleção de regras de
@@ -1565,8 +1565,8 @@ subgrafo entre dois grafos de passos adjacentes.
 Para contornar este problema, seria necessário um algoritmo que, dado
 um grafo $G$, reordernasse seus vértices de tal forma a gerar a menor
 diferença com um grafo de referência $G'$. A derivação de tal algoritmo
-ainda é algo pendente, sendo o problema do isomorfismo de grafos o mais
-próximo deste problema, mantendo esta questão em aberto.
+ainda em aberto no presente contexto, sendo o problema do isomorfismo de grafos o mais
+próximo do problema.
 
 \subsection{Comportamento limite da regra 184}\label{sec:limit184}
 
@@ -1593,16 +1593,16 @@ $\phi$ da regra fazem com que haja um deslocamento da configuração,
 conforme exemplificado na Figura \ref{fig:shift}.
 Observa-se que, embora esta descrição do comportamento limite da regra
 184 seja válida tanto para condição de contorno periódica (CCP) quanto
-para condição de contorno não periódica (CCNP), o efeito destas faz
-com que algumas configurações sejam válidas em uma condição de contorno
-mas não sejam na outra. Por exemplo, a cadeia 1001 não faz parte
+para condição de contorno não periódica (CCNP), o conjunto das
+configurações limites em uma condição de contorno
+não é o mesmo na outra. Por exemplo, a cadeia 1001 não faz parte
 da configuração limite da regra 184 em CCP, pois é simplesmente a
 cadeia 0011 deslocada, mas é válida em CCNP sobre um fundo de 0s, pois
 representa 1s separados por blocos de 0s.
 
 Com base na descrição do comportamento limite da regra 184 acima,
 \citeonline{miki2006} construiu um AF que seria
-o AF limite da regra 184 (Figura \ref{fig:limit184}). Mas este AF não
+o AF limite da regra 184 (em CCNP, Figura \ref{fig:limit184}). Mas este AF não
 aceita, por exemplo, a cadeia 011, que faz parte da linguagem limite e,
 portanto, não descreve o comportamento limite da regra.
 
@@ -1610,15 +1610,15 @@ portanto, não descreve o comportamento limite da regra.
 \begin{center}
 \includegraphics[scale=1.0]{img/shift.eps}
 \caption{Deslocamento da regra 184 na configuração limite. Na figura,
-quadrados em preto representam 0s em quadrados em azul representam 1s.
+quadrados em preto representam 0s, e quadrados em azul representam 1s.
 O bloco de 1s é deslocado à esquerda a cada aplicação da regra.}
 \label{fig:shift}
 \end{center}
 \end{figure}
 
 A Figura \ref{fig:limit184w} mostra o que acredita-se ser o grafo de processo
-que representa o comportamento limite da regra 184, gerado manualmente
-a partir da descrição de seu comportamento limite dada anteriormente.
+que representa o comportamento limite da regra 184 para CCNP, gerado manualmente
+a partir da descrição de seu comportamento limite dado anteriormente.
 Importante observar que este grafo de processo somente descreve o comportamento
 limite da regra 184 em CCNP, pois é impossível representar o comportamento limite
 da regra em CCP por meio de um grafo de processo, conforme demonstrado a seguir.
