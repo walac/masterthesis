@@ -1455,8 +1455,8 @@ grafos de processo como descreveu. \citeonline{trafaniuc2004} realimentou
 a função \emph{NetCAStep} com a saída da função \emph{MinNet}, enquanto
 \citeonline{miki2006} utilizou a saída da função \emph{TrimNet} para realimentar
 a função \emph{NetCAStep}. A Figura \ref{fig:net-miki} mostra o encadeamento de
-chamadas das funções \emph{NetCAStep}, \emph{MinNet} e \emph{TrimNet} de acordo com
-\citecustom{miki2006}.
+chamadas das funções \emph{NetCAStep}, \emph{MinNet} e \emph{TrimNet} da forma
+utilizada pelos dois trabalhos.
 
 \begin{sidewaysfigure}
 \begin{center}
@@ -1470,10 +1470,11 @@ chamadas das funções \emph{NetCAStep}, \emph{MinNet} e \emph{TrimNet} de acord
 \begin{tikzpicture}[node distance=6cm, auto, scale=0.5, transform shape]
 \input net.tex
 \end{tikzpicture} \\
+\citeonline{trafaniuc2004} & \citeonline{miki2006} & Forma correta \\
 \end{tabular}
 \caption[Comparação de encadeamento das funções \emph{NetCAStep}, \emph{MinNet} e \emph{TrimNet}]
 {Comparação de como as funções \emph{NetCAStep}, \emph{MinNet} e \emph{TrimNet} são
-chamadas em \citecustom{miki2006} (à esquerda) e como é a forma correta de
+    chamadas em \citecustom{trafaniuc2004} (à esquerda), \citecustom{miki2006} (no centro) e como é a forma correta de
 executá-las (à direita).}
 \label{fig:net-miki}
 \end{center}
