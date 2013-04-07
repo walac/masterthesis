@@ -1517,7 +1517,7 @@ enquanto a regra 32 é descartada.
 \end{figure}
 
 Nota-se que ambas as regras possuem grafos de processo com a mesma estrutura geral:
-uma pequena estrutura imutável é formada e existe
+uma pequena estrutura parcialmente recorrente é formada e existe
 uma sequência de transições que parte desta estrutura e retorna à mesma, com
 a distância deste caminho aumentando a cada passo de tempo.
 
@@ -1715,9 +1715,9 @@ não há qualquer indício de onde os outros grafos vieram.
 
 Baseado no comportamento limite da regra 128, no presente trabalho foi
 desenvolvida uma técnica manual para inferir o AF determinístico limite
-das outras regras.  A técnica parte das estruturas imutáveis dos grafos
-dos sucessivos passos de tempo, observando a evolução do grafo e assim
-deduzir o caso limite.
+das outras regras.  A técnica parte das estruturas parcialmente recorrentes
+dos grafos dos sucessivos passos de tempo, observando a evolução do
+grafo e assim deduzir o caso limite.
 
 Por exemplo, observando os AFs determinísticos da regra 128 (Figura \ref{fig:r128ta}), ele
 inicia sempre em um conjunto de 0s, a partir do qual sai uma transição em 1 para um
