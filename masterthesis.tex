@@ -2285,12 +2285,13 @@ Autômatos celulares são sistemas totalmente discretos que agem localmente
 de forma simples e determinística, mas que podem possuir
 comportamento global resultante extremamente complexo. O conjunto de
 configurações globais que podem ser vistas em um AC após um determinado
-número de passos de evolução pode ser descrito por uma linguagem
-regular. Linguagens regulares são aquelas que sempre podem ser reconhecidas
-por um autômato finito.
+número de passos de evolução pode sempre ser descrito por uma linguagem
+regular de processo. Linguagens regulares de processo são aquelas que
+sempre podem ser reconhecidas por um autômato finito finito específico
+connhecido como grafo de processo.
 
 O objetivo deste trabalho foi dar continuidade aos trabalhos de
-\citeonline{trafaniuc2004} e \citeonline{miki2006}, nas quais foram feitas
+\citeonline{trafaniuc2004} e \citeonline{miki2006}, nos quais foram feitas
 análises dos grafos de processo dos diferentes passos de tempo
 para as regras elementares.
 
@@ -2298,15 +2299,16 @@ Durante a pesquisa, foram encontradas inconsistências nos trabalhos anteriores,
 fruto da ambiguidade da descrição das funções \emph{NetCAStep}, \emph{MinNet} e \emph{TrimNet}
 em \citecustom{wolfram2002}. A tabela de \citecustom{wolfram1994} foi novamente
 refeita, e novos resultados apareceram, inclusive uma técnica para inferir
-o comportamento limite de regras quando isto é possível. O grafo de processo
+o comportamento limite das regras 32, 128, 136, 160, 168 e 224. O grafo de processo
 limite da regra 184 também foi inferido, mas partindo-se da expressão regular
 que descreve seu comportamento. Os testes realizados evidenciam que o grafo
 de processo apresentado pode ser o grafo limite da regra. A implementação do
 algoritmo de seleção de regras de \citecustom{trafaniuc2004} apresenta um
-problema com relação a operação de diferença de grafos, e um método para
+problema com relação à operação de diferença de grafos, e um método para
 resolvê-lo ainda não foi obtido.
 
-Outra estratégia foi a de converter os grafos de processo dos sucessivos
+Outra estratégia para se estudar o comportamento limite das regras elementares
+foi a de converter os grafos de processo dos sucessivos
 passos de tempo das regras do espaço elementar em matrizes de adjacência e analisar
 tais matrizes. Porém, a notação comumente utilizada para matrizes de adjacência
 não consegue completamente descrever os grafos de processo. Foi, então, proposta uma
@@ -2370,12 +2372,14 @@ Permanece aberta, porém, a questão da convergência da evolução dos grafos
 de processo da regra 184 para o seu comportamento limite \citecustom{miki2006}.
 Como pesquisas futuras sugere-se trabalhar em um prova formal da veracidade
 do grafo de processo da Figura \ref{fig:limit184w} como o grafo limite da regra
-184. Também é necessário encontrar um algoritmo de tempo polinomial que resolva
+184. Também é necessário encontrar um algoritmo (preferencialmente de tempo
+polinomial) que resolva
 o problema de diferença de grafos apresentado na Seção \ref{sec:problem}.
 Pelo fato de este problema ser muito parecido com o de isomorfismo de grafos,
 é aconselhável começar a investigação pela literatura existente sobre tal
 problema. Outro possível trabalho futuro seria um algoritmo que automatizasse
-o processor de inferência do grafo limite a partir dos grafos intermediários.
+o processo de inferência do grafo limite das regras 32, 128, 136, 160, 168
+e 224 a partir dos grafos intermediários, e aplicar esse algoritmo para outras regras.
 Como sugestão final, a exploração da notação matricial foi feita de forma
 superficial neste trabalho.  Pesquisas posteriores podem se aprofundar em
 tal tema.
