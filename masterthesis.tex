@@ -1716,16 +1716,16 @@ não há qualquer indício de onde os outros grafos vieram.
 
 Baseado no comportamento limite da regra 128, no presente trabalho foi
 desenvolvida uma técnica manual para inferir o AF determinístico limite
-das outras regras.  A técnica parte das estruturas parcialmente recorrentes
-dos grafos dos sucessivos passos de tempo, observando a evolução do
-grafo e assim deduzir o caso limite.
+das outras regras.  A técnica parte da observação do papel das estruturas
+parcialmente recorrentes dos grafos dos sucessivos passos de tempo,
+observando a evolução dos grafos, para assim inferir o caso limite.
 
 Por exemplo, observando os AFs determinísticos da regra 128 (Figura \ref{fig:r128ta}), ele
 inicia sempre em um conjunto de 0s, a partir do qual sai uma transição em 1 para um
-conjunto de 1s. Inicia-se então um ciclo de volta ao conjunto de 0s; mas a
-distância deste ciclo fica cada vez maior conforme aumenta-se o passo de
+conjunto de 1s. Inicia-se então um ciclo de volta ao conjunto de 0s; no entanto,
+a distância deste ciclo fica cada vez maior conforme aumenta-se o passo de
 tempo. Infere-se então que esta distância deve tender a $\infty$ conforme
-$t \mapsto \infty$, resultando em um segundo conjunto de 0s visto no AF
+$t \mapsto \infty$, resultando em um segundo conjunto de 0s conforme apresenta o AF
 limite (Figura \ref{fig:limit128}).
 
 \begin{figure}[H]
@@ -1771,12 +1771,12 @@ limite (Figura \ref{fig:limit128}).
 As sequências das regras 32, 136, 168 e 224 possuem comportamento análogo à
 sequência da regra 128 (Figuras \ref{fig:r32ta}, \ref{fig:r136ta}, \ref{fig:r168ta}
 e \ref{fig:r224ta}), e seus AFs limites são inferidos da mesma forma que a regra 128 (Figura \ref{fig:limits}).
-A regra 160 apresenta uma estrutura mais complexa, portanto será feita uma descrição
+Como a regra 160 apresenta estrutura bem mais complexa, será feita uma descrição
 de seu comportamento aqui. Observando a sequência da Figura
 \ref{fig:r160ta}, o estado inicial é o estado 1, possui uma transição em 0 para ele mesmo, e então
 uma transição em 1 para o estado 2. O estado 2 faz um ciclo com o estado 3, e também possui uma
-transição em 1 para o estado 4. O estado 3, a partir de $t=2$, tem 3 transições em zero sequenciais
-e então ou entra num ciclo de $(01)^+$ ou entra em um sequência de zeros conforme aumenta-se o
+transição em 1 para o estado 4. O estado 3, a partir de $t=2$, tem 3 transições em 0 sequenciais
+e, daí, ou entra num ciclo de $(01)^+$ ou entra em um sequência de 0s à medida em que aumenta-se o
 passo de tempo. O estado 4 possui uma transição em 1 para ele mesmo, e uma transição em 0 que
 irá resultar em uma sequência cada vez maior de 0s. Extrapolando para $t=\infty$,
 o AFs limites das regras 32, 136, 160, 168 e 224 são inferidos e mostrados na Figura
