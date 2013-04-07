@@ -1609,7 +1609,8 @@ portanto, não descreve o comportamento limite da regra.
 \begin{figure}[htp]
 \begin{center}
 \includegraphics[scale=1.0]{img/shift.eps}
-\caption{Deslocamento da regra 184 na configuração limite. Na figura,
+\caption[Deslocamento da regra 184 na configuração limite]
+{Deslocamento da regra 184 na configuração limite. Na figura,
 quadrados em preto representam 0s, e quadrados em azul representam 1s.
 O bloco de 1s é deslocado à esquerda a cada aplicação da regra.}
 \label{fig:shift}
@@ -2262,9 +2263,62 @@ regras elementares.}
 Além de especificar a regra, a tabela mostra em que passo de tempo a regra
 começou a apresentar um padrão de formação, e se esse padrão é linear
 ou não. Por \textit{padrão de formação} entende-se uma estrutura
-presente em $t$ que pode ser vista em $t+1$ de forma expandida ou contraída.
+presente em $t$ que pode ser vista em $t+1$ de forma expandida ou contraída,
+conforme se exemplifica na Figura \ref{fig:pattern}.
 Um padrão de formação ser \textit{linear} significa que uma
 expansão de um padrão na matriz ocorre linearmente com o tempo.
+
+\begin{figure}[htp]
+\begin{center}
+\begin{tabular}{c c c c c}
+\begin{math}
+\begin{pmatrix}
+1 & 0 & 0 \\
+0 & 0 & 0 \\
+0 & 0 & 0 \\
+\end{pmatrix}
+\end{math} &
+\begin{math}
+\begin{pmatrix}
+1 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 \\
+0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 \\
+\end{pmatrix}
+\end{math} &
+\begin{math}
+\begin{pmatrix}
+1 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 \\
+0 & 0 & 1 & 0 \\
+0 & 0 & 0 & 0 \\
+\end{pmatrix}
+\end{math} &
+\begin{math}
+\begin{pmatrix}
+1 & 0 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 & 0 \\
+0 & 0 & 1 & 0 & 0 \\
+0 & 0 & 0 & 1 & 0 \\
+0 & 0 & 0 & 0 & 0 \\
+\end{pmatrix}
+\end{math} &
+\begin{math}
+\begin{pmatrix}
+1 & 0 & 0 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 & 0 & 0 \\
+0 & 0 & 1 & 0 & 0 & 0 \\
+0 & 0 & 0 & 1 & 0 & 0 \\
+0 & 0 & 0 & 0 & 1 & 0 \\
+0 & 0 & 0 & 0 & 0 & 0 \\
+\end{pmatrix}
+\end{math}
+\end{tabular}
+\caption[Exemplo de padrão de formação]{Exemplo de padrão de formação para um conjunto hipotético
+de matrizes. A diagonal de 1s se formando constitui um padrão de formação.}
+\label{fig:pattern}
+\end{center}
+\end{figure}
 
 A partir da Tabela \ref{tab:pattern}, conclui-se que as regras estão divididas
 em dois grupos base: as que apresentam padrão linear a partir de $t=n$, e as que
