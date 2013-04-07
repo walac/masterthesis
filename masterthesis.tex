@@ -1446,10 +1446,10 @@ regras do conjunto original das 26, sendo elas as regras 23, 56, 98 e 172.
 
 Tanto \citecustom{trafaniuc2004} quanto \citecustom{miki2006} basearam seus
 respectivos trabalhos nas funções \emph{NetCAStep}, \emph{MinNet} e \emph{TrimNet}.
-\citeonline{trafaniuc2004} usava a saída da função \emph{NetCAStep} como entrada
+Acontece que \citeonline{trafaniuc2004} usava a saída da função \emph{NetCAStep} como entrada
 para a função \emph{TrimNet}, cuja saída era usada como entrada da função
 \emph{MinNet}, que então realimentava a função \emph{NetCAStep}. Como primeira
-consequência (e já apontado em \citecustom{miki2006}),
+consequência (conforme já apontado em \citecustom{miki2006}),
 \citeonline{trafaniuc2004} trabalhou com AFs determinísticos, e não com
 grafos de processo como descreveu. \citeonline{trafaniuc2004} realimentou
 a função \emph{NetCAStep} com a saída da função \emph{MinNet}, enquanto
@@ -1460,24 +1460,22 @@ chamadas das funções \emph{NetCAStep}, \emph{MinNet} e \emph{TrimNet} de acord
 
 \begin{sidewaysfigure}
 \begin{center}
-%\begin{figure}[htp]
-\begin{minipage}[b]{0.47\linewidth}
-\begin{tikzpicture}[node distance = 4cm, auto, scale=0.75, transform shape]
+\begin{tabular}{c c c}
+\begin{tikzpicture}[node distance = 4cm, auto, scale=0.55, transform shape]
+\input net-trafaniuc.tex
+\end{tikzpicture} &
+\begin{tikzpicture}[node distance = 4cm, auto, scale=0.55, transform shape]
 \input net-miki.tex
-\end{tikzpicture}
-\end{minipage}
-\hspace{0.3cm}
-\begin{minipage}[b]{0.47\linewidth}
-\begin{tikzpicture}[node distance=6cm, auto, scale=0.75, transform shape]
+\end{tikzpicture} &
+\begin{tikzpicture}[node distance=6cm, auto, scale=0.5, transform shape]
 \input net.tex
-\end{tikzpicture}
-\end{minipage}
+\end{tikzpicture} \\
+\end{tabular}
 \caption[Comparação de encadeamento das funções \emph{NetCAStep}, \emph{MinNet} e \emph{TrimNet}]
 {Comparação de como as funções \emph{NetCAStep}, \emph{MinNet} e \emph{TrimNet} são
-chamadas em \citecustom{trafaniuc2004} (à esquerda) e como é a forma correta de
+chamadas em \citecustom{miki2006} (à esquerda) e como é a forma correta de
 executá-las (à direita).}
 \label{fig:net-miki}
-%\end{figure}
 \end{center}
 \end{sidewaysfigure}
 

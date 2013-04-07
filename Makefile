@@ -3,7 +3,7 @@ INPUT_FILENAME = masterthesis
 OUTPUT_FILENAME = $(VERSION)_$(INPUT_FILENAME).pdf
 
 IMAGES := $(shell ls img/*.* img/mat/*.*)
-IMAGES += net-miki.tex net.tex rulesel.tex
+IMAGES += net-miki.tex net.tex rulesel.tex net-trafaniuc.tex
 
 $(OUTPUT_FILENAME): $(IMAGES) $(INPUT_FILENAME).tex $(INPUT_FILENAME).bib
 	latex $(INPUT_FILENAME)
