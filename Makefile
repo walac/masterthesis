@@ -1,6 +1,5 @@
-VERSION = v29
 INPUT_FILENAME = masterthesis
-OUTPUT_FILENAME = $(VERSION)_$(INPUT_FILENAME).pdf
+OUTPUT_FILENAME = $(INPUT_FILENAME).pdf
 
 IMAGES := $(shell ls img/*.* img/mat/*.*)
 IMAGES += net-miki.tex net.tex rulesel.tex net-trafaniuc.tex
